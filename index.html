@@ -407,16 +407,40 @@ footer a{color:var(--text-muted);text-decoration:none}
   nav{padding:14px 20px}.nav-badge{display:none}
   .hero,.feat-row{grid-template-columns:1fr;padding:110px 20px 60px;gap:48px}
   .feat-row{padding:70px 20px}
-  .hero-phones{height:360px}
   .section,.tl-wrap,.cmp-wrap,.quote-wrap,.cta-wrap{padding-left:20px;padding-right:20px}
   .problem-grid{grid-template-columns:1fr}
   .feat-row-alt .feat-inner{grid-template-columns:1fr;padding:70px 20px;gap:48px}
-  .spots-trio{height:360px}
-  .iphone{width:190px}
-  .iphone-screen{height:380px}
   .hero-form,.cta-form{flex-direction:column}
   .cta-perks{flex-direction:column;align-items:center;gap:14px}
   footer{flex-direction:column;gap:10px;text-align:center}
+
+  /* ── Hero phone stack: single centered phone ── */
+  .hero-phones{height:auto;display:flex;justify-content:center;padding:10px 0 40px;position:relative}
+  .phone-hero-wrap{position:relative}
+  .ph1,.ph3{display:none}
+  .ph2{left:auto;top:auto;transform:none;z-index:1}
+
+  /* ── Spots trio: single centered phone ── */
+  .spots-trio{height:auto;display:flex;justify-content:center;padding:10px 0 40px;position:relative}
+  .trio-phone{position:relative}
+  .tp1,.tp3{display:none}
+  .tp2{left:auto;top:auto;transform:none;z-index:1}
+
+  /* ── iPhone frame sizing ── */
+  .iphone{width:230px}
+  .iphone-screen{height:460px}
+
+  /* ── Dynamic Island — proportional for 230px phone ── */
+  .iphone-screen::before{width:78px;height:25px;top:10px;border-radius:16px}
+
+  /* ── Status bar — adjusted for smaller DI ── */
+  .status-bar{height:46px;padding-top:20px}
+
+  /* ── Side hardware buttons — scaled to frame ── */
+  .iphone-btn-vol-up{top:80px;height:40px}
+  .iphone-btn-vol-down{top:132px;height:40px}
+  .iphone-btn-silent{top:44px;height:22px}
+  .iphone::after{top:104px;height:55px}
 }
 </style>
 </head>
