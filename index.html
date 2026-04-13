@@ -156,6 +156,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 48px;display:fl
   pointer-events: none;
   border-radius: 50%;
 }
+/* Scaled-down screens (220–235px phones) — proportional DI + status bar */
+.iphone-screen-sm::before {
+  width: 72px;
+  height: 23px;
+  top: 8px;
+  border-radius: 14px;
+}
+.iphone-screen-sm .status-bar {
+  height: 42px !important;
+  padding-top: 18px !important;
+}
 /* Screen glass glare */
 .iphone-screen-glare {
   position: absolute;
@@ -697,8 +708,8 @@ footer a{color:var(--text-muted);text-decoration:none}
       <div class="spots-trio">
         <div class="trio-phone tp1">
           <div class="iphone" style="width:220px">
-            <div class="iphone-screen" style="height:440px;border-radius:38px">
-              <div class="status-bar" style="padding:10px 16px 2px"><span class="status-time" style="font-size:12px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
+            <div class="iphone-screen iphone-screen-sm" style="height:440px;border-radius:38px">
+              <div class="status-bar" style="padding-left:16px;padding-right:16px"><span class="status-time" style="font-size:11px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
               <div class="app-spots" style="font-size:.85em">
                 <div class="spots-header" style="padding:2px 14px 6px"><div class="private-badge">🔒 Private by Default</div><div class="spots-title" style="font-size:20px">My Spots.</div></div>
                 <div class="map-area" style="height:130px"><div class="map-grid"></div><div class="map-water"></div><div class="map-pin pin1"><div class="pin-dot amber"></div></div><div class="map-pin pin2"><div class="pin-dot teal"></div></div></div>
@@ -710,8 +721,8 @@ footer a{color:var(--text-muted);text-decoration:none}
         </div>
         <div class="trio-phone tp2">
           <div class="iphone" style="width:235px">
-            <div class="iphone-screen" style="height:460px;border-radius:40px">
-              <div class="status-bar" style="padding:10px 16px 2px"><span class="status-time" style="font-size:12px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
+            <div class="iphone-screen iphone-screen-sm" style="height:460px;border-radius:40px">
+              <div class="status-bar" style="padding-left:16px;padding-right:16px"><span class="status-time" style="font-size:11px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
               <div class="app-spots" style="font-size:.85em">
                 <div class="spots-header" style="padding:2px 14px 6px"><div class="private-badge">🔒 Private by Default</div><div class="spots-title" style="font-size:22px">My Spots.</div></div>
                 <div class="map-area" style="height:150px"><div class="map-grid"></div><div class="map-water"></div><div class="map-water2"></div><div class="map-pin pin1"><div class="pin-dot amber"></div></div><div class="map-pin pin2"><div class="pin-dot teal"></div></div><div class="map-pin pin3"><div class="pin-dot blue"></div></div><div class="tap-pin-btn">Tap a pin</div></div>
@@ -723,8 +734,8 @@ footer a{color:var(--text-muted);text-decoration:none}
         </div>
         <div class="trio-phone tp3">
           <div class="iphone" style="width:220px">
-            <div class="iphone-screen" style="height:440px;border-radius:38px">
-              <div class="status-bar" style="padding:10px 16px 2px"><span class="status-time" style="font-size:12px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
+            <div class="iphone-screen iphone-screen-sm" style="height:440px;border-radius:38px">
+              <div class="status-bar" style="padding-left:16px;padding-right:16px"><span class="status-time" style="font-size:11px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
               <div class="app-spots" style="font-size:.85em">
                 <div class="spots-header" style="padding:2px 14px 6px"><div class="private-badge">🔒 Private by Default</div><div class="spots-title" style="font-size:20px">My Spots.</div></div>
                 <div class="map-area" style="height:130px"><div class="map-grid"></div><div class="map-water"></div><div class="map-pin pin1"><div class="pin-dot amber"></div></div><div class="map-pin pin3"><div class="pin-dot blue"></div></div></div>
