@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CastLog — Your Fishing Journal, Finally Working For You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0c0d0a;--bg2:#111310;--bg3:#161814;
+  --card:#1b1d17;--card2:#1f2119;
+  --border:#282b22;--border2:#323528;
+  --amber:#e8a833;--amber-glow:rgba(232,168,51,0.15);
+  --green:#4e7c3f;--green-bright:#6aab56;--green-glow:rgba(106,171,86,0.12);
+  --text:#ede9dc;--text-dim:#8c8878;--text-muted:#454740;
+  --red:#c44a3a;--teal:#3d8c78;--blue:#3a6e8c;
+  /* app colors */
+  --app-bg:#181a14;--app-card:#1e2018;--app-border:#2a2d24;
+  --app-text:#e8e4d8;--app-dim:#7a7668;--app-muted:#3d3f36;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.2;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E")}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,13,10,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:"DM Mono",monospace;font-size:17px;color:var(--amber);text-decoration:none;letter-spacing:-.02em}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-badge{font-size:11px;font-family:"DM Mono",monospace;letter-spacing:.06em;color:var(--amber);background:var(--amber-glow);border:1px solid rgba(232,168,51,.25);padding:4px 12px;border-radius:20px}
+.nav-cta{background:var(--amber);color:#0c0d0a;border:none;padding:10px 22px;border-radius:7px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;transition:all .18s}
+.nav-cta:hover{background:#f0b840;transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,168,51,.3)}
+
+/* ═══ IPHONE 15 PRO FRAME ═══ */
+.iphone {
+  position: relative;
+  width: 310px;
+  flex-shrink: 0;
+  /* Titanium frame — dark brushed metal */
+  background: linear-gradient(160deg,
+    #3a3a3a 0%, #2c2c2c 15%,
+    #1e1e1e 30%, #2a2a2a 50%,
+    #1c1c1c 70%, #252525 85%,
+    #1a1a1a 100%);
+  border-radius: 46px;
+  padding: 10px;
+  box-shadow:
+    0 0 0 0.5px rgba(255,255,255,0.18),
+    inset 0 0 0 0.5px rgba(255,255,255,0.08),
+    0 0 0 1px rgba(0,0,0,0.9),
+    0 0 40px rgba(0,0,0,0.3),
+    0 50px 100px rgba(0,0,0,0.7),
+    0 20px 50px rgba(0,0,0,0.5);
+}
+/* Power button — right side */
+.iphone::after {
+  content: "";
+  position: absolute;
+  top: 130px; right: -3.5px;
+  width: 3.5px; height: 70px;
+  background: linear-gradient(90deg, #2a2a2a 0%, #383838 40%, #2a2a2a 100%);
+  border-radius: 0 2.5px 2.5px 0;
+  box-shadow: 1px 0 2px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+/* Volume up button */
+.iphone-btn-vol-up {
+  position: absolute;
+  top: 100px; left: -3.5px;
+  width: 3.5px; height: 50px;
+  background: linear-gradient(270deg, #2a2a2a 0%, #383838 40%, #2a2a2a 100%);
+  border-radius: 2.5px 0 0 2.5px;
+  box-shadow: -1px 0 2px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+/* Volume down button */
+.iphone-btn-vol-down {
+  position: absolute;
+  top: 165px; left: -3.5px;
+  width: 3.5px; height: 50px;
+  background: linear-gradient(270deg, #2a2a2a 0%, #383838 40%, #2a2a2a 100%);
+  border-radius: 2.5px 0 0 2.5px;
+  box-shadow: -1px 0 2px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+/* Silent/mute toggle */
+.iphone-btn-silent {
+  position: absolute;
+  top: 56px; left: -3.5px;
+  width: 3.5px; height: 30px;
+  background: linear-gradient(270deg, #2a2a2a 0%, #383838 40%, #2a2a2a 100%);
+  border-radius: 2.5px 0 0 2.5px;
+  box-shadow: -1px 0 2px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+/* Screen */
+.iphone-screen {
+  background: var(--app-bg);
+  border-radius: 36px;
+  overflow: hidden;
+  height: 600px;
+  position: relative;
+  display: flex; flex-direction: column;
+  /* subtle inner bezel shadow */
+  box-shadow: inset 0 0 0 0.5px rgba(255,255,255,0.06);
+}
+/* Dynamic Island */
+.iphone-screen::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 16px;
+  background: #000;
+  border-radius: 9px;
+  z-index: 50;
+  box-shadow:
+    0 0 0 1.5px rgba(0,0,0,0.9),
+    inset 0 0 8px rgba(0,0,0,0.8);
+}
+/* Home indicator */
+.iphone-screen::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; height: 4px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 3px;
+  z-index: 50;
+}
+/* Status bar — sits below Dynamic Island */
+.status-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 22px 0;
+  font-size: 11px; font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  color: var(--app-text);
+  flex-shrink: 0;
+  height: 44px; /* reserves space for Dynamic Island */
+  padding-top: 16px;
+}
+.status-time { font-size: 11px; font-weight: 700; }
+.status-icons { display: flex; align-items: center; gap: 4px; font-size: 10px; }
+
+/* ═══ APP SCREEN 1: JOURNAL ═══ */
+.app-journal{display:flex;flex-direction:column;height:100%;background:var(--app-bg);font-family:"DM Sans",sans-serif}
+.app-journal .app-header{padding:3px 14px 6px;flex-shrink:0}
+.app-journal .app-header-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
+.app-journal .app-logo{font-family:"DM Mono",monospace;font-size:12px;color:#e8a833;font-weight:500}
+.app-journal .app-gear{font-size:11px;color:#7a7668}
+.app-journal .app-sublabel{font-size:6.5px;color:#5a5a4a;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.app-journal .app-greeting{font-family:"Playfair Display",serif;font-size:17px;font-weight:900;color:var(--app-text);line-height:1.1;margin-bottom:7px}
+.stats-row{display:flex;gap:5px;margin-bottom:7px}
+.stat-pill{background:#1e2018;border:1px solid #2a2d24;border-radius:6px;padding:4px 6px;text-align:center;flex:1}
+.stat-num{font-family:"DM Mono",monospace;font-size:10px;font-weight:500;color:#e8a833;display:block}
+.stat-label{font-size:5.5px;color:#5a5a4a;text-transform:uppercase;letter-spacing:.06em;margin-top:1px;display:block}
+.filter-tabs{display:flex;gap:4px;padding:0 14px;margin-bottom:6px;flex-shrink:0;overflow-x:auto}
+.filter-tab{font-size:8px;font-family:"DM Mono",monospace;padding:3px 7px;border-radius:10px;white-space:nowrap;cursor:pointer}
+.filter-tab.active{background:#e8a833;color:#0c0d0a;font-weight:600}
+.filter-tab:not(.active){background:#1e2018;color:#7a7668;border:1px solid #2a2d24}
+.catch-list{flex:1;overflow:hidden;padding:0 14px;display:flex;flex-direction:column;gap:5px}
+.catch-card{background:#1e2018;border:1px solid #2a2d24;border-radius:8px;padding:6px 8px}
+.catch-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3px}
+.catch-species{font-size:10.5px;font-weight:600;color:var(--app-text)}
+.catch-weight{font-family:"DM Mono",monospace;font-size:10px;color:#e8a833;font-weight:500}
+.catch-location{font-size:7.5px;color:#5a5a4a;margin-bottom:3px}
+.catch-tags{display:flex;gap:3px;flex-wrap:wrap}
+.ctag{font-size:8px;padding:2px 6px;border-radius:4px;display:flex;align-items:center;gap:3px}
+.ctag-rig{background:rgba(232,168,51,0.12);color:#b8821e}
+.ctag-wx{background:rgba(106,171,86,0.1);color:#5a8f48}
+.ctag-temp{background:rgba(58,110,140,0.15);color:#3a6e8c}
+.app-bottom-nav{display:flex;align-items:center;justify-content:space-around;padding:6px 8px 10px;background:#141610;border-top:1px solid #1e2018;flex-shrink:0}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:1px;font-size:6px;color:#3d3f36;cursor:pointer}
+.nav-item.active{color:#e8a833}
+.nav-item svg,.nav-icon{font-size:13px}
+.nav-plus{width:26px;height:26px;background:#e8a833;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:#0c0d0a;font-weight:700;box-shadow:0 3px 10px rgba(232,168,51,0.4)}
+
+/* ═══ APP SCREEN 2: MY SPOTS ═══ */
+.app-spots{display:flex;flex-direction:column;height:100%;background:var(--app-bg);font-family:"DM Sans",sans-serif}
+.spots-header{padding:3px 14px 5px;flex-shrink:0}
+.private-badge{display:inline-flex;align-items:center;gap:3px;font-size:6.5px;font-family:"DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:#6aab56;background:rgba(106,171,86,0.1);border:1px solid rgba(106,171,86,0.25);padding:3px 8px;border-radius:4px;margin-bottom:4px}
+.spots-title{font-family:"Playfair Display",serif;font-size:20px;font-weight:900;color:var(--app-text);line-height:1}
+.map-area{height:155px;background:linear-gradient(135deg,#0f1510 0%,#141a10 30%,#0d1208 60%,#111810 100%);position:relative;flex-shrink:0;overflow:hidden}
+.map-grid{position:absolute;inset:0;opacity:.15}
+.map-grid::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(106,171,86,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(106,171,86,0.3) 1px,transparent 1px);background-size:24px 24px}
+.map-water{position:absolute;bottom:20px;left:10px;right:40px;height:60px;background:rgba(30,60,90,0.4);border-radius:30px 20px 40px 15px;opacity:.6}
+.map-water2{position:absolute;top:30px;right:20px;width:50px;height:35px;background:rgba(30,60,90,0.3);border-radius:50%;opacity:.5}
+.map-pin{position:absolute;display:flex;flex-direction:column;align-items:center}
+.pin-dot{width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 2px 8px rgba(0,0,0,0.5)}
+.pin-dot.amber{background:#e8a833}
+.pin-dot.blue{background:#3a6e8c}
+.pin-dot.teal{background:#3d8c78}
+.pin1{top:55px;left:80px}
+.pin2{top:90px;left:130px}
+.pin3{top:45px;right:50px}
+.tap-pin-btn{position:absolute;top:10px;right:10px;background:rgba(14,15,12,0.85);border:1px solid #2a2d24;border-radius:6px;padding:4px 9px;font-size:8px;font-family:"DM Mono",monospace;color:#7a7668;letter-spacing:.06em}
+.spots-list{flex:1;overflow:hidden;padding:6px 14px;display:flex;flex-direction:column;gap:4px}
+.spot-card{background:#1e2018;border:1px solid #2a2d24;border-radius:8px;padding:6px 8px}
+.spot-card.featured{border-color:rgba(232,168,51,0.2)}
+.spot-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2px}
+.spot-name{font-size:10px;font-weight:600;color:var(--app-text)}
+.spot-private-tag{font-size:6px;font-family:"DM Mono",monospace;background:rgba(196,74,58,0.15);color:#c44a3a;border:1px solid rgba(196,74,58,0.25);padding:1px 6px;border-radius:3px;letter-spacing:.05em}
+.spot-lock{font-size:10px;color:#3d3f36}
+.spot-meta{font-size:7px;color:#5a5a4a;margin-bottom:2px}
+.spot-note{font-size:6.5px;color:#4a4a3a;font-style:italic;line-height:1.4}
+.spot-stat{font-size:8px;color:#5a5a4a;margin-top:2px}
+
+/* ═══ APP SCREEN 3: FISH ID ═══ */
+.app-fishid{display:flex;flex-direction:column;height:100%;background:var(--app-bg);font-family:"DM Sans",sans-serif}
+.fishid-header{padding:3px 14px 5px;flex-shrink:0}
+.fishid-label{font-size:6.5px;font-family:"DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#6aab56;margin-bottom:1px}
+.fishid-title{font-family:"Playfair Display",serif;font-size:17px;font-weight:900;color:var(--app-text);line-height:1}
+.fishid-sub{font-size:7.5px;color:#5a5a4a;margin-top:1px}
+.fish-viewer{margin:0 12px 6px;background:linear-gradient(135deg,#141a10,#1a2214,#141a10);border-radius:10px;height:90px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #2a2d24;flex-shrink:0}
+.fish-svg-wrap{font-size:42px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6))}
+.fish-id-badge{position:absolute;bottom:5px;left:8px;background:rgba(106,171,86,0.85);color:#0c0d0a;font-size:7px;font-family:"DM Mono",monospace;font-weight:600;padding:3px 9px;border-radius:4px;letter-spacing:.05em}
+.fish-match{position:absolute;bottom:5px;right:8px;background:rgba(232,168,51,0.9);color:#0c0d0a;font-size:7px;font-family:"DM Mono",monospace;font-weight:600;padding:3px 9px;border-radius:4px}
+.fish-result{padding:0 12px;flex-shrink:0;margin-bottom:5px}
+.fish-name-en{font-size:13px;font-weight:700;color:var(--app-text);margin-bottom:1px}
+.fish-name-sci{font-size:7.5px;color:#5a5a4a;font-style:italic;margin-bottom:4px}
+.fish-tags{display:flex;gap:4px;margin-bottom:5px}
+.ftag{font-size:8px;padding:2px 8px;border-radius:4px;font-family:"DM Mono",monospace}
+.ftag-fresh{background:rgba(58,110,140,0.2);color:#5a9abf;border:1px solid rgba(58,110,140,0.3)}
+.ftag-game{background:rgba(106,171,86,0.15);color:#6aab56;border:1px solid rgba(106,171,86,0.25)}
+.ftag-common{background:rgba(232,168,51,0.12);color:#b8821e;border:1px solid rgba(232,168,51,0.2)}
+.regs-box{margin:0 12px;background:rgba(78,124,63,0.08);border:1px solid rgba(78,124,63,0.25);border-radius:7px;padding:6px 8px;flex-shrink:0}
+.regs-head{font-family:"DM Mono",monospace;font-size:6.5px;letter-spacing:.1em;text-transform:uppercase;color:#6aab56;margin-bottom:3px}
+.regs-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 0;margin-bottom:4px}
+.regs-row{display:flex;justify-content:space-between;font-size:7px}
+.regs-key{color:#5a5a4a}.regs-val{color:var(--app-text);font-weight:500}
+.regs-note{font-size:6px;color:#4a4a3a;font-style:italic;border-top:1px solid rgba(78,124,63,0.15);padding-top:4px;margin-top:4px}
+.fishid-btns{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:5px 12px 3px;flex-shrink:0}
+.fishid-btn-log{background:#e8a833;color:#0c0d0a;border:none;border-radius:7px;padding:7px;font-size:9px;font-weight:700;font-family:"DM Sans",sans-serif;text-align:center}
+.fishid-btn-rel{background:transparent;color:#7a7668;border:1px solid #2a2d24;border-radius:7px;padding:7px;font-size:9px;font-family:"DM Sans",sans-serif;text-align:center}
+.fishid-retry{text-align:center;font-size:6.5px;color:#3d3f36;padding:3px}
+
+/* ═══ LAYOUT ═══ */
+.hero{min-height:100vh;padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+.hero-glow{position:fixed;top:0;right:0;width:60vw;height:60vh;background:radial-gradient(ellipse at 70% 30%,rgba(78,124,63,.06) 0%,transparent 60%);pointer-events:none}
+.hero-label{display:inline-flex;align-items:center;gap:8px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);background:rgba(196,74,58,.08);border:1px solid rgba(196,74,58,.25);padding:5px 14px;border-radius:4px;margin-bottom:28px;animation:up .6s ease both}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(34px,4.5vw,62px);font-weight:900;line-height:1.06;letter-spacing:-.025em;margin-bottom:24px;animation:up .6s .08s ease both}
+.line-strike{position:relative;color:var(--text-dim)}
+.line-strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2.5px;background:var(--red);transform:rotate(-.8deg)}
+.line-amber{color:var(--amber);font-style:italic}
+.hero-sub{font-size:17px;color:var(--text-dim);line-height:1.7;max-width:500px;margin-bottom:40px;animation:up .6s .16s ease both}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-form{display:flex;gap:10px;max-width:480px;margin-bottom:20px;animation:up .6s .24s ease both}
+.hero-form input{flex:1;background:var(--card);border:1px solid var(--border2);color:var(--text);padding:14px 18px;border-radius:8px;font-family:"DM Sans",sans-serif;font-size:15px;outline:none;transition:border-color .2s}
+.hero-form input:focus{border-color:var(--amber)}
+.hero-form input::placeholder{color:var(--text-muted)}
+.btn-main{background:var(--amber);color:#0c0d0a;border:none;padding:14px 24px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap;transition:all .18s}
+.btn-main:hover{background:#f0b840;transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,168,51,.28)}
+.hero-proof{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-muted);animation:up .6s .32s ease both}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green-bright);flex-shrink:0;animation:blink 2.2s infinite}
+@keyframes blink{0%,100%{box-shadow:0 0 0 0 rgba(106,171,86,.5)}50%{box-shadow:0 0 0 5px rgba(106,171,86,0)}}
+.hero-proof span{color:var(--green-bright);font-weight:600}
+
+/* PHONE STACK HERO */
+.hero-phones{position:relative;height:660px;animation:up .7s .2s ease both}
+.phone-hero-wrap{position:absolute;transition:transform .4s ease}
+.phone-hero-wrap:hover{z-index:20!important;transform:translateY(-12px) rotate(0deg) scale(1.03)!important}
+.ph1{left:-20px;top:60px;transform:rotate(-5deg);z-index:1}
+.ph2{left:50%;transform:translateX(-40%) rotate(1.5deg) translateY(30px);z-index:3}
+.ph3{right:-20px;top:20px;transform:rotate(4deg);z-index:2}
+
+/* SECTIONS */
+.section{padding:110px 48px}
+.section-inner{max-width:1160px;margin:0 auto}
+.sec-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.sec-label.amber{color:var(--amber)}.sec-label.green{color:var(--green-bright)}.sec-label.red{color:var(--red)}.sec-label.blue{color:var(--blue)}
+hr.div{border:none;border-top:1px solid var(--border)}
+
+/* PROBLEM GRID */
+.problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:52px}
+.prob-card{background:var(--card);padding:36px 34px;transition:background .2s}
+.prob-card:hover{background:var(--card2)}
+.prob-icon{font-size:22px;margin-bottom:14px}
+.prob-card h3{font-size:17px;font-weight:600;margin-bottom:10px}
+.prob-card p{font-size:14px;color:var(--text-dim);line-height:1.65;margin-bottom:16px}
+.prob-quote{font-size:12.5px;color:var(--text-muted);font-style:italic;border-left:2px solid var(--border2);padding-left:13px;line-height:1.55}
+
+/* FEATURE ROWS */
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;padding:110px 48px}
+.feat-row-alt{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.feat-row-alt .feat-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;padding:110px 48px}
+.feat-phone-wrap{display:flex;justify-content:center;align-items:center}
+.screen-badge{display:inline-flex;align-items:center;gap:7px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--card);border:1px solid var(--border2);color:var(--text-dim);padding:6px 14px;border-radius:6px;margin-bottom:20px}
+.screen-badge .dot{width:6px;height:6px;border-radius:50%}
+.feat-text .sec-label{margin-bottom:10px}
+.feat-text .sec-title{margin-bottom:20px}
+.feat-desc{font-size:16px;color:var(--text-dim);line-height:1.75;margin-bottom:32px;max-width:460px}
+.bullet-list{list-style:none;display:flex;flex-direction:column;gap:18px;margin-bottom:36px}
+.bullet-list li{display:flex;align-items:flex-start;gap:14px}
+.bicon{width:30px;height:30px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:1px}
+.bi-a{background:var(--amber-glow);border:1px solid rgba(232,168,51,.2)}
+.bi-g{background:var(--green-glow);border:1px solid rgba(106,171,86,.2)}
+.bi-r{background:rgba(196,74,58,.1);border:1px solid rgba(196,74,58,.2)}
+.bi-b{background:rgba(58,110,140,.1);border:1px solid rgba(58,110,140,.2)}
+.btext{font-size:14px;color:var(--text-dim);line-height:1.6}
+.btext strong{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:15px}
+.callout{background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:18px 22px;font-size:13px;color:var(--text-dim);line-height:1.6;border-left:3px solid var(--amber)}
+.callout.g{border-left-color:var(--green-bright)}
+.callout.r{border-left-color:var(--red)}
+.callout strong{color:var(--text)}
+
+/* SPOTS TRIO */
+.spots-trio{position:relative;height:520px;width:100%}
+.trio-phone{position:absolute;transition:transform .3s ease}
+.trio-phone:hover{z-index:10;transform:translateY(-10px) rotate(0deg)!important}
+.tp1{left:0;top:40px;transform:rotate(-4deg);z-index:1}
+.tp2{left:50%;transform:translateX(-50%);top:0;z-index:3}
+.tp3{right:0;top:30px;transform:rotate(3.5deg);z-index:2}
+
+/* TIMELINE */
+.tl-wrap{padding:110px 48px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.timeline{position:relative;padding-left:28px;margin-top:52px;max-width:700px}
+.timeline::before{content:"";position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(180deg,var(--red) 0%,var(--border) 80%)}
+.tl-item{position:relative;padding-left:28px;margin-bottom:44px}
+.tl-item::before{content:"";position:absolute;left:-33px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid var(--bg2)}
+.tl-year{font-family:"DM Mono",monospace;font-size:11px;color:var(--red);letter-spacing:.1em;margin-bottom:6px}
+.tl-title{font-size:17px;font-weight:600;margin-bottom:7px}
+.tl-desc{font-size:14px;color:var(--text-dim);line-height:1.65}
+
+/* COMPARE */
+.cmp-wrap{padding:110px 48px}
+.cmp-table{max-width:840px;margin:52px auto 0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.cmp-head{display:grid;grid-template-columns:2.2fr 1fr 1fr;background:var(--card);border-bottom:1px solid var(--border)}
+.cmp-head div{padding:15px 22px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.cmp-head .ca{color:var(--amber)}.cmp-head .cf{color:var(--red)}
+.cmp-row{display:grid;grid-template-columns:2.2fr 1fr 1fr;border-bottom:1px solid var(--border);transition:background .15s}
+.cmp-row:last-child{border-bottom:none}
+.cmp-row:hover{background:rgba(255,255,255,.018)}
+.cmp-row div{padding:14px 22px;font-size:14px;display:flex;align-items:center}
+.cmp-row .feat{color:var(--text-dim)}.cmp-row .yes{color:var(--green-bright);font-size:16px}
+.cmp-row .no{color:var(--red);font-size:16px}.cmp-row .partial{color:var(--amber);font-size:12px;font-family:"DM Mono",monospace}
+
+/* QUOTE */
+.quote-wrap{padding:130px 48px;text-align:center;position:relative;overflow:hidden}
+.quote-bg{position:absolute;top:-60px;left:50%;transform:translateX(-50%);font-family:"Playfair Display",serif;font-size:320px;line-height:1;color:var(--border);pointer-events:none;z-index:0;opacity:.5}
+.quote-wrap blockquote{position:relative;z-index:1;font-family:"Playfair Display",serif;font-size:clamp(20px,3.2vw,40px);font-weight:700;font-style:italic;line-height:1.45;max-width:820px;margin:0 auto 22px}
+.quote-wrap blockquote em{color:var(--amber);font-style:normal}
+.quote-attr{font-family:"DM Mono",monospace;font-size:12px;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:1}
+
+/* FINAL CTA */
+.cta-wrap{padding:130px 48px;background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+.cta-wrap h2{font-family:"Playfair Display",serif;font-size:clamp(30px,4.5vw,58px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px}
+.cta-wrap h2 .amber{color:var(--amber)}
+.cta-wrap p{font-size:17px;color:var(--text-dim);max-width:480px;margin:0 auto 44px;line-height:1.7}
+.cta-form{display:flex;gap:10px;max-width:480px;margin:0 auto 18px}
+.cta-form input{flex:1;background:var(--card);border:1px solid var(--border2);color:var(--text);padding:16px 20px;border-radius:8px;font-family:"DM Sans",sans-serif;font-size:15px;outline:none;transition:border-color .2s}
+.cta-form input:focus{border-color:var(--amber)}
+.cta-form input::placeholder{color:var(--text-muted)}
+.cta-fine{font-size:12px;color:var(--text-muted);font-family:"DM Mono",monospace;margin-bottom:44px}
+.cta-perks{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.perk{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim)}
+.perk-check{width:18px;height:18px;background:var(--green-glow);border:1px solid rgba(106,171,86,.3);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--green-bright);flex-shrink:0}
+footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text-muted)}
+.footer-logo{font-family:"DM Mono",monospace;font-size:15px;color:var(--amber)}
+footer a{color:var(--text-muted);text-decoration:none}
+
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.fade{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+.fade.d1{transition-delay:.08s}.fade.d2{transition-delay:.16s}.fade.d3{transition-delay:.24s}.fade.d4{transition-delay:.32s}
+
+@media(max-width:900px){
+  nav{padding:14px 20px}.nav-badge{display:none}
+  .hero,.feat-row{grid-template-columns:1fr;padding:110px 20px 60px;gap:48px}
+  .feat-row{padding:70px 20px}
+  .hero-phones{height:360px}
+  .section,.tl-wrap,.cmp-wrap,.quote-wrap,.cta-wrap{padding-left:20px;padding-right:20px}
+  .problem-grid{grid-template-columns:1fr}
+  .feat-row-alt .feat-inner{grid-template-columns:1fr;padding:70px 20px;gap:48px}
+  .spots-trio{height:360px}
+  .iphone{width:190px}
+  .iphone-screen{height:380px}
+  .hero-form,.cta-form{flex-direction:column}
+  .cta-perks{flex-direction:column;align-items:center;gap:14px}
+  footer{flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="hero-glow"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">CastLog</a>
+  <div class="nav-right">
+    <span class="nav-badge">Early Access</span>
+    <a href="#waitlist" class="nav-cta">Join Waitlist →</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div style="max-width:1200px;margin:0 auto">
+<section class="hero">
+  <div>
+    <div class="hero-label">⚠ Fishbrain was acquired by a government licensing company — Nov 2023</div>
+    <h1>
+      <span class="line-strike">Fishbrain</span> sold<br>
+      your spots.<br>
+      <span class="line-amber">Yours stay yours.</span>
+    </h1>
+    <p class="hero-sub">
+      CastLog is the fishing journal that <strong>learns your patterns</strong>, keeps your spots <strong>private by default</strong>, and tells you exactly why you caught what you caught. Built by an angler — not a VC, not a licensing company.
+    </p>
+    <div class="hero-form" id="waitlist">
+      <input type="email" placeholder="your@email.com" id="hero-email">
+      <button class="btn-main" id="hero-btn">Claim Early Access →</button>
+    </div>
+    <div class="hero-proof">
+      <div class="live-dot"></div>
+      <span><span id="counter">247</span> anglers already waiting</span>
+      &nbsp;·&nbsp; Free forever for core features
+    </div>
+  </div>
+
+  <!-- THREE IPHONE FRAMES STACKED -->
+  <div class="hero-phones">
+    <!-- Journal -->
+    <div class="phone-hero-wrap ph1">
+      <div class="iphone">
+        <div class="iphone-btn-silent"></div>
+        <div class="iphone-btn-vol-up"></div>
+        <div class="iphone-btn-vol-down"></div>
+        <div class="iphone-screen">
+          <div class="status-bar"><span class="status-time">8:31</span><span class="status-batt">🔋</span></div>
+          <div class="app-journal">
+            <div class="app-header">
+              <div class="app-header-row"><span class="app-logo">CastLog</span><span class="app-gear">⚙</span></div>
+              <div class="app-sublabel">Your Journal · DM Sans</div>
+              <div class="app-greeting">Tight Lines, Wyatt!</div>
+              <div class="stats-row">
+                <div class="stat-pill"><span class="stat-num">47</span><span class="stat-label">Catches</span></div>
+                <div class="stat-pill"><span class="stat-num">12lb 3oz</span><span class="stat-label">Personal Best</span></div>
+                <div class="stat-pill"><span class="stat-num">6</span><span class="stat-label">Species</span></div>
+              </div>
+            </div>
+            <div class="filter-tabs">
+              <div class="filter-tab active">All</div>
+              <div class="filter-tab">Bass</div>
+              <div class="filter-tab">Walleye</div>
+              <div class="filter-tab">Crappie</div>
+              <div class="filter-tab">Pike</div>
+            </div>
+            <div class="catch-list">
+              <div class="catch-card">
+                <div class="catch-top"><span class="catch-species">Largemouth Bass</span><span class="catch-weight">4 lb 2 oz</span></div>
+                <div class="catch-location">Lake Macatawa · Oct 14, 2023</div>
+                <div class="catch-tags">
+                  <span class="ctag ctag-rig">🎣 Ned Rig</span>
+                  <span class="ctag ctag-wx">☁ Overcast</span>
+                  <span class="ctag ctag-temp">🌡 84°F</span>
+                </div>
+              </div>
+              <div class="catch-card">
+                <div class="catch-top"><span class="catch-species">Smallmouth Bass</span><span class="catch-weight">2 lb 8 oz</span></div>
+                <div class="catch-location">Grand River · Oct 12, 2023</div>
+                <div class="catch-tags">
+                  <span class="ctag ctag-rig">🎣 Drop Shot</span>
+                  <span class="ctag ctag-wx">☀ Sunny</span>
+                  <span class="ctag ctag-temp">🌡 81°F</span>
+                </div>
+              </div>
+              <div class="catch-card">
+                <div class="catch-top"><span class="catch-species">Walleye</span><span class="catch-weight">3 lb 1 oz</span></div>
+                <div class="catch-location">Lake Macatawa · Oct 11, 2023</div>
+                <div class="catch-tags">
+                  <span class="ctag ctag-rig">🎣 Crawler</span>
+                  <span class="ctag ctag-wx">🌥 Cloudy</span>
+                  <span class="ctag ctag-temp">🌡 58°F</span>
+                </div>
+              </div>
+            </div>
+            <div class="app-bottom-nav">
+              <div class="nav-item active"><span class="nav-icon">📓</span><span>Journal</span></div>
+              <div class="nav-item"><span class="nav-icon">📋</span><span>Log</span></div>
+              <div class="nav-plus">+</div>
+              <div class="nav-item"><span class="nav-icon">💡</span><span>Insights</span></div>
+              <div class="nav-item"><span class="nav-icon">📍</span><span>Spots</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Spots -->
+    <div class="phone-hero-wrap ph2">
+      <div class="iphone">
+        <div class="iphone-btn-silent"></div>
+        <div class="iphone-btn-vol-up"></div>
+        <div class="iphone-btn-vol-down"></div>
+        <div class="iphone-screen">
+          <div class="status-bar"><span class="status-time">8:31</span><span class="status-batt">🔋</span></div>
+          <div class="app-spots">
+            <div class="spots-header">
+              <div class="private-badge">🔒 Private by Default</div>
+              <div class="spots-title">My Spots.</div>
+            </div>
+            <div class="map-area">
+              <div class="map-grid"></div>
+              <div class="map-water"></div>
+              <div class="map-water2"></div>
+              <div class="map-pin pin1"><div class="pin-dot amber"></div></div>
+              <div class="map-pin pin2"><div class="pin-dot teal"></div></div>
+              <div class="map-pin pin3"><div class="pin-dot blue"></div></div>
+              <div class="tap-pin-btn">Tap a pin</div>
+            </div>
+            <div class="spots-list">
+              <div class="spot-card featured">
+                <div class="spot-top"><span class="spot-name">East Cove Weedline</span><span class="spot-private-tag">Private</span></div>
+                <div class="spot-meta">Lake Macatawa · 12 catches logged</div>
+                <div class="spot-note">Spawning beds in May. Ned rig parallel to edge.</div>
+              </div>
+              <div class="spot-card">
+                <div class="spot-top"><span class="spot-name">Bridge Pilings</span><span class="spot-lock">🔒</span></div>
+                <div class="spot-meta">Lake Macatawa · 7 catches</div>
+              </div>
+              <div class="spot-card">
+                <div class="spot-top"><span class="spot-name">North Flat</span><span class="spot-lock">🔒</span></div>
+                <div class="spot-meta">Muskegon Lake · 3 catches</div>
+              </div>
+            </div>
+            <div class="app-bottom-nav">
+              <div class="nav-item"><span class="nav-icon">📓</span><span>Journal</span></div>
+              <div class="nav-item"><span class="nav-icon">📋</span><span>Log</span></div>
+              <div class="nav-plus">+</div>
+              <div class="nav-item"><span class="nav-icon">💡</span><span>Insights</span></div>
+              <div class="nav-item active"><span class="nav-icon">📍</span><span>Spots</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fish ID -->
+    <div class="phone-hero-wrap ph3">
+      <div class="iphone">
+        <div class="iphone-btn-silent"></div>
+        <div class="iphone-btn-vol-up"></div>
+        <div class="iphone-btn-vol-down"></div>
+        <div class="iphone-screen">
+          <div class="status-bar"><span class="status-time">8:31</span><span class="status-batt">🔋</span></div>
+          <div class="app-fishid">
+            <div class="fishid-header">
+              <div class="fishid-label">AI Identifier</div>
+              <div class="fishid-title">Fish ID</div>
+              <div class="fishid-sub">Point your camera or upload a photo.</div>
+            </div>
+            <div class="fish-viewer">
+              <div class="fish-svg-wrap">🐟</div>
+              <div class="fish-id-badge">✓ Identified</div>
+              <div class="fish-match">94% match</div>
+            </div>
+            <div class="fish-result">
+              <div class="fish-name-en">Largemouth Bass</div>
+              <div class="fish-name-sci">Micropterus salmoides</div>
+              <div class="fish-tags">
+                <span class="ftag ftag-fresh">Freshwater</span>
+                <span class="ftag ftag-game">Game Fish</span>
+                <span class="ftag ftag-common">Common</span>
+              </div>
+            </div>
+            <div class="regs-box">
+              <div class="regs-head">📋 Local Regulations</div>
+              <div class="regs-grid">
+                <div class="regs-row"><span class="regs-key">Min Size</span><span class="regs-val">14 inches</span></div>
+                <div class="regs-row"><span class="regs-key">Season</span><span class="regs-val">Year-round</span></div>
+                <div class="regs-row"><span class="regs-key">Bag Limit</span><span class="regs-val">5 per day</span></div>
+                <div class="regs-row"><span class="regs-key">Location</span><span class="regs-val">W. Michigan</span></div>
+              </div>
+              <div class="regs-note">Always verify with MDNR before keeping</div>
+            </div>
+            <div class="fishid-btns">
+              <div class="fishid-btn-log">Log This Catch →</div>
+              <div class="fishid-btn-rel">Release</div>
+            </div>
+            <div class="fishid-retry">↩ Not right? Try again</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<hr class="div">
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-label red fade">THE PROBLEM</div>
+    <h2 class="sec-title fade d1">Every fishing app is broken<br>in the same ways.</h2>
+    <div class="problem-grid fade d2">
+      <div class="prob-card"><div class="prob-icon">🔥</div><h3>Spot Burning</h3><p>Share a catch and your secret pond shows up on 14 million maps. Fishbrain even strips GPS from your photo metadata — even when you think you're posting privately.</p><div class="prob-quote">"After 8 months of posting, strangers were approaching me at my spots. I burned 3 locations."</div></div>
+      <div class="prob-card"><div class="prob-icon">💸</div><h3>Paywalled Basics</h3><p>Log your own catches? That'll be $9.95/month. They locked features you already had behind subscriptions — not new ones. Your own data, held hostage.</p><div class="prob-quote">"Why am I paying $120 a year to see my own data?" — App Store review</div></div>
+      <div class="prob-card"><div class="prob-icon">📱</div><h3>Social Feed Nobody Wants</h3><p>Serious anglers want a data tool, not Instagram for fish. Cluttered feeds full of ego posts designed to keep you scrolling — not to make you better.</p><div class="prob-quote">"It's ego posts from beginners. I just want my own stats." — Reddit</div></div>
+      <div class="prob-card"><div class="prob-icon">⏱</div><h3>Logging Takes Too Long</h3><p>Wet hands, 8 fields to fill, fish flopping. By the time you've logged it, you've missed the next strike. Apps should disappear when you need them most.</p><div class="prob-quote">"I gave up after three trips because logging felt like homework."</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- FEATURE 1: JOURNAL -->
+<div class="feat-row">
+  <div class="feat-phone-wrap fade">
+    <div class="iphone" style="transform:rotate(-2deg)">
+      <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
+      <div class="iphone-screen">
+        <div class="status-bar"><span class="status-time">8:31</span><span class="status-batt">🔋</span></div>
+        <div class="app-journal">
+          <div class="app-header">
+            <div class="app-header-row"><span class="app-logo">CastLog</span><span class="app-gear">⚙</span></div>
+            <div class="app-sublabel">Your Journal · DM Sans</div>
+            <div class="app-greeting">Tight Lines, Wyatt!</div>
+            <div class="stats-row">
+              <div class="stat-pill"><span class="stat-num">47</span><span class="stat-label">Catches</span></div>
+              <div class="stat-pill"><span class="stat-num">12lb 3oz</span><span class="stat-label">Personal Best</span></div>
+              <div class="stat-pill"><span class="stat-num">6</span><span class="stat-label">Species</span></div>
+            </div>
+          </div>
+          <div class="filter-tabs"><div class="filter-tab active">All</div><div class="filter-tab">Bass</div><div class="filter-tab">Walleye</div><div class="filter-tab">Crappie</div><div class="filter-tab">Pike</div></div>
+          <div class="catch-list">
+            <div class="catch-card"><div class="catch-top"><span class="catch-species">Largemouth Bass</span><span class="catch-weight">4 lb 2 oz</span></div><div class="catch-location">Lake Macatawa · Oct 14, 2023</div><div class="catch-tags"><span class="ctag ctag-rig">🎣 Ned Rig</span><span class="ctag ctag-wx">☁ Overcast</span><span class="ctag ctag-temp">🌡 84°F</span></div></div>
+            <div class="catch-card"><div class="catch-top"><span class="catch-species">Smallmouth Bass</span><span class="catch-weight">2 lb 8 oz</span></div><div class="catch-location">Grand River · Oct 12, 2023</div><div class="catch-tags"><span class="ctag ctag-rig">🎣 Drop Shot</span><span class="ctag ctag-wx">☀ Sunny</span><span class="ctag ctag-temp">🌡 81°F</span></div></div>
+            <div class="catch-card"><div class="catch-top"><span class="catch-species">Walleye</span><span class="catch-weight">3 lb 1 oz</span></div><div class="catch-location">Lake Macatawa · Oct 11, 2023</div><div class="catch-tags"><span class="ctag ctag-rig">🎣 Crawler</span><span class="ctag ctag-wx">🌥 Cloudy</span><span class="ctag ctag-temp">🌡 58°F</span></div></div>
+            <div class="catch-card"><div class="catch-top"><span class="catch-species">Largemouth Bass</span><span class="catch-weight">5 lb 0 oz</span></div><div class="catch-location">Muskegon Lake · Oct 9, 2023</div><div class="catch-tags"><span class="ctag ctag-rig">🎣 Spinnerbait</span><span class="ctag ctag-wx">☁ Overcast</span><span class="ctag ctag-temp">🌡 62°F</span></div></div>
+          </div>
+          <div class="app-bottom-nav"><div class="nav-item active"><span class="nav-icon">📓</span><span>Journal</span></div><div class="nav-item"><span class="nav-icon">📋</span><span>Log</span></div><div class="nav-plus">+</div><div class="nav-item"><span class="nav-icon">💡</span><span>Insights</span></div><div class="nav-item"><span class="nav-icon">📍</span><span>Spots</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-text">
+    <div class="screen-badge fade"><div class="dot" style="background:var(--amber)"></div>Screen 01 — Your Journal</div>
+    <div class="sec-label amber fade d1">THE DATA STORY</div>
+    <h2 class="sec-title fade d2">Your personal fishing<br>journal. <em style="color:var(--amber);font-style:italic">Finally intelligent.</em></h2>
+    <p class="feat-desc fade d2">Every cast tells a story. CastLog records species, weight, bait, weather, water temp, and location — and over time learns what makes <em>you</em> specifically catch more fish.</p>
+    <ul class="bullet-list fade d3">
+      <li><div class="bicon bi-a">📊</div><div class="btext"><strong>Personal stats that actually mean something</strong>47 catches, 12 lb 3 oz personal best, 6 species. Filterable by Bass, Walleye, Crappie, Pike.</div></li>
+      <li><div class="bicon bi-a">🌤</div><div class="btext"><strong>Every condition logged automatically</strong>Bait, weather, water temp, location — captured so you can find your patterns.</div></li>
+      <li><div class="bicon bi-a">⚡</div><div class="btext"><strong>Fastest log in fishing — under 15 seconds</strong>One tap from the AI ID screen. Wet hands, fish flopping? Doesn't matter.</div></li>
+    </ul>
+    <div class="callout fade d4"><strong>Why this beats Fishbrain's logbook:</strong> Your data is private, yours forever, and the app actually learns from it — instead of feeding it into a corporate data pipeline.</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- FEATURE 2: MY SPOTS -->
+<div class="feat-row-alt">
+  <div class="feat-inner">
+    <div class="feat-text">
+      <div class="screen-badge fade"><div class="dot" style="background:var(--green-bright)"></div>Screen 02 — My Spots</div>
+      <div class="sec-label green fade d1">THE PRIVACY STORY</div>
+      <h2 class="sec-title fade d2">Your honey holes.<br><em style="color:var(--green-bright);font-style:italic">Private by default.</em></h2>
+      <p class="feat-desc fade d2">The East Cove Weedline. Bridge Pilings. North Flat. Your spots took years to find. CastLog keeps them locked — not shared, not harvested, not fed into a government licensing data pipeline.</p>
+      <ul class="bullet-list fade d3">
+        <li><div class="bicon bi-g">🔒</div><div class="btext"><strong>Private by default — not opt-in privacy</strong>Every spot is locked unless you explicitly share it. No accidental exposure.</div></li>
+        <li><div class="bicon bi-g">🚫</div><div class="btext"><strong>No GPS stripping from photo metadata</strong>Fishbrain extracts coordinates from your photos automatically. CastLog never does this. Ever.</div></li>
+        <li><div class="bicon bi-g">📍</div><div class="btext"><strong>Rich spot notes built over time</strong>Spawning beds in May. Ned rig parallel to edge. Your knowledge compounds.</div></li>
+      </ul>
+      <div class="callout g fade d4"><strong>The Fishbrain betrayal:</strong> Acquired by Aspira — a company that sells fishing license data to state agencies. Your catch locations are now part of that conversation.</div>
+    </div>
+    <div class="feat-phone-wrap fade d1">
+      <div class="spots-trio">
+        <div class="trio-phone tp1">
+          <div class="iphone" style="width:220px">
+            <div class="iphone-screen" style="height:440px;border-radius:38px">
+              <div class="status-bar" style="padding:10px 16px 2px"><span class="status-time" style="font-size:12px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
+              <div class="app-spots" style="font-size:.85em">
+                <div class="spots-header" style="padding:2px 14px 6px"><div class="private-badge">🔒 Private by Default</div><div class="spots-title" style="font-size:20px">My Spots.</div></div>
+                <div class="map-area" style="height:130px"><div class="map-grid"></div><div class="map-water"></div><div class="map-pin pin1"><div class="pin-dot amber"></div></div><div class="map-pin pin2"><div class="pin-dot teal"></div></div></div>
+                <div class="spots-list" style="padding:6px 14px"><div class="spot-card featured"><div class="spot-top"><span class="spot-name">East Cove Weedline</span><span class="spot-private-tag">Private</span></div><div class="spot-meta">Lake Macatawa · 12 catches</div><div class="spot-note">Spawning beds in May.</div></div><div class="spot-card"><div class="spot-top"><span class="spot-name">Bridge Pilings</span><span class="spot-lock">🔒</span></div></div><div class="spot-card"><div class="spot-top"><span class="spot-name">North Flat</span><span class="spot-lock">🔒</span></div></div></div>
+                <div class="app-bottom-nav"><div class="nav-item"><span>📓</span></div><div class="nav-item"><span>📋</span></div><div class="nav-plus" style="width:26px;height:26px;font-size:14px">+</div><div class="nav-item"><span>💡</span></div><div class="nav-item active"><span>📍</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trio-phone tp2">
+          <div class="iphone" style="width:235px">
+            <div class="iphone-screen" style="height:460px;border-radius:40px">
+              <div class="status-bar" style="padding:10px 16px 2px"><span class="status-time" style="font-size:12px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
+              <div class="app-spots" style="font-size:.85em">
+                <div class="spots-header" style="padding:2px 14px 6px"><div class="private-badge">🔒 Private by Default</div><div class="spots-title" style="font-size:22px">My Spots.</div></div>
+                <div class="map-area" style="height:150px"><div class="map-grid"></div><div class="map-water"></div><div class="map-water2"></div><div class="map-pin pin1"><div class="pin-dot amber"></div></div><div class="map-pin pin2"><div class="pin-dot teal"></div></div><div class="map-pin pin3"><div class="pin-dot blue"></div></div><div class="tap-pin-btn">Tap a pin</div></div>
+                <div class="spots-list" style="padding:6px 14px"><div class="spot-card featured" style="background:rgba(232,168,51,0.06);border-color:rgba(232,168,51,0.25)"><div class="spot-top"><span class="spot-name" style="color:#e8a833">East Cove Weedline</span><span class="spot-private-tag">Private</span></div><div class="spot-meta">Lake Macatawa · 12 catches</div><div class="spot-note">Spawning beds in May. Ned rig parallel to edge.</div></div><div class="spot-card"><div class="spot-top"><span class="spot-name">Bridge Pilings</span><span class="spot-lock">🔒</span></div></div><div class="spot-card"><div class="spot-top"><span class="spot-name">North Flat</span><span class="spot-lock">🔒</span></div></div></div>
+                <div class="app-bottom-nav"><div class="nav-item"><span>📓</span></div><div class="nav-item"><span>📋</span></div><div class="nav-plus" style="width:28px;height:28px;font-size:15px">+</div><div class="nav-item"><span>💡</span></div><div class="nav-item active"><span>📍</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trio-phone tp3">
+          <div class="iphone" style="width:220px">
+            <div class="iphone-screen" style="height:440px;border-radius:38px">
+              <div class="status-bar" style="padding:10px 16px 2px"><span class="status-time" style="font-size:12px">8:31</span><span class="status-batt" style="font-size:10px">🔋</span></div>
+              <div class="app-spots" style="font-size:.85em">
+                <div class="spots-header" style="padding:2px 14px 6px"><div class="private-badge">🔒 Private by Default</div><div class="spots-title" style="font-size:20px">My Spots.</div></div>
+                <div class="map-area" style="height:130px"><div class="map-grid"></div><div class="map-water"></div><div class="map-pin pin1"><div class="pin-dot amber"></div></div><div class="map-pin pin3"><div class="pin-dot blue"></div></div></div>
+                <div class="spots-list" style="padding:6px 14px"><div class="spot-card"><div class="spot-top"><span class="spot-name">East Cove Weedline</span><span class="spot-private-tag">Private</span></div><div class="spot-meta">12 catches · Start date Apr 2023</div></div><div class="spot-card"><div class="spot-top"><span class="spot-name">Bridge Pilings</span><span class="spot-lock">🔒</span></div><div class="spot-meta">7 catches</div></div><div class="spot-card"><div class="spot-top"><span class="spot-name">North Flat</span><span class="spot-lock">🔒</span></div><div class="spot-meta">Muskegon Lake</div></div></div>
+                <div class="app-bottom-nav"><div class="nav-item"><span>📓</span></div><div class="nav-item"><span>📋</span></div><div class="nav-plus" style="width:26px;height:26px;font-size:14px">+</div><div class="nav-item"><span>💡</span></div><div class="nav-item active"><span>📍</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE 3: FISH ID -->
+<div class="feat-row">
+  <div class="feat-phone-wrap fade">
+    <div class="iphone" style="transform:rotate(2deg)">
+      <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
+      <div class="iphone-screen">
+        <div class="status-bar"><span class="status-time">8:31</span><span class="status-batt">🔋</span></div>
+        <div class="app-fishid">
+          <div class="fishid-header"><div class="fishid-label">AI Identifier</div><div class="fishid-title">Fish ID</div><div class="fishid-sub">Point camera or upload a photo.</div></div>
+          <div class="fish-viewer"><div class="fish-svg-wrap">🐟</div><div class="fish-id-badge">✓ Identified</div><div class="fish-match">94% match</div></div>
+          <div class="fish-result"><div class="fish-name-en">Largemouth Bass</div><div class="fish-name-sci">Micropterus salmoides</div><div class="fish-tags"><span class="ftag ftag-fresh">Freshwater</span><span class="ftag ftag-game">Game Fish</span><span class="ftag ftag-common">Common</span></div></div>
+          <div class="regs-box"><div class="regs-head">📋 Local Regulations</div><div class="regs-grid"><div class="regs-row"><span class="regs-key">Min Size</span><span class="regs-val">14 inches</span></div><div class="regs-row"><span class="regs-key">Season</span><span class="regs-val">Year-round</span></div><div class="regs-row"><span class="regs-key">Bag Limit</span><span class="regs-val">5 per day</span></div><div class="regs-row"><span class="regs-key">Location</span><span class="regs-val">W. Michigan</span></div></div><div class="regs-note">Always verify with MDNR before keeping</div></div>
+          <div class="fishid-btns"><div class="fishid-btn-log">Log This Catch →</div><div class="fishid-btn-rel">Release</div></div>
+          <div class="fishid-retry">↩ Not right? Try again</div>
+          <div class="app-bottom-nav"><div class="nav-item active"><span class="nav-icon">🏠</span><span>Home</span></div><div class="nav-item"><span class="nav-icon">📍</span><span>Spots</span></div><div class="nav-item"><span class="nav-icon">📋</span><span>Log</span></div><div class="nav-item"><span class="nav-icon">⭐</span><span>Favs</span></div><div class="nav-item"><span class="nav-icon">⚙</span><span>Settings</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-text">
+    <div class="screen-badge fade d1"><div class="dot" style="background:var(--blue)"></div>Screen 03 — Fish ID</div>
+    <div class="sec-label blue fade d1">THE SPEED STORY</div>
+    <h2 class="sec-title fade d2">Yes, other apps have<br>Fish ID. <em style="color:var(--amber);font-style:italic">Not like this.</em></h2>
+    <p class="feat-desc fade d2">Fish ID is not new. But CastLog's is faster, more accurate, and connected to something actually useful: your exact local regulations, pulled by GPS — right when you need them.</p>
+    <ul class="bullet-list fade d3">
+      <li><div class="bicon bi-b">🎯</div><div class="btext"><strong>94% accuracy with confidence scoring</strong>300+ species. You always know when to double-check — wrong ID on a protected fish has real consequences.</div></li>
+      <li><div class="bicon bi-b">📋</div><div class="btext"><strong>Regulations auto-pulled by GPS</strong>Min size, bag limit, season — not generic state data, your specific water body.</div></li>
+      <li><div class="bicon bi-b">⚡</div><div class="btext"><strong>One tap from ID to logged catch</strong>Species, weight, bait, GPS, weather — pre-filled. Under 15 seconds.</div></li>
+      <li><div class="bicon bi-r">🔒</div><div class="btext"><strong>Your ID location stays private</strong>Never harvested, never pinned publicly, never fed into a community data map.</div></li>
+    </ul>
+    <div class="callout r fade d4"><strong>The real differentiator:</strong> Fish ID connected to local regulations and a private catch log — not a public social feed that burns your spots.</div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- BETRAYAL TIMELINE -->
+<div class="tl-wrap">
+  <div class="section-inner">
+    <div class="sec-label red fade">HOW IT HAPPENED</div>
+    <h2 class="sec-title fade d1">The Fishbrain betrayal,<br>year by year.</h2>
+    <div class="timeline fade d2">
+      <div class="tl-item"><div class="tl-year">2018</div><div class="tl-title">SoftBank money enters the picture</div><div class="tl-desc">Fishbrain raises $13.5M from B Capital & SoftBank. The app shifts from "community for anglers" to "product that needs to return VC money."</div></div>
+      <div class="tl-item"><div class="tl-year">March 2021</div><div class="tl-title">$31M raise — paywalls begin immediately</div><div class="tl-desc">Features users already had — statistics, private posts, catch zoom — get locked behind subscriptions. Not new features. Existing ones.</div></div>
+      <div class="tl-item"><div class="tl-year">December 2021</div><div class="tl-title">Fish Rules acquired. Aspira partnership signed.</div><div class="tl-desc">Fishbrain acquires Fish Rules and partners with Aspira — North America's largest fishing license software provider. Anglers are now a data pipeline.</div></div>
+      <div class="tl-item"><div class="tl-year">November 2023</div><div class="tl-title">Fishbrain acquired by Aspira. Mission over.</div><div class="tl-desc">The app built "for anglers" is owned by a B2B government licensing company in Dallas whose core business is selling hunting and fishing permits to state agencies.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE -->
+<div class="cmp-wrap">
+  <div class="section-inner" style="text-align:center"><div class="sec-label fade" style="color:var(--text-muted)">THE HONEST COMPARISON</div><h2 class="sec-title fade d1" style="margin-bottom:0">CastLog vs. Fishbrain</h2></div>
+  <div class="cmp-table fade d2">
+    <div class="cmp-head"><div>Feature</div><div class="ca">CastLog</div><div class="cf">Fishbrain (post-acquisition)</div></div>
+    <div class="cmp-row"><div class="feat">Private spots by default</div><div class="yes">✓</div><div class="no">✗</div></div>
+    <div class="cmp-row"><div class="feat">No GPS harvesting from photos</div><div class="yes">✓</div><div class="no">✗</div></div>
+    <div class="cmp-row"><div class="feat">Core logging — free forever</div><div class="yes">✓</div><div class="no">✗ ($9.95/mo)</div></div>
+    <div class="cmp-row"><div class="feat">Personal AI insights</div><div class="yes">✓</div><div class="partial">Generic only</div></div>
+    <div class="cmp-row"><div class="feat">AI fish identification</div><div class="yes">✓ Faster</div><div class="yes">✓</div></div>
+    <div class="cmp-row"><div class="feat">Inline local regs by GPS</div><div class="yes">✓</div><div class="partial">Pro only</div></div>
+    <div class="cmp-row"><div class="feat">Owned by anglers, not a corp</div><div class="yes">✓</div><div class="no">✗ (acquired Nov 2023)</div></div>
+    <div class="cmp-row"><div class="feat">No social feed clutter</div><div class="yes">✓</div><div class="no">✗</div></div>
+    <div class="cmp-row"><div class="feat">Personal stats — always free</div><div class="yes">✓</div><div class="no">✗ (locked)</div></div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<section class="quote-wrap">
+  <div class="quote-bg">"</div>
+  <blockquote class="fade">"You learn more by <em>not catching fish</em> than catching them — but only if you've been keeping track."</blockquote>
+  <div class="quote-attr fade d1">— The CastLog Philosophy</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-wrap">
+  <div class="sec-label amber fade" style="text-align:center;margin-bottom:14px">JOIN THE WAITLIST</div>
+  <h2 class="fade d1">Stop leaving data<br><span class="amber">on the water.</span></h2>
+  <p class="fade d2">Early access members get Pro Insights free for 3 months. No credit card. No spot burning. No corporate data pipeline.</p>
+  <div class="cta-form fade d3"><input type="email" placeholder="your@email.com" id="cta-email"><button class="btn-main" id="cta-btn">Claim Early Access →</button></div>
+  <div class="cta-fine fade d4">Free forever for core features · No credit card · No spam, ever</div>
+  <div class="cta-perks fade d4">
+    <div class="perk"><div class="perk-check">✓</div><span>Private spots by default</span></div>
+    <div class="perk"><div class="perk-check">✓</div><span>AI Fish ID included free</span></div>
+    <div class="perk"><div class="perk-check">✓</div><span>Local regs auto-pulled</span></div>
+    <div class="perk"><div class="perk-check">✓</div><span>3 months Pro Insights free</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">CastLog</div>
+  <div style="font-style:italic;color:var(--text-muted)">Built by an angler, for anglers — not investors.</div>
+  <div>© 2025 CastLog · <a href="#">Privacy</a></div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+}, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".fade").forEach(el => io.observe(el));
+
+let n = 247;
+setInterval(() => {
+  if (Math.random() > 0.9) {
+    n++;
+    const el = document.getElementById("counter");
+    if (el) el.textContent = n;
+  }
+}, 3800);
+
+function handleForm(emailId, btnId) {
+  const input = document.getElementById(emailId);
+  const btn = document.getElementById(btnId);
+  if (!input || !btn) return;
+  btn.addEventListener("click", () => {
+    if (input.value.includes("@") && input.value.includes(".")) {
+      btn.textContent = "You are on the list!";
+      btn.style.background = "#6aab56";
+      input.disabled = btn.disabled = true;
+    } else {
+      input.style.borderColor = "#c44a3a";
+      setTimeout(() => { input.style.borderColor = ""; }, 1800);
+    }
+  });
+}
+handleForm("hero-email", "hero-btn");
+handleForm("cta-email", "cta-btn");
+</script>
+</body>
+</html>
