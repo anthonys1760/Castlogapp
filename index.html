@@ -414,17 +414,17 @@ footer a{color:var(--text-muted);text-decoration:none}
   .cta-perks{flex-direction:column;align-items:center;gap:14px}
   footer{flex-direction:column;gap:10px;text-align:center}
 
-  /* ── Hero phone stack: single centered phone ── */
-  .hero-phones{height:auto;display:flex;justify-content:center;padding:10px 0 40px;position:relative}
-  .phone-hero-wrap{position:relative}
-  .ph1,.ph3{display:none}
-  .ph2{left:auto;top:auto;transform:none;z-index:1}
+  /* ── Hero phone stack: three overlapping phones (matches desktop) ── */
+  .hero-phones{height:560px;position:relative;overflow:visible}
+  .phone-hero-wrap{position:absolute}
+  .ph1,.ph3{display:block}
+  .ph2{left:50%;transform:translateX(-40%) rotate(1.5deg) translateY(30px);z-index:3}
 
-  /* ── Spots trio: single centered phone ── */
-  .spots-trio{height:auto;display:flex;justify-content:center;padding:10px 0 40px;position:relative}
-  .trio-phone{position:relative}
-  .tp1,.tp3{display:none}
-  .tp2{left:auto;top:auto;transform:none;z-index:1}
+  /* ── Spots trio: three overlapping phones (matches desktop) ── */
+  .spots-trio{height:520px;width:100%;position:relative;overflow:visible}
+  .trio-phone{position:absolute}
+  .tp1,.tp3{display:block}
+  .tp2{left:50%;transform:translateX(-50%);top:0;z-index:3}
 
   /* ── iPhone frame sizing ── */
   .iphone{width:230px}
