@@ -339,6 +339,7 @@ hr.div{border:none;border-top:1px solid var(--border)}
 
 /* FEATURE ROWS */
 .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;padding:110px 48px}
+.feat-row-rev{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;padding:110px 48px;direction:rtl}.feat-row-rev>*{direction:ltr}
 .feat-row-alt{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .feat-row-alt .feat-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;padding:110px 48px}
 .feat-phone-wrap{display:flex;justify-content:center;align-items:center}
@@ -423,8 +424,8 @@ footer a{color:var(--text-muted);text-decoration:none}
 
 @media(max-width:900px){
   nav{padding:14px 20px}.nav-badge{display:none}
-  .hero,.feat-row{grid-template-columns:1fr;padding:110px 20px 60px;gap:48px}
-  .feat-row{padding:70px 20px}
+  .hero,.feat-row,.feat-row-rev{grid-template-columns:1fr;padding:110px 20px 60px;gap:48px}
+  .feat-row,.feat-row-rev{padding:70px 20px;direction:ltr}
   .section,.tl-wrap,.cmp-wrap,.quote-wrap,.cta-wrap{padding-left:20px;padding-right:20px}
   .problem-grid{grid-template-columns:1fr}
   .feat-row-alt .feat-inner{grid-template-columns:1fr;padding:70px 20px;gap:48px}
@@ -584,9 +585,9 @@ footer a{color:var(--text-muted);text-decoration:none}
 <hr class="div">
 
 <!-- FEATURE 2: KNOTS LIBRARY -->
-<div class="feat-row">
+<div class="feat-row-rev">
   <div class="feat-phone-wrap fade">
-    <div class="iphone" style="transform:rotate(2deg)">
+    <div class="iphone" style="transform:rotate(-2deg)">
       <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
       <div class="iphone-screen">
         <img src="Images/knots_library.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
