@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CastLog — Your Fishing Journal, Finally Working For You</title>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DNBKN0WNR9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DNBKN0WNR9');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -731,6 +739,9 @@ function handleForm(emailId, btnId) {
       if (res.ok) {
         btn.textContent = "You're on the list!";
         btn.style.background = "#6aab56";
+        if (typeof gtag !== "undefined") {
+          gtag("event", "waitlist_signup", { form_location: emailId === "hero-email" ? "hero" : "cta" });
+        }
       } else {
         btn.textContent = "Try again";
         btn.style.background = "#c44a3a";
