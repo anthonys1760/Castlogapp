@@ -502,7 +502,7 @@ footer a{color:var(--text-muted);text-decoration:none}
       <span class="line-amber">you'll actually keep.</span>
     </h1>
     <p class="hero-sub">
-      CastLog is the fishing journal built for wet hands and flopping fish. <strong>Log in under 15 seconds</strong>, let AI learn your patterns, and find out exactly why you catch what you catch. No paywall. No ads. No corporate data pipeline.
+      CastLog is the fishing journal built for wet hands and flopping fish. <strong>Log in under 15 seconds</strong>, build a pattern engine that learns your specific waters, and find out exactly why you catch what you catch. No paywall. No ads. No corporate data pipeline.
     </p>
     <div class="hero-form" id="waitlist">
       <input type="email" placeholder="your@email.com" id="hero-email" name="email">
@@ -591,7 +591,7 @@ footer a{color:var(--text-muted);text-decoration:none}
     <p class="feat-desc fade d2">Most anglers quit logging after 2 trips. Not because they stop caring — because the app gets in the way. CastLog is built for the worst possible moment to use a phone: wet hands, fish flopping, one free thumb.</p>
     <ul class="bullet-list fade d3">
       <li><div class="bicon bi-a">⚡</div><div class="btext"><strong>Garmin-level logging speed. Just your phone.</strong>3 taps, under 15 seconds. Weather, water temp, and barometric pressure log themselves. No $500 hardware required.</div></li>
-      <li><div class="bicon bi-a">🧠</div><div class="btext"><strong>Consistency is the product — patterns are the payoff</strong>The more you log, the smarter CastLog gets. It learns what conditions make <em>you</em> specifically catch more fish.</div></li>
+      <li><div class="bicon bi-a">🧠</div><div class="btext"><strong>Consistency is the product — personalized patterns are the payoff</strong>Every catch you log trains your personal pattern model. Not generic fishing tips — insights built entirely on your catches, your water, your conditions.</div></li>
       <li><div class="bicon bi-a">📊</div><div class="btext"><strong>Stats that make you a better angler</strong>47 catches, 12 lb 3 oz personal best, 6 species. See exactly which bait, weather, and time of day produce for you.</div></li>
     </ul>
     <div class="callout fade d4"><strong>"I gave up after three trips because logging felt like homework."</strong> That's the most common reason anglers abandon fishing apps. CastLog is the only journal built to fix that — not ignore it.</div>
@@ -649,6 +649,44 @@ footer a{color:var(--text-muted);text-decoration:none}
   </div>
 </div>
 
+<!-- AI PATTERN INTELLIGENCE -->
+<div class="feat-row">
+  <div class="feat-text">
+    <div class="screen-badge fade"><div class="dot" style="background:var(--amber)"></div>Coming Next</div>
+    <div class="sec-label amber fade d1">AI PATTERN INTELLIGENCE</div>
+    <h2 class="sec-title fade d2">The more you log,<br>the more it knows <em style="color:var(--amber);font-style:italic">you.</em></h2>
+    <p class="feat-desc fade d2">Not generic fishing tips. Not crowd-sourced data. Your personal pattern engine — built from your catches and your conditions alone.</p>
+    <ul class="bullet-list fade d3">
+      <li><div class="bicon bi-a">⚡</div><div class="btext"><strong>Automatic condition capture at every catch</strong>GPS, weather, barometric pressure, water temp, moon phase, time of day — all logged the moment you tap. You never manually enter a condition.</div></li>
+      <li><div class="bicon bi-a">📈</div><div class="btext"><strong>Statistical correlation, not intuition</strong>After 25+ catches, CastLog surfaces patterns in your specific data. What bait outperforms for you, at which time, under which pressure trend — not what works for anglers in general.</div></li>
+      <li><div class="bicon bi-r">🔒</div><div class="btext"><strong>Personalized to you, private by default</strong>Your pattern data never leaves your device in a form anyone else can read. The insights are built from your catches and surfaced only to you.</div></li>
+    </ul>
+    <div class="callout fade d4"><strong>This is why logging speed matters.</strong> Every catch you skip is a data point missing from your pattern. 15 seconds now = better insights for every trip that follows.</div>
+  </div>
+  <div class="feat-phone-wrap fade" style="display:flex;align-items:center;justify-content:center">
+    <div style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:340px">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;border-left:3px solid var(--amber)" class="fade d1">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Bass · Lake Lanier · 89 catches</div>
+        <div style="font-size:15px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px">"You catch 73% more bass on overcast mornings when pressure is falling"</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Strongest on topwater, 6–9am, pressure drop &gt;0.10 inHg in 3hrs</div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(232,168,51,.12);border-radius:20px;padding:3px 10px;font-size:11px;font-family:'DM Mono',monospace;color:var(--amber)">↑ High confidence</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;border-left:3px solid var(--green-bright)" class="fade d2">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Topwater · Morning bite</div>
+        <div style="font-size:15px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px">"Topwater works best for you in the first 2 hours after sunrise"</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">Consistent across seasons — not limited to summer</div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(106,171,86,.12);border-radius:20px;padding:3px 10px;font-size:11px;font-family:'DM Mono',monospace;color:var(--green-bright)">↑ 34 catches support this</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;border-left:3px solid #5ba3c9" class="fade d3">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Spot pattern · North cove</div>
+        <div style="font-size:15px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px">"You've never caught a keeper here after 2pm"</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px">8 visits, same result — the morning window is everything</div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(91,163,201,.12);border-radius:20px;padding:3px 10px;font-size:11px;font-family:'DM Mono',monospace;color:#5ba3c9">→ Pattern emerging</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <hr class="div">
 
 <!-- BETRAYAL TIMELINE -->
@@ -673,7 +711,7 @@ footer a{color:var(--text-muted);text-decoration:none}
     <div class="cmp-row"><div class="feat">Private spots by default</div><div class="yes">✓</div><div class="no">✗</div></div>
     <div class="cmp-row"><div class="feat">No GPS harvesting from photos</div><div class="yes">✓</div><div class="no">✗</div></div>
     <div class="cmp-row"><div class="feat">Core logging — free forever</div><div class="yes">✓</div><div class="no">✗ ($9.95/mo)</div></div>
-    <div class="cmp-row"><div class="feat">Personal AI insights</div><div class="yes">✓</div><div class="partial">Generic only</div></div>
+    <div class="cmp-row"><div class="feat">AI pattern insights (personalized)</div><div class="yes">✓ Personalized to you</div><div class="partial">Generic only</div></div>
     <div class="cmp-row"><div class="feat">AI fish identification</div><div class="yes">✓ Faster</div><div class="yes">✓</div></div>
     <div class="cmp-row"><div class="feat">Inline local regs by GPS</div><div class="yes">✓</div><div class="partial">Pro only</div></div>
     <div class="cmp-row"><div class="feat">Owned by anglers, not a corp</div><div class="yes">✓</div><div class="no">✗ (acquired Nov 2023)</div></div>
@@ -729,7 +767,7 @@ footer a{color:var(--text-muted);text-decoration:none}
 <section class="cta-wrap" id="join">
   <div class="sec-label amber fade" style="text-align:center;margin-bottom:14px">JOIN THE WAITLIST</div>
   <h2 class="fade d1">Stop leaving data<br><span class="amber">on the water.</span></h2>
-  <p class="fade d2">Early access members get Pro Insights free for 3 months. No credit card. Works offline. Your data is always yours — exportable, forever, no paywall.</p>
+  <p class="fade d2">Early access members lock in Pro Insights free for 3 months — including AI Pattern Intelligence when it ships. The anglers who join now will have weeks of catch data before anyone else. Their pattern models will be ahead from day one.</p>
   <div class="cta-form fade d3"><input type="email" placeholder="your@email.com" id="cta-email" name="email"><button class="btn-main" id="cta-btn">Claim Early Access →</button></div>
   <div class="cta-fine fade d4">Free forever for core features · No credit card · No spam, ever · Export your data any time, forever</div>
   <div class="cta-perks fade d4">
@@ -738,7 +776,11 @@ footer a{color:var(--text-muted);text-decoration:none}
     <div class="perk"><div class="perk-check">✓</div><span>Your data — exportable, always free</span></div>
     <div class="perk"><div class="perk-check">✓</div><span>3 months Pro Insights free</span></div>
   </div>
-  <div class="roadmap-teaser fade d4"><span class="roadmap-badge">On the roadmap</span> Voice logging · AI pattern intelligence · Apple Watch support</div>
+  <div class="roadmap-teaser fade d4">
+    <span class="roadmap-badge">Building next</span> AI Pattern Intelligence — personalized catch insights based on your logged conditions
+    <div style="font-size:11px;color:var(--text-muted);margin-top:6px;font-family:'DM Mono',monospace">Early members start building their pattern history at launch.</div>
+  </div>
+  <div class="roadmap-teaser fade d4" style="margin-top:8px"><span class="roadmap-badge">On the roadmap</span> Voice logging · Apple Watch support</div>
 </section>
 
 <footer>
