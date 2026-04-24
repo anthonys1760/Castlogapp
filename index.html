@@ -710,19 +710,33 @@ footer a{color:var(--text-muted);text-decoration:none}
 <!-- OFFLINE -->
 <section class="section">
   <div class="section-inner">
-    <div class="fade" style="display:flex;justify-content:center;margin-bottom:44px">
-      <div class="iphone" style="width:260px;transform:rotate(-1.5deg)">
-        <div class="iphone-btn-silent"></div>
-        <div class="iphone-btn-vol-up"></div>
-        <div class="iphone-btn-vol-down"></div>
-        <div class="iphone-screen" style="height:527px">
-          <img src="Images/offline_journal.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+    <div class="feat-row" style="padding:0;max-width:none;margin:0 0 64px 0">
+      <div class="feat-phone-wrap fade">
+        <div class="iphone" style="transform:rotate(-2deg)">
+          <div class="iphone-btn-silent"></div>
+          <div class="iphone-btn-vol-up"></div>
+          <div class="iphone-btn-vol-down"></div>
+          <div class="iphone-screen">
+            <img src="Images/offline_journal.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+          </div>
         </div>
       </div>
+      <div>
+        <div class="fade" style="display:inline-flex;align-items:center;gap:14px;padding:12px 22px;border-radius:999px;background:var(--card);border:1px solid rgba(232,168,51,.35);font-family:'DM Mono',monospace;font-size:13px;color:var(--text);letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px;box-shadow:0 0 0 5px rgba(232,168,51,.06),0 10px 24px rgba(0,0,0,.3)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--amber)" style="flex-shrink:0"><path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          <span style="color:var(--amber);font-weight:600">No Service</span>
+          <span style="color:var(--text-muted);opacity:.4">·</span>
+          <span style="position:relative;display:inline-flex;align-items:center">
+            <svg width="16" height="12" viewBox="0 0 15 12" fill="var(--text-muted)" style="opacity:.45;flex-shrink:0"><rect x="0" y="9" width="2.5" height="3" rx="0.5"/><rect x="4" y="6.5" width="2.5" height="5.5" rx="0.5"/><rect x="8" y="3.5" width="2.5" height="8.5" rx="0.5"/><rect x="12" y="0" width="2.5" height="12" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 15 12" style="position:absolute;left:0;top:0;flex-shrink:0"><line x1="0.5" y1="11.5" x2="14.5" y2="0.5" stroke="#d45a5a" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <span style="color:#d45a5a;font-weight:600">0 bars</span>
+        </div>
+        <div class="sec-label amber fade">BUILT FOR BACKCOUNTRY</div>
+        <h2 class="sec-title fade d1">Your best fishing is<br><em style="color:var(--amber);font-style:italic">out of range.</em></h2>
+        <p class="fade d2" style="font-size:16px;color:var(--text-dim);line-height:1.65;margin-top:14px">CastLog is built for cell-dead lakes, backcountry streams, offshore runs — and the last cove before the ramp loses service. The app doesn't wait for a signal. It works.</p>
+      </div>
     </div>
-    <div class="sec-label amber fade">BUILT FOR BACKCOUNTRY</div>
-    <h2 class="sec-title fade d1">Your best fishing is<br><em style="color:var(--amber);font-style:italic">out of range.</em></h2>
-    <p class="fade d2" style="max-width:720px;font-size:16px;color:var(--text-dim);line-height:1.6;margin-top:14px">CastLog is built for cell-dead lakes, backcountry streams, offshore runs — and the last cove before the ramp loses service. The app doesn't wait for a signal. It works.</p>
     <div class="problem-grid fade d2">
       <div class="prob-card"><div class="prob-icon">📥</div><h3>Pre-download any lake or region</h3><p>Tap <em>Save Offline</em> on a lake page and CastLog pulls down the map, lake intel, and spot pins so they all work standalone — no cell tower required.</p></div>
       <div class="prob-card"><div class="prob-icon">📍</div><h3>Catches log without a signal</h3><p>GPS, weather, barometric pressure, and water temp capture locally at catch time. When you're back in range, everything syncs in the background.</p></div>
