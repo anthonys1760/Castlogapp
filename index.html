@@ -542,7 +542,7 @@ footer a{color:var(--text-muted);text-decoration:none}
     </div>
     <div class="hero-proof">
       <div class="live-dot"></div>
-      <span><span id="counter">247</span> anglers already waiting</span>
+      <span><span id="counter">255</span> anglers already waiting</span>
       &nbsp;·&nbsp; Free forever for core features
     </div>
   </div>
@@ -855,15 +855,6 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
 }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
 document.querySelectorAll(".fade").forEach(el => io.observe(el));
-
-let n = 251;
-setInterval(() => {
-  if (Math.random() > 0.9) {
-    n++;
-    const el = document.getElementById("counter");
-    if (el) el.textContent = n;
-  }
-}, 3800);
 
 function handleForm(emailId, btnId) {
   const input = document.getElementById(emailId);
