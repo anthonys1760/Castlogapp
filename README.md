@@ -168,6 +168,7 @@ Single `index.html` — no build step, no dependencies, no framework.
 - `Images/my_spots_v2.png` — Spots map
 - `Images/lake_detail.png` — Lake Intelligence screen
 - `Images/ai_patterns.png` — AI Pattern Intelligence screen (real app screenshot)
+- `Images/offline_journal.png` — Today's Haul in offline mode, used in the "Built for backcountry" section
 - `CLAUDE.md` — landing-page voice / conversion rules (read this when editing copy)
 - `REDDIT_PLAYBOOK.md` — post templates + subreddit strategy
 
