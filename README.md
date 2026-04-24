@@ -14,7 +14,7 @@ This repo is the pre-launch landing page for CastLog, a privacy-first fishing jo
 Logging friction is the #1 reason anglers abandon fishing apps — not missing features. The moment between landing a fish and logging it is the worst possible time to use a phone: wet hands, flopping fish, ~10 seconds before release. Apps that need 6+ taps and 8 fields get abandoned after trip two.
 
 ### Conversion hooks (ordered by impact)
-1. **Logging friction** — primary. "Under 15 seconds, 3 taps." Most universal pain, highest conversion.
+1. **Logging friction** — primary. "Under 5 seconds, 3 taps." Most universal pain, highest conversion.
 2. **Aggressive paywalls** — Fishbrain charges ~$80/year and locked features users already had. "Free forever for core features."
 3. **Offline / no-signal** — the places worth fishing rarely have cell service; Fishbrain genuinely fails offline. Surfaced in a dedicated "Built for backcountry" section, reinforced in hero / Journal bullet / comparison row / CTA perks. Primary hook across Reddit post templates.
 4. **Spot burning / privacy** — real pain, but already table stakes (competitors offer private spots). Used as a trust signal, not a headline.
@@ -27,7 +27,7 @@ Logging friction is the #1 reason anglers abandon fishing apps — not missing f
 - **Fishbrain** — dominant, widely disliked post-acquisition. Paywalls ($80/yr). GPS strips photo metadata. Broken social feed.
 - **FishAngler** — 1M+ downloads, 4.8★, free. Biggest direct threat — "Fishbrain but free."
 - **Anglers' Log** — $12/yr, clean UX. Proves anglers pay for simplicity.
-- **CastLog edge:** speed (15-sec log) + personalized AI pattern intelligence + no paywall on core — not privacy alone.
+- **CastLog edge:** speed (5-sec log) + personalized AI pattern intelligence + no paywall on core — not privacy alone.
 
 ---
 
@@ -35,7 +35,7 @@ Logging friction is the #1 reason anglers abandon fishing apps — not missing f
 
 ### 1. The Journal (shipping — primary screen)
 Fast catch logging built for wet hands and one-handed use.
-- **3 taps, under 15 seconds** per catch.
+- **3 taps, under 5 seconds** per catch.
 - **Auto-captured conditions:** GPS, weather, water temp, barometric pressure, moon phase, time of day — no manual entry.
 - **Today's Haul view** — catch list with species, date/time, tags (saltwater/freshwater, game fish, popular, invasive, etc.), thumbnail photo.
 - **Personal stats** — total catches, personal best (lb/oz), species count, per-bait / per-weather / per-time breakdowns.

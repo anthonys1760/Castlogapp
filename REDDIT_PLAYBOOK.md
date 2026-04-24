@@ -101,7 +101,7 @@ r/Saltwater_Fishing: https://castlogapp.com?utm_source=reddit&utm_medium=social&
 **Body:**
 > I've been using CastLog for the past few months as my primary catch logging tool. Main thing I was testing: can I actually log a catch before the fish goes back?
 >
-> Results: 3 taps, under 15 seconds. Weather, water temp, and barometric pressure pull automatically. Works with zero cell signal.
+> Results: 3 taps, under 5 seconds. Weather, water temp, and barometric pressure pull automatically. Works with zero cell signal.
 >
 > Coming from Fishbrain where I couldn't even view my own catch locations without a $13/month sub, the difference is pretty stark. Data is fully exportable any time.
 >
@@ -117,7 +117,7 @@ r/Saltwater_Fishing: https://castlogapp.com?utm_source=reddit&utm_medium=social&
 >
 > Wet hands. Fish flopping. Ten seconds before it needs to go back. That's when every app asks you to fill out 8 fields.
 >
-> I built CastLog to fix exactly that. Three taps, under 15 seconds, conditions log themselves. Works fully offline — because most of my best spots don't have signal. And your data is always yours, always exportable. No Fishbrain-style paywalls ever.
+> I built CastLog to fix exactly that. Three taps, under 5 seconds, conditions log themselves. Works fully offline — because most of my best spots don't have signal. And your data is always yours, always exportable. No Fishbrain-style paywalls ever.
 >
 > Looking for early testers from across different fishing styles — bass, walleye, fly, inshore, doesn't matter. Comment below if you want in and I'll send you the link.
 

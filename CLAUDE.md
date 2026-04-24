@@ -8,7 +8,7 @@ A pre-launch validation landing page for CastLog, a privacy-first fishing journa
 
 This is the conversion-driving insight backed by market research. Anglers don't quit logging because apps lack features — they quit because the moment between landing a fish and logging it is the worst possible time to use a phone. Wet hands, flopping fish, 10 seconds before release. Apps that require 6+ taps and 8 fields get abandoned after trip 2.
 
-**Key stat to reinforce in copy:** "Under 15 seconds" and "3 taps" are the concrete claims to anchor to.
+**Key stat to reinforce in copy:** "Under 5 seconds" and "3 taps" are the concrete claims to anchor to.
 
 The through-line: **fast logging → more data → better patterns → you catch more fish.** Speed is the product. Intelligence is the payoff.
 
@@ -32,7 +32,7 @@ The through-line: **fast logging → more data → better patterns → you catch
 - **Fishbrain** — main competitor. Acquired by Aspira (sells license data). Aggressive paywall ($80/year). Broken feed. GPS strips photo metadata. Widely disliked but dominant.
 - **FishAngler** — 1M+ downloads, 4.8 stars, free. Biggest direct threat. Won by being "Fishbrain but free."
 - **Anglers' Log** — $12/year, praised for clean design and no learning curve. Shows anglers will pay for simplicity.
-- **Differentiation:** CastLog wins on speed (15-second log), AI pattern intelligence, and no paywall — not just privacy.
+- **Differentiation:** CastLog wins on speed (5-second log), AI pattern intelligence, and no paywall — not just privacy.
 
 ## Reddit/Facebook Posting Strategy
 Lead with the frustration, not the app:
