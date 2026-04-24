@@ -40,15 +40,7 @@ Fast catch logging built for wet hands and one-handed use.
 - **Personal stats** — total catches, personal best (lb/oz), species count, per-bait / per-weather / per-time breakdowns.
 - **Quote hook:** "I gave up after three trips because logging felt like homework."
 
-### 2. Knots Library (shipping)
-Offline-ready, searchable knot reference built for field use.
-- **Searchable** by name or technique; filterable by line type, application, angler rating.
-- **Community-rated** — top-rated knots surface first.
-- **Fully offline** — entire library works without signal.
-- **Designed for wet hands / low light** — font size, tap targets, step layout.
-- Named knots referenced: Palomar, Improved Clinch, Blood Knot, Double Uni.
-
-### 3. Fish ID (shipping)
+### 2. Fish ID (shipping)
 AI-powered species identification tied into regulations and the catch log.
 - **94% accuracy** with confidence scoring across **300+ species**.
 - **GPS-scoped regulations** auto-pulled at identification: min size, bag limit, season, license requirements — specific to the water body, not generic state data.
@@ -56,7 +48,7 @@ AI-powered species identification tied into regulations and the catch log.
 - **Private by default** — ID locations never harvested or fed to a community map.
 - **Result card UI:** species photo, common + scientific name, tags (freshwater/game fish/popular/widespread), regulation panel, Log Catch / Release / Retry CTAs.
 
-### 4. My Spots / Map (shipping)
+### 3. My Spots / Map (shipping)
 Private-by-default spot tracking.
 - **Pinned spots on-device**; not uploaded, not aggregated, not shared publicly.
 - **Save Offline** option per-region for no-signal fishing.
@@ -64,7 +56,7 @@ Private-by-default spot tracking.
 - **Species-per-spot tracking** — e.g., "8 spots pinned · 7 species logged here."
 - **No GPS harvesting from photos** — EXIF scrubbed.
 
-### 5. Lake Intelligence (shipping)
+### 4. Lake Intelligence (shipping)
 Per-lake decision layer shown when you tap any lake.
 - **Bite Score (0–100)** — synthesizes weather, pressure trend, water temp, and season into a single "is today worth it" number. This is the distinctive hook — Fishbrain does not offer an equivalent.
 - **Live weather + barometric trend** — current conditions pulled by GPS, including inHg.
@@ -73,7 +65,7 @@ Per-lake decision layer shown when you tap any lake.
 - **Inline CTAs** — Directions + Log Catch direct from the lake page.
 - **Quote hook:** "I used to check 4 apps before every trip."
 
-### 6. AI Pattern Intelligence (roadmap — "Building next")
+### 5. AI Pattern Intelligence (roadmap — "Building next")
 Personal pattern engine from logged catches + captured conditions. NOT generic fishing tips; NOT crowd-sourced data.
 - **Automatic condition capture** on every catch (see Journal above).
 - **Statistical correlation** after ~25+ catches — surfaces which bait, time, pressure trend, etc. work for *this user* on *this water*.
@@ -84,7 +76,7 @@ Personal pattern engine from logged catches + captured conditions. NOT generic f
   - "You've never caught a keeper here after 2pm" — 8 visits, pattern emerging
 - **Positioning:** Early waitlist members get 3 months Pro Insights free at launch and start accruing pattern history immediately.
 
-### 7. Other roadmap items
+### 6. Other roadmap items
 - Voice logging
 - Apple Watch support
 
@@ -114,7 +106,7 @@ Personal pattern engine from logged catches + captured conditions. NOT generic f
 - **Primary text:** warm off-white `#f5f2e8`
 - **Muted text:** warm gray `#7a7668`
 - **Amber** (primary CTAs, hero numbers, brand): `#e8a833`
-- **Green** (positive indicators, Knots): `#6aab56`
+- **Green** (positive indicators): `#6aab56`
 - **Blue** (neutral data, Fish ID, Lake): `#5ba3c9`
 - **Red** (problem callouts, betrayal timeline): reserved accent
 - **Cards:** `#141412`, 1px subtle border, 14px radius, 3px colored left border for data cards
@@ -137,7 +129,7 @@ Personal pattern engine from logged catches + captured conditions. NOT generic f
 
 1. **Hero** — waitlist signup + animated iPhone stack (Journal / Fish ID / My Spots)
 2. **Problem Section** — four pain points with real user quotes (logging speed, data held hostage, offline failure, app-juggling)
-3. **Feature sections** — Journal → Knots Library → Fish ID → Lake Intelligence → AI Pattern Intelligence (roadmap)
+3. **Feature sections** — Journal → Fish ID → Lake Intelligence → AI Pattern Intelligence (roadmap)
 4. **Betrayal Timeline** — Fishbrain's SoftBank → Aspira trajectory (2018 / Mar 2021 / Dec 2021 / Nov 2023)
 5. **Comparison Table** — CastLog vs. Fishbrain
 6. **Real Fishbrain Reviews** — 1–2★ App Store / Google Play quotes
@@ -171,7 +163,6 @@ Single `index.html` — no build step, no dependencies, no framework.
 ### Key files
 - `index.html` — entire landing page
 - `Images/journal_main.png` — Today's Haul screen (Journal)
-- `Images/knots_library.png` — Knots Library
 - `Images/ai_fish_id_recreation_v5.png` — Fish ID result
 - `Images/my_spots_v2.png` — Spots map
 - `Images/lake_detail.png` — Lake Intelligence screen

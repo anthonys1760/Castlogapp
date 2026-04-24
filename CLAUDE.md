@@ -43,9 +43,9 @@ Target subreddits: r/fishing, r/bassfishing, r/flyfishing, r/Fishing_Gear
 
 ## Current Screens (4)
 1. **Journal** — hero screen, leads all copy. Fast logging + AI patterns.
-2. **Knots Library** — secondary utility feature. Searchable, offline, wet-hands friendly.
-3. **Fish ID** — AI identification. Good demo feature but "other apps have it" acknowledged in copy.
-4. **My Spots / Profile** — shown in hero stack.
+2. **Fish ID** — AI identification. Good demo feature but "other apps have it" acknowledged in copy.
+3. **My Spots / Profile** — shown in hero stack. Private-by-default spot tracking.
+4. **Lake Intelligence** — Bite Score, water temp, AI lake overview. Sits between Fish ID and AI Patterns.
 
 ## Copy Rules
 - Concrete over abstract: "3 taps" not "simple logging"
