@@ -16,8 +16,9 @@ Logging friction is the #1 reason anglers abandon fishing apps — not missing f
 ### Conversion hooks (ordered by impact)
 1. **Logging friction** — primary. "Under 15 seconds, 3 taps." Most universal pain, highest conversion.
 2. **Aggressive paywalls** — Fishbrain charges ~$80/year and locked features users already had. "Free forever for core features."
-3. **Spot burning / privacy** — real pain, but already table stakes (competitors offer private spots). Used as a trust signal, not a headline.
-4. **Social feed nobody wants** — niche frustration, low priority.
+3. **Offline / no-signal** — the places worth fishing rarely have cell service; Fishbrain genuinely fails offline. Surfaced in a dedicated "Built for backcountry" section, reinforced in hero / Journal bullet / comparison row / CTA perks. Primary hook across Reddit post templates.
+4. **Spot burning / privacy** — real pain, but already table stakes (competitors offer private spots). Used as a trust signal, not a headline.
+5. **Social feed nobody wants** — niche frustration, low priority.
 
 ### Through-line
 **Fast logging → more data → better patterns → more fish.** Speed is the product. Personalized AI pattern intelligence is the payoff.
@@ -129,7 +130,7 @@ Personal pattern engine from logged catches + captured conditions. NOT generic f
 
 1. **Hero** — waitlist signup + animated iPhone stack (Journal / Fish ID / My Spots)
 2. **Problem Section** — four pain points with real user quotes (logging speed, data held hostage, offline failure, app-juggling)
-3. **Feature sections** — Journal → Fish ID → Lake Intelligence → AI Pattern Intelligence (roadmap)
+3. **Feature sections** — Journal → Fish ID → Lake Intelligence → AI Pattern Intelligence (roadmap) → Offline ("Built for backcountry" full-width section)
 4. **Betrayal Timeline** — Fishbrain's SoftBank → Aspira trajectory (2018 / Mar 2021 / Dec 2021 / Nov 2023)
 5. **Comparison Table** — CastLog vs. Fishbrain
 6. **Real Fishbrain Reviews** — 1–2★ App Store / Google Play quotes

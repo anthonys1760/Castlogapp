@@ -15,8 +15,9 @@ The through-line: **fast logging → more data → better patterns → you catch
 ## Pain Points (Ranked by Conversion Impact)
 1. **Logging friction** — primary hook. "I gave up after three trips because logging felt like homework." Most universal, most felt, most conversion-worthy.
 2. **Aggressive paywalls** — Fishbrain charges $80/year and locked features users already had. Strong secondary hook. "Free forever for core features" is a genuine differentiator.
-3. **Spot burning / privacy** — real pain point but already offered by competitors. Table stakes, not a differentiator. Use as a trust signal, not a headline.
-4. **Social feed nobody wants** — niche frustration, lower priority.
+3. **Offline / no-signal** — the places worth fishing rarely have cell service, and Fishbrain genuinely fails offline. Surfaced in a dedicated section ("Your best fishing is out of range") and reinforced in the hero, Journal bullets, comparison row, and CTA perks. Primary hook across Reddit post templates.
+4. **Spot burning / privacy** — real pain point but already offered by competitors. Table stakes, not a differentiator. Use as a trust signal, not a headline.
+5. **Social feed nobody wants** — niche frustration, lower priority.
 
 ## Positioning
 - Lead with: logging speed and simplicity
