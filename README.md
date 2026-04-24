@@ -166,7 +166,7 @@ Single `index.html` — no build step, no dependencies, no framework.
 - `Images/ai_fish_id_recreation_v5.png` — Fish ID result
 - `Images/my_spots_v2.png` — Spots map
 - `Images/lake_detail.png` — Lake Intelligence screen
-- `Images/ai_patterns.jpeg` — AI Pattern Intelligence mockup (AI-generated)
+- `Images/ai_patterns.png` — AI Pattern Intelligence screen (real app screenshot)
 - `CLAUDE.md` — landing-page voice / conversion rules (read this when editing copy)
 - `REDDIT_PLAYBOOK.md` — post templates + subreddit strategy
 
