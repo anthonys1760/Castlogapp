@@ -427,19 +427,6 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .cmp-row .feat{color:var(--text-dim)}.cmp-row .yes{color:var(--green-bright);font-size:16px}
 .cmp-row .no{color:var(--red);font-size:16px}.cmp-row .partial{color:var(--amber);font-size:12px;font-family:"DM Mono",monospace}
 
-/* REVIEWS */
-.reviews-wrap{padding:110px 48px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.reviews-inner{max-width:1160px;margin:0 auto}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-.review-card{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:16px}
-.review-stars{color:var(--amber);font-size:14px;letter-spacing:2px}
-.review-text{font-size:15px;line-height:1.65;color:var(--text);font-style:italic;flex:1}
-.review-text em{color:var(--amber);font-style:normal;font-weight:600}
-.review-meta{display:flex;flex-direction:column;gap:3px}
-.review-author{font-family:"DM Mono",monospace;font-size:11px;color:var(--text-dim);letter-spacing:.06em}
-.review-source{font-family:"DM Mono",monospace;font-size:10px;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase}
-@media(max-width:768px){.reviews-grid{grid-template-columns:1fr}.reviews-wrap{padding:70px 20px}}
-
 /* QUOTE */
 .quote-wrap{padding:180px 48px 150px;text-align:center;position:relative;overflow:hidden}
 .quote-bg{position:absolute;top:40px;left:50%;transform:translateX(-50%);font-family:"Playfair Display",serif;font-size:280px;line-height:1;color:var(--border);pointer-events:none;z-index:0;opacity:.45}
@@ -782,40 +769,6 @@ footer a{color:var(--text-muted);text-decoration:none}
     <div class="cmp-row"><div class="feat">Works fully offline</div><div class="yes">✓</div><div class="no">✗ Requires signal</div></div>
   </div>
 </div>
-
-<!-- REVIEWS -->
-<section class="reviews-wrap">
-  <div class="reviews-inner">
-    <div class="sec-label fade" style="color:var(--red);text-align:center">REAL FISHBRAIN APP STORE REVIEWS</div>
-    <h2 class="sec-title fade d1" style="text-align:center;margin-top:10px">What anglers are saying<br>about <span style="color:var(--text-dim);text-decoration:line-through">Fishbrain</span> right now.</h2>
-    <div class="reviews-grid">
-      <div class="review-card fade d1">
-        <div class="review-stars">★★☆☆☆</div>
-        <p class="review-text">"10 years ago you could access almost every feature without issue. Now unless you pay $13 a month, <em>you can't even view where on the water a catch was made.</em>"</p>
-        <div class="review-meta">
-          <span class="review-author">PJ112</span>
-          <span class="review-source">Fishbrain · Google Play · Nov 2025</span>
-        </div>
-      </div>
-      <div class="review-card fade d2">
-        <div class="review-stars">★☆☆☆☆</div>
-        <p class="review-text">"All of that was free! But now <em>there's a paywall on any piece of information you want to see.</em> The app used to be amazing."</p>
-        <div class="review-meta">
-          <span class="review-author">App Store User</span>
-          <span class="review-source">Fishbrain · App Store · 2025</span>
-        </div>
-      </div>
-      <div class="review-card fade d3">
-        <div class="review-stars">★★★☆☆</div>
-        <p class="review-text">"3 day trial turns into 1 year of uselessness. <em>Almost $90 down, my refund request was denied twice.</em> Glad I could waste money I don't have."</p>
-        <div class="review-meta">
-          <span class="review-author">Victoria U.</span>
-          <span class="review-source">Fishbrain · Google Play · Mar 2026</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- QUOTE -->
 <section class="quote-wrap">
