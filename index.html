@@ -392,6 +392,25 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .btext{font-size:14px;color:var(--text-dim);line-height:1.6}
 .btext strong{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:15px}
 
+/* VOICE PARSE — static breakdown of voice → structured data */
+.voice-parse{background:var(--card);border:1px solid var(--border2);border-radius:14px;display:flex;flex-direction:column;border-left:3px solid var(--amber);max-width:420px;width:100%;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.vp-section{padding:18px 22px}
+.vp-section + .vp-section{border-top:1px solid var(--border)}
+.vp-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.vp-label.amber{color:var(--amber)}
+.vp-label.green{color:var(--green-bright)}
+.vp-transcript{font-family:"DM Sans",sans-serif;font-size:17px;color:var(--amber);font-style:italic;line-height:1.45;letter-spacing:-.005em}
+.vp-fields{display:flex;flex-direction:column;gap:11px}
+.vp-field{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.vp-key{font-family:"DM Mono",monospace;font-size:10.5px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;flex-shrink:0}
+.vp-val{font-family:"DM Mono",monospace;font-size:13px;color:var(--text);font-weight:500;text-align:right}
+.vp-val.amber{color:var(--amber)}
+.vp-live{display:inline-flex;align-items:center;gap:6px;color:var(--green-bright);font-family:"DM Mono",monospace;font-size:12px;font-weight:500}
+.vp-dot{width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex-shrink:0;box-shadow:0 0 6px rgba(106,171,86,.55);animation:vp-pulse 2s ease-in-out infinite}
+@keyframes vp-pulse{0%,100%{opacity:.85}50%{opacity:.4}}
+.vp-saved{display:flex;align-items:center;gap:10px;font-family:"DM Mono",monospace;font-size:12px;color:var(--green-bright);background:rgba(106,171,86,.06);padding:14px 22px;border-top:1px solid var(--border)}
+.vp-check{width:18px;height:18px;border-radius:50%;background:var(--green-bright);color:#0c0d0a;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+
 /* SPOTS TRIO */
 .spots-trio{position:relative;height:520px;width:100%}
 .trio-phone{position:absolute;transition:transform .3s ease}
@@ -580,13 +599,29 @@ footer a{color:var(--text-muted);text-decoration:none}
 <!-- FEATURE 1: VOICE LOGGING -->
 <div class="feat-row">
   <div class="feat-phone-wrap fade">
-    <div class="iphone" style="transform:rotate(-2deg)">
-      <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
-      <div class="iphone-screen">
-        <video autoplay muted loop playsinline preload="metadata" poster="Videos/voice_logging_poster.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
-          <source src="Videos/voice_logging.webm" type="video/webm">
-          <source src="Videos/voice_logging.mp4" type="video/mp4">
-        </video>
+    <div class="voice-parse">
+      <div class="vp-section">
+        <div class="vp-label amber">🎙&nbsp; You said</div>
+        <div class="vp-transcript">"Three pound largemouth on a spinnerbait"</div>
+      </div>
+      <div class="vp-section">
+        <div class="vp-label">↓ Parsed from voice</div>
+        <div class="vp-fields">
+          <div class="vp-field"><span class="vp-key">Species</span><span class="vp-val amber">Largemouth Bass</span></div>
+          <div class="vp-field"><span class="vp-key">Weight</span><span class="vp-val amber">3 lb 0 oz</span></div>
+          <div class="vp-field"><span class="vp-key">Rig</span><span class="vp-val amber">Spinnerbait</span></div>
+        </div>
+      </div>
+      <div class="vp-section">
+        <div class="vp-label green">↓ Auto-captured in background</div>
+        <div class="vp-fields">
+          <div class="vp-field"><span class="vp-key">GPS</span><span class="vp-live"><span class="vp-dot"></span>44.8°N · 92.6°W</span></div>
+          <div class="vp-field"><span class="vp-key">Weather</span><span class="vp-live"><span class="vp-dot"></span>62°F · Cloudy</span></div>
+          <div class="vp-field"><span class="vp-key">Pressure</span><span class="vp-live"><span class="vp-dot"></span>30.12 ↘ Falling</span></div>
+        </div>
+      </div>
+      <div class="vp-saved">
+        <span class="vp-check">✓</span>Saved to journal · 2.1s end-to-end
       </div>
     </div>
   </div>
