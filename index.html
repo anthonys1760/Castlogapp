@@ -392,6 +392,19 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .btext{font-size:14px;color:var(--text-dim);line-height:1.6}
 .btext strong{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:15px}
 
+/* VOICE DEMO */
+.voice-demo{background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:28px 32px;display:flex;flex-direction:column;gap:18px;border-left:3px solid var(--amber);max-width:420px}
+.voice-wave{display:flex;align-items:flex-end;justify-content:center;gap:4px;height:36px}
+.wave-bar{width:3px;border-radius:2px;background:var(--amber);height:28px;transform-origin:bottom;animation:wave .9s ease-in-out infinite;opacity:.8}
+@keyframes wave{0%,100%{transform:scaleY(.12);opacity:.3}50%{transform:scaleY(1);opacity:.9}}
+.voice-transcript{font-family:"DM Mono",monospace;font-size:13px;color:var(--amber);font-style:italic;padding:10px 14px;background:rgba(232,168,51,.07);border-radius:7px}
+.voice-fields{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border);padding-top:16px}
+.voice-field{display:flex;justify-content:space-between;align-items:center}
+.vf-key{font-family:"DM Mono",monospace;font-size:10.5px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase}
+.vf-val{font-family:"DM Mono",monospace;font-size:12px;color:var(--text)}
+.vf-live{display:inline-flex;align-items:center;gap:5px;color:var(--green-bright)}
+.vf-dot{width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex-shrink:0}
+
 /* SPOTS TRIO */
 .spots-trio{position:relative;height:520px;width:100%}
 .trio-phone{position:absolute;transition:transform .3s ease}
@@ -597,10 +610,51 @@ footer a{color:var(--text-muted);text-decoration:none}
   </div>
 </div>
 
-<!-- FEATURE 3: FISH ID -->
+<!-- FEATURE 2: VOICE LOGGING -->
 <div class="feat-row-rev">
   <div class="feat-phone-wrap fade">
-    <div class="iphone" style="transform:rotate(2deg)">
+    <div class="voice-demo">
+      <div class="voice-wave">
+        <div class="wave-bar" style="animation-delay:0s"></div>
+        <div class="wave-bar" style="animation-delay:.075s"></div>
+        <div class="wave-bar" style="animation-delay:.15s"></div>
+        <div class="wave-bar" style="animation-delay:.225s"></div>
+        <div class="wave-bar" style="animation-delay:.3s"></div>
+        <div class="wave-bar" style="animation-delay:.375s"></div>
+        <div class="wave-bar" style="animation-delay:.45s"></div>
+        <div class="wave-bar" style="animation-delay:.525s"></div>
+        <div class="wave-bar" style="animation-delay:.6s"></div>
+        <div class="wave-bar" style="animation-delay:.675s"></div>
+        <div class="wave-bar" style="animation-delay:.75s"></div>
+        <div class="wave-bar" style="animation-delay:.825s"></div>
+      </div>
+      <div class="voice-transcript">🎙&nbsp; "Three pound largemouth, spinnerbait"</div>
+      <div class="voice-fields">
+        <div class="voice-field"><span class="vf-key">Species</span><span class="vf-val">Largemouth Bass</span></div>
+        <div class="voice-field"><span class="vf-key">Weight</span><span class="vf-val">3 lb 0 oz</span></div>
+        <div class="voice-field"><span class="vf-key">Rig</span><span class="vf-val">Spinnerbait</span></div>
+        <div class="voice-field"><span class="vf-key">GPS</span><span class="vf-val vf-live"><span class="vf-dot"></span>Captured</span></div>
+        <div class="voice-field"><span class="vf-key">Conditions</span><span class="vf-val vf-live"><span class="vf-dot"></span>Captured</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-text">
+    <div class="screen-badge fade"><div class="dot" style="background:var(--amber)"></div>Screen 02 — Voice Logging</div>
+    <div class="sec-label amber fade d1">THE FASTEST LOG</div>
+    <h2 class="sec-title fade d2">Say the fish.<br><em style="color:var(--amber);font-style:italic">Done.</em></h2>
+    <p class="feat-desc fade d2">No taps. No typing. No dry hands required. Hold the fish, say what you caught, and CastLog fills in the rest — species, weight, bait, GPS, conditions. The full log. Zero friction.</p>
+    <ul class="bullet-list fade d3">
+      <li><div class="bicon bi-a">⚡</div><div class="btext"><strong>One sentence. Full log.</strong>Say "3-pound largemouth on a spinnerbait" and CastLog parses species, weight, and rig automatically. Conditions fill in on their own.</div></li>
+      <li><div class="bicon bi-a">🎙️</div><div class="btext"><strong>Works with gloves, one hand, eyes on the water.</strong>Designed for the exact moment you're holding a fish. No screen interaction required until you're ready to confirm.</div></li>
+      <li><div class="bicon bi-a">📶</div><div class="btext"><strong>Offline voice logging.</strong>No signal needed — voice captures locally and syncs when you're back in range. Same as every other log.</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- FEATURE 3: FISH ID -->
+<div class="feat-row">
+  <div class="feat-phone-wrap fade">
+    <div class="iphone" style="transform:rotate(-2deg)">
       <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
       <div class="iphone-screen">
         <img src="Images/ai_fish_id_recreation_v5.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
@@ -608,7 +662,7 @@ footer a{color:var(--text-muted);text-decoration:none}
     </div>
   </div>
   <div class="feat-text">
-    <div class="screen-badge fade d1"><div class="dot" style="background:var(--blue)"></div>Screen 02 — Fish ID</div>
+    <div class="screen-badge fade d1"><div class="dot" style="background:var(--blue)"></div>Screen 03 — Fish ID</div>
     <div class="sec-label blue fade d1">THE SPEED STORY</div>
     <h2 class="sec-title fade d2">Yes, other apps have<br>Fish ID. <em style="color:var(--amber);font-style:italic">Not like this.</em></h2>
     <p class="feat-desc fade d2">Fish ID is not new. But CastLog's is faster, more accurate, and connected to something actually useful: your exact local regulations, pulled by GPS — right when you need them.</p>
@@ -621,9 +675,9 @@ footer a{color:var(--text-muted);text-decoration:none}
 </div>
 
 <!-- FEATURE 4: LAKE INTELLIGENCE -->
-<div class="feat-row">
+<div class="feat-row-rev">
   <div class="feat-phone-wrap fade">
-    <div class="iphone" style="transform:rotate(-2deg)">
+    <div class="iphone" style="transform:rotate(2deg)">
       <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
       <div class="iphone-screen">
         <img src="Images/lake_detail.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
@@ -631,7 +685,7 @@ footer a{color:var(--text-muted);text-decoration:none}
     </div>
   </div>
   <div class="feat-text">
-    <div class="screen-badge fade"><div class="dot" style="background:var(--blue)"></div>Screen 03 — Lake Intelligence</div>
+    <div class="screen-badge fade"><div class="dot" style="background:var(--blue)"></div>Screen 04 — Lake Intelligence</div>
     <div class="sec-label blue fade d1">KNOW THE WATER</div>
     <h2 class="sec-title fade d2">Know the bite<br><em style="color:var(--blue);font-style:italic">before</em> you launch the boat.</h2>
     <p class="feat-desc fade d2">Tap any lake and get the read — today's Bite Score, live weather, seasonal water temp, and the geology of what you're actually fishing. Less guesswork, less tab-hopping, more time on the right water.</p>
@@ -646,7 +700,7 @@ footer a{color:var(--text-muted);text-decoration:none}
 <!-- AI PATTERN INTELLIGENCE -->
 <div class="feat-row">
   <div class="feat-text">
-    <div class="screen-badge fade"><div class="dot" style="background:var(--amber)"></div>Screen 04 — AI Patterns</div>
+    <div class="screen-badge fade"><div class="dot" style="background:var(--amber)"></div>Screen 05 — AI Patterns</div>
     <div class="sec-label amber fade d1">AI PATTERN INTELLIGENCE</div>
     <h2 class="sec-title fade d2">The more you log,<br>the more it knows <em style="color:var(--amber);font-style:italic">you.</em></h2>
     <p class="feat-desc fade d2">Not generic fishing tips. Not crowd-sourced data. Your personal pattern engine — built from your catches and your conditions alone.</p>
@@ -700,7 +754,7 @@ footer a{color:var(--text-muted);text-decoration:none}
     <div class="perk"><div class="perk-check">✓</div><span>Your data — exportable, always free</span></div>
     <div class="perk"><div class="perk-check">✓</div><span>3 months Pro Insights free</span></div>
   </div>
-  <div class="roadmap-teaser fade d4"><span class="roadmap-badge">On the roadmap</span> Voice logging · Apple Watch support</div>
+  <div class="roadmap-teaser fade d4"><span class="roadmap-badge">On the roadmap</span> Apple Watch support</div>
 </section>
 
 <footer>
