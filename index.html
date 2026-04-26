@@ -450,33 +450,33 @@ footer a{color:var(--text-muted);text-decoration:none}
   .cta-perks{flex-direction:column;align-items:center;gap:14px}
   footer{flex-direction:column;gap:10px;text-align:center}
 
-  /* ── Hero phone stack: three overlapping phones (matches desktop) ── */
-  .hero-phones{height:520px;position:relative;overflow:visible}
+  /* ── Hero phone stack: single phone on mobile, sized to match feature mockups ── */
+  .hero-phones{height:640px;position:relative;overflow:visible}
   .phone-hero-wrap{position:absolute}
   .ph1,.ph3{display:none}
   .ph2{left:50%;transform:translateX(-50%) rotate(0deg) translateY(0);z-index:3}
 
-  /* ── Spots trio: three overlapping phones (matches desktop) ── */
+  /* ── Spots trio: three overlapping phones, smaller so they fit side-by-side ── */
   .spots-trio{height:520px;width:100%;position:relative;overflow:visible}
   .trio-phone{position:absolute}
   .tp1,.tp3{display:block}
   .tp2{left:50%;transform:translateX(-50%);top:0;z-index:3}
 
-  /* ── iPhone frame sizing ── */
-  .iphone{width:230px}
-  .iphone-screen{height:460px}
-
-  /* ── Dynamic Island — proportional for 230px phone ── */
-  .iphone-screen::before{width:86px;height:17px;top:10px;border-radius:9px}
-
-  /* ── Status bar — adjusted for smaller DI ── */
+  /* ── Default iPhone frame on mobile: large showcase size, matches feature mockups ── */
+  .iphone{width:300px}
+  .iphone-screen{height:600px}
+  .feat-phone-wrap .iphone{width:300px}
+  .feat-phone-wrap .iphone-screen{height:600px}
   .status-bar{height:46px;padding-top:20px}
 
-  /* ── Side hardware buttons — scaled to frame ── */
-  .iphone-btn-vol-up{top:80px;height:40px}
-  .iphone-btn-vol-down{top:132px;height:40px}
-  .iphone-btn-silent{top:44px;height:22px}
-  .iphone::after{top:104px;height:55px}
+  /* ── Spots trio overrides: smaller frames + scaled hardware ── */
+  .spots-trio .iphone{width:230px}
+  .spots-trio .iphone-screen{height:460px}
+  .spots-trio .iphone-screen::before{width:86px;height:17px;top:10px;border-radius:9px}
+  .spots-trio .iphone-btn-vol-up{top:80px;height:40px}
+  .spots-trio .iphone-btn-vol-down{top:132px;height:40px}
+  .spots-trio .iphone-btn-silent{top:44px;height:22px}
+  .spots-trio .iphone::after{top:104px;height:55px}
 }
 </style>
 </head>
