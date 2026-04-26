@@ -420,20 +420,6 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .tp3{right:0;top:30px;transform:rotate(3.5deg);z-index:2}
 
 
-/* COMPARE */
-.cmp-wrap{padding:110px 48px}
-.cmp-table{max-width:840px;margin:52px auto 0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.cmp-head{display:grid;grid-template-columns:2.2fr 1fr 1fr;background:var(--card);border-bottom:1px solid var(--border)}
-.cmp-head div{padding:15px 22px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.cmp-head .ca{color:var(--amber)}.cmp-head .cf{color:var(--red)}
-.cmp-row{display:grid;grid-template-columns:2.2fr 1fr 1fr;border-bottom:1px solid var(--border);transition:background .15s}
-.cmp-row:last-child{border-bottom:none}
-.cmp-row:hover{background:rgba(255,255,255,.018)}
-.cmp-row div{padding:14px 22px;font-size:14px;display:flex;align-items:center}
-.cmp-row .feat{color:var(--text-dim)}.cmp-row .yes{color:var(--green-bright);font-size:16px}
-.cmp-row .no{color:var(--red);font-size:16px}.cmp-row .partial{color:var(--amber);font-size:12px;font-family:"DM Mono",monospace}
-
-
 /* FINAL CTA */
 .cta-wrap{padding:130px 48px;background:var(--bg2);border-top:1px solid var(--border);text-align:center}
 .cta-wrap h2{font-family:"Playfair Display",serif;font-size:clamp(30px,4.5vw,58px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px}
@@ -462,7 +448,7 @@ footer a{color:var(--text-muted);text-decoration:none}
   nav{padding:14px 20px}.nav-badge{display:none}
   .hero,.feat-row,.feat-row-rev{grid-template-columns:1fr;padding:110px 20px 60px;gap:48px}
   .feat-row,.feat-row-rev{padding:70px 20px;direction:ltr}
-  .section,.cmp-wrap,.cta-wrap{padding-left:20px;padding-right:20px}
+  .section,.cta-wrap{padding-left:20px;padding-right:20px}
   .problem-grid{grid-template-columns:1fr}
   .feat-row-alt .feat-inner{grid-template-columns:1fr;padding:70px 20px;gap:48px}
   .hero-form,.cta-form{flex-direction:column}
@@ -727,27 +713,6 @@ footer a{color:var(--text-muted);text-decoration:none}
         <img src="Images/ai_patterns.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
       </div>
     </div>
-  </div>
-</div>
-
-<hr class="div">
-
-<!-- COMPARE -->
-<div class="cmp-wrap">
-  <div class="section-inner" style="text-align:center"><div class="sec-label fade" style="color:var(--text-muted)">THE HONEST COMPARISON</div><h2 class="sec-title fade d1" style="margin-bottom:0">CastLog vs. Fishbrain</h2></div>
-  <div class="cmp-table fade d2">
-    <div class="cmp-head"><div>Feature</div><div class="ca">CastLog</div><div class="cf">Fishbrain (post-acquisition)</div></div>
-    <div class="cmp-row"><div class="feat">Private spots by default</div><div class="yes">✓</div><div class="no">✗</div></div>
-    <div class="cmp-row"><div class="feat">No GPS harvesting from photos</div><div class="yes">✓</div><div class="no">✗</div></div>
-    <div class="cmp-row"><div class="feat">Core logging — free forever</div><div class="yes">✓</div><div class="no">✗ ($9.95/mo)</div></div>
-    <div class="cmp-row"><div class="feat">AI pattern insights (personalized)</div><div class="yes">✓ Personalized to you</div><div class="partial">Generic only</div></div>
-    <div class="cmp-row"><div class="feat">AI fish identification</div><div class="yes">✓ Faster</div><div class="yes">✓</div></div>
-    <div class="cmp-row"><div class="feat">Inline local regs by GPS</div><div class="yes">✓</div><div class="partial">Pro only</div></div>
-    <div class="cmp-row"><div class="feat">Owned by anglers, not a corp</div><div class="yes">✓</div><div class="no">✗ (acquired Nov 2023)</div></div>
-    <div class="cmp-row"><div class="feat">No social feed clutter</div><div class="yes">✓</div><div class="no">✗</div></div>
-    <div class="cmp-row"><div class="feat">Personal stats — always free</div><div class="yes">✓</div><div class="no">✗ (locked)</div></div>
-    <div class="cmp-row"><div class="feat">Full data export (CSV / JSON)</div><div class="yes">✓ Always free</div><div class="no">✗</div></div>
-    <div class="cmp-row"><div class="feat">Works fully offline</div><div class="yes">✓</div><div class="no">✗ Requires signal</div></div>
   </div>
 </div>
 
