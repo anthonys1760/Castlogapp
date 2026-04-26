@@ -529,26 +529,29 @@ footer a{color:var(--text-muted);text-decoration:none}
       </div>
     </div>
 
-    <!-- Fish ID (centre/main) -->
+    <!-- Voice Logging (centre/main) — only phone visible on mobile -->
     <div class="phone-hero-wrap ph2">
       <div class="iphone">
         <div class="iphone-btn-silent"></div>
         <div class="iphone-btn-vol-up"></div>
         <div class="iphone-btn-vol-down"></div>
         <div class="iphone-screen">
-          <img src="Images/ai_fish_id_recreation_v5.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+          <video autoplay muted loop playsinline preload="metadata" poster="Videos/voice_logging_poster.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+            <source src="Videos/voice_logging.webm" type="video/webm">
+            <source src="Videos/voice_logging.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
 
-    <!-- My Spots -->
+    <!-- Fish ID (supporting, hidden on mobile) -->
     <div class="phone-hero-wrap ph3">
       <div class="iphone">
         <div class="iphone-btn-silent"></div>
         <div class="iphone-btn-vol-up"></div>
         <div class="iphone-btn-vol-down"></div>
         <div class="iphone-screen">
-          <img src="Images/my_spots_v2.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+          <img src="Images/ai_fish_id_recreation_v5.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
         </div>
       </div>
     </div>
