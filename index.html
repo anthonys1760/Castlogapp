@@ -488,12 +488,20 @@ footer a{color:var(--text-muted);text-decoration:none}
 <body>
 <div class="hero-glow"></div>
 
+<!-- TOP BANNER -->
+<div style="position:fixed;top:0;left:0;right:0;z-index:101;background:linear-gradient(90deg,rgba(78,124,63,0.15) 0%,rgba(106,171,86,0.1) 100%);border-bottom:1px solid rgba(106,171,86,0.25);padding:12px 48px;text-align:center;backdrop-filter:blur(12px)">
+  <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.08em;color:#6aab56;display:flex;align-items:center;justify-content:center;gap:12px;max-width:100%">
+    <span style="font-size:14px">🎉</span>
+    <span><strong>TestFlight is live.</strong> Tap below to get started.</span>
+  </div>
+</div>
+
 <!-- NAV -->
-<nav>
+<nav style="top:52px">
   <a href="#" class="logo"><img src="Images/logo.png" alt="CastLog" style="height:64px;width:64px;object-fit:contain;vertical-align:middle;margin-right:8px;">CastLog</a>
   <div class="nav-right">
-    <span class="nav-badge">Early Access</span>
-    <a href="#join" class="nav-cta">Join Waitlist →</a>
+    <span class="nav-badge">Early Access Live</span>
+    <a href="https://testflight.apple.com/join/YOUR_TESTFLIGHT_LINK" class="nav-cta">Get Early Access →</a>
   </div>
 </nav>
 
@@ -511,12 +519,11 @@ footer a{color:var(--text-muted);text-decoration:none}
     </p>
     <div class="hero-proof">
       <div class="live-dot"></div>
-      <span><span id="counter">255</span> anglers already waiting</span>
+      <span><span id="counter">255</span> anglers in TestFlight</span>
       &nbsp;·&nbsp; Free forever for the basics
     </div>
-    <div class="hero-form" id="waitlist">
-      <input type="email" placeholder="your@email.com" id="hero-email" name="email">
-      <button class="btn-main" id="hero-btn">Claim Early Access →</button>
+    <div class="hero-form" style="gap:10px">
+      <a href="https://testflight.apple.com/join/YOUR_TESTFLIGHT_LINK" class="btn-main" style="text-align:center;display:flex;align-items:center;justify-content:center;text-decoration:none">Get Early Access on TestFlight →</a>
     </div>
   </div>
 
@@ -745,10 +752,10 @@ footer a{color:var(--text-muted);text-decoration:none}
 
 <!-- FINAL CTA -->
 <section class="cta-wrap" id="join">
-  <div class="sec-label amber fade" style="text-align:center;margin-bottom:14px">JOIN THE WAITLIST</div>
+  <div class="sec-label amber fade" style="text-align:center;margin-bottom:14px">GET EARLY ACCESS NOW</div>
   <h2 class="fade d1">Stop leaving data<br><span class="amber">on the water.</span></h2>
-  <p class="fade d2">Early access members lock in Pro Insights free for 3 months — including AI Pattern Intelligence from day one. The anglers who join now will have weeks of catch data before anyone else.</p>
-  <div class="cta-form fade d3"><input type="email" placeholder="your@email.com" id="cta-email" name="email"><button class="btn-main" id="cta-btn">Claim Early Access →</button></div>
+  <p class="fade d2">TestFlight is live. Download now and lock in Pro Insights free for 3 months — including AI Pattern Intelligence from day one. The anglers who start now will have weeks of catch data before the public launch.</p>
+  <div class="cta-form fade d3" style="flex-direction:column"><a href="https://testflight.apple.com/join/YOUR_TESTFLIGHT_LINK" class="btn-main" style="text-align:center;text-decoration:none">Get Early Access on TestFlight →</a></div>
   <div class="cta-fine fade d4">Free forever for the basics · No credit card · No spam, ever · Export your data any time, forever</div>
   <div class="cta-perks fade d4">
     <div class="perk"><div class="perk-check">✓</div><span>Log a catch in under 5 seconds</span></div>
