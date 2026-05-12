@@ -7,8 +7,49 @@ marked.setOptions({
   mangle: false,
 });
 
+export function slugify(text) {
+  return String(text)
+    .toLowerCase()
+    .replace(/<[^>]*>/g, "")
+    .replace(/&[a-z]+;/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function injectHeadingAnchors(html) {
+  return html.replace(/<h([23])>([\s\S]+?)<\/h\1>/g, (_, level, content) => {
+    const text = content.replace(/<[^>]*>/g, "");
+    const slug = slugify(text);
+    if (level === "2") {
+      return `<h2 id="${slug}"><a class="h-anchor" href="#${slug}" aria-hidden="true">#</a>${content}</h2>`;
+    }
+    return `<h3 id="${slug}">${content}</h3>`;
+  });
+}
+
 export function renderMarkdown(md) {
-  return marked.parse(md);
+  return injectHeadingAnchors(marked.parse(md));
+}
+
+export function extractToc(md) {
+  return md
+    .split("\n")
+    .filter(l => /^##\s+/.test(l) && !/^###/.test(l))
+    .map(l => l.replace(/^##\s+/, "").trim())
+    .map(text => ({ text, slug: slugify(text) }));
+}
+
+export function buildTocBlock(toc) {
+  if (toc.length < 4) return "";
+  const items = toc
+    .map(t => `    <li><a href="#${t.slug}">${escapeHtml(t.text)}</a></li>`)
+    .join("\n");
+  return `<nav class="toc" aria-label="Table of contents">
+  <div class="toc-label">In this article</div>
+  <ol>
+${items}
+  </ol>
+</nav>`;
 }
 
 export function countWords(md) {

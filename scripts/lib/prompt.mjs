@@ -16,11 +16,13 @@ VOICE:
 
 FORMAT (strict):
 - Title: ≤ 60 characters, includes the primary keyword.
-- Meta description: ≤ 155 characters, primary keyword + benefit.
-- Intro hook: 100–150 words. Open with a concrete moment or pain, not "In this post we will…". End the intro with a one-line promise.
-- Body: 4–6 H2 sections, ~250 words each. H3s allowed within H2s.
+- Meta description: ≤ 155 characters, MUST contain the primary keyword + a clear benefit.
+- Intro hook: 100–150 words. Open with a concrete moment or pain, not "In this post we will…". End the intro with a one-line promise. The primary keyword (or a tight variant) MUST appear within the first 100 words.
+- Body: 4–6 H2 sections, ~250 words each. H3s allowed within H2s. The primary keyword (or a close variant) MUST appear in at least 2 H2 headings.
+- Each H2 targets a specific angle or sub-question of the topic, not a generic restatement.
 - Short paragraphs (2–4 sentences). Bullets where they earn it.
 - Total body: 1200–1800 words.
+- No keyword stuffing. Use natural language; supporting keywords should appear once or twice in the body, never forced.
 - Close: 60–90 word soft CTA. iOS is LIVE in TestFlight early access — invite the reader to grab the iOS build, or join the Android waitlist (Q3 2026). Frame as "if you've felt this frustration too." Don't hard-sell. Mention "free forever for the basics" or "under 5 seconds" once. Never say "join the waitlist" without distinguishing iOS (TestFlight, available now) from Android (waitlist, Q3 2026).
 
 OUTPUT — return exactly one JSON object, no prose around it:

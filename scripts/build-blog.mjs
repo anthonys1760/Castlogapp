@@ -12,8 +12,10 @@ import {
   renderTemplate,
   pickRelated,
   buildRelatedBlock,
+  extractToc,
+  buildTocBlock,
 } from "./lib/render.mjs";
-import { buildSitemap, buildFeed, buildJsonLd, SITE } from "./lib/seo.mjs";
+import { buildSitemap, buildFeed, buildJsonLd, buildBreadcrumbJsonLd, SITE } from "./lib/seo.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -52,10 +54,13 @@ async function loadPosts() {
 
 async function renderPost(post, allPosts, postTemplate) {
   const html = renderMarkdown(post.content_md);
+  const toc = extractToc(post.content_md);
+  const tocBlock = buildTocBlock(toc);
   const related = pickRelated(allPosts, post.slug, 2);
   const relatedBlock = buildRelatedBlock(related);
   const canonical = `${SITE}/blog/${post.slug}/`;
   const jsonld = buildJsonLd(post);
+  const breadcrumb_jsonld = buildBreadcrumbJsonLd(post);
 
   const tokens = {
     title: escapeHtml(post.title),
@@ -64,10 +69,12 @@ async function renderPost(post, allPosts, postTemplate) {
     date_human: formatDateHuman(post.date),
     slug: post.slug,
     reading_time: String(post.reading_time),
+    toc_block: tocBlock,
     content_html: html,
     related_block: relatedBlock,
     canonical,
     jsonld,
+    breadcrumb_jsonld,
   };
 
   return renderTemplate(postTemplate, tokens);

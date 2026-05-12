@@ -63,9 +63,10 @@ export function buildJsonLd(post) {
     "@type": "Article",
     headline: post.title,
     description: post.description,
+    image: [`${SITE}/Images/blog-header.jpg`],
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Person", name: "Anthony Smith" },
+    author: { "@type": "Person", name: "Anthony Smith", url: `${SITE}/` },
     publisher: {
       "@type": "Organization",
       name: "CastLog",
@@ -73,6 +74,22 @@ export function buildJsonLd(post) {
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     keywords: (post.keywords || []).join(", "),
+    wordCount: post.word_count,
+    inLanguage: "en-US",
+  };
+  return JSON.stringify(payload);
+}
+
+export function buildBreadcrumbJsonLd(post) {
+  const canonical = `${SITE}/blog/${post.slug}/`;
+  const payload = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog/` },
+      { "@type": "ListItem", position: 3, name: post.title, item: canonical },
+    ],
   };
   return JSON.stringify(payload);
 }
