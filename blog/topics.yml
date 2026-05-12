@@ -9,8 +9,10 @@ topics:
       - fishbrain alternative
       - free fishing app
       - fishbrain vs
-    angle: "Hit the $80/yr paywall and offline failures head-on. Position CastLog as 'Fishbrain but it doesn't waste your time logging.' Mention Aspira acquisition once."
-    used: false
+    angle: "Hit the $80/yr paywall and offline failures head-on. Position CastLog as
+      'Fishbrain but it doesn't waste your time logging.' Mention Aspira
+      acquisition once."
+    used: true
 
   - slug: log-a-catch-in-under-5-seconds
     title: "How to Log a Catch in Under 5 Seconds (Without a Phone Tantrum)"
@@ -18,7 +20,8 @@ topics:
       - fast catch logging
       - fishing log app
       - quick fishing journal
-    angle: "Lead with the 5-second/3-tap claim. Walk through the moment between landing a fish and releasing it. Voice logging payoff."
+    angle: "Lead with the 5-second/3-tap claim. Walk through the moment between
+      landing a fish and releasing it. Voice logging payoff."
     used: false
 
   - slug: best-offline-fishing-app
@@ -27,7 +30,8 @@ topics:
       - offline fishing app
       - no signal fishing log
       - fishing app without internet
-    angle: "The places worth fishing don't have cell. Concrete: '90 minutes from anywhere with bars.' Why most apps silently fail offline."
+    angle: "The places worth fishing don't have cell. Concrete: '90 minutes from
+      anywhere with bars.' Why most apps silently fail offline."
     used: false
 
   - slug: water-temp-bass-fishing-guide
@@ -36,7 +40,8 @@ topics:
       - water temperature bass fishing
       - bass water temp
       - bass fishing patterns
-    angle: "Evergreen SEO. Bracket water temps to lure choice. Tie to CastLog's pattern engine: log temp once, see your hit rate at each band."
+    angle: "Evergreen SEO. Bracket water temps to lure choice. Tie to CastLog's
+      pattern engine: log temp once, see your hit rate at each band."
     used: false
 
   - slug: voice-logging-fishing-catches
@@ -45,7 +50,8 @@ topics:
       - voice fishing log
       - hands free fishing app
       - voice catch logging
-    angle: "Lead with the wet-hands problem. CastLog parses 'three pound largemouth on a spinnerbait' into structured fields."
+    angle: "Lead with the wet-hands problem. CastLog parses 'three pound largemouth
+      on a spinnerbait' into structured fields."
     used: false
 
   - slug: ai-fish-identification-accuracy
@@ -54,7 +60,8 @@ topics:
       - ai fish identification
       - fish id app
       - identify fish from photo
-    angle: "Honest take. Acknowledge other apps have this — CastLog's edge is the integrated logging pipeline. Don't oversell."
+    angle: "Honest take. Acknowledge other apps have this — CastLog's edge is the
+      integrated logging pipeline. Don't oversell."
     used: false
 
   - slug: fishing-pattern-recognition-ai
@@ -63,7 +70,8 @@ topics:
       - fishing patterns
       - bass fishing patterns
       - ai fishing patterns
-    angle: "Walk through what AI Pattern Intelligence finds: barometric swings, moon phase clusters, lure-water-temp pairings. Make it concrete."
+    angle: "Walk through what AI Pattern Intelligence finds: barometric swings, moon
+      phase clusters, lure-water-temp pairings. Make it concrete."
     used: false
 
   - slug: fishing-journal-vs-paper
@@ -72,7 +80,8 @@ topics:
       - fishing journal
       - paper vs digital fishing log
       - best fishing log
-    angle: "Acknowledge paper works — until you have 3 years and can't cross-reference. Soft pitch on structured data."
+    angle: "Acknowledge paper works — until you have 3 years and can't
+      cross-reference. Soft pitch on structured data."
     used: false
 
   - slug: spring-bass-prespawn-patterns
@@ -81,7 +90,8 @@ topics:
       - pre-spawn bass fishing
       - spring bass patterns
       - prespawn bass
-    angle: "Seasonal — best for March–May. Concrete temp bands (48-55F), structure, lure progression."
+    angle: "Seasonal — best for March–May. Concrete temp bands (48-55F), structure,
+      lure progression."
     used: false
 
   - slug: private-fishing-spots-burning
@@ -90,7 +100,8 @@ topics:
       - private fishing spots
       - spot burning
       - fishing app privacy
-    angle: "Privacy as TABLE STAKE not the lead. Frame: 'most apps fixed this — what they didn't fix is logging.' Brief, factual."
+    angle: "Privacy as TABLE STAKE not the lead. Frame: 'most apps fixed this — what
+      they didn't fix is logging.' Brief, factual."
     used: false
 
   - slug: lake-intelligence-bite-score
@@ -99,7 +110,8 @@ topics:
       - bite score
       - lake conditions fishing
       - when to go fishing
-    angle: "What goes into a useful bite score: barometric trend, water temp, wind, moon, recent local catches. CastLog ships this."
+    angle: "What goes into a useful bite score: barometric trend, water temp, wind,
+      moon, recent local catches. CastLog ships this."
     used: false
 
   - slug: catch-and-release-best-practices
@@ -108,5 +120,6 @@ topics:
       - catch and release best practices
       - fish survival rate
       - ethical fishing
-    angle: "Conservation angle. Tie naturally to logging speed: every second the fish is out of water matters. Not preachy."
+    angle: "Conservation angle. Tie naturally to logging speed: every second the
+      fish is out of water matters. Not preachy."
     used: false

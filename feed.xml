@@ -6,7 +6,13 @@
     <description>Fast logging, AI patterns, and the apps that get in your way.</description>
     <language>en-us</language>
     <atom:link href="https://castlogapp.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 12 May 2026 07:15:05 GMT</lastBuildDate>
-
+    <lastBuildDate>Tue, 12 May 2026 15:30:42 GMT</lastBuildDate>
+    <item>
+      <title>The Fishbrain Alternative Anglers Want in 2026</title>
+      <link>https://castlogapp.com/blog/fishbrain-alternative-2026/</link>
+      <guid isPermaLink="true">https://castlogapp.com/blog/fishbrain-alternative-2026/</guid>
+      <pubDate>Tue, 12 May 2026 09:00:00 GMT</pubDate>
+      <description><![CDATA[Fishbrain's $80/yr paywall and offline failures are pushing anglers away. Here's why CastLog is the fishbrain alternative built for how you actually fish.]]></description>
+    </item>
   </channel>
 </rss>
