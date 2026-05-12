@@ -95,14 +95,18 @@ h1.post-title{font-family:"Playfair Display",serif;font-size:clamp(32px,4.2vw,52
 
 .cta{margin-top:56px;padding:36px 28px;background:var(--card);border:1px solid var(--border);border-radius:12px;text-align:center}
 .cta h3{font-family:"Playfair Display",serif;font-size:28px;font-weight:900;margin-bottom:10px;color:var(--text);letter-spacing:-.015em}
-.cta p{color:var(--text-dim);margin-bottom:22px;font-size:16px}
-.cta-form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap}
+.cta p{color:var(--text-dim);margin-bottom:20px;font-size:16px}
+.cta-stack{display:flex;flex-direction:column;gap:12px;max-width:460px;margin:0 auto}
+.cta-testflight{display:block;background:var(--amber);color:#0c0d0a;text-decoration:none;border:none;padding:14px 22px;border-radius:8px;font-weight:700;font-size:15px;text-align:center;transition:all .18s}
+.cta-testflight:hover{background:#f0b840;transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,168,51,.3);color:#0c0d0a;border:none}
+.cta-form{display:flex;gap:10px;flex-wrap:wrap;margin:0}
 .cta-form input{flex:1;min-width:200px;background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:13px 16px;border-radius:8px;font-family:"DM Sans",sans-serif;font-size:15px;outline:none;transition:border-color .18s}
 .cta-form input:focus{border-color:var(--amber)}
-.cta-form button{background:var(--amber);color:#0c0d0a;border:none;padding:13px 24px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;transition:all .18s}
-.cta-form button:hover{background:#f0b840;transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,168,51,.3)}
-.cta-form button:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
-.cta-perks{margin-top:16px;font-size:11px;color:var(--text-muted);font-family:"DM Mono",monospace;letter-spacing:.06em}
+.cta-form button{background:transparent;color:var(--text);border:1px solid var(--border2);padding:13px 22px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;transition:all .18s}
+.cta-form button:hover{border-color:var(--amber);color:var(--amber)}
+.cta-form button:disabled{opacity:.6;cursor:not-allowed;border-color:var(--border)}
+.cta-availability{margin-top:14px;font-size:12px;color:var(--text-muted);font-family:"DM Mono",monospace;letter-spacing:.04em}
+.cta-perks{margin-top:6px;font-size:11px;color:var(--text-muted);font-family:"DM Mono",monospace;letter-spacing:.06em}
 
 footer{padding:50px 24px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:13px;margin-top:60px}
 footer .footer-logo{font-family:"DM Mono",monospace;font-size:15px;color:var(--amber);margin-bottom:8px;display:inline-flex;align-items:center}
@@ -124,7 +128,7 @@ footer div{margin-bottom:8px}
   <a href="/" class="logo"><img src="/Images/logo.png" alt="CastLog" style="height:48px;width:48px;object-fit:contain;vertical-align:middle;margin-right:8px;">CastLog</a>
   <div class="nav-right">
     <a href="/blog/" class="nav-link">Blog</a>
-    <a href="/#join" class="nav-cta">Join Waitlist →</a>
+    <a href="https://testflight.apple.com/join/GXHNxR2W?utm_source=castlog_website&utm_medium=blog_nav&utm_campaign=early_access_ios" class="nav-cta">Get iOS Early Access →</a>
   </div>
 </nav>
 
@@ -199,11 +203,15 @@ footer div{margin-bottom:8px}
 
   <section class="cta">
     <h3>Stop fighting your fishing app.</h3>
-    <p>Log a catch in under 5 seconds. Free forever for the basics. Built by an angler who got fed up.</p>
-    <form class="cta-form" id="post-cta-form" onsubmit="return submitCta(event)">
-      <input type="email" id="post-cta-email" name="email" placeholder="your@email.com" required>
-      <button type="submit" id="post-cta-btn">Join Waitlist →</button>
-    </form>
+    <p>Log a catch in under 5 seconds. Free forever for the basics.</p>
+    <div class="cta-stack">
+      <a href="https://testflight.apple.com/join/GXHNxR2W?utm_source=castlog_website&utm_medium=blog_post_cta&utm_campaign=early_access_ios" class="cta-testflight">📱 iOS: Get Early Access on TestFlight</a>
+      <form class="cta-form" id="post-cta-form" onsubmit="return submitCta(event)">
+        <input type="email" id="post-cta-email" name="email" placeholder="your@email.com" required>
+        <button type="submit" id="post-cta-btn">Android Waitlist →</button>
+      </form>
+    </div>
+    <div class="cta-availability">iOS available now · Android coming Q3 2026</div>
     <div class="cta-perks">No spam · No paywall on core features · Works offline</div>
   </section>
 </article>
@@ -226,12 +234,13 @@ async function submitCta(e){
     const r = await fetch('https://formspree.io/f/mjgjbdke', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'blog:fishbrain-alternative-2026' })
+      body: JSON.stringify({ email, source: 'blog:fishbrain-alternative-2026', list: 'android_waitlist' })
     });
     if (r.ok) {
       btn.textContent = "You're on the list!";
-      btn.style.background = '#6aab56';
-      if (typeof gtag !== 'undefined') gtag('event', 'waitlist_signup', { form_location: 'blog_post', slug: 'fishbrain-alternative-2026' });
+      btn.style.borderColor = '#6aab56';
+      btn.style.color = '#6aab56';
+      if (typeof gtag !== 'undefined') gtag('event', 'android_waitlist_signup', { form_location: 'blog_post', slug: 'fishbrain-alternative-2026' });
     } else {
       btn.textContent = 'Try again';
       btn.disabled = false;

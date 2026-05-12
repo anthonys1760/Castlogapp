@@ -21,7 +21,7 @@ FORMAT (strict):
 - Body: 4–6 H2 sections, ~250 words each. H3s allowed within H2s.
 - Short paragraphs (2–4 sentences). Bullets where they earn it.
 - Total body: 1200–1800 words.
-- Close: 60–90 word soft CTA inviting reader to join the waitlist. Frame as "if you've felt this frustration too." Don't hard-sell. Mention "free forever for the basics" or "under 5 seconds" once.
+- Close: 60–90 word soft CTA. iOS is LIVE in TestFlight early access — invite the reader to grab the iOS build, or join the Android waitlist (Q3 2026). Frame as "if you've felt this frustration too." Don't hard-sell. Mention "free forever for the basics" or "under 5 seconds" once. Never say "join the waitlist" without distinguishing iOS (TestFlight, available now) from Android (waitlist, Q3 2026).
 
 OUTPUT — return exactly one JSON object, no prose around it:
 {
