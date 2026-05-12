@@ -1,0 +1,21 @@
+{
+  "name": "castlog-blog-scripts",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "generate": "node generate-post.mjs",
+    "generate:dry": "node generate-post.mjs --dry-run",
+    "build": "node build-blog.mjs",
+    "all": "npm run generate && npm run build"
+  },
+  "dependencies": {
+    "openai": "^4.77.0",
+    "marked": "^14.1.3",
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.6.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

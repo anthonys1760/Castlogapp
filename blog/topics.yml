@@ -1,0 +1,112 @@
+# CastLog blog topic queue.
+# Workflow picks the first entry with used:false each Monday.
+# Edit freely — add new topics at the bottom, reorder by priority.
+
+topics:
+  - slug: fishbrain-alternative-2026
+    title: "The Fishbrain Alternative Anglers Actually Want in 2026"
+    keywords:
+      - fishbrain alternative
+      - free fishing app
+      - fishbrain vs
+    angle: "Hit the $80/yr paywall and offline failures head-on. Position CastLog as 'Fishbrain but it doesn't waste your time logging.' Mention Aspira acquisition once."
+    used: false
+
+  - slug: log-a-catch-in-under-5-seconds
+    title: "How to Log a Catch in Under 5 Seconds (Without a Phone Tantrum)"
+    keywords:
+      - fast catch logging
+      - fishing log app
+      - quick fishing journal
+    angle: "Lead with the 5-second/3-tap claim. Walk through the moment between landing a fish and releasing it. Voice logging payoff."
+    used: false
+
+  - slug: best-offline-fishing-app
+    title: "The Best Offline Fishing App (When You Have Zero Signal)"
+    keywords:
+      - offline fishing app
+      - no signal fishing log
+      - fishing app without internet
+    angle: "The places worth fishing don't have cell. Concrete: '90 minutes from anywhere with bars.' Why most apps silently fail offline."
+    used: false
+
+  - slug: water-temp-bass-fishing-guide
+    title: "Water Temperature for Bass: The 5-Degree Rule"
+    keywords:
+      - water temperature bass fishing
+      - bass water temp
+      - bass fishing patterns
+    angle: "Evergreen SEO. Bracket water temps to lure choice. Tie to CastLog's pattern engine: log temp once, see your hit rate at each band."
+    used: false
+
+  - slug: voice-logging-fishing-catches
+    title: "Why Voice Logging Is the Only Way to Log Wet-Handed"
+    keywords:
+      - voice fishing log
+      - hands free fishing app
+      - voice catch logging
+    angle: "Lead with the wet-hands problem. CastLog parses 'three pound largemouth on a spinnerbait' into structured fields."
+    used: false
+
+  - slug: ai-fish-identification-accuracy
+    title: "AI Fish Identification: What Actually Works in 2026"
+    keywords:
+      - ai fish identification
+      - fish id app
+      - identify fish from photo
+    angle: "Honest take. Acknowledge other apps have this — CastLog's edge is the integrated logging pipeline. Don't oversell."
+    used: false
+
+  - slug: fishing-pattern-recognition-ai
+    title: "What a Year of Logged Catches Actually Teaches You"
+    keywords:
+      - fishing patterns
+      - bass fishing patterns
+      - ai fishing patterns
+    angle: "Walk through what AI Pattern Intelligence finds: barometric swings, moon phase clusters, lure-water-temp pairings. Make it concrete."
+    used: false
+
+  - slug: fishing-journal-vs-paper
+    title: "Paper Fishing Log vs. App: Why the Best Anglers Switched"
+    keywords:
+      - fishing journal
+      - paper vs digital fishing log
+      - best fishing log
+    angle: "Acknowledge paper works — until you have 3 years and can't cross-reference. Soft pitch on structured data."
+    used: false
+
+  - slug: spring-bass-prespawn-patterns
+    title: "Pre-Spawn Bass: How to Read the Window"
+    keywords:
+      - pre-spawn bass fishing
+      - spring bass patterns
+      - prespawn bass
+    angle: "Seasonal — best for March–May. Concrete temp bands (48-55F), structure, lure progression."
+    used: false
+
+  - slug: private-fishing-spots-burning
+    title: "How to Protect Your Spots Without Quitting Fishing Apps"
+    keywords:
+      - private fishing spots
+      - spot burning
+      - fishing app privacy
+    angle: "Privacy as TABLE STAKE not the lead. Frame: 'most apps fixed this — what they didn't fix is logging.' Brief, factual."
+    used: false
+
+  - slug: lake-intelligence-bite-score
+    title: "Bite Score Explained: How to Read a Lake Before You Cast"
+    keywords:
+      - bite score
+      - lake conditions fishing
+      - when to go fishing
+    angle: "What goes into a useful bite score: barometric trend, water temp, wind, moon, recent local catches. CastLog ships this."
+    used: false
+
+  - slug: catch-and-release-best-practices
+    title: "Catch and Release: The 30-Second Rule That Keeps Fish Alive"
+    keywords:
+      - catch and release best practices
+      - fish survival rate
+      - ethical fishing
+    angle: "Conservation angle. Tie naturally to logging speed: every second the fish is out of water matters. Not preachy."
+    used: false

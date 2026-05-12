@@ -1,0 +1,98 @@
+name: Weekly Blog Post
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"  # Mondays 09:00 UTC
+  workflow_dispatch:
+    inputs:
+      topic_slug:
+        description: "Force a specific topic slug (optional)"
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: scripts/package-lock.json
+
+      - name: Install deps
+        working-directory: scripts
+        run: npm ci
+
+      - name: Skip if today's post exists
+        id: precheck
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          if ls blog/posts/${TODAY}-*.md >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Post for $TODAY already exists — skipping."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate post
+        if: steps.precheck.outputs.exists != 'true'
+        id: gen
+        working-directory: scripts
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          FORCE_TOPIC_SLUG: ${{ inputs.topic_slug }}
+        run: |
+          if [ -n "$FORCE_TOPIC_SLUG" ]; then
+            node generate-post.mjs --topic-slug="$FORCE_TOPIC_SLUG" | tee gen.out
+          else
+            node generate-post.mjs | tee gen.out
+          fi
+          grep -E "^POST_(PATH|SLUG|TITLE)=" gen.out >> "$GITHUB_OUTPUT" || true
+
+      - name: Build blog
+        if: steps.precheck.outputs.exists != 'true' && steps.gen.outputs.POST_PATH != ''
+        working-directory: scripts
+        run: node build-blog.mjs
+
+      - name: Commit and open PR
+        if: steps.precheck.outputs.exists != 'true' && steps.gen.outputs.POST_PATH != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POST_PATH: ${{ steps.gen.outputs.POST_PATH }}
+          POST_SLUG: ${{ steps.gen.outputs.POST_SLUG }}
+          POST_TITLE: ${{ steps.gen.outputs.POST_TITLE }}
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          BRANCH="blog/weekly-${TODAY}"
+          git config user.name "castlog-blog-bot"
+          git config user.email "blog-bot@castlogapp.com"
+          git checkout -b "$BRANCH"
+          git add blog/ sitemap.xml feed.xml
+          git commit -m "blog: ${POST_TITLE}"
+          git push -u origin "$BRANCH"
+
+          {
+            echo "Auto-generated weekly blog post."
+            echo ""
+            echo "**Topic:** ${POST_TITLE}"
+            echo "**Slug:** ${POST_SLUG}"
+            echo "**Path:** ${POST_PATH}"
+            echo ""
+            echo "---"
+            echo ""
+            cat "$POST_PATH"
+          } > /tmp/pr-body.md
+
+          gh pr create \
+            --title "weekly-blog: ${POST_TITLE}" \
+            --body-file /tmp/pr-body.md \
+            --base main \
+            --head "$BRANCH"
