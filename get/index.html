@@ -44,12 +44,23 @@
     max-width: 420px;
     text-align: center;
   }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+  .brand img {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: block;
+  }
   .wordmark {
     font-size: 28px;
     font-weight: 700;
     color: var(--amber);
     letter-spacing: -0.02em;
-    margin-bottom: 56px;
   }
   h1 {
     font-size: 32px;
@@ -113,12 +124,15 @@
 </head>
 <body>
   <main class="container">
-    <div class="wordmark">castlog</div>
+    <div class="brand">
+      <img src="/Images/logo.png" alt="CastLog logo" width="44" height="44">
+      <span class="wordmark">castlog</span>
+    </div>
     <h1>The fishing journal you&rsquo;ll actually keep.</h1>
     <p class="sub">Private by default. No paywalls. Built by an angler.</p>
 
     <a class="cta cta-primary" href="https://testflight.apple.com/join/GXHNxR2W">Get Early Access on iOS</a>
-    <a class="cta cta-secondary" href="https://castlogapp.com">Join Android Waitlist</a>
+    <a class="cta cta-secondary" href="https://castlogapp.com/?utm_source=tiktok&amp;utm_medium=bio&amp;utm_campaign=get&amp;utm_content=android">Join Android Waitlist</a>
 
     <p class="perks">Free forever for the basics &middot; No credit card &middot; Export your data anytime</p>
   </main>
