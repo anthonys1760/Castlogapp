@@ -6,7 +6,14 @@
     <description>Fast logging, AI patterns, and the apps that get in your way.</description>
     <language>en-us</language>
     <atom:link href="https://castlogapp.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 18 May 2026 18:31:33 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 18:45:50 GMT</lastBuildDate>
+    <item>
+      <title>AI Fish Identification: What Actually Works in 2026</title>
+      <link>https://castlogapp.com/blog/ai-fish-identification-accuracy/</link>
+      <guid isPermaLink="true">https://castlogapp.com/blog/ai-fish-identification-accuracy/</guid>
+      <pubDate>Mon, 18 May 2026 09:00:00 GMT</pubDate>
+      <description><![CDATA[An honest look at AI fish identification accuracy in 2026, and why the logging pipeline matters more than the photo match.]]></description>
+    </item>
     <item>
       <title>Best Offline Fishing App When You Have Zero Signal</title>
       <link>https://castlogapp.com/blog/best-offline-fishing-app/</link>
