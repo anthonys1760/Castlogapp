@@ -76,7 +76,8 @@ jobs:
           git config user.name "castlog-blog-bot"
           git config user.email "blog-bot@castlogapp.com"
           git checkout -b "$BRANCH"
-          git add blog/ sitemap.xml feed.xml Images/blog
+          git add blog/ sitemap.xml feed.xml
+          [ -d Images/blog ] && git add Images/blog || true
           git commit -m "blog: ${POST_TITLE}"
           git push -u origin "$BRANCH"
 
