@@ -62,7 +62,7 @@ topics:
       - identify fish from photo
     angle: "Honest take. Acknowledge other apps have this — CastLog's edge is the
       integrated logging pipeline. Don't oversell."
-    used: true
+    used: false
 
   - slug: fishing-pattern-recognition-ai
     title: "What a Year of Logged Catches Actually Teaches You"
