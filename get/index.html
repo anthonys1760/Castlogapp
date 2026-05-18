@@ -11,6 +11,13 @@
 <meta property="og:title" content="CastLog — The fishing journal you'll actually keep.">
 <meta property="og:description" content="Private by default. No paywalls. Built by an angler.">
 <meta property="og:image" content="https://castlogapp.com/Images/logo.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DNBKN0WNR9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DNBKN0WNR9');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -132,10 +139,23 @@
     <h1>The fishing journal you&rsquo;ll actually keep.</h1>
     <p class="sub">Private by default. No paywalls. Built by an angler.</p>
 
-    <a class="cta cta-primary" href="https://testflight.apple.com/join/GXHNxR2W">Get Early Access on iOS</a>
-    <a class="cta cta-secondary" href="https://castlogapp.com/?utm_source=tiktok&amp;utm_medium=bio&amp;utm_campaign=get&amp;utm_content=android">Join Android Waitlist</a>
+    <a class="cta cta-primary" id="cta-ios" href="https://testflight.apple.com/join/GXHNxR2W">Get Early Access on iOS</a>
+    <a class="cta cta-secondary" id="cta-android" href="https://castlogapp.com/?utm_source=tiktok&amp;utm_medium=bio&amp;utm_campaign=get&amp;utm_content=android">Join Android Waitlist</a>
 
     <p class="perks">Free forever for the basics &middot; No credit card &middot; Export your data anytime</p>
   </main>
+  <script>
+    function trackCta(platform){
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          platform: platform,
+          page: '/get',
+          source: 'tiktok_bio'
+        });
+      }
+    }
+    document.getElementById('cta-ios').addEventListener('click', function(){ trackCta('ios'); });
+    document.getElementById('cta-android').addEventListener('click', function(){ trackCta('android'); });
+  </script>
 </body>
 </html>
