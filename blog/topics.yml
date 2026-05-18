@@ -12,7 +12,7 @@ topics:
     angle: "Hit the $80/yr paywall and offline failures head-on. Position CastLog as
       'Fishbrain but it doesn't waste your time logging.' Mention Aspira
       acquisition once."
-    used: true
+    used: false
 
   - slug: log-a-catch-in-under-5-seconds
     title: "How to Log a Catch in Under 5 Seconds (Without a Phone Tantrum)"
