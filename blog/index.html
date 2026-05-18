@@ -63,10 +63,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 48px;display:fl
 .post-list{max-width:920px;margin:0 auto;padding:30px 24px 80px;display:grid;grid-template-columns:1fr;gap:18px;position:relative;z-index:1}
 @media (min-width:760px){.post-list{grid-template-columns:1fr 1fr;gap:22px}}
 
-.post-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s,box-shadow .18s}
+.post-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s,box-shadow .18s}
 .post-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.3)}
-.post-card-meta{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
-.post-card h2{font-family:"Playfair Display",serif;font-size:24px;font-weight:900;line-height:1.18;letter-spacing:-.015em;margin-bottom:10px;color:var(--text)}
+.post-card-image{aspect-ratio:16/9;overflow:hidden;background:var(--bg2);border-bottom:1px solid var(--border)}
+.post-card-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.post-card:hover .post-card-image img{transform:scale(1.03)}
+.post-card-body{display:flex;flex-direction:column;padding:24px 26px 26px;flex:1}
+.post-card-meta{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.post-card h2{font-family:"Playfair Display",serif;font-size:22px;font-weight:900;line-height:1.18;letter-spacing:-.015em;margin-bottom:10px;color:var(--text)}
 .post-card p{font-size:15px;color:var(--text-dim);line-height:1.55;margin-bottom:16px;flex:1}
 .post-card-read{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.08em;color:var(--amber);margin-top:auto}
 
@@ -104,22 +108,31 @@ footer div{margin-bottom:8px}
 
 <section class="post-list">
   <a href="/blog/best-offline-fishing-app/" class="post-card">
-    <div class="post-card-meta">May 18, 2026 · 5 min</div>
-    <h2>Best Offline Fishing App When You Have Zero Signal</h2>
-    <p>Most fishing apps silently fail without cell service. Here&#39;s why offline-first design matters and how CastLog logs catches in under 5 seconds, no signal needed.</p>
-    <span class="post-card-read">Read post →</span>
+    <div class="post-card-image"><img src="/Images/blog-header.jpg" alt="Angler casting on a lake at sunset" loading="lazy"></div>
+    <div class="post-card-body">
+      <div class="post-card-meta">May 18, 2026 · 5 min</div>
+      <h2>Best Offline Fishing App When You Have Zero Signal</h2>
+      <p>Most fishing apps silently fail without cell service. Here&#39;s why offline-first design matters and how CastLog logs catches in under 5 seconds, no signal needed.</p>
+      <span class="post-card-read">Read post →</span>
+    </div>
   </a>
   <a href="/blog/water-temp-bass-fishing-guide/" class="post-card">
-    <div class="post-card-meta">May 18, 2026 · 6 min</div>
-    <h2>Water Temperature Bass Fishing: The 5-Degree Rule</h2>
-    <p>Learn how 5-degree water temp bands predict bass behavior and lure choice—and how CastLog&#39;s pattern engine turns your logs into a personal heat map.</p>
-    <span class="post-card-read">Read post →</span>
+    <div class="post-card-image"><img src="/Images/blog/water-temp-bass-fishing-guide.jpg" alt="body of water near green grass during daytime" loading="lazy"></div>
+    <div class="post-card-body">
+      <div class="post-card-meta">May 18, 2026 · 6 min</div>
+      <h2>Water Temperature Bass Fishing: The 5-Degree Rule</h2>
+      <p>Learn how 5-degree water temp bands predict bass behavior and lure choice—and how CastLog&#39;s pattern engine turns your logs into a personal heat map.</p>
+      <span class="post-card-read">Read post →</span>
+    </div>
   </a>
   <a href="/blog/fishbrain-alternative-2026/" class="post-card">
-    <div class="post-card-meta">May 12, 2026 · 8 min</div>
-    <h2>The Fishbrain Alternative Anglers Want in 2026</h2>
-    <p>Fishbrain&#39;s $80/yr paywall and offline failures are pushing anglers away. Here&#39;s why CastLog is the fishbrain alternative built for how you actually fish.</p>
-    <span class="post-card-read">Read post →</span>
+    <div class="post-card-image"><img src="/Images/blog-header.jpg" alt="Angler casting on a lake at sunset" loading="lazy"></div>
+    <div class="post-card-body">
+      <div class="post-card-meta">May 12, 2026 · 8 min</div>
+      <h2>The Fishbrain Alternative Anglers Want in 2026</h2>
+      <p>Fishbrain&#39;s $80/yr paywall and offline failures are pushing anglers away. Here&#39;s why CastLog is the fishbrain alternative built for how you actually fish.</p>
+      <span class="post-card-read">Read post →</span>
+    </div>
   </a>
 </section>
 

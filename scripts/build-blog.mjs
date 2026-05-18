@@ -89,10 +89,13 @@ async function renderPost(post, allPosts, postTemplate) {
 
 function renderCard(post) {
   return `  <a href="/blog/${post.slug}/" class="post-card">
-    <div class="post-card-meta">${formatDateHuman(post.date)} · ${post.reading_time} min</div>
-    <h2>${escapeHtml(post.title)}</h2>
-    <p>${escapeHtml(post.description)}</p>
-    <span class="post-card-read">Read post →</span>
+    <div class="post-card-image"><img src="${escapeHtml(post.hero_image)}" alt="${escapeHtml(post.hero_image_alt)}" loading="lazy"></div>
+    <div class="post-card-body">
+      <div class="post-card-meta">${formatDateHuman(post.date)} · ${post.reading_time} min</div>
+      <h2>${escapeHtml(post.title)}</h2>
+      <p>${escapeHtml(post.description)}</p>
+      <span class="post-card-read">Read post →</span>
+    </div>
   </a>`;
 }
 
