@@ -17,17 +17,21 @@ VOICE:
 FORMAT (strict):
 - Title: ≤ 60 characters, includes the primary keyword.
 - Meta description: ≤ 155 characters, primary keyword + benefit.
-- Intro hook: 100–150 words. Open with a concrete moment or pain, not "In this post we will…". End the intro with a one-line promise.
-- Body: 4–6 H2 sections, ~250 words each. H3s allowed within H2s.
+- Intro hook: 80–120 words. Open with a concrete moment or pain, not "In this post we will…". End the intro with a one-line promise.
+- Body: 4–5 H2 sections, ~180 words each. H3s allowed but use sparingly.
 - Short paragraphs (2–4 sentences). Bullets where they earn it.
-- Total body: 1200–1800 words.
-- Close: 60–90 word soft CTA inviting reader to join the waitlist. Frame as "if you've felt this frustration too." Don't hard-sell. Mention "free forever for the basics" or "under 5 seconds" once.
+- Total body: 900–1200 words. Cut anything that doesn't earn its space.
+- Close: 50–80 word soft CTA. iOS early access on TestFlight is the primary path; Android is on a waitlist for Q3 2026. Frame as "if you've felt this frustration too." Don't hard-sell. Mention "free forever for the basics" or "under 5 seconds" once. Do NOT use the phrase "join the waitlist" generically — be specific: "grab iOS early access on TestFlight" or "join the Android waitlist."
+
+IMAGE QUERY:
+- Provide a 2–4 word stock-photo search query for an Unsplash hero image. Concrete, photographable subjects only: "bass fishing lake sunrise", "fly fishing river", "fishing rod tackle box". No abstract concepts, no app/UI terms, no people's names.
 
 OUTPUT — return exactly one JSON object, no prose around it:
 {
   "title": "...",
   "description": "...",
-  "word_count": 1456,
+  "image_query": "bass fishing lake sunrise",
+  "word_count": 1050,
   "markdown": "Intro paragraph...\\n\\n## Section 1\\n\\n..."
 }
 The "markdown" field is the FULL body, starting at the intro paragraph. Do NOT include the H1 — the template renders the title. Do NOT include frontmatter.`;
@@ -41,7 +45,7 @@ Topic: ${topic.title}
 Slug: ${topic.slug}
 Primary keyword: ${primary || topic.slug}
 Supporting keywords: ${supporting.join(", ") || "(none)"}
-Target word count: 1500 (range 1200–1800)
+Target word count: 1000 (range 900–1200)
 
 Angle hint: ${angle}
 

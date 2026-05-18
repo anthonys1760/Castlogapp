@@ -44,6 +44,10 @@ async function loadPosts() {
       reading_time: readingTime(words),
       content_md: parsed.content,
       filename: file,
+      hero_image: data.hero_image || "/Images/blog-header.jpg",
+      hero_image_alt: data.hero_image_alt || "Angler casting on a lake at sunset",
+      hero_image_credit: data.hero_image_credit || "",
+      hero_image_credit_url: data.hero_image_credit_url || "",
     });
   }
   posts.sort((a, b) => (b.date > a.date ? 1 : b.date < a.date ? -1 : 0));
@@ -56,6 +60,12 @@ async function renderPost(post, allPosts, postTemplate) {
   const relatedBlock = buildRelatedBlock(related);
   const canonical = `${SITE}/blog/${post.slug}/`;
   const jsonld = buildJsonLd(post);
+  const heroAbs = post.hero_image.startsWith("http")
+    ? post.hero_image
+    : `${SITE}${post.hero_image}`;
+  const heroCredit = post.hero_image_credit
+    ? `<figcaption class="hero-credit">${escapeHtml(post.hero_image_credit)}${post.hero_image_credit_url ? ` · <a href="${escapeHtml(post.hero_image_credit_url)}" rel="noopener nofollow">view</a>` : ""}</figcaption>`
+    : "";
 
   const tokens = {
     title: escapeHtml(post.title),
@@ -68,6 +78,10 @@ async function renderPost(post, allPosts, postTemplate) {
     related_block: relatedBlock,
     canonical,
     jsonld,
+    hero_image: escapeHtml(post.hero_image),
+    hero_image_abs: escapeHtml(heroAbs),
+    hero_image_alt: escapeHtml(post.hero_image_alt),
+    hero_credit: heroCredit,
   };
 
   return renderTemplate(postTemplate, tokens);
