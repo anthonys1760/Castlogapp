@@ -42,7 +42,7 @@ topics:
       - bass fishing patterns
     angle: "Evergreen SEO. Bracket water temps to lure choice. Tie to CastLog's
       pattern engine: log temp once, see your hit rate at each band."
-    used: false
+    used: true
 
   - slug: voice-logging-fishing-catches
     title: "Why Voice Logging Is the Only Way to Log Wet-Handed"
