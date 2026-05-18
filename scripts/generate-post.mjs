@@ -112,20 +112,30 @@ function buildFrontmatter(topic, post, wordCount, hero) {
 
 async function fetchHeroImage(query, slug) {
   const key = process.env.UNSPLASH_ACCESS_KEY;
+  console.log(`[hero] UNSPLASH_ACCESS_KEY present: ${Boolean(key)}; image_query from model: ${JSON.stringify(query)}`);
   if (!key) {
     console.warn("UNSPLASH_ACCESS_KEY not set — falling back to default header image.");
     return null;
   }
   const q = (query || "fishing").trim();
   const searchUrl = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&per_page=10&content_filter=high`;
-  const res = await fetch(searchUrl, {
-    headers: { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" },
-  });
+  console.log(`[hero] Unsplash search: "${q}"`);
+  let res;
+  try {
+    res = await fetch(searchUrl, {
+      headers: { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" },
+    });
+  } catch (err) {
+    console.warn(`[hero] Unsplash request threw: ${err.message} — falling back.`);
+    return null;
+  }
   if (!res.ok) {
-    console.warn(`Unsplash search failed (${res.status}) — falling back to default.`);
+    const body = await res.text().catch(() => "");
+    console.warn(`[hero] Unsplash search failed (${res.status}): ${body.slice(0, 200)} — falling back.`);
     return null;
   }
   const data = await res.json();
+  console.log(`[hero] Unsplash returned ${data.results?.length || 0} results`);
   const photo = (data.results || [])[0];
   if (!photo) {
     console.warn(`Unsplash returned no results for "${q}" — falling back to default.`);
@@ -134,7 +144,7 @@ async function fetchHeroImage(query, slug) {
   const imgUrl = `${photo.urls.raw}&w=1600&h=840&fit=crop&q=80&fm=jpg`;
   const imgRes = await fetch(imgUrl);
   if (!imgRes.ok) {
-    console.warn(`Unsplash image download failed (${imgRes.status}) — falling back.`);
+    console.warn(`[hero] Unsplash image download failed (${imgRes.status}) — falling back.`);
     return null;
   }
   const buf = Buffer.from(await imgRes.arrayBuffer());
@@ -142,6 +152,7 @@ async function fetchHeroImage(query, slug) {
   await fs.mkdir(outDir, { recursive: true });
   const relPath = `Images/blog/${slug}.jpg`;
   await fs.writeFile(path.join(ROOT, relPath), buf);
+  console.log(`[hero] saved ${relPath} (${buf.length} bytes) — by ${photo.user?.name}`);
 
   // Trigger Unsplash download tracking per API guidelines
   fetch(`${photo.links.download_location}?client_id=${key}`).catch(() => {});
