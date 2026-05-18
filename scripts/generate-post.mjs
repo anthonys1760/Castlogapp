@@ -110,62 +110,125 @@ function buildFrontmatter(topic, post, wordCount, hero) {
   return `---\n${YAML.stringify(fm).trim()}\n---\n\n${post.markdown.trim()}\n`;
 }
 
-async function fetchHeroImage(query, slug) {
-  const key = (process.env.UNSPLASH_ACCESS_KEY || "").trim();
-  console.log(`[hero] UNSPLASH_ACCESS_KEY present: ${Boolean(key)} (length=${key.length}); image_query from model: ${JSON.stringify(query)}`);
-  if (!key) {
-    console.warn("UNSPLASH_ACCESS_KEY not set — falling back to default header image.");
-    return null;
-  }
+function unsplashKey() {
+  return (process.env.UNSPLASH_ACCESS_KEY || "").trim();
+}
+
+async function fetchUnsplashPhoto(query, label = "img") {
+  const key = unsplashKey();
+  if (!key) return null;
   const q = (query || "fishing").trim();
   const searchUrl = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&per_page=10&content_filter=high`;
-  console.log(`[hero] Unsplash search: "${q}"`);
+  console.log(`[${label}] Unsplash search: "${q}"`);
   let res;
   try {
     res = await fetch(searchUrl, {
       headers: { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" },
     });
   } catch (err) {
-    console.warn(`[hero] Unsplash request threw: ${err.message} — falling back.`);
+    console.warn(`[${label}] Unsplash request threw: ${err.message}`);
     return null;
   }
   if (!res.ok) {
     const body = await res.text().catch(() => "");
-    console.warn(`[hero] Unsplash search failed (${res.status}): ${body.slice(0, 200)} — falling back.`);
+    console.warn(`[${label}] Unsplash search failed (${res.status}): ${body.slice(0, 200)}`);
     return null;
   }
   const data = await res.json();
-  console.log(`[hero] Unsplash returned ${data.results?.length || 0} results`);
   const photo = (data.results || [])[0];
   if (!photo) {
-    console.warn(`Unsplash returned no results for "${q}" — falling back to default.`);
+    console.warn(`[${label}] Unsplash returned no results for "${q}"`);
     return null;
   }
-  const imgUrl = `${photo.urls.raw}&w=1600&h=840&fit=crop&q=80&fm=jpg`;
-  const imgRes = await fetch(imgUrl);
-  if (!imgRes.ok) {
-    console.warn(`[hero] Unsplash image download failed (${imgRes.status}) — falling back.`);
-    return null;
-  }
-  const buf = Buffer.from(await imgRes.arrayBuffer());
-  const outDir = path.join(ROOT, "Images", "blog");
-  await fs.mkdir(outDir, { recursive: true });
-  const relPath = `Images/blog/${slug}.jpg`;
-  await fs.writeFile(path.join(ROOT, relPath), buf);
-  console.log(`[hero] saved ${relPath} (${buf.length} bytes) — by ${photo.user?.name}`);
-
-  // Trigger Unsplash download tracking per API guidelines
+  // Trigger Unsplash download tracking per API guidelines (fire-and-forget)
   fetch(`${photo.links.download_location}?client_id=${key}`).catch(() => {});
+  return { photo, query: q };
+}
 
+async function downloadUnsplashImage(photo, outPath, width = 1600, height = 840) {
+  const imgUrl = `${photo.urls.raw}&w=${width}&h=${height}&fit=crop&q=80&fm=jpg`;
+  const imgRes = await fetch(imgUrl);
+  if (!imgRes.ok) return false;
+  const buf = Buffer.from(await imgRes.arrayBuffer());
+  await fs.mkdir(path.dirname(outPath), { recursive: true });
+  await fs.writeFile(outPath, buf);
+  console.log(`  saved ${path.relative(ROOT, outPath)} (${buf.length} bytes) — by ${photo.user?.name}`);
+  return true;
+}
+
+function photoCredit(photo) {
   const photographer = photo.user?.name || "Unsplash photographer";
-  const photographerUrl = photo.user?.links?.html ? `${photo.user.links.html}?utm_source=castlog&utm_medium=referral` : "https://unsplash.com";
-  const alt = photo.alt_description || photo.description || `${q} photo`;
+  const photographerUrl = photo.user?.links?.html
+    ? `${photo.user.links.html}?utm_source=castlog&utm_medium=referral`
+    : "https://unsplash.com";
+  return { name: photographer, url: photographerUrl };
+}
+
+async function fetchHeroImage(query, slug) {
+  const key = unsplashKey();
+  console.log(`[hero] UNSPLASH_ACCESS_KEY present: ${Boolean(key)} (length=${key.length}); image_query from model: ${JSON.stringify(query)}`);
+  if (!key) {
+    console.warn("UNSPLASH_ACCESS_KEY not set — falling back to default header image.");
+    return null;
+  }
+  const found = await fetchUnsplashPhoto(query, "hero");
+  if (!found) return null;
+  const relPath = `Images/blog/${slug}.jpg`;
+  const ok = await downloadUnsplashImage(found.photo, path.join(ROOT, relPath));
+  if (!ok) return null;
+  const credit = photoCredit(found.photo);
+  const alt = found.photo.alt_description || found.photo.description || `${found.query} photo`;
   return {
     path: `/${relPath}`,
     alt,
-    credit: `Photo by ${photographer} on Unsplash`,
-    credit_url: photographerUrl,
+    credit: `Photo by ${credit.name} on Unsplash`,
+    credit_url: credit.url,
   };
+}
+
+async function injectInlineImages(markdown, slug) {
+  const key = unsplashKey();
+  if (!key) {
+    console.warn("[inline] UNSPLASH_ACCESS_KEY not set — stripping inline image placeholders.");
+    return markdown.replace(/^\s*\[IMAGE:\s*[^\]]+\]\s*$/gm, "");
+  }
+  const regex = /^\s*\[IMAGE:\s*([^\]]+)\]\s*$/gm;
+  const matches = [...markdown.matchAll(regex)];
+  console.log(`[inline] found ${matches.length} image placeholder(s)`);
+  if (matches.length === 0) return markdown;
+
+  const replacements = [];
+  let idx = 1;
+  for (const m of matches) {
+    const query = m[1].trim();
+    const label = `inline-${idx}`;
+    const found = await fetchUnsplashPhoto(query, label);
+    if (!found) {
+      replacements.push({ match: m[0], replacement: "" });
+      idx++;
+      continue;
+    }
+    const relPath = `Images/blog/${slug}-${idx}.jpg`;
+    const ok = await downloadUnsplashImage(found.photo, path.join(ROOT, relPath), 1200, 800);
+    if (!ok) {
+      replacements.push({ match: m[0], replacement: "" });
+      idx++;
+      continue;
+    }
+    const credit = photoCredit(found.photo);
+    const alt = (found.photo.alt_description || found.photo.description || `${query} photo`)
+      .replace(/"/g, "'")
+      .slice(0, 140);
+    const figure = `<figure class="inline-image"><img src="/${relPath}" alt="${alt}" loading="lazy"><figcaption>Photo by <a href="${credit.url}" rel="noopener nofollow">${credit.name}</a> on Unsplash</figcaption></figure>`;
+    replacements.push({ match: m[0], replacement: figure });
+    idx++;
+  }
+
+  let out = markdown;
+  for (const r of replacements) {
+    out = out.replace(r.match, r.replacement);
+  }
+  return out;
 }
 
 async function main() {
@@ -237,6 +300,7 @@ async function main() {
   const { words } = validatePost(parsed);
 
   const hero = await fetchHeroImage(parsed.image_query, topic.slug);
+  parsed.markdown = await injectInlineImages(parsed.markdown, topic.slug);
 
   const filename = `${today}-${topic.slug}.md`;
   const filepath = path.join(POSTS_DIR, filename);

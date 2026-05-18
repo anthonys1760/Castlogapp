@@ -26,6 +26,12 @@ FORMAT (strict):
 IMAGE QUERY:
 - Provide a 2–4 word stock-photo search query for an Unsplash hero image. Concrete, photographable subjects only: "bass fishing lake sunrise", "fly fishing river", "fishing rod tackle box". No abstract concepts, no app/UI terms, no people's names.
 
+INLINE IMAGES:
+- Insert exactly 2 image placeholders inside the body, on their own line, using this exact format: [IMAGE: 2-4 word query]
+- Place them after concrete sections where a photo earns its space (e.g. after a section about water temperature, after a section about a specific species or technique). NEVER inside the intro and NEVER right before the closing CTA.
+- Each query must be concrete and photographable, like the hero query rules.
+- Do not number or label them; just drop the placeholder on its own line between paragraphs.
+
 OUTPUT — return exactly one JSON object, no prose around it:
 {
   "title": "...",
