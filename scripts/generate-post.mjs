@@ -111,8 +111,8 @@ function buildFrontmatter(topic, post, wordCount, hero) {
 }
 
 async function fetchHeroImage(query, slug) {
-  const key = process.env.UNSPLASH_ACCESS_KEY;
-  console.log(`[hero] UNSPLASH_ACCESS_KEY present: ${Boolean(key)}; image_query from model: ${JSON.stringify(query)}`);
+  const key = (process.env.UNSPLASH_ACCESS_KEY || "").trim();
+  console.log(`[hero] UNSPLASH_ACCESS_KEY present: ${Boolean(key)} (length=${key.length}); image_query from model: ${JSON.stringify(query)}`);
   if (!key) {
     console.warn("UNSPLASH_ACCESS_KEY not set — falling back to default header image.");
     return null;
