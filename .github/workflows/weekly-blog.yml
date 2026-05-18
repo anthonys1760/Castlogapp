@@ -48,6 +48,7 @@ jobs:
         working-directory: scripts
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           FORCE_TOPIC_SLUG: ${{ inputs.topic_slug }}
         run: |
           if [ -n "$FORCE_TOPIC_SLUG" ]; then
@@ -75,7 +76,7 @@ jobs:
           git config user.name "castlog-blog-bot"
           git config user.email "blog-bot@castlogapp.com"
           git checkout -b "$BRANCH"
-          git add blog/ sitemap.xml feed.xml
+          git add blog/ sitemap.xml feed.xml Images/blog
           git commit -m "blog: ${POST_TITLE}"
           git push -u origin "$BRANCH"
 

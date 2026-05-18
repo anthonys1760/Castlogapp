@@ -86,13 +86,13 @@ function validatePost(parsed) {
   if (!markdown || typeof markdown !== "string") throw new Error("Missing markdown");
   const words = countWords(markdown);
   const h2s = countH2s(markdown);
-  if (words < 1100) throw new Error(`Word count too low: ${words}`);
-  if (words > 1900) throw new Error(`Word count too high: ${words}`);
+  if (words < 850) throw new Error(`Word count too low: ${words}`);
+  if (words > 1300) throw new Error(`Word count too high: ${words}`);
   if (h2s < 4) throw new Error(`Not enough H2 sections: ${h2s}`);
   return { words, h2s };
 }
 
-function buildFrontmatter(topic, post, wordCount) {
+function buildFrontmatter(topic, post, wordCount, hero) {
   const fm = {
     title: post.title,
     description: post.description,
@@ -101,7 +101,60 @@ function buildFrontmatter(topic, post, wordCount) {
     keywords: topic.keywords || [],
     word_count: wordCount,
   };
+  if (hero?.path) {
+    fm.hero_image = hero.path;
+    fm.hero_image_alt = hero.alt;
+    if (hero.credit) fm.hero_image_credit = hero.credit;
+    if (hero.credit_url) fm.hero_image_credit_url = hero.credit_url;
+  }
   return `---\n${YAML.stringify(fm).trim()}\n---\n\n${post.markdown.trim()}\n`;
+}
+
+async function fetchHeroImage(query, slug) {
+  const key = process.env.UNSPLASH_ACCESS_KEY;
+  if (!key) {
+    console.warn("UNSPLASH_ACCESS_KEY not set — falling back to default header image.");
+    return null;
+  }
+  const q = (query || "fishing").trim();
+  const searchUrl = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&per_page=10&content_filter=high`;
+  const res = await fetch(searchUrl, {
+    headers: { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" },
+  });
+  if (!res.ok) {
+    console.warn(`Unsplash search failed (${res.status}) — falling back to default.`);
+    return null;
+  }
+  const data = await res.json();
+  const photo = (data.results || [])[0];
+  if (!photo) {
+    console.warn(`Unsplash returned no results for "${q}" — falling back to default.`);
+    return null;
+  }
+  const imgUrl = `${photo.urls.raw}&w=1600&h=840&fit=crop&q=80&fm=jpg`;
+  const imgRes = await fetch(imgUrl);
+  if (!imgRes.ok) {
+    console.warn(`Unsplash image download failed (${imgRes.status}) — falling back.`);
+    return null;
+  }
+  const buf = Buffer.from(await imgRes.arrayBuffer());
+  const outDir = path.join(ROOT, "Images", "blog");
+  await fs.mkdir(outDir, { recursive: true });
+  const relPath = `Images/blog/${slug}.jpg`;
+  await fs.writeFile(path.join(ROOT, relPath), buf);
+
+  // Trigger Unsplash download tracking per API guidelines
+  fetch(`${photo.links.download_location}?client_id=${key}`).catch(() => {});
+
+  const photographer = photo.user?.name || "Unsplash photographer";
+  const photographerUrl = photo.user?.links?.html ? `${photo.user.links.html}?utm_source=castlog&utm_medium=referral` : "https://unsplash.com";
+  const alt = photo.alt_description || photo.description || `${q} photo`;
+  return {
+    path: `/${relPath}`,
+    alt,
+    credit: `Photo by ${photographer} on Unsplash`,
+    credit_url: photographerUrl,
+  };
 }
 
 async function main() {
@@ -171,9 +224,12 @@ async function main() {
   }
 
   const { words } = validatePost(parsed);
+
+  const hero = await fetchHeroImage(parsed.image_query, topic.slug);
+
   const filename = `${today}-${topic.slug}.md`;
   const filepath = path.join(POSTS_DIR, filename);
-  const content = buildFrontmatter(topic, parsed, words);
+  const content = buildFrontmatter(topic, parsed, words, hero);
   await fs.writeFile(filepath, content, "utf8");
 
   const topicsNode = doc.get("topics");
