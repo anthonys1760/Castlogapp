@@ -22,7 +22,7 @@ topics:
       - quick fishing journal
     angle: "Lead with the 5-second/3-tap claim. Walk through the moment between
       landing a fish and releasing it. Voice logging payoff."
-    used: false
+    used: true
 
   - slug: best-offline-fishing-app
     title: "The Best Offline Fishing App (When You Have Zero Signal)"
