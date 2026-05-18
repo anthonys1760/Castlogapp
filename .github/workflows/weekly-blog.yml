@@ -33,9 +33,14 @@ jobs:
 
       - name: Skip if today's post exists
         id: precheck
+        env:
+          FORCE_TOPIC_SLUG: ${{ inputs.topic_slug }}
         run: |
           TODAY=$(date -u +%Y-%m-%d)
-          if ls blog/posts/${TODAY}-*.md >/dev/null 2>&1; then
+          if [ -n "$FORCE_TOPIC_SLUG" ]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Manual dispatch with topic_slug=$FORCE_TOPIC_SLUG — bypassing date check."
+          elif ls blog/posts/${TODAY}-*.md >/dev/null 2>&1; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
             echo "Post for $TODAY already exists — skipping."
           else
@@ -72,7 +77,11 @@ jobs:
           POST_TITLE: ${{ steps.gen.outputs.POST_TITLE }}
         run: |
           TODAY=$(date -u +%Y-%m-%d)
-          BRANCH="blog/weekly-${TODAY}"
+          if [ -n "${POST_SLUG}" ] && [ -n "${{ inputs.topic_slug }}" ]; then
+            BRANCH="blog/manual-${TODAY}-${POST_SLUG}"
+          else
+            BRANCH="blog/weekly-${TODAY}"
+          fi
           git config user.name "castlog-blog-bot"
           git config user.email "blog-bot@castlogapp.com"
           git checkout -b "$BRANCH"
