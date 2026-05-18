@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CastLog — Get Early Access</title>
+<link rel="icon" type="image/png" href="/Images/logo.png">
+<meta name="theme-color" content="#121714">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://castlogapp.com/get">
+<meta property="og:title" content="CastLog — The fishing journal you'll actually keep.">
+<meta property="og:description" content="Private by default. No paywalls. Built by an angler.">
+<meta property="og:image" content="https://castlogapp.com/Images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #121714;
+    --card: #1C2320;
+    --amber: #E8A020;
+    --text: #F5F5F2;
+    --muted: #969998;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px calc(48px + env(safe-area-inset-bottom));
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+  .container {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+  .wordmark {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: -0.02em;
+    margin-bottom: 56px;
+  }
+  h1 {
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .sub {
+    font-size: 17px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 1.45;
+  }
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 56px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    cursor: pointer;
+  }
+  .cta-primary {
+    background: var(--amber);
+    color: #121714;
+    border: 2px solid var(--amber);
+    margin-bottom: 14px;
+    box-shadow: 0 8px 24px rgba(232, 160, 32, 0.18);
+  }
+  .cta-secondary {
+    background: transparent;
+    color: var(--amber);
+    border: 2px solid var(--amber);
+  }
+  .cta:active { transform: scale(0.985); }
+  @media (hover: hover) {
+    .cta-primary:hover { background: #f0ad33; }
+    .cta-secondary:hover { background: rgba(232, 160, 32, 0.08); }
+  }
+  .perks {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  @media (max-width: 360px) {
+    h1 { font-size: 28px; }
+    .sub { font-size: 16px; }
+    .cta { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+  <main class="container">
+    <div class="wordmark">castlog</div>
+    <h1>The fishing journal you&rsquo;ll actually keep.</h1>
+    <p class="sub">Private by default. No paywalls. Built by an angler.</p>
+
+    <a class="cta cta-primary" href="https://testflight.apple.com/join/GXHNxR2W">Get Early Access on iOS</a>
+    <a class="cta cta-secondary" href="https://castlogapp.com">Join Android Waitlist</a>
+
+    <p class="perks">Free forever for the basics &middot; No credit card &middot; Export your data anytime</p>
+  </main>
+</body>
+</html>
