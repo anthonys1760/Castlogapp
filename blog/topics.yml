@@ -32,7 +32,7 @@ topics:
       - fishing app without internet
     angle: "The places worth fishing don't have cell. Concrete: '90 minutes from
       anywhere with bars.' Why most apps silently fail offline."
-    used: false
+    used: true
 
   - slug: water-temp-bass-fishing-guide
     title: "Water Temperature for Bass: The 5-Degree Rule"
