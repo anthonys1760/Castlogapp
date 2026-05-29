@@ -506,7 +506,7 @@ footer a{color:var(--text-muted);text-decoration:none}
 <div class="top-banner">
   <div class="top-banner-inner">
     <span class="top-banner-emoji">🎉</span>
-    <span><strong>iOS early access is live.</strong> Android coming Q3.</span>
+    <span><strong>iOS & Android early access is live.</strong> Testing now open.</span>
   </div>
 </div>
 
@@ -542,9 +542,9 @@ footer a{color:var(--text-muted);text-decoration:none}
       </div>
       <div class="hero-form" style="gap:10px;margin:0">
         <input type="email" placeholder="your@email.com" id="hero-email" name="email" style="flex:1">
-        <button class="btn-main" id="hero-btn" style="white-space:nowrap">Android Waitlist →</button>
+        <button class="btn-main" id="hero-btn" style="white-space:nowrap">Android: Request Access →</button>
       </div>
-      <div style="font-size:12px;color:var(--text-muted);text-align:center;font-family:'DM Mono',monospace">iOS available now · Android coming Q3 2026</div>
+      <div style="font-size:12px;color:var(--text-muted);text-align:center;font-family:'DM Mono',monospace">iOS available now · Android testing now open — drop your email for an invite</div>
     </div>
   </div>
 
@@ -775,12 +775,12 @@ footer a{color:var(--text-muted);text-decoration:none}
 <section class="cta-wrap" id="join">
   <div class="sec-label amber fade" style="text-align:center;margin-bottom:14px">GET EARLY ACCESS</div>
   <h2 class="fade d1">Stop leaving data<br><span class="amber">on the water.</span></h2>
-  <p class="fade d2">iOS early access is live on TestFlight. Lock in Pro Insights free for 3 months — including AI Pattern Intelligence from day one. Android launching Q3 2026.</p>
+  <p class="fade d2">iOS early access is live on TestFlight, and Android testing is now open too. Lock in Pro Insights free for 3 months — including AI Pattern Intelligence from day one. Drop your email below and we'll send an Android invite.</p>
   <div class="fade d3" style="display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto">
     <a href="https://testflight.apple.com/join/GXHNxR2W?utm_source=castlog_website&utm_medium=final_cta&utm_campaign=early_access_ios" class="btn-main" style="text-align:center;text-decoration:none">📱 iOS: Get Early Access Now</a>
     <div style="display:flex;gap:10px">
       <input type="email" placeholder="your@email.com" id="cta-email" name="email" style="flex:1;background:var(--card);border:1px solid var(--border2);color:var(--text);padding:16px 20px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color .2s">
-      <button class="btn-main" id="cta-btn" style="white-space:nowrap">Android Waitlist →</button>
+      <button class="btn-main" id="cta-btn" style="white-space:nowrap">Android: Request Access →</button>
     </div>
   </div>
   <div class="cta-fine fade d4">Free forever for the basics · No credit card · No spam, ever · Export your data any time, forever</div>
@@ -825,7 +825,7 @@ function handleForm(emailId, btnId) {
         body: JSON.stringify({ email })
       });
       if (res.ok) {
-        btn.textContent = "You're on the list!";
+        btn.textContent = "Invite on the way!";
         btn.style.background = "#6aab56";
         if (typeof gtag !== "undefined") {
           gtag("event", "waitlist_signup", { form_location: emailId === "hero-email" ? "hero" : "cta" });
