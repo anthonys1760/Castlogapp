@@ -11,6 +11,43 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const TOPICS_PATH = path.join(ROOT, "blog", "topics.yml");
 const POSTS_DIR = path.join(ROOT, "blog", "posts");
+const USED_PHOTOS_PATH = path.join(ROOT, "blog", "used-photos.json");
+
+// Photo IDs already used by a previous post. Unsplash returns the same popular
+// shots for similar queries ("lake", "sunset", "water"), so without this guard
+// two posts can end up with the same scene even though the cropped files differ
+// byte-for-byte. We skip any already-used photo at selection time and append
+// newly-used IDs after a post is written.
+const usedPhotoIds = new Set();
+let usedPhotoLog = [];
+
+async function loadUsedPhotos() {
+  try {
+    const data = JSON.parse(await fs.readFile(USED_PHOTOS_PATH, "utf8"));
+    usedPhotoLog = Array.isArray(data) ? data : [];
+  } catch {
+    usedPhotoLog = [];
+  }
+  for (const entry of usedPhotoLog) {
+    if (entry && entry.id) usedPhotoIds.add(entry.id);
+  }
+}
+
+async function saveUsedPhotos() {
+  await fs.writeFile(USED_PHOTOS_PATH, `${JSON.stringify(usedPhotoLog, null, 2)}\n`, "utf8");
+}
+
+function recordPhotoUse(photo, slug) {
+  if (!photo?.id || usedPhotoIds.has(photo.id)) return;
+  usedPhotoIds.add(photo.id);
+  usedPhotoLog.push({
+    id: photo.id,
+    slug,
+    photographer: photo.user?.name || "",
+    url: photo.links?.html || "",
+    used_at: todayUTC(),
+  });
+}
 
 const MODEL = process.env.BLOG_MODEL || "anthropic/claude-sonnet-4.6";
 const DRY_RUN = process.argv.includes("--dry-run");
@@ -118,7 +155,7 @@ async function fetchUnsplashPhoto(query, label = "img") {
   const key = unsplashKey();
   if (!key) return null;
   const q = (query || "fishing").trim();
-  const searchUrl = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&per_page=10&content_filter=high`;
+  const searchUrl = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&per_page=30&content_filter=high`;
   console.log(`[${label}] Unsplash search: "${q}"`);
   let res;
   try {
@@ -135,10 +172,15 @@ async function fetchUnsplashPhoto(query, label = "img") {
     return null;
   }
   const data = await res.json();
-  const photo = (data.results || [])[0];
-  if (!photo) {
+  const results = data.results || [];
+  if (results.length === 0) {
     console.warn(`[${label}] Unsplash returned no results for "${q}"`);
     return null;
+  }
+  // Prefer a photo no earlier post has used; only reuse if every candidate is taken.
+  const photo = results.find(p => !usedPhotoIds.has(p.id)) || results[0];
+  if (usedPhotoIds.has(photo.id)) {
+    console.warn(`[${label}] all ${results.length} candidate(s) for "${q}" are already used — reusing ${photo.id}`);
   }
   // Trigger Unsplash download tracking per API guidelines (fire-and-forget)
   fetch(`${photo.links.download_location}?client_id=${key}`).catch(() => {});
@@ -176,6 +218,7 @@ async function fetchHeroImage(query, slug) {
   const relPath = `Images/blog/${slug}.jpg`;
   const ok = await downloadUnsplashImage(found.photo, path.join(ROOT, relPath));
   if (!ok) return null;
+  recordPhotoUse(found.photo, slug);
   const credit = photoCredit(found.photo);
   const alt = found.photo.alt_description || found.photo.description || `${found.query} photo`;
   return {
@@ -216,6 +259,7 @@ async function injectInlineImages(markdown, slug) {
       idx++;
       continue;
     }
+    recordPhotoUse(found.photo, slug);
     const credit = photoCredit(found.photo);
     const alt = (found.photo.alt_description || found.photo.description || `${query} photo`)
       .replace(/"/g, "'")
@@ -235,6 +279,7 @@ async function injectInlineImages(markdown, slug) {
 
 async function main() {
   await fs.mkdir(POSTS_DIR, { recursive: true });
+  await loadUsedPhotos();
 
   const today = todayUTC();
   const existing = await fs.readdir(POSTS_DIR).catch(() => []);
@@ -318,6 +363,7 @@ async function main() {
   const filepath = path.join(POSTS_DIR, filename);
   const content = buildFrontmatter(topic, parsed, words, hero);
   await fs.writeFile(filepath, content, "utf8");
+  await saveUsedPhotos();
 
   const topicsNode = doc.get("topics");
   const topicNode = topicsNode.get(topicIndex);
