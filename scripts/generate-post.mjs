@@ -190,13 +190,14 @@ async function injectInlineImages(markdown, slug) {
   const key = unsplashKey();
   if (!key) {
     console.warn("[inline] UNSPLASH_ACCESS_KEY not set — stripping inline image placeholders.");
-    return markdown.replace(/^\s*\[IMAGE:\s*[^\]]+\]\s*$/gm, "");
+    return { markdown: markdown.replace(/^\s*\[IMAGE:\s*[^\]]+\]\s*$/gm, ""), inline: [] };
   }
   const regex = /^\s*\[IMAGE:\s*([^\]]+)\]\s*$/gm;
   const matches = [...markdown.matchAll(regex)];
   console.log(`[inline] found ${matches.length} image placeholder(s)`);
-  if (matches.length === 0) return markdown;
+  if (matches.length === 0) return { markdown, inline: [] };
 
+  const inline = [];
   const replacements = [];
   let idx = 1;
   for (const m of matches) {
@@ -221,6 +222,7 @@ async function injectInlineImages(markdown, slug) {
       .slice(0, 140);
     const figure = `<figure class="inline-image"><img src="/${relPath}" alt="${alt}" loading="lazy"><figcaption>Photo by <a href="${credit.url}" rel="noopener nofollow">${credit.name}</a> on Unsplash</figcaption></figure>`;
     replacements.push({ match: m[0], replacement: figure });
+    inline.push({ path: `/${relPath}`, alt, credit: `Photo by ${credit.name} on Unsplash`, credit_url: credit.url });
     idx++;
   }
 
@@ -228,7 +230,7 @@ async function injectInlineImages(markdown, slug) {
   for (const r of replacements) {
     out = out.replace(r.match, r.replacement);
   }
-  return out;
+  return { markdown: out, inline };
 }
 
 async function main() {
@@ -299,8 +301,18 @@ async function main() {
 
   const { words } = validatePost(parsed);
 
-  const hero = await fetchHeroImage(parsed.image_query, topic.slug);
-  parsed.markdown = await injectInlineImages(parsed.markdown, topic.slug);
+  let hero = await fetchHeroImage(parsed.image_query, topic.slug);
+  const { markdown, inline } = await injectInlineImages(parsed.markdown, topic.slug);
+  parsed.markdown = markdown;
+
+  // The dedicated hero fetch can miss (no Unsplash result, download error) even when
+  // inline images succeed. Rather than silently fall back to the shared blog-header.jpg
+  // — which produces duplicate heroes across posts — promote the first inline image to
+  // the hero so every post still ships a unique header.
+  if (!hero && inline.length > 0) {
+    hero = inline[0];
+    console.warn(`[hero] dedicated hero fetch missed — promoting first inline image (${hero.path}) to hero to avoid the shared fallback.`);
+  }
 
   const filename = `${today}-${topic.slug}.md`;
   const filepath = path.join(POSTS_DIR, filename);

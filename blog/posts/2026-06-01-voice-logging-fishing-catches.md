@@ -9,6 +9,10 @@ keywords:
   - hands free fishing app
   - voice catch logging
 word_count: 1032
+hero_image: /Images/blog/voice-logging-fishing-catches-2.jpg
+hero_image_alt: a man standing in the water holding a fish
+hero_image_credit: Photo by Alex Lange on Unsplash
+hero_image_credit_url: https://unsplash.com/@alexlange92?utm_source=castlog&utm_medium=referral
 ---
 
 You just pulled a 3-pound largemouth out of a dock shadow on a chartreuse spinnerbait. The fish is in your hand, water is running down your wrist, and your phone is in your pocket. You know you should log it — the water temp, the depth, the exact lure — but the moment you try to unlock your screen with a wet thumb, the whole thing falls apart. By the time you've dried off enough to type, the fish is back in the water and the moment is already softening in your memory. That is the problem CastLog was built to solve, and voice logging is the sharpest tool in the fix.
