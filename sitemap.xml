@@ -13,6 +13,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://castlogapp.com/blog/voice-logging-fishing-catches/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://castlogapp.com/blog/log-a-catch-in-under-5-seconds/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>

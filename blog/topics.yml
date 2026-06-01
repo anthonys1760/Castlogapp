@@ -52,7 +52,7 @@ topics:
       - voice catch logging
     angle: "Lead with the wet-hands problem. CastLog parses 'three pound largemouth
       on a spinnerbait' into structured fields."
-    used: false
+    used: true
 
   - slug: ai-fish-identification-accuracy
     title: "AI Fish Identification: What Actually Works in 2026"

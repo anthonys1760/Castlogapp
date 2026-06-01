@@ -6,7 +6,14 @@
     <description>Fast logging, AI patterns, and the apps that get in your way.</description>
     <language>en-us</language>
     <atom:link href="https://castlogapp.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 01 Jun 2026 14:47:12 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 14:57:26 GMT</lastBuildDate>
+    <item>
+      <title>Voice Fishing Log: Log Catches With Wet Hands</title>
+      <link>https://castlogapp.com/blog/voice-logging-fishing-catches/</link>
+      <guid isPermaLink="true">https://castlogapp.com/blog/voice-logging-fishing-catches/</guid>
+      <pubDate>Mon, 01 Jun 2026 09:00:00 GMT</pubDate>
+      <description><![CDATA[Wet hands kill your logging streak. CastLog's voice fishing log parses a full catch in under 5 seconds, 3 taps. No more lost data.]]></description>
+    </item>
     <item>
       <title>Log a Catch in Under 5 Seconds (No Phone Tantrum)</title>
       <link>https://castlogapp.com/blog/log-a-catch-in-under-5-seconds/</link>
