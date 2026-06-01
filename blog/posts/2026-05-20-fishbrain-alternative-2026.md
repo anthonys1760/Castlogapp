@@ -10,10 +10,10 @@ keywords:
   - free fishing app
   - fishbrain vs
 word_count: 1018
-hero_image: /Images/blog/fishbrain-alternative-2026-2.jpg
-hero_image_alt: body of water near green grass during daytime
-hero_image_credit: Photo by Andrew Reshetov on Unsplash
-hero_image_credit_url: https://unsplash.com/@qoba?utm_source=castlog&utm_medium=referral
+hero_image: /Images/blog/fishbrain-alternative-2026-1.jpg
+hero_image_alt: brown and white mountains under blue sky during daytime
+hero_image_credit: Photo by Joshua Gresham on Unsplash
+hero_image_credit_url: https://unsplash.com/@hammy?utm_source=castlog&utm_medium=referral
 ---
 
 You're standing knee-deep in a creek, rod bent, water running cold at 47°F, and you just landed a 14-inch brown trout on a size 16 elk hair caddis. You want to log it before the moment dissolves. You open your fishing app. It asks you to log in. Then it wants a photo upload. Then it spins, because you have no signal. By tap six, the fish is back in the water and your hands are soaked and you've logged nothing. That's not a logging problem — that's a data graveyard. CastLog exists to fix exactly that, and this post explains why it's become the Fishbrain alternative serious anglers are actually reaching for in 2026.
@@ -35,7 +35,6 @@ Count the taps next time you try to log a catch in a typical fishing app. Specie
 I built CastLog because I kept making the same trade-off: log the catch and lose the moment, or stay in the moment and lose the data. That's a false choice. A well-designed logging interface shouldn't force it.
 
 CastLog logs a catch in 3 taps, under 5 seconds. Species, size, and location auto-populate from GPS and your last session defaults. Voice input handles notes hands-free. The entry is saved locally the instant you confirm — no signal required, no spinner, no lost data.
-<figure class="inline-image"><img src="/Images/blog/fishbrain-alternative-2026-1.jpg" alt="brown and white mountains under blue sky during daytime" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@hammy?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Joshua Gresham</a> on Unsplash</figcaption></figure>
 ## Offline-First Is Not a Feature. It's the Baseline.
 
 The places worth fishing rarely have cell signal. A tailwater below a dam in rural Tennessee. A backcountry lake at 9,000 feet. A tidal flat in the Everglades where LTE coverage ends two miles from the ramp.
@@ -55,7 +54,6 @@ CastLog's AI Pattern Intelligence is live. After enough entries, it surfaces pat
 This is the payoff for logging discipline. A journal with 200 entries across two seasons tells you things that 20 entries never could. But you only get to 200 entries if logging never costs you more than 5 seconds per catch.
 
 Fishbrain has a community map. That's useful for finding new water. CastLog's pattern layer is built on your data, your water, your techniques. The intelligence is personal, not crowdsourced.
-<figure class="inline-image"><img src="/Images/blog/fishbrain-alternative-2026-2.jpg" alt="body of water near green grass during daytime" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@qoba?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Andrew Reshetov</a> on Unsplash</figcaption></figure>
 ## Free Forever for the Basics — No Paywall on Your Own Data
 
 CastLog's core journal — unlimited catch logging, GPS mapping, session history, offline access — is free forever. You shouldn't pay to write in your own fishing diary.
