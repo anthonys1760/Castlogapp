@@ -447,6 +447,9 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;align-i
 footer a{color:var(--text-muted);text-decoration:none}
 
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+#back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--surface-2);border:1px solid var(--border);color:var(--amber);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s,background .15s;z-index:999}
+#back-top.visible{opacity:1;pointer-events:auto}
+#back-top:hover{background:var(--surface-3);transform:translateY(-3px)}
 .fade{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
 .fade.in{opacity:1;transform:translateY(0)}
 .fade.d1{transition-delay:.08s}.fade.d2{transition-delay:.16s}.fade.d3{transition-delay:.24s}.fade.d4{transition-delay:.32s}
@@ -794,6 +797,10 @@ footer a{color:var(--text-muted);text-decoration:none}
   <div class="roadmap-teaser fade d4"><span class="roadmap-badge">On the roadmap</span> Apple Watch support</div>
 </section>
 
+<button id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,11 9,5 15,11"/></svg>
+</button>
+
 <footer>
   <div class="footer-logo"><img src="Images/logo.png" alt="CastLog" style="height:52px;width:52px;object-fit:contain;margin-right:10px;">Cast<span style="color:#fff">Log</span></div>
   <div style="font-style:italic;color:var(--text-muted)">Built by an angler, for anglers — not investors.</div>
@@ -805,6 +812,11 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
 }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
 document.querySelectorAll(".fade").forEach(el => io.observe(el));
+
+const backTop = document.getElementById("back-top");
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("visible", window.scrollY > 400);
+}, { passive: true });
 
 function handleForm(emailId, btnId) {
   const input = document.getElementById(emailId);
