@@ -6,7 +6,14 @@
     <description>Fast logging, AI patterns, and the apps that get in your way.</description>
     <language>en-us</language>
     <atom:link href="https://castlogapp.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 01 Jun 2026 15:53:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 15:17:39 GMT</lastBuildDate>
+    <item>
+      <title>What a Year of Logged Catches Teaches You</title>
+      <link>https://castlogapp.com/blog/fishing-pattern-recognition-ai/</link>
+      <guid isPermaLink="true">https://castlogapp.com/blog/fishing-pattern-recognition-ai/</guid>
+      <pubDate>Tue, 09 Jun 2026 09:00:00 GMT</pubDate>
+      <description><![CDATA[Discover how AI Pattern Intelligence turns a year of logged catches into concrete fishing patterns—barometric pressure, moon phases, lure-temp pairings, and more.]]></description>
+    </item>
     <item>
       <title>Voice Fishing Log: Log Catches With Wet Hands</title>
       <link>https://castlogapp.com/blog/voice-logging-fishing-catches/</link>
