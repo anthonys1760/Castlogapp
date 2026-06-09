@@ -72,7 +72,7 @@ topics:
       - ai fishing patterns
     angle: "Walk through what AI Pattern Intelligence finds: barometric swings, moon
       phase clusters, lure-water-temp pairings. Make it concrete."
-    used: false
+    used: true
 
   - slug: fishing-journal-vs-paper
     title: "Paper Fishing Log vs. App: Why the Best Anglers Switched"
