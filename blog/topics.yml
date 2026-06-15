@@ -82,7 +82,7 @@ topics:
       - best fishing log
     angle: "Acknowledge paper works — until you have 3 years and can't
       cross-reference. Soft pitch on structured data."
-    used: false
+    used: true
 
   - slug: spring-bass-prespawn-patterns
     title: "Pre-Spawn Bass: How to Read the Window"
