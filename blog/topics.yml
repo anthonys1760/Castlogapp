@@ -92,7 +92,7 @@ topics:
       - prespawn bass
     angle: "Seasonal — best for March–May. Concrete temp bands (48-55F), structure,
       lure progression."
-    used: false
+    used: true
 
   - slug: private-fishing-spots-burning
     title: "How to Protect Your Spots Without Quitting Fishing Apps"
