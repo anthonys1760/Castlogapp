@@ -1,5 +1,9 @@
 # macOS
 .DS_Store
 
+# Node dependencies (local build tooling in scripts/) — contains symlinks that
+# break GitHub Pages' Jekyll build if ever committed
+node_modules/
+
 # Design-reference exports (screensdesign.com scratch material, kept local-only)
 privacy-first-fishing-journal-export-*/
