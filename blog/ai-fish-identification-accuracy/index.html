@@ -177,13 +177,13 @@ footer div{margin-bottom:8px}
 <figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-2.jpg" alt="a suitcase filled with lots of different types of items" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Kelly Sikkema</a> on Unsplash</figcaption></figure>
 ## Offline Matters More Than People Admit
 
-<p>Most AI photo identification requires a server call. You take the photo, it uploads, the model runs in the cloud, the result comes back. That pipeline breaks the moment you lose signal — which is exactly when you&#39;re somewhere worth fishing.</p>
-<p>CastLog runs its fish ID model on-device. The identification happens locally, no connection required. The log entry saves locally and syncs when you&#39;re back in range. This isn&#39;t a minor technical detail. If your fish id app needs cell service and you&#39;re fishing a reservoir in the Ozarks or a creek drainage in the Cascades, the app is functionally useless at the moment you need it.</p>
-<p>Offline-first isn&#39;t a differentiator you should have to advertise in 2026. It should be table stakes. But it isn&#39;t, and that gap costs anglers real data.</p>
+<p>Most AI photo identification requires a server call. You take the photo, it uploads, the model runs in the cloud, the result comes back. CastLog&#39;s Fish ID works the same way — the photo goes to a cloud AI model to identify the species. That call can&#39;t happen with zero signal, which is exactly when you&#39;re somewhere worth fishing.</p>
+<p>What doesn&#39;t wait on that round-trip is the log entry itself. Weight, length, location, and notes save to your device the instant you confirm, with no spinner and no dependency on the ID call finishing. If you&#39;re out of range when you take the photo, you can still log the catch by hand and skip the AI suggestion — you&#39;re never blocked from writing down what you caught. This isn&#39;t a minor technical detail. If your fish id app needs cell service and you&#39;re fishing a reservoir in the Ozarks or a creek drainage in the Cascades, an app that can&#39;t log without the ID is functionally useless at the moment you need it.</p>
+<p>Offline-first logging isn&#39;t a differentiator you should have to advertise in 2026. It should be table stakes. But it isn&#39;t, and that gap costs anglers real data.</p>
 <h2>What to Actually Look For in a Fish ID App</h2>
 <p>If you&#39;re evaluating fish identification tools, here&#39;s the honest checklist:</p>
 <ul>
-<li><strong>Does it work offline?</strong> If not, it will fail you in the field.</li>
+<li><strong>Does logging survive a dead connection?</strong> The ID call itself needs signal, but the log shouldn&#39;t get stuck waiting on it.</li>
 <li><strong>What happens after the ID?</strong> Does it log the catch, or does it stop at the species name?</li>
 <li><strong>How does it handle corrections?</strong> You should be able to override the AI suggestion in one tap, not navigate a dropdown of 400 species.</li>
 <li><strong>Does the data go somewhere useful?</strong> Identification without pattern analysis is a parlor trick.</li>
