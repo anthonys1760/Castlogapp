@@ -102,7 +102,7 @@ topics:
       - fishing app privacy
     angle: "Privacy as TABLE STAKE not the lead. Frame: 'most apps fixed this — what
       they didn't fix is logging.' Brief, factual."
-    used: false
+    used: true
 
   - slug: lake-intelligence-bite-score
     title: "Bite Score Explained: How to Read a Lake Before You Cast"
