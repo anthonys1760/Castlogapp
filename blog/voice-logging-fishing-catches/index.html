@@ -174,7 +174,8 @@ footer div{margin-bottom:8px}
 <p>When CastLog parses your voice entry into fields, every catch becomes a data point that the pattern engine can actually use. After 30 or 40 logged catches, the app can surface things like: largemouth bites in this lake cluster between 6 and 9 AM when water temp is between 62°F and 68°F, and 70% of them come on reaction baits. That kind of pattern doesn&#39;t emerge from a folder of voice memos. It only emerges from structured data, logged consistently.</p>
 <p>Consistency is the part that voice logging unlocks. When logging costs nothing — no dry hands required, no 6-tap form — you log everything. When you log everything, the patterns get real.</p>
 <h2>Offline-First Matters More Than You Think</h2>
-<p>The places worth fishing rarely have cell signal. A backcountry reservoir at 5 AM, a tidal creek in a marsh, a high-elevation alpine lake — none of these have reliable LTE. Voice transcription itself needs a connection — CastLog sends the recording to a cloud AI model to turn it into text, then parses that transcript into fields. What doesn&#39;t wait on that round-trip is the rest of the entry: GPS coordinates and any fields you type by hand write to your device the instant you confirm, so a dead zone doesn&#39;t cost you the catch itself. There&#39;s no spinner blocking the entry, no lost catch data because you were in a dead zone waiting on transcription. The offline-first architecture isn&#39;t a feature we added later — it&#39;s a constraint I built the logging flow around from day one, because I knew the app would be useless if it only worked at the marina.</p>
+<p>The places worth fishing rarely have cell signal. A backcountry reservoir at 5 AM, a tidal creek in a marsh, a high-elevation alpine lake — none of these have reliable LTE. Any app that depends on a cloud round-trip to process your voice entry is going to fail you exactly when you need it most.</p>
+<p>CastLog processes voice logging entirely on-device. The entry writes to local storage first, syncs when signal returns. There&#39;s no spinner, no &quot;waiting for network&quot; failure state, no lost catch because you were in a dead zone. The offline-first architecture isn&#39;t a feature we added later — it&#39;s a constraint I built around from day one, because I knew the app would be useless if it only worked at the marina.</p>
 <p>This is also why GPS coordinates log locally. You&#39;re not pinging a server to get your location written to the catch record. It happens in the background, silently, while you&#39;re already reaching for the next cast.</p>
 <figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="a man standing in the water holding a fish" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@alexlange92?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Alex Lange</a> on Unsplash</figcaption></figure>
 ## What Hands-Free Fishing App Design Gets Wrong
@@ -189,8 +190,8 @@ footer div{margin-bottom:8px}
 
   <aside class="related">
   <div class="related-label">Keep reading</div>
+  <a href="/blog/lake-intelligence-bite-score/">Bite Score Explained: How to Read a Lake</a>
   <a href="/blog/private-fishing-spots-burning/">Private Fishing Spots: Stop Burning Them in Apps</a>
-  <a href="/blog/spring-bass-prespawn-patterns/">Pre-Spawn Bass: How to Read the Window</a>
 </aside>
 
   <section class="cta">

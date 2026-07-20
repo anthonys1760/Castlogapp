@@ -112,7 +112,7 @@ topics:
       - when to go fishing
     angle: "What goes into a useful bite score: barometric trend, water temp, wind,
       moon, recent local catches. CastLog ships this."
-    used: false
+    used: true
 
   - slug: catch-and-release-best-practices
     title: "Catch and Release: The 30-Second Rule That Keeps Fish Alive"
