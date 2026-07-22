@@ -60,4 +60,4 @@ The compounding effect is real. Each logged catch makes the next pattern more pr
 
 CastLog logs a catch in 3 taps, under 5 seconds, with voice input for notes. It works offline, because the places worth fishing rarely have cell signal. The basics are free forever.
 
-If you've spent a season fishing on gut feel and wondered what the data would actually show — grab iOS early access on TestFlight, or join the Android waitlist for Q3 2026. Start logging now, and next June you'll have a year of answers waiting for you!
+If you've spent a season fishing on gut feel and wondered what the data would actually show — download CastLog on the App Store, or join the Android waitlist for Q3 2026. Start logging now, and next June you'll have a year of answers waiting for you!

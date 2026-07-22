@@ -65,4 +65,4 @@ That's the bar. It shouldn't be a high one, but for most apps in this category, 
 
 ---
 
-If you've lost a catch entry to a spinning save screen, or given up on logging because the friction wasn't worth it on remote water — CastLog is built for exactly that frustration. The basics are free forever, logging takes under 5 seconds, and it works whether you have five bars or none. Grab iOS early access on TestFlight now, or join the Android waitlist for Q3 2026!
+If you've lost a catch entry to a spinning save screen, or given up on logging because the friction wasn't worth it on remote water — CastLog is built for exactly that frustration. The basics are free forever, logging takes under 5 seconds, and it works whether you have five bars or none. Download CastLog on the App Store now, or join the Android waitlist for Q3 2026!

@@ -59,4 +59,4 @@ I built CastLog because I kept losing data at the exact moments that mattered �
 
 ---
 
-If you've ever put your phone away because your hands were too wet to type, this is the app that fixes that. CastLog is free forever for the basics, and logging a catch takes under 5 seconds. iOS anglers can grab early access on TestFlight right now — Android anglers can join the Android waitlist for Q3 2026. Come fish smarter!
+If you've ever put your phone away because your hands were too wet to type, this is the app that fixes that. CastLog is free forever for the basics, and logging a catch takes under 5 seconds. iOS anglers can download CastLog on the App Store right now — Android anglers can join the Android waitlist for Q3 2026. Come fish smarter!

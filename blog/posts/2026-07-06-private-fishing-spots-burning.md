@@ -67,4 +67,4 @@ Privacy is a feature. Speed is a habit. Habits are what build the data that actu
 
 ---
 
-If you've felt this frustration — the six-tap log, the session you meant to record and didn't — CastLog is built for exactly that. The basics are free forever, and a catch logs in under 5 seconds. Grab iOS early access on TestFlight now, or join the Android waitlist for Q3 2026. Your spots stay yours. Your data finally starts working for you!
+If you've felt this frustration — the six-tap log, the session you meant to record and didn't — CastLog is built for exactly that. The basics are free forever, and a catch logs in under 5 seconds. Download CastLog on the App Store now, or join the Android waitlist for Q3 2026. Your spots stay yours. Your data finally starts working for you!

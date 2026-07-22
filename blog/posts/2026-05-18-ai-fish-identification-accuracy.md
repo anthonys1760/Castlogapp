@@ -65,4 +65,4 @@ AI fish identification in 2026 is good enough to be genuinely useful on the spec
 
 ---
 
-If you've ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. The basics are free forever, and logging a catch takes under 5 seconds. Grab iOS early access on TestFlight, or join the Android waitlist for Q3 2026 — the link is below!
+If you've ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. The basics are free forever, and logging a catch takes under 5 seconds. Download CastLog on the App Store, or join the Android waitlist for Q3 2026 — the link is below!
