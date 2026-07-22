@@ -68,4 +68,4 @@ Logging it consistently is the only barrier. That barrier is a UX problem, and i
 
 ---
 
-If you've ever stood at the ramp guessing whether to tie on a jerkbait or a drop shot because you didn't know the water temp — and didn't have a year of your own data to answer the question — grab iOS early access on TestFlight and start logging this season. The basics are free forever, and your first catch takes under 5 seconds to record. Android anglers can join the Android waitlist for Q3 2026. Your future self will have the data. Your future self will catch more fish!
+If you've ever stood at the ramp guessing whether to tie on a jerkbait or a drop shot because you didn't know the water temp — and didn't have a year of your own data to answer the question — download CastLog on the App Store and start logging this season. The basics are free forever, and your first catch takes under 5 seconds to record. Android anglers can join the Android waitlist for Q3 2026. Your future self will have the data. Your future self will catch more fish!

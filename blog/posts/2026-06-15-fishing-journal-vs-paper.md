@@ -62,4 +62,4 @@ The best fishing journal isn't the one with the nicest cover. It's the one you a
 
 ---
 
-If you've felt this frustration — data you know you have but can't use — CastLog is available now for iOS early access on TestFlight, free forever for the basics. Android anglers can join the Android waitlist for Q3 2026. Three taps, under 5 seconds, offline from the first cast!
+If you've felt this frustration — data you know you have but can't use — CastLog is available now on the App Store, free forever for the basics. Android anglers can join the Android waitlist for Q3 2026. Three taps, under 5 seconds, offline from the first cast!

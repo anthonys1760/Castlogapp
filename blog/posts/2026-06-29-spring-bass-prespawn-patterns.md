@@ -66,4 +66,4 @@ Fishbrain built a social platform and put the useful features behind an $80-per-
 
 ---
 
-If you've spent a March morning on the wrong bank while the fish were two coves over, you already understand why this matters. CastLog is available now for iOS early access on TestFlight — free forever for the basics. Android anglers can join the Android waitlist for Q3 2026. Grab it before next pre-spawn season and let the data work for you!
+If you've spent a March morning on the wrong bank while the fish were two coves over, you already understand why this matters. CastLog is available now on the App Store — free forever for the basics. Android anglers can join the Android waitlist for Q3 2026. Grab it before next pre-spawn season and let the data work for you!

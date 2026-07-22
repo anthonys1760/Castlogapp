@@ -66,4 +66,4 @@ This isn't a temporary offer to grab market share. It's the model. Anglers who l
 
 ---
 
-If you've stood in a river with a fish on the bank and watched a logging screen spin with no signal, you already know the problem CastLog is solving. iOS early access is live on TestFlight right now — free forever for the basics, under 5 seconds to log a catch. If you're on Android, join the Android waitlist for Q3 2026. Come fish smarter!
+If you've stood in a river with a fish on the bank and watched a logging screen spin with no signal, you already know the problem CastLog is solving. CastLog is live on the App Store right now — free forever for the basics, under 5 seconds to log a catch. If you're on Android, join the Android waitlist for Q3 2026. Come fish smarter!

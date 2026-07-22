@@ -65,4 +65,4 @@ That's the actual payoff of fast catch logging. Not that the moment feels smooth
 
 Before your next session, set up one saved session template: your home water, your usual target species, the structure types you fish most. Takes three minutes once. After that, every log starts with context already loaded. You show up, tap open, tap log, confirm. The fish goes back healthy and you have a record.
 
-If you've felt the phone tantrum — the wet-thumb fumble, the spinner freeze, the six-tap ask at the worst possible moment — CastLog was built for exactly that frustration. The basics are free forever, and the first log takes under 5 seconds. Grab iOS early access on TestFlight today, or join the Android waitlist for Q3 2026!
+If you've felt the phone tantrum — the wet-thumb fumble, the spinner freeze, the six-tap ask at the worst possible moment — CastLog was built for exactly that frustration. The basics are free forever, and the first log takes under 5 seconds. Download CastLog on the App Store today, or join the Android waitlist for Q3 2026!
