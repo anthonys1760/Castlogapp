@@ -123,3 +123,15 @@ topics:
     angle: "Conservation angle. Tie naturally to logging speed: every second the
       fish is out of water matters. Not preachy."
     used: true
+
+  - slug: late-fall-walleye-after-turnover
+    title: "Late Fall Walleye Fishing After Lake Turnover"
+    keywords:
+      - late fall walleye fishing
+      - lake turnover
+      - late fall walleye
+    angle: "Late-fall/early-ice seasonality for northern lakes. Explain turnover with
+      UNL Extension and MN/MI/WI DNR sources; do not invent depths. Tie to logging
+      water temp, time, and structure. Screenshot: lake conditions/Bite Score UI,
+      with an honest warmer-season caveat."
+    used: true
