@@ -490,10 +490,11 @@ body.has-banner nav{top:52px}
 .hero-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:2px;max-width:480px;animation:up .6s .32s ease both}
 .android-link{display:inline-flex;align-items:center;min-height:44px;padding:12px 8px;color:var(--amber);font-weight:600;font-size:15px;text-decoration:none}
 .android-link:hover{text-decoration:underline}
-.hero h1{font-family:"Playfair Display",serif;font-size:clamp(34px,4.5vw,62px);font-weight:900;line-height:1.06;letter-spacing:-.025em;margin-bottom:24px;animation:up .6s .08s ease both}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(34px,4.2vw,56px);font-weight:900;line-height:1.06;letter-spacing:-.025em;margin-bottom:24px;animation:up .6s .08s ease both}
 .line-strike{position:relative;color:var(--text-dim)}
 .line-strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2.5px;background:var(--red);transform:rotate(-.8deg)}
 .line-amber{color:var(--amber);font-style:italic}
+@media(min-width:900px){.line-amber{white-space:nowrap}}
 .hero-sub{font-size:17px;color:var(--text-dim);line-height:1.7;max-width:500px;margin-bottom:24px;animation:up .6s .16s ease both}
 .hero-sub strong{color:var(--text);font-weight:500}
 .hero-form{display:flex;gap:10px;max-width:480px;width:100%;margin:8px 0 0}
@@ -634,7 +635,7 @@ footer a{color:var(--text-muted);text-decoration:none;display:inline-flex;align-
   .hero-copy{display:flex;flex-direction:column;align-items:center;text-align:center}
   .hero-label{order:1;margin:0;height:28px;padding:0 10px;border-radius:14px;letter-spacing:0;text-transform:none;white-space:nowrap}
   .hero{padding-left:16px;padding-right:16px}
-  .hero h1{order:2;font-size:40px;line-height:1.04;letter-spacing:-.5px;margin:14px 0 0}
+  .hero h1{order:2;font-size:36px;text-wrap:balance;line-height:1.04;letter-spacing:-.5px;margin:14px 0 0}
   .hero-kicker,.hero-sub-long,.platform-row,.hero-phones{display:none}
   .hero-sub-short{display:block;order:3;font-size:17px;line-height:1.45;color:#b9b5a6;margin:12px 0 0;max-width:36ch}
   .hero-sub-short strong{color:#ede9dc;font-weight:600}
@@ -685,6 +686,7 @@ footer a:focus-visible{
   outline:2px solid var(--amber);
   outline-offset:3px;
 }
+.mail-btn:focus-visible,.btn-main:focus-visible{outline:2px solid #ede9dc;outline-offset:3px}
 </style>
 </head>
 <body class="has-banner">
@@ -1022,10 +1024,11 @@ footer a:focus-visible{
 <section class="cta-wrap" id="join">
   <div class="sec-label amber fade" style="text-align:center;margin-bottom:14px">GET CASTLOG</div>
   <h2 class="fade d1">Stop leaving data<br><span class="amber">on the water.</span></h2>
-  <p class="fade d2">CastLog for iOS is live on the App Store. Join the open Android test and we'll send an invite. Free core journal, voice logging and export. Angler Pro is optional.</p>
+  <p class="fade d2">CastLog for iOS is live on the App Store. Join the open Android test and we'll send an invite.</p>
   <div class="fade d3" style="display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto">
     <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=final_cta&utm_campaign=ios_app_store" class="store-badge" aria-label="Download on the App Store" style="margin:0 auto"><img src="Images/app-store-badge.svg" alt="Download on the App Store" style="height:60px"></a>
-    <div class="cta-form">
+    <a class="android-link" id="cta-android-link" href="#cta-android" style="align-self:center">On Android? Join the open test →</a>
+    <div class="cta-form" id="cta-android" hidden>
       <label class="visually-hidden" for="cta-email">Email for Android invite</label>
       <input type="email" placeholder="your@email.com" id="cta-email" name="email" autocomplete="email" inputmode="email">
       <button class="btn-main" id="cta-btn" type="button">Join the open Android test</button>
@@ -1068,7 +1071,7 @@ function handleForm(emailId, btnId) {
   btn.addEventListener("click", async () => {
     const email = input.value.trim();
     if (!email.includes("@") || !email.includes(".")) {
-      input.style.borderColor = "#c44a3a";
+      input.style.borderColor = "var(--red)";
       setTimeout(() => { input.style.borderColor = ""; }, 1800);
       return;
     }
@@ -1088,12 +1091,12 @@ function handleForm(emailId, btnId) {
         }
       } else {
         btn.textContent = "Try again";
-        btn.style.background = "#c44a3a";
+        btn.style.background = "var(--red)";
         btn.disabled = input.disabled = false;
       }
     } catch {
       btn.textContent = "Try again";
-      btn.style.background = "#c44a3a";
+      btn.style.background = "var(--red)";
       btn.disabled = input.disabled = false;
     }
   });
@@ -1120,6 +1123,15 @@ handleForm("cta-email", "cta-btn");
     openAndroidForm();
   });
   if (location.hash === "#android-invite") openAndroidForm();
+  var ctaLink = document.getElementById("cta-android-link");
+  if (ctaLink) ctaLink.addEventListener("click", function(e){
+    e.preventDefault();
+    var form = document.getElementById("cta-android");
+    if (!form) return;
+    form.hidden = false;
+    var input = document.getElementById("cta-email");
+    if (input) input.focus();
+  });
   var peekBtn = document.getElementById("peek-play");
   if (peekBtn) peekBtn.addEventListener("click", function(){
     var poster = document.getElementById("peek-poster");
