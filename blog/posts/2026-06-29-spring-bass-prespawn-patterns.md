@@ -60,10 +60,10 @@ One pre-spawn outing is an anecdote. Three years of pre-spawn outings, logged wi
 
 This is where logging friction becomes a real problem. If recording a catch takes 6 taps and two minutes of thumb-typing while your rod is in your lap, you won't do it consistently. You'll log the 5-pounder and forget the 2-pounder that told you the school was there. You'll skip logging the air temp and the cloud cover because it feels like too much. And two seasons later, you're back at the ramp guessing.
 
-CastLog logs a catch in under 5 seconds — 3 taps, with voice input for notes. Water temp, depth, lure, and location are captured before you've made your next cast. The app works offline because the coves worth fishing don't have cell signal. And when March rolls around again, the pattern intelligence layer surfaces what you caught, where, at what temperature, and on what bait — so you're not starting from zero.
+CastLog logs a catch in seconds — 3 taps, with voice input for notes. Water temp, depth, lure, and location are captured before you've made your next cast. The app works offline because the coves worth fishing don't have cell signal. And when March rolls around again, the pattern intelligence layer surfaces what you caught, where, at what temperature, and on what bait — so you're not starting from zero.
 
 Fishbrain built a social platform and put the useful features behind an $80-per-year paywall. That's a reasonable product for some anglers. CastLog is built for the angler who wants a fast, private fishing journal that gets smarter the more you use it.
 
 ---
 
-If you've spent a March morning on the wrong bank while the fish were two coves over, you already understand why this matters. CastLog is available now on the App Store — free forever for the basics. Android testing is now open — drop your email for an invite. Grab it before next pre-spawn season and let the data work for you!
+If you've spent a March morning on the wrong bank while the fish were two coves over, you already understand why this matters. CastLog is available now on the App Store. Free core journal, voice logging and export. Angler Pro is optional. Join the open Android test — drop your email for an invite. Grab it before next pre-spawn season and let the data work for you!

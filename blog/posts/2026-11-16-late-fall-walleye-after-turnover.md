@@ -1,7 +1,7 @@
 ---
 title: Late Fall Walleye Fishing After Lake Turnover
 description: "When a northern lake turns over, walleye may slide shallow or stay deep. Here's how to fish that window and log the conditions that matter."
-date: 2026-11-16
+date: 2026-11-10
 slug: late-fall-walleye-after-turnover
 keywords:
   - late fall walleye fishing
@@ -59,7 +59,7 @@ I want four things in the log, every time:
 - What I threw and how I moved it
 - What the water and weather were doing — surface temp if I have it, air temp, wind, pressure
 
-CastLog is built for that moment when your hands are cold and you don't want to type. Voice logging takes a sentence. Manual logging is three taps and under five seconds, and it works offline. Conditions can come in automatically, so I'm not thumbing through a weather app in the wind.
+CastLog is built for that moment when your hands are cold and you don't want to type. Voice logging takes a sentence. Manual logging is three taps, done in seconds, and it works offline. Conditions can come in automatically, so I'm not thumbing through a weather app in the wind.
 
 <figure class="inline-image"><img src="/Images/lake_detail.png" alt="CastLog lake screen for Scott Lake in Michigan, showing a Bite Score of 75 out of 100, 74°F air temperature with scattered clouds, and an estimated spring water-temperature range of 66–72°F labeled as an estimate, not a measurement." loading="lazy"><figcaption>The CastLog lake view on Scott Lake, Michigan: Bite Score, current weather, and a water-temperature estimate. The air temperature, spring temp band, and green shoreline in this screenshot are a warmer-season example of the UI — not late-fall readings.</figcaption></figure>
 
@@ -75,4 +75,4 @@ I still fish this period for the usual reasons: fewer boats, colder hands, and f
 
 ---
 
-If you're heading out after the lake mixes, take the notes while the fish is still in the net. Download CastLog on the App Store — logging is free forever for the basics, and it takes under 5 seconds. Android testing is now open too. A late-fall pattern is only useful if you can find it again.
+If you're heading out after the lake mixes, take the notes while the fish is still in the net. Download CastLog on the App Store. Free core journal, voice logging and export. Angler Pro is optional, and a catch logs in seconds. Join the open Android test. A late-fall pattern is only useful if you can find it again.

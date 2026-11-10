@@ -1,5 +1,5 @@
 ---
-title: Log a Catch in Under 5 Seconds (No Phone Tantrum)
+title: Log a Catch in Seconds (No Phone Tantrum)
 description: Fast catch logging with 3 taps and voice input. CastLog gets out of
   the way so you can get back to fishing. Here's exactly how it works.
 date: 2026-05-25
@@ -15,7 +15,7 @@ hero_image_credit: Photo by Matthew McBrayer on Unsplash
 hero_image_credit_url: https://unsplash.com/@matthewwmcb?utm_source=castlog&utm_medium=referral
 ---
 
-You've got a 19-inch largemouth in your net, water dripping off your forearm, and maybe 30 seconds before she needs to go back. You want to log it. You open the app, tap through four screens, mistype the weight because your thumb is wet, watch the spinner freeze because you're 400 yards from any cell signal, and by the time you've given up and closed the app, the fish is gone and so is half the moment. I built CastLog because that sequence — the phone tantrum between landing and releasing — was killing my willingness to keep any record at all. The fix is 3 taps and a voice note, done in under 5 seconds.
+You've got a 19-inch largemouth in your net, water dripping off your forearm, and maybe 30 seconds before she needs to go back. You want to log it. You open the app, tap through four screens, mistype the weight because your thumb is wet, watch the spinner freeze because you're 400 yards from any cell signal, and by the time you've given up and closed the app, the fish is gone and so is half the moment. I built CastLog because that sequence — the phone tantrum between landing and releasing — was killing my willingness to keep any record at all. The fix is 3 taps and a voice note, done in seconds.
 
 ## The Window Between Net and Release
 
@@ -65,4 +65,4 @@ That's the actual payoff of fast catch logging. Not that the moment feels smooth
 
 Before your next session, set up one saved session template: your home water, your usual target species, the structure types you fish most. Takes three minutes once. After that, every log starts with context already loaded. You show up, tap open, tap log, confirm. The fish goes back healthy and you have a record.
 
-If you've felt the phone tantrum — the wet-thumb fumble, the spinner freeze, the six-tap ask at the worst possible moment — CastLog was built for exactly that frustration. The basics are free forever, and the first log takes under 5 seconds. Download CastLog for iOS on the App Store today. Android testing is now open — drop your email for an invite!
+If you've felt the phone tantrum — the wet-thumb fumble, the spinner freeze, the six-tap ask at the worst possible moment — CastLog was built for exactly that frustration. Free core journal, voice logging and export. Angler Pro is optional, and the first log is done in seconds. Download CastLog for iOS on the App Store today. Join the open Android test — drop your email for an invite!

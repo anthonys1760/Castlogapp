@@ -1,7 +1,7 @@
 ---
 title: The Fishbrain Alternative Anglers Want in 2026
 description: Tired of Fishbrain's $80/yr paywall and broken offline mode?
-  CastLog logs a catch in 3 taps, under 5 seconds. Here's why anglers are
+  CastLog logs a catch in 3 taps, done in seconds. Here's why anglers are
   switching.
 date: 2026-05-20
 slug: fishbrain-alternative-2026
@@ -34,7 +34,7 @@ Count the taps next time you try to log a catch in a typical fishing app. Specie
 
 I built CastLog because I kept making the same trade-off: log the catch and lose the moment, or stay in the moment and lose the data. That's a false choice. A well-designed logging interface shouldn't force it.
 
-CastLog logs a catch in 3 taps, under 5 seconds. Species, size, and location auto-populate from GPS and your last session defaults. Voice input handles notes hands-free. The entry is saved locally the instant you confirm — no signal required, no spinner, no lost data.
+CastLog logs a catch in 3 taps, done in seconds. Species, size, and location auto-populate from GPS and your last session defaults. Voice input handles notes hands-free. The entry is saved locally the instant you confirm — no signal required, no spinner, no lost data.
 ## Offline-First Is Not a Feature. It's the Baseline.
 
 The places worth fishing rarely have cell signal. A tailwater below a dam in rural Tennessee. A backcountry lake at 9,000 feet. A tidal flat in the Everglades where LTE coverage ends two miles from the ramp.
@@ -51,12 +51,12 @@ Logging fast isn't just about convenience. It's about compounding data into some
 
 CastLog's AI Pattern Intelligence is live. After enough entries, it surfaces patterns you wouldn't spot manually: the species and technique combinations that outperform across specific temperature ranges, the time-of-day windows that consistently produce on your home water, the lure colors that work in stained versus clear conditions.
 
-This is the payoff for logging discipline. A journal with 200 entries across two seasons tells you things that 20 entries never could. But you only get to 200 entries if logging never costs you more than 5 seconds per catch.
+This is the payoff for logging discipline. A journal with 200 entries across two seasons tells you things that 20 entries never could. But you only get to 200 entries if logging never costs you more than a few seconds per catch.
 
 Fishbrain has a community map. That's useful for finding new water. CastLog's pattern layer is built on your data, your water, your techniques. The intelligence is personal, not crowdsourced.
 ## Free Forever for the Basics — No Paywall on Your Own Data
 
-CastLog's core journal — unlimited catch logging, GPS mapping, session history, offline access — is free forever. You shouldn't pay to write in your own fishing diary.
+CastLog's core journal — unlimited catch logging, GPS mapping, session history, offline access — is the free core journal. Angler Pro is optional. You shouldn't pay to write in your own fishing diary.
 
 The pattern intelligence layer, advanced filters, and multi-device sync are part of the paid tier, priced well under $80 a year. But the baseline experience, the part that replaces a paper logbook and never loses an entry, costs nothing.
 
@@ -66,4 +66,4 @@ This isn't a temporary offer to grab market share. It's the model. Anglers who l
 
 ---
 
-If you've stood in a river with a fish on the bank and watched a logging screen spin with no signal, you already know the problem CastLog is solving. CastLog is live on the App Store right now — free forever for the basics, under 5 seconds to log a catch. Android testing is now open — drop your email for an invite. Come fish smarter!
+If you've stood in a river with a fish on the bank and watched a logging screen spin with no signal, you already know the problem CastLog is solving. CastLog is live on the App Store right now. Free core journal, voice logging and export. Angler Pro is optional, and a catch logs in seconds. Join the open Android test — drop your email for an invite. Come fish smarter!

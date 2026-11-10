@@ -102,7 +102,7 @@ function renderCard(post) {
 async function renderIndex(posts, indexTemplate) {
   const cards = posts.length
     ? posts.map(renderCard).join("\n")
-    : `  <div class="empty">No posts yet. Check back Monday.</div>`;
+    : `  <div class="empty">No posts yet. New field notes most weeks.</div>`;
   return renderTemplate(indexTemplate, { post_cards: cards });
 }
 

@@ -53,11 +53,11 @@ This is also where offline-first architecture earns its keep. The lakes worth fi
 
 Solunar tables and weather data are public. Any app can surface them. What CastLog builds on top of that is a layer of real catch data logged by anglers on that specific water.
 
-When an angler logs a catch—species, depth, lure, water temp, time of day—in under 5 seconds with 3 taps, that data point goes into the pattern engine. Seventy-two hours of catches on a given lake tell you things no weather model can: that the walleye are running 18–22 feet on the main basin break, that topwater stopped producing when the surface hit 81°F, that the morning bite is happening 40 minutes before the solunar table predicts.
+When an angler logs a catch—species, depth, lure, water temp, time of day—in seconds with 3 taps, that data point goes into the pattern engine. Seventy-two hours of catches on a given lake tell you things no weather model can: that the walleye are running 18–22 feet on the main basin break, that topwater stopped producing when the surface hit 81°F, that the morning bite is happening 40 minutes before the solunar table predicts.
 
 This is the core argument for fast logging. Every catch you skip logging because it's too much friction is a data point the model never sees. Fishbrain understood this too, but their logging flow never got below 6–8 taps, and their $80/year Pro paywall meant the casual anglers who make up most of the user base weren't logging consistently. Sparse data produces weak patterns.
 
-I built CastLog's logging flow first, before any of the intelligence features, because none of the pattern work matters if anglers stop logging after the second trip. Three taps, under 5 seconds, wet hands on a pitching boat. That's the constraint everything else was built around.
+I built CastLog's logging flow first, before any of the intelligence features, because none of the pattern work matters if anglers stop logging after the second trip. Three taps, in seconds, wet hands on a pitching boat. That's the constraint everything else was built around.
 
 ## Reading Your Bite Score Before You Go
 
@@ -69,4 +69,4 @@ The Bite Score is not a guarantee. Fish don't read algorithms. But it's a struct
 
 ---
 
-If you've ever driven home from a blank day wondering what you missed, CastLog's Bite Score is built for that frustration. Download CastLog for iOS on the App Store and log your first catch in under 5 seconds—the basics are free forever. Android testing is now open — drop your email for an invite.
+If you've ever driven home from a blank day wondering what you missed, CastLog's Bite Score is built for that frustration. Download CastLog for iOS on the App Store and log your first catch in seconds. Free core journal, voice logging and export. Angler Pro is optional. Join the open Android test — drop your email for an invite.

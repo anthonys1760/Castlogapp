@@ -41,7 +41,7 @@ The logging problem doesn't get solved by adding more features. It gets solved b
 
 ## What Fast Logging Actually Looks Like
 
-I built CastLog because I kept abandoning my own digital logs. The threshold I set was: a catch entry has to be completable in under 5 seconds, 3 taps, including an option for voice input when my hands are full. That's the bar. Everything else in the app exists to serve that constraint or to make the data useful after the fact.
+I built CastLog because I kept abandoning my own digital logs. The threshold I set was: a catch entry has to be completable in seconds, 3 taps, including an option for voice input when my hands are full. That's the bar. Everything else in the app exists to serve that constraint or to make the data useful after the fact.
 
 In practice it looks like this: fish comes to hand, I tap the species, tap the lure from a recents list that learns what I actually use, speak the weight, done. GPS coordinates, time, and conditions are captured automatically. I'm back to fishing before the adrenaline fades.
 
@@ -62,4 +62,4 @@ The best fishing journal isn't the one with the nicest cover. It's the one you a
 
 ---
 
-If you've felt this frustration — data you know you have but can't use — CastLog is available now on the App Store, free forever for the basics. Android testing is now open — drop your email for an invite. Three taps, under 5 seconds, offline from the first cast!
+If you've felt this frustration — data you know you have but can't use — CastLog is available now on the App Store. Free core journal, voice logging and export. Angler Pro is optional. Join the open Android test — drop your email for an invite. Three taps, done in seconds, offline from the first cast!

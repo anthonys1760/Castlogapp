@@ -58,6 +58,6 @@ After 12 months, Pattern Intelligence can start identifying multi-variable inter
 
 The compounding effect is real. Each logged catch makes the next pattern more precise. That's the actual payoff of fast logging — not just convenience, but data density. Every catch you skip logging because it took too long is a missing data point that slightly degrades your patterns.
 
-CastLog logs a catch in 3 taps, under 5 seconds, with voice input for notes. It works offline, because the places worth fishing rarely have cell signal. The basics are free forever.
+CastLog logs a catch in 3 taps, done in seconds, with voice input for notes. It works offline, because the places worth fishing rarely have cell signal. Free core journal, voice logging and export. Angler Pro is optional.
 
-If you've spent a season fishing on gut feel and wondered what the data would actually show — download CastLog for iOS on the App Store. Android testing is now open — drop your email for an invite. Start logging now, and next June you'll have a year of answers waiting for you!
+If you've spent a season fishing on gut feel and wondered what the data would actually show — download CastLog for iOS on the App Store. Join the open Android test — drop your email for an invite. Start logging now, and next June you'll have a year of answers waiting for you!

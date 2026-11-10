@@ -1,7 +1,7 @@
 ---
 title: "Voice Fishing Log: Log Catches With Wet Hands"
 description: Wet hands kill your logging streak. CastLog's voice fishing log
-  parses a full catch in under 5 seconds, 3 taps. No more lost data.
+  parses a full catch in seconds, 3 taps. No more lost data.
 date: 2026-06-01
 slug: voice-logging-fishing-catches
 keywords:
@@ -27,7 +27,7 @@ The fix isn't a better form. It's eliminating the form entirely.
 
 ## How Voice Catch Logging Actually Works
 
-In CastLog, you open the app, hit the microphone, and say something like: *three pound largemouth on a spinnerbait, eight feet, dock structure*. The app parses that into structured fields — species, weight, lure type, depth, and structure — and writes the entry. Water temperature pulls from your last manual reading or a connected sensor if you have one. GPS coordinates log automatically. The whole thing takes under 5 seconds and 3 taps.
+In CastLog, you open the app, hit the microphone, and say something like: *three pound largemouth on a spinnerbait, eight feet, dock structure*. The app parses that into structured fields — species, weight, lure type, depth, and structure — and writes the entry. Water temperature pulls from your last manual reading or a connected sensor if you have one. GPS coordinates log automatically. The whole thing is done in seconds and 3 taps.
 
 The parsing isn't a gimmick. It handles common fishing shorthand without requiring you to speak in a specific syntax. You don't have to say "species: largemouth bass, weight: three pounds." You just talk the way you'd describe the catch to the guy in the next boat. The app figures out what's a species, what's a weight, what's a technique.
 
@@ -59,4 +59,4 @@ I built CastLog because I kept losing data at the exact moments that mattered �
 
 ---
 
-If you've ever put your phone away because your hands were too wet to type, this is the app that fixes that. CastLog is free forever for the basics, and logging a catch takes under 5 seconds. iOS anglers can download CastLog on the App Store right now — Android testing is now open — drop your email for an invite. Come fish smarter!
+If you've ever put your phone away because your hands were too wet to type, this is the app that fixes that. Free core journal, voice logging and export. Angler Pro is optional, and logging a catch is done in seconds. iOS anglers can download CastLog on the App Store right now. Join the open Android test — drop your email for an invite. Come fish smarter!

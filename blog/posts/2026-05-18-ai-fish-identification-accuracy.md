@@ -37,7 +37,7 @@ Fishbrain's premium features, including some of its AI tools, sit behind an $80 
 
 I built CastLog because the identification problem was already mostly solved. What wasn't solved was the 45-second logging process that follows it, the one you skip when the fish is alive in your hands and your co-angler is already making a cast.
 
-In CastLog, the photo ID feeds directly into the log entry. The species field pre-fills from the AI suggestion. You confirm or correct it with one tap. Then you add weight and length — either typed, or spoken out loud while the fish is still in the net. Location stamps automatically. The whole entry closes in under 5 seconds from the moment you confirm the species.
+In CastLog, the photo ID feeds directly into the log entry. The species field pre-fills from the AI suggestion. You confirm or correct it with one tap. Then you add weight and length — either typed, or spoken out loud while the fish is still in the net. Location stamps automatically. The whole entry closes in seconds from the moment you confirm the species.
 
 That speed isn't a convenience feature. It's the mechanism that makes everything else work. More complete logs mean more data points. More data points mean the pattern intelligence layer has something real to work with — which lures produced at 47°F versus 58°F, which tide stage correlated with your redfish catches on a specific flat, which retrieve speed your smallmouth responded to in late May versus early June.
 
@@ -65,4 +65,4 @@ AI fish identification in 2026 is good enough to be genuinely useful on the spec
 
 ---
 
-If you've ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. The basics are free forever, and logging a catch takes under 5 seconds. Download CastLog for iOS on the App Store, or request Android testing access — the link is below!
+If you've ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. Free core journal, voice logging and export. Angler Pro is optional, and logging a catch is done in seconds. Download CastLog for iOS on the App Store, or request Android testing access — the link is below!
