@@ -6,7 +6,8 @@
 <title>Voice Fishing Log: Log Catches With Wet Hands · CastLog</title>
 <meta name="description" content="Wet hands kill your logging streak. CastLog&#39;s voice fishing log parses a full catch in under 5 seconds, 3 taps. No more lost data.">
 <link rel="canonical" href="https://castlogapp.com/blog/voice-logging-fishing-catches/">
-<link rel="icon" type="image/png" href="/Images/logo.png">
+<link rel="icon" type="image/png" href="/Images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/Images/favicon-64.png" sizes="64x64">
 <link rel="alternate" type="application/rss+xml" title="CastLog Field Notes" href="/feed.xml">
 
 <meta property="og:type" content="article">
@@ -133,7 +134,7 @@ footer div{margin-bottom:8px}
 <body>
 
 <nav>
-  <a href="/" class="logo"><img src="/Images/logo.png" alt="CastLog" style="height:48px;width:48px;object-fit:contain;vertical-align:middle;margin-right:8px;">Cast<span style="color:#fff">Log</span></a>
+  <a href="/" class="logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:48px;width:48px;object-fit:contain;vertical-align:middle;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></a>
   <div class="nav-right">
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=blog_nav&utm_campaign=ios_app_store" aria-label="Download on the App Store" style="display:inline-block;line-height:0"><img src="/Images/app-store-badge.svg" alt="Download on the App Store" style="display:block;height:38px;width:auto"></a>
@@ -144,7 +145,7 @@ footer div{margin-bottom:8px}
   <a href="/blog/" class="back">← Back to blog</a>
 
   <figure class="hero-figure">
-    <img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="a man standing in the water holding a fish" width="1600" height="840" loading="eager">
+    <img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="An angler standing waist-deep in a calm lake, fishing toward snow-capped mountains." width="1600" height="840" loading="eager">
     <figcaption class="hero-credit">Photo by Alex Lange on Unsplash · <a href="https://unsplash.com/@alexlange92?utm_source=castlog&amp;utm_medium=referral" rel="noopener nofollow">view</a></figcaption>
   </figure>
 
@@ -167,7 +168,7 @@ footer div{margin-bottom:8px}
 <p>In CastLog, you open the app, hit the microphone, and say something like: <em>three pound largemouth on a spinnerbait, eight feet, dock structure</em>. The app parses that into structured fields — species, weight, lure type, depth, and structure — and writes the entry. Water temperature pulls from your last manual reading or a connected sensor if you have one. GPS coordinates log automatically. The whole thing takes under 5 seconds and 3 taps.</p>
 <p>The parsing isn&#39;t a gimmick. It handles common fishing shorthand without requiring you to speak in a specific syntax. You don&#39;t have to say &quot;species: largemouth bass, weight: three pounds.&quot; You just talk the way you&#39;d describe the catch to the guy in the next boat. The app figures out what&#39;s a species, what&#39;s a weight, what&#39;s a technique.</p>
 <p>That matters most in the moments when logging is hardest: net still in the water, fish flopping, sun in your eyes.</p>
-<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-1.jpg" alt="man holding a fishnet" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@fredrikohlander?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Fredrik Öhlander</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-1.jpg" alt="A person on a boat holding a fishing net over an orange tub." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@fredrikohlander?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Fredrik Öhlander</a> on Unsplash</figcaption></figure>
 ## Structured Data Is the Whole Point
 
 <p>Voice input is only valuable if what comes out the other end is clean, structured data — not a text blob you have to parse yourself later. This is where a lot of voice-to-text implementations fall short. They transcribe what you said and leave you with a note. That&#39;s marginally better than typing, but it&#39;s not the same as a logged catch with discrete fields.</p>
@@ -177,14 +178,14 @@ footer div{margin-bottom:8px}
 <p>The places worth fishing rarely have cell signal. A backcountry reservoir at 5 AM, a tidal creek in a marsh, a high-elevation alpine lake — none of these have reliable LTE. Any app that depends on a cloud round-trip to process your voice entry is going to fail you exactly when you need it most.</p>
 <p>CastLog processes voice logging entirely on-device. The entry writes to local storage first, syncs when signal returns. There&#39;s no spinner, no &quot;waiting for network&quot; failure state, no lost catch because you were in a dead zone. The offline-first architecture isn&#39;t a feature we added later — it&#39;s a constraint I built around from day one, because I knew the app would be useless if it only worked at the marina.</p>
 <p>This is also why GPS coordinates log locally. You&#39;re not pinging a server to get your location written to the catch record. It happens in the background, silently, while you&#39;re already reaching for the next cast.</p>
-<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="a man standing in the water holding a fish" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@alexlange92?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Alex Lange</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="An angler standing waist-deep in a calm lake, fishing toward snow-capped mountains." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@alexlange92?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Alex Lange</a> on Unsplash</figcaption></figure>
 ## What Hands-Free Fishing App Design Gets Wrong
 
 <p>Most &quot;hands-free&quot; features in fishing apps are bolted on. They&#39;re voice search, or they&#39;re Siri shortcuts that open the app to a specific screen. That&#39;s not the same as a logging flow designed from the ground up around the assumption that your hands are wet, cold, or occupied.</p>
 <p>Real hands-free design means the microphone is the primary input, not a fallback. It means the app doesn&#39;t require you to confirm 4 fields before writing the entry. It means the success state is a logged catch, not a draft waiting for you to finish later.</p>
 <p>I built CastLog because I kept losing data at the exact moments that mattered — the first fish of a new pattern, the outlier catch that would have told me something if I&#39;d written it down properly. Voice logging isn&#39;t a convenience feature. It&#39;s the mechanism that makes consistent logging possible for anyone who actually fishes hard.</p>
 <hr>
-<p>If you&#39;ve ever put your phone away because your hands were too wet to type, this is the app that fixes that. CastLog is free forever for the basics, and logging a catch takes under 5 seconds. iOS anglers can download it from the App Store right now — Android anglers can join the Android waitlist for Q3 2026. Come fish smarter!</p>
+<p>If you&#39;ve ever put your phone away because your hands were too wet to type, this is the app that fixes that. CastLog is free forever for the basics, and logging a catch takes under 5 seconds. iOS anglers can download CastLog on the App Store right now — Android testing is now open — drop your email for an invite. Come fish smarter!</p>
 
   </div>
 
@@ -199,18 +200,18 @@ footer div{margin-bottom:8px}
     <p>Log a catch in under 5 seconds. Free forever for the basics. Built by an angler who got fed up.</p>
     <div class="cta-row">
       <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=blog_post&utm_campaign=ios_app_store" id="post-cta-ios" aria-label="Download on the App Store" style="align-self:center;line-height:0"><img src="/Images/app-store-badge.svg" alt="Download on the App Store" style="display:block;height:52px;width:auto"></a>
-      <div class="cta-android-label">On Android? Join the waitlist for Q3 2026</div>
+      <div class="cta-android-label">On Android? Testing is now open</div>
       <form class="cta-form" id="post-cta-form" onsubmit="return submitCta(event)">
         <input type="email" id="post-cta-email" name="email" placeholder="your@email.com" required>
-        <button type="submit" id="post-cta-btn">Android Waitlist →</button>
+        <button type="submit" id="post-cta-btn">Android: Request Access →</button>
       </form>
     </div>
-    <div class="cta-perks">iOS available now · Android coming Q3 2026 · No paywall on core features</div>
+    <div class="cta-perks">iOS live on the App Store · Android testing now open · No paywall on core features</div>
   </section>
 </article>
 
 <footer>
-  <div class="footer-logo"><img src="/Images/logo.png" alt="CastLog" style="height:32px;width:32px;object-fit:contain;margin-right:8px;">Cast<span style="color:#fff">Log</span></div>
+  <div class="footer-logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:32px;width:32px;object-fit:contain;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></div>
   <div style="font-style:italic">Built by an angler, for anglers — not investors.</div>
   <div>© 2026 CastLog · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/feed.xml">RSS</a></div>
 </footer>

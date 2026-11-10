@@ -6,7 +6,8 @@
 <title>AI Fish Identification: What Actually Works in 2026 · CastLog</title>
 <meta name="description" content="An honest look at AI fish identification accuracy in 2026, and why the logging pipeline matters more than the photo match.">
 <link rel="canonical" href="https://castlogapp.com/blog/ai-fish-identification-accuracy/">
-<link rel="icon" type="image/png" href="/Images/logo.png">
+<link rel="icon" type="image/png" href="/Images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/Images/favicon-64.png" sizes="64x64">
 <link rel="alternate" type="application/rss+xml" title="CastLog Field Notes" href="/feed.xml">
 
 <meta property="og:type" content="article">
@@ -133,7 +134,7 @@ footer div{margin-bottom:8px}
 <body>
 
 <nav>
-  <a href="/" class="logo"><img src="/Images/logo.png" alt="CastLog" style="height:48px;width:48px;object-fit:contain;vertical-align:middle;margin-right:8px;">Cast<span style="color:#fff">Log</span></a>
+  <a href="/" class="logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:48px;width:48px;object-fit:contain;vertical-align:middle;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></a>
   <div class="nav-right">
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=blog_nav&utm_campaign=ios_app_store" aria-label="Download on the App Store" style="display:inline-block;line-height:0"><img src="/Images/app-store-badge.svg" alt="Download on the App Store" style="display:block;height:38px;width:auto"></a>
@@ -163,7 +164,7 @@ footer div{margin-bottom:8px}
 <p>For common species in good light, the models are genuinely impressive. A largemouth bass, a rainbow trout, a redfish held up against a neutral background — modern computer vision handles these with high confidence. The training datasets have gotten large enough that the top fish id apps are reliable on the 30 or 40 species that make up the bulk of recreational catches in North America.</p>
 <p>The edge cases are where things get honest. A juvenile smallmouth versus a spotted bass in muddy water. A sheepshead versus a black drum at a weird angle. A Pacific halibut versus a California halibut from above. These are the identifications that still trip up every app on the market, including CastLog. Anyone telling you their AI nails every species in every condition is selling you something.</p>
 <p>The practical ceiling right now: common species, decent light, clear lateral view — expect accuracy in the high 80s to low 90s percentage-wise. Unusual species, low light, partial views — treat the suggestion as a starting point, not a verdict.</p>
-<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-1.jpg" alt="a man holding a brown fish in a net" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@matthewwmcb?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Matthew McBrayer</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-1.jpg" alt="An angler in a fishing vest holds a spotted trout above a landing net." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@matthewwmcb?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Matthew McBrayer</a> on Unsplash</figcaption></figure>
 ## What the Other Apps Get Right (and Where They Stop)
 
 <p>Fishbrain has had photo-based fish identification for a while. iNaturalist, which isn&#39;t a fishing app but uses the same underlying computer vision approach, is arguably the most accurate general species identifier available. Several standalone identify-fish-from-photo apps have appeared in the last two years, some of them genuinely good at the ID step.</p>
@@ -174,7 +175,7 @@ footer div{margin-bottom:8px}
 <p>In CastLog, the photo ID feeds directly into the log entry. The species field pre-fills from the AI suggestion. You confirm or correct it with one tap. Then you add weight and length — either typed, or spoken out loud while the fish is still in the net. Location stamps automatically. The whole entry closes in under 5 seconds from the moment you confirm the species.</p>
 <p>That speed isn&#39;t a convenience feature. It&#39;s the mechanism that makes everything else work. More complete logs mean more data points. More data points mean the pattern intelligence layer has something real to work with — which lures produced at 47°F versus 58°F, which tide stage correlated with your redfish catches on a specific flat, which retrieve speed your smallmouth responded to in late May versus early June.</p>
 <p>The AI identification is the front door. The log is the house.</p>
-<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-2.jpg" alt="a suitcase filled with lots of different types of items" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Kelly Sikkema</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-2.jpg" alt="An open tackle bag with fishing lures sorted into a compartment tray." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Kelly Sikkema</a> on Unsplash</figcaption></figure>
 ## Offline Matters More Than People Admit
 
 <p>Most AI photo identification requires a server call. You take the photo, it uploads, the model runs in the cloud, the result comes back. That pipeline breaks the moment you lose signal — which is exactly when you&#39;re somewhere worth fishing.</p>
@@ -191,7 +192,7 @@ footer div{margin-bottom:8px}
 </ul>
 <p>AI fish identification in 2026 is good enough to be genuinely useful on the species you catch most. The question worth asking isn&#39;t whether the AI can name the fish. It&#39;s whether the app can turn that moment into a data point you&#39;ll actually benefit from six months from now.</p>
 <hr>
-<p>If you&#39;ve ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. The basics are free forever, and logging a catch takes under 5 seconds. Download CastLog for iOS from the App Store, or join the Android waitlist for Q3 2026 — the link is below!</p>
+<p>If you&#39;ve ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. The basics are free forever, and logging a catch takes under 5 seconds. Download CastLog for iOS on the App Store, or request Android testing access — the link is below!</p>
 
   </div>
 
@@ -206,18 +207,18 @@ footer div{margin-bottom:8px}
     <p>Log a catch in under 5 seconds. Free forever for the basics. Built by an angler who got fed up.</p>
     <div class="cta-row">
       <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=blog_post&utm_campaign=ios_app_store" id="post-cta-ios" aria-label="Download on the App Store" style="align-self:center;line-height:0"><img src="/Images/app-store-badge.svg" alt="Download on the App Store" style="display:block;height:52px;width:auto"></a>
-      <div class="cta-android-label">On Android? Join the waitlist for Q3 2026</div>
+      <div class="cta-android-label">On Android? Testing is now open</div>
       <form class="cta-form" id="post-cta-form" onsubmit="return submitCta(event)">
         <input type="email" id="post-cta-email" name="email" placeholder="your@email.com" required>
-        <button type="submit" id="post-cta-btn">Android Waitlist →</button>
+        <button type="submit" id="post-cta-btn">Android: Request Access →</button>
       </form>
     </div>
-    <div class="cta-perks">iOS available now · Android coming Q3 2026 · No paywall on core features</div>
+    <div class="cta-perks">iOS live on the App Store · Android testing now open · No paywall on core features</div>
   </section>
 </article>
 
 <footer>
-  <div class="footer-logo"><img src="/Images/logo.png" alt="CastLog" style="height:32px;width:32px;object-fit:contain;margin-right:8px;">Cast<span style="color:#fff">Log</span></div>
+  <div class="footer-logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:32px;width:32px;object-fit:contain;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></div>
   <div style="font-style:italic">Built by an angler, for anglers — not investors.</div>
   <div>© 2026 CastLog · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/feed.xml">RSS</a></div>
 </footer>

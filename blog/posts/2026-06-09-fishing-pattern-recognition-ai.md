@@ -11,7 +11,7 @@ keywords:
   - ai fishing patterns
 word_count: 1000
 hero_image: /Images/blog/fishing-pattern-recognition-ai.jpg
-hero_image_alt: body of water near green grass during daytime
+hero_image_alt: Sunset over a calm lake, with reeds in the foreground and a bird flying above the tree line.
 hero_image_credit: Photo by Andrew Reshetov on Unsplash
 hero_image_credit_url: https://unsplash.com/@qoba?utm_source=castlog&utm_medium=referral
 ---
@@ -33,7 +33,7 @@ Barometric pressure is one of the most discussed variables in fishing and one of
 When CastLog's AI Pattern Intelligence processes a full year of your logs, it looks for clusters — moments where multiple variables align across multiple catch events. Barometric pressure is one of the strongest signals it finds.
 
 For a lot of bass anglers, the pattern that emerges isn't just "falling pressure is good." It's more specific: rapid drops of 0.10 inHg or more over a 6-hour window, combined with overcast skies and water temps above 62°F, produce disproportionately high catch rates on moving baits. Steady high pressure, by contrast, tends to push fish deeper and slower. The AI doesn't invent that — it surfaces it from your own records.
-<figure class="inline-image"><img src="/Images/blog/fishing-pattern-recognition-ai-1.jpg" alt="brown wooden dock near calm body of water surrounded by trees" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@aaronburden?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Aaron Burden</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/fishing-pattern-recognition-ai-1.jpg" alt="A wooden dock on a calm lake, with orange buoys and a forested far shore." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@aaronburden?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Aaron Burden</a> on Unsplash</figcaption></figure>
 ## Moon Phase Clusters You'd Never Notice Manually
 
 Moon phase is the variable most anglers either swear by or dismiss entirely. The logged data tends to land somewhere more nuanced than either camp expects.
@@ -49,7 +49,7 @@ This is the pattern most anglers find most immediately actionable. Not "crankbai
 A year of logs might show you that your best performing bait for largemouth is a 3/8 oz. brown-green jig — but only between 58°F and 68°F. Below 58°F, your catch rate on that jig drops sharply and a finesse ned rig at the same depth outperforms it by a wide margin. Above 68°F, topwater frogs fished over grass edges start generating more catches per hour than anything else in your log.
 
 Those aren't guesses. They're your numbers, from your water. Pattern Intelligence doesn't pull from a generic fishing database. It pulls from the catches you logged — which is why logging fast enough to actually capture the data matters.
-<figure class="inline-image"><img src="/Images/blog/fishing-pattern-recognition-ai-2.jpg" alt="a man standing over a table filled with lots of items" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@adamcdav?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Adam Davis</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/fishing-pattern-recognition-ai-2.jpg" alt="Two anglers on a boat looking through an open tackle box of lures." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@adamcdav?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Adam Davis</a> on Unsplash</figcaption></figure>
 ## The Compounding Effect of Consistent Logging
 
 One month of data gives you a snapshot. Three months gives you a season. A full year gives you something qualitatively different: a complete cycle of conditions, species behavior, and technique performance across every season your fishery goes through.
@@ -60,4 +60,4 @@ The compounding effect is real. Each logged catch makes the next pattern more pr
 
 CastLog logs a catch in 3 taps, under 5 seconds, with voice input for notes. It works offline, because the places worth fishing rarely have cell signal. The basics are free forever.
 
-If you've spent a season fishing on gut feel and wondered what the data would actually show — download CastLog on the App Store, or join the Android waitlist for Q3 2026. Start logging now, and next June you'll have a year of answers waiting for you!
+If you've spent a season fishing on gut feel and wondered what the data would actually show — download CastLog for iOS on the App Store. Android testing is now open — drop your email for an invite. Start logging now, and next June you'll have a year of answers waiting for you!

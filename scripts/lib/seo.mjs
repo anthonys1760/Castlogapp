@@ -6,6 +6,9 @@ export function buildSitemap(posts) {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: `${SITE}/`, lastmod: today, changefreq: "weekly", priority: "1.0" },
+    { loc: `${SITE}/get/`, lastmod: today, changefreq: "monthly", priority: "0.8" },
+    { loc: `${SITE}/support/`, lastmod: today, changefreq: "monthly", priority: "0.5" },
+    { loc: `${SITE}/privacy/`, lastmod: today, changefreq: "yearly", priority: "0.3" },
     { loc: `${SITE}/blog/`, lastmod: today, changefreq: "weekly", priority: "0.8" },
     ...posts.map(p => ({
       loc: `${SITE}/blog/${p.slug}/`,

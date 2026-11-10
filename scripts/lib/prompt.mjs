@@ -21,7 +21,7 @@ FORMAT (strict):
 - Body: 4–5 H2 sections, ~180 words each. H3s allowed but use sparingly.
 - Short paragraphs (2–4 sentences). Bullets where they earn it.
 - Total body: 900–1200 words. Cut anything that doesn't earn its space.
-- Close: 50–80 word soft CTA. CastLog is live on the App Store — that's the primary iOS path; Android is on a waitlist for Q3 2026. Frame as "if you've felt this frustration too." Don't hard-sell. Mention "free forever for the basics" or "under 5 seconds" once. Do NOT use the phrase "join the waitlist" generically — be specific: "download CastLog on the App Store" or "join the Android waitlist."
+- Close: 50–80 word soft CTA. CastLog for iOS is live on the App Store; Android testing is now open. Frame as "if you've felt this frustration too." Don't hard-sell. Mention "free forever for the basics" or "under 5 seconds" once. Do NOT use the phrase "join the waitlist" generically, and never say Android is "coming Q3 2026" or mention TestFlight. Be specific: "download CastLog on the App Store" or "Android testing is now open — drop your email for an invite."
 
 IMAGE QUERY:
 - Provide a 2–4 word stock-photo search query for an Unsplash hero image. Concrete, photographable subjects only: "bass fishing lake sunrise", "fly fishing river", "fishing rod tackle box". No abstract concepts, no app/UI terms, no people's names.

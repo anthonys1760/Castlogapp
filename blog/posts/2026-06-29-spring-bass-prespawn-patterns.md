@@ -10,7 +10,7 @@ keywords:
   - prespawn bass
 word_count: 1030
 hero_image: /Images/blog/spring-bass-prespawn-patterns.jpg
-hero_image_alt: a man standing on a dock next to a body of water
+hero_image_alt: A man standing on a wooden dock beside a lake, with bare trees along the shore.
 hero_image_credit: Photo by Tomas Trajan on Unsplash
 hero_image_credit_url: https://unsplash.com/@tomastrajan?utm_source=castlog&utm_medium=referral
 ---
@@ -26,7 +26,7 @@ Pre-spawn bass behavior isn't a single event — it's a progression tied directl
 - **55–58°F:** This is the window. Bass are actively pre-feeding before the spawn locks them down. Big females are shallow, often in 3–8 feet, and they eat.
 
 Water temperature also varies by location on the same body of water. A north-facing cove might read 50°F while a shallow, dark-bottomed pocket on the south bank reads 54°F on the same afternoon. That 4-degree difference is the difference between no fish and a limit.
-<figure class="inline-image"><img src="/Images/blog/spring-bass-prespawn-patterns-1.jpg" alt="a door handle on a wooden door with numbers on it" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@markuswinkler?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Markus Winkler</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/spring-bass-prespawn-patterns-1.jpg" alt="An outdoor Celsius thermometer mounted on weathered wood." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@markuswinkler?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Markus Winkler</a> on Unsplash</figcaption></figure>
 ## Structure: Where Pre-Spawn Bass Actually Hold
 
 Pre-spawn bass are transitional fish. They're not deep, and they're not on the beds yet. They're on the highway between the two — and that highway has predictable on-ramps.
@@ -51,7 +51,7 @@ Pre-spawn bass don't eat the same way at 49°F as they do at 57°F. Matching you
 **At 52–55°F:** Add a swimbait to the rotation. A 4-inch paddle tail on a 3/8-oz head, retrieved just fast enough to feel the kick, covers water and locates active fish on secondary points. Keep the jig in your hand for the follow-up cast when you mark fish on sonar.
 
 **At 55–58°F:** Reaction baits become viable. A lipless crankbait — 1/2 oz, red craw or shad pattern — ripped through emerging vegetation or over hard bottom produces violent strikes. A bladed jig along the same structure gives fish a slower alternative when the crankbait draws short strikes.
-<figure class="inline-image"><img src="/Images/blog/spring-bass-prespawn-patterns-2.jpg" alt="black and yellow fish wall decor" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@polarmermaid?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Anne Nygård</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/spring-bass-prespawn-patterns-2.jpg" alt="Spinnerbaits and other fishing lures laid out on weathered wood." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@polarmermaid?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Anne Nygård</a> on Unsplash</figcaption></figure>
 The pattern almost always breaks down when the water crosses 60°F and males start fanning beds. At that point you're in a different game entirely.
 
 ## Why Logging Each Catch Changes Everything
@@ -66,4 +66,4 @@ Fishbrain built a social platform and put the useful features behind an $80-per-
 
 ---
 
-If you've spent a March morning on the wrong bank while the fish were two coves over, you already understand why this matters. CastLog is available now on the App Store — free forever for the basics. Android anglers can join the Android waitlist for Q3 2026. Grab it before next pre-spawn season and let the data work for you!
+If you've spent a March morning on the wrong bank while the fish were two coves over, you already understand why this matters. CastLog is available now on the App Store — free forever for the basics. Android testing is now open — drop your email for an invite. Grab it before next pre-spawn season and let the data work for you!

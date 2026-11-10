@@ -10,7 +10,7 @@ keywords:
   - when to go fishing
 word_count: 1067
 hero_image: /Images/blog/lake-intelligence-bite-score.jpg
-hero_image_alt: rule of thirds photography of man on boat
+hero_image_alt: An angler standing in a small boat on a foggy lake, with a duck swimming nearby.
 hero_image_credit: Photo by Johannes Plenio on Unsplash
 hero_image_credit_url: https://unsplash.com/@jplenio?utm_source=castlog&utm_medium=referral
 ---
@@ -30,7 +30,7 @@ CastLog's Bite Score pulls from five inputs:
 - **Recent local catches** — logged catches from that lake in the last 72 hours, weighted by species and depth
 
 The last input is what separates a generic weather score from actual lake intelligence. Barometric pressure and moon phase are the same everywhere. Recent catches from your specific water are not.
-<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-1.jpg" alt="a couple of men standing on top of a pier next to a body of water" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@lkaikessler?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Laura Kessler</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-1.jpg" alt="Two people on a dock at sunset, one holding a fishing rod over the lake." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@lkaikessler?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Laura Kessler</a> on Unsplash</figcaption></figure>
 ## Why Barometric Trend Beats the Raw Number
 
 Most anglers know that fish feed well when pressure is rising. What gets missed is that the *rate* of change matters more than the absolute reading. A slow, steady rise from 29.80 to 29.95 inHg over 18 hours is a very different event than a sharp spike from 29.60 to 30.10 in four hours after a front blows through.
@@ -48,7 +48,7 @@ A largemouth bass in 58°F water is not the same fish as a largemouth in 74°F w
 The Bite Score factors surface temperature against species-specific thresholds. If you've told CastLog you're targeting smallmouth, the score interprets 62°F very differently than if you're targeting crappie. The same lake, the same morning, two different scores for two different targets—because the fish don't read the same calendar.
 
 This is also where offline-first architecture earns its keep. The lakes worth fishing are often the ones with no cell signal. CastLog caches the temperature and solunar data for your saved lakes before you leave the driveway, so the Bite Score is available when you're standing at the water, not just when you have bars.
-<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-2.jpg" alt="a close up of a thermometer on a red object" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@paoalchapar?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Daniela Paola Alchapar</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-2.jpg" alt="Close-up of a round Celsius thermometer on a red surface, reading near 75 degrees." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@paoalchapar?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Daniela Paola Alchapar</a> on Unsplash</figcaption></figure>
 ## How Recent Catches Feed the Model
 
 Solunar tables and weather data are public. Any app can surface them. What CastLog builds on top of that is a layer of real catch data logged by anglers on that specific water.
@@ -69,4 +69,4 @@ The Bite Score is not a guarantee. Fish don't read algorithms. But it's a struct
 
 ---
 
-If you've ever driven home from a blank day wondering what you missed, CastLog's Bite Score is built for that frustration. Grab iOS early access on TestFlight and log your first catch in under 5 seconds—the basics are free forever. Android anglers, join the Android waitlist for Q3 2026.
+If you've ever driven home from a blank day wondering what you missed, CastLog's Bite Score is built for that frustration. Download CastLog for iOS on the App Store and log your first catch in under 5 seconds—the basics are free forever. Android testing is now open — drop your email for an invite.

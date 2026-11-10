@@ -10,7 +10,7 @@ keywords:
   - voice catch logging
 word_count: 1032
 hero_image: /Images/blog/voice-logging-fishing-catches-2.jpg
-hero_image_alt: a man standing in the water holding a fish
+hero_image_alt: An angler standing waist-deep in a calm lake, fishing toward snow-capped mountains.
 hero_image_credit: Photo by Alex Lange on Unsplash
 hero_image_credit_url: https://unsplash.com/@alexlange92?utm_source=castlog&utm_medium=referral
 ---
@@ -32,7 +32,7 @@ In CastLog, you open the app, hit the microphone, and say something like: *three
 The parsing isn't a gimmick. It handles common fishing shorthand without requiring you to speak in a specific syntax. You don't have to say "species: largemouth bass, weight: three pounds." You just talk the way you'd describe the catch to the guy in the next boat. The app figures out what's a species, what's a weight, what's a technique.
 
 That matters most in the moments when logging is hardest: net still in the water, fish flopping, sun in your eyes.
-<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-1.jpg" alt="man holding a fishnet" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@fredrikohlander?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Fredrik Öhlander</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-1.jpg" alt="A person on a boat holding a fishing net over an orange tub." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@fredrikohlander?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Fredrik Öhlander</a> on Unsplash</figcaption></figure>
 ## Structured Data Is the Whole Point
 
 Voice input is only valuable if what comes out the other end is clean, structured data — not a text blob you have to parse yourself later. This is where a lot of voice-to-text implementations fall short. They transcribe what you said and leave you with a note. That's marginally better than typing, but it's not the same as a logged catch with discrete fields.
@@ -48,7 +48,7 @@ The places worth fishing rarely have cell signal. A backcountry reservoir at 5 A
 CastLog processes voice logging entirely on-device. The entry writes to local storage first, syncs when signal returns. There's no spinner, no "waiting for network" failure state, no lost catch because you were in a dead zone. The offline-first architecture isn't a feature we added later — it's a constraint I built around from day one, because I knew the app would be useless if it only worked at the marina.
 
 This is also why GPS coordinates log locally. You're not pinging a server to get your location written to the catch record. It happens in the background, silently, while you're already reaching for the next cast.
-<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="a man standing in the water holding a fish" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@alexlange92?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Alex Lange</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="An angler standing waist-deep in a calm lake, fishing toward snow-capped mountains." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@alexlange92?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Alex Lange</a> on Unsplash</figcaption></figure>
 ## What Hands-Free Fishing App Design Gets Wrong
 
 Most "hands-free" features in fishing apps are bolted on. They're voice search, or they're Siri shortcuts that open the app to a specific screen. That's not the same as a logging flow designed from the ground up around the assumption that your hands are wet, cold, or occupied.
@@ -59,4 +59,4 @@ I built CastLog because I kept losing data at the exact moments that mattered �
 
 ---
 
-If you've ever put your phone away because your hands were too wet to type, this is the app that fixes that. CastLog is free forever for the basics, and logging a catch takes under 5 seconds. iOS anglers can download CastLog on the App Store right now — Android anglers can join the Android waitlist for Q3 2026. Come fish smarter!
+If you've ever put your phone away because your hands were too wet to type, this is the app that fixes that. CastLog is free forever for the basics, and logging a catch takes under 5 seconds. iOS anglers can download CastLog on the App Store right now — Android testing is now open — drop your email for an invite. Come fish smarter!

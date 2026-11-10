@@ -10,7 +10,7 @@ keywords:
   - best fishing log
 word_count: 1042
 hero_image: /Images/blog/fishing-journal-vs-paper.jpg
-hero_image_alt: silver and black samsung galaxys 7 edge
+hero_image_alt: A worn Field Notes memo book on a wooden table.
 hero_image_credit: Photo by Kolby Milton on Unsplash
 hero_image_credit_url: https://unsplash.com/@kolbymilton?utm_source=castlog&utm_medium=referral
 ---
@@ -46,7 +46,7 @@ I built CastLog because I kept abandoning my own digital logs. The threshold I s
 In practice it looks like this: fish comes to hand, I tap the species, tap the lure from a recents list that learns what I actually use, speak the weight, done. GPS coordinates, time, and conditions are captured automatically. I'm back to fishing before the adrenaline fades.
 
 The app is offline-first by design, because the places worth fishing — a backcountry trout stream, a reservoir with no towers nearby, a kayak run through a marsh — rarely have cell signal. Every entry syncs when you're back in range, but nothing waits on a connection to save.
-<figure class="inline-image"><img src="/Images/blog/fishing-journal-vs-paper-2.jpg" alt="green grass field near lake and mountain under white clouds and blue sky during daytime" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@sradams57?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Steve Adams</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/fishing-journal-vs-paper-2.jpg" alt="A creek winding through a grassy meadow toward forested mountains." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@sradams57?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Steve Adams</a> on Unsplash</figcaption></figure>
 ## When to Make the Switch
 
 If you're in your first season, a paper log is fine. The friction of learning a new app probably costs more than the retrieval problem is worth yet. But if any of these are true, structured data will start paying off:
@@ -62,4 +62,4 @@ The best fishing journal isn't the one with the nicest cover. It's the one you a
 
 ---
 
-If you've felt this frustration — data you know you have but can't use — CastLog is available now on the App Store, free forever for the basics. Android anglers can join the Android waitlist for Q3 2026. Three taps, under 5 seconds, offline from the first cast!
+If you've felt this frustration — data you know you have but can't use — CastLog is available now on the App Store, free forever for the basics. Android testing is now open — drop your email for an invite. Three taps, under 5 seconds, offline from the first cast!
