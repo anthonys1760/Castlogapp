@@ -46,7 +46,7 @@ Knowing these bands in theory is one thing. Knowing which band produces on *your
 
 Most fishing apps ask you to log a catch by navigating four or five screens with wet hands. You're fighting the net, the fish is flopping, and the last thing you want to do is tap through a form. So you don't log it. Or you log it later from memory and the water temp field stays blank because you can't remember if it was 61 or 63.
 
-That's the problem I built CastLog to fix. Logging a catch takes 3 taps and under 5 seconds — species, lure, done — with optional voice input if your hands are full. Water temp auto-pulls from your GPS location if you have signal, and the field is front and center, not buried.
+That's the problem I built CastLog to fix. Logging a catch is 3 taps, done in seconds — species, lure, done — with optional voice input if your hands are full. Water temp auto-pulls from your GPS location if you have signal, and the field is front and center, not buried.
 
 Offline-first architecture means it works in the back of a cove with no cell signal, which is exactly where the fish are.
 
@@ -68,4 +68,4 @@ Logging it consistently is the only barrier. That barrier is a UX problem, and i
 
 ---
 
-If you've ever stood at the ramp guessing whether to tie on a jerkbait or a drop shot because you didn't know the water temp — and didn't have a year of your own data to answer the question — download CastLog on the App Store and start logging this season. The basics are free forever, and your first catch takes under 5 seconds to record. Android testing is now open — drop your email for an invite. Your future self will have the data. Your future self will catch more fish!
+If you've ever stood at the ramp guessing whether to tie on a jerkbait or a drop shot because you didn't know the water temp — and didn't have a year of your own data to answer the question — download CastLog on the App Store and start logging this season. Free core journal, voice logging and export. Angler Pro is optional, and your first catch logs in seconds. Join the open Android test — drop your email for an invite. Your future self will have the data. Your future self will catch more fish!

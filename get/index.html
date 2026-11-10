@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>CastLog — Download on the App Store</title>
-<meta name="description" content="Download CastLog, the fishing journal you'll actually keep. Private by default, no paywalls, built by an angler. Free forever for the basics.">
+<meta name="description" content="Download CastLog, the fishing journal you'll actually keep. Free core journal, voice logging and export. Angler Pro is optional.">
 <link rel="canonical" href="https://castlogapp.com/get/">
 <link rel="icon" type="image/png" href="/Images/favicon-32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/Images/favicon-64.png" sizes="64x64">
 <link rel="alternate" type="application/rss+xml" title="CastLog Field Notes" href="/feed.xml">
-<meta name="theme-color" content="#121714">
+<meta name="theme-color" content="#0c0d0a">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://castlogapp.com/get/">
 <meta property="og:title" content="CastLog — The fishing journal you'll actually keep.">
-<meta property="og:description" content="Private by default. No paywalls. Built by an angler.">
+<meta property="og:description" content="Free core journal, voice logging and export. Angler Pro is optional.">
 <meta property="og:image" content="https://castlogapp.com/Images/logo.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNBKN0WNR9"></script>
 <script>
@@ -24,154 +24,91 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #121714;
-    --card: #1C2320;
-    --amber: #E8A020;
-    --text: #F5F5F2;
-    --muted: #969998;
+    --bg:#0c0d0a;--bg2:#111310;
+    --card:#1b1d17;--border:#282b22;
+    --amber:#F4B000;--text:#ede9dc;--muted:#8c8878;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { min-height: 100%; }
+  html { overflow-x: clip; }
   body {
     background: var(--bg);
     color: var(--text);
     font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 24px calc(48px + env(safe-area-inset-bottom));
     min-height: 100vh;
-    min-height: 100svh;
+    overflow-x: clip;
   }
-  .container {
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
+  img { max-width: 100%; height: auto; }
+  :focus-visible, a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
   }
-  .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 56px;
-  }
-  .brand img {
-    width: 96px;
-    height: 96px;
-    border-radius: 22px;
-    display: block;
-  }
-  .wordmark {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--amber);
-    letter-spacing: -0.02em;
-  }
-  h1 {
-    font-size: 32px;
-    line-height: 1.15;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .sub {
-    font-size: 17px;
-    color: var(--muted);
-    font-weight: 400;
-    margin-bottom: 40px;
-    line-height: 1.45;
-  }
-  .cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 56px;
-    padding: 16px 20px;
-    border-radius: 12px;
-    font-family: inherit;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    text-decoration: none;
-    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
-    cursor: pointer;
-  }
-  .cta-primary {
-    background: var(--amber);
-    color: #121714;
-    border: 2px solid var(--amber);
-    margin-bottom: 14px;
-    box-shadow: 0 8px 24px rgba(232, 160, 32, 0.18);
-  }
-  .cta-secondary {
-    background: transparent;
-    color: var(--amber);
-    border: 2px solid var(--amber);
-  }
-  .cta:active { transform: scale(0.985); }
-  .cta-badge {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 18px;
-    line-height: 0;
-    transition: transform .15s ease, opacity .15s ease;
-  }
-  .cta-badge img { height: 60px; width: auto; display: block; }
-  .cta-badge:active { transform: scale(0.985); }
-  @media (hover: hover) {
-    .cta-badge:hover { opacity: .85; }
-  }
-  @media (hover: hover) {
-    .cta-primary:hover { background: #f0ad33; }
-    .cta-secondary:hover { background: rgba(232, 160, 32, 0.08); }
-  }
-  .perks {
-    margin-top: 24px;
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-  @media (max-width: 360px) {
-    h1 { font-size: 28px; }
-    .sub { font-size: 16px; }
-    .cta { font-size: 16px; }
-  }
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(12,13,10,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:56px}
+  .logo{font-family:"DM Mono",monospace;font-size:15px;color:var(--amber);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;min-height:44px;flex-shrink:0}
+  .logo img{height:30px;width:30px;object-fit:contain;display:block}
+  .logo-log{color:#fff}
+  .nav-right{display:flex;align-items:center;gap:2px}
+  .nav-link{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;padding:12px 8px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
+  .nav-link:hover,.nav-link.active{color:var(--amber)}
+  .nav-cta{background:#ede9dc;color:#0c0d0a;padding:0 14px;min-height:44px;border-radius:22px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap;margin-left:4px}
+  .nav-cta[aria-current="page"]{outline:2px solid var(--amber);outline-offset:2px}
+  @media(min-width:900px){nav{padding:0 32px;height:64px}.logo{font-size:17px;letter-spacing:.12em}.logo img{height:36px;width:36px}.nav-right{gap:6px}}
+  @media(max-width:720px){.logo-word{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}nav{padding:0 10px}.nav-link{padding:12px 6px;font-size:13px}.nav-cta{padding:0 12px;font-size:13px}}
+  main{max-width:440px;margin:0 auto;padding:112px 24px 48px;text-align:center}
+  .brand{display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:36px}
+  .brand img{width:96px;height:96px;border-radius:22px;display:block}
+  h1{font-family:"Playfair Display",serif;font-size:36px;line-height:1.12;font-weight:900;letter-spacing:-.02em;margin-bottom:16px}
+  .sub{font-size:17px;color:var(--muted);margin-bottom:32px;line-height:1.45}
+  .cta-badge{display:flex;justify-content:center;margin-bottom:8px;line-height:0;min-height:64px;align-items:center}
+  .cta-badge img{height:64px;width:auto;display:block}
+  .android-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 8px;color:var(--amber);font-weight:600;font-size:15px;text-decoration:none}
+  .perks{margin-top:28px;font-size:13px;color:var(--muted);line-height:1.5}
+  footer{padding:28px 16px 40px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:13px}
+  footer a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;padding:12px 8px}
+  footer a:hover{color:var(--amber)}
+  .footer-logo{font-family:"DM Mono",monospace;font-size:15px;color:var(--amber);letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px}
 </style>
 </head>
 <body>
-  <main class="container">
-    <div class="brand">
-      <picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog logo" width="256" height="256"></picture>
-      <span class="wordmark">CastLog</span>
-    </div>
-    <h1>The fishing journal you&rsquo;ll actually keep.</h1>
-    <p class="sub">Private by default. No paywalls. Built by an angler.</p>
-
-    <a class="cta-badge" id="cta-ios" href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949" aria-label="Download on the App Store"><img src="/Images/app-store-badge.svg" alt="Download on the App Store"></a>
-    <a class="cta cta-secondary" id="cta-android" href="https://castlogapp.com/?utm_source=tiktok&amp;utm_medium=bio&amp;utm_campaign=get&amp;utm_content=android">Join Android Waitlist</a>
-
-    <p class="perks">Free forever for the basics &middot; No credit card &middot; Export your data anytime</p>
-  </main>
-  <script>
-    function trackCta(platform){
-      if (typeof gtag === 'function') {
-        gtag('event', 'cta_click', {
-          platform: platform,
-          page: '/get',
-          source: 'tiktok_bio'
-        });
-      }
+<nav>
+  <a href="/" class="logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="" width="256" height="256"></picture><span class="logo-word">Cast<span class="logo-log">Log</span></span></a>
+  <div class="nav-right">
+    <a href="/#features" class="nav-link">Features</a>
+    <a href="/blog/" class="nav-link">Blog</a>
+    <a href="/support/" class="nav-link">Support</a>
+    <a href="/get/" class="nav-cta" aria-current="page">Get the app</a>
+  </div>
+</nav>
+<main>
+  <div class="brand">
+    <picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog logo" width="256" height="256"></picture>
+  </div>
+  <h1>The fishing journal you&rsquo;ll actually keep.</h1>
+  <p class="sub">Free core journal, voice logging and export. Angler Pro is optional.</p>
+  <a class="cta-badge" id="cta-ios" href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949" aria-label="Download on the App Store"><img src="/Images/app-store-badge.svg" alt="Download on the App Store"></a>
+  <a class="android-link" id="cta-android" href="/?utm_source=tiktok&amp;utm_medium=bio&amp;utm_campaign=get&amp;utm_content=android#android-invite">On Android? Join the open test →</a>
+  <p class="perks">Private by default. Works offline. Export your data any time.</p>
+</main>
+<footer>
+  <div class="footer-logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="" width="256" height="256" style="height:32px;width:32px;object-fit:contain;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></div>
+  <div>© 2026 CastLog · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/support/">Support</a> · <a href="/privacy/">Privacy</a></div>
+</footer>
+<script>
+  function trackCta(platform){
+    if (typeof gtag === 'function') {
+      gtag('event', 'cta_click', {
+        platform: platform,
+        page: '/get',
+        source: 'tiktok_bio'
+      });
     }
-    document.getElementById('cta-ios').addEventListener('click', function(){ trackCta('ios'); });
-    document.getElementById('cta-android').addEventListener('click', function(){ trackCta('android'); });
-  </script>
+  }
+  document.getElementById('cta-ios').addEventListener('click', function(){ trackCta('ios'); });
+  document.getElementById('cta-android').addEventListener('click', function(){ trackCta('android'); });
+</script>
 </body>
 </html>

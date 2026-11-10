@@ -1,7 +1,7 @@
 ---
 title: Best Offline Fishing App When You Have Zero Signal
 description: Most fishing apps silently fail without cell service. Here's why
-  offline-first design matters and how CastLog logs catches in under 5 seconds,
+  offline-first design matters and how CastLog logs catches in seconds,
   no signal needed.
 date: 2026-05-18
 slug: best-offline-fishing-app
@@ -41,7 +41,7 @@ Here's what most discussions of offline fishing apps miss: the offline problem a
 
 If logging a catch already takes 6 taps under ideal conditions — species, length, weight, lure, location, notes, photo, save — then doing it with wet hands on a rocking kayak with no signal, while watching the fish recover in the net, is functionally impossible. Anglers skip the log. The data never gets captured. The pattern never emerges.
 
-CastLog logs a catch in 3 taps, under 5 seconds, including a voice input option for notes. Species and location are pre-populated from your last entry and GPS respectively. The entry is written locally the instant you hit save. There's no confirmation spinner waiting on a server. You're back to fishing before the fish has fully finalized its exit from the net.
+CastLog logs a catch in 3 taps, done in seconds, including a voice input option for notes. Species and location are pre-populated from your last entry and GPS respectively. The entry is written locally the instant you hit save. There's no confirmation spinner waiting on a server. You're back to fishing before the fish has fully finalized its exit from the net.
 
 The speed isn't a UX nicety. It's what makes the data complete enough to be useful. Incomplete logs produce incomplete patterns. Incomplete patterns mean you're guessing.
 
@@ -65,4 +65,4 @@ That's the bar. It shouldn't be a high one, but for most apps in this category, 
 
 ---
 
-If you've lost a catch entry to a spinning save screen, or given up on logging because the friction wasn't worth it on remote water — CastLog is built for exactly that frustration. The basics are free forever, logging takes under 5 seconds, and it works whether you have five bars or none. Download CastLog for iOS on the App Store now. Android testing is now open — drop your email for an invite.
+If you've lost a catch entry to a spinning save screen, or given up on logging because the friction wasn't worth it on remote water — CastLog is built for exactly that frustration. Free core journal, voice logging and export. Angler Pro is optional, logging is done in seconds, and it works whether you have five bars or none. Download CastLog for iOS on the App Store now. Join the open Android test — drop your email for an invite.

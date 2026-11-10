@@ -39,7 +39,7 @@ Deep hooks are the other variable. If a fish has taken a hook past the lip, cutt
 
 Here's where most anglers quietly fail at catch and release, even the ones who know the rules. You land a good fish. You want to record the species, the length, the water temperature, the fly pattern that worked. So you hold the fish in the net with one hand, try to unlock your phone with the other, navigate to your fishing app, and start tapping through six screens. Forty-five seconds gone. The fish is still in your hand.
 
-I built CastLog because I watched myself do exactly this on a cutthroat stream in Colorado. The fish was beautiful. My logging process was not. CastLog logs a catch in 3 taps — species, length, optional note — or you can speak it in under 5 seconds while the fish is still in the net. By the time you've said "18-inch brown, Elk Hair Caddis, 58 degrees," the fish is back in the water and you have a complete record.
+I built CastLog because I watched myself do exactly this on a cutthroat stream in Colorado. The fish was beautiful. My logging process was not. CastLog logs a catch in 3 taps — species, length, optional note — or you can speak it in seconds while the fish is still in the net. By the time you've said "18-inch brown, Elk Hair Caddis, 58 degrees," the fish is back in the water and you have a complete record.
 
 Fast logging isn't a convenience feature. On a catch-and-release fishery, it's a conservation tool. Every second of friction in your logging workflow is a second the fish pays for.
 
@@ -61,4 +61,4 @@ Fish survival rate isn't just about what happens in the 30 seconds after the cat
 
 ---
 
-If you've ever held a fish too long because you were fumbling with your phone, you already understand the problem CastLog solves. Download CastLog on the App Store — logging is free forever for the basics, and it takes under 5 seconds. Android testing is now open — drop your email for an invite. The fish will thank you for the speed!
+If you've ever held a fish too long because you were fumbling with your phone, you already understand the problem CastLog solves. Download CastLog on the App Store. Free core journal, voice logging and export. Angler Pro is optional, and a catch logs in seconds. Join the open Android test — drop your email for an invite. The fish will thank you for the speed!
