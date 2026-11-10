@@ -61,4 +61,4 @@ Fish survival rate isn't just about what happens in the 30 seconds after the cat
 
 ---
 
-If you've ever held a fish too long because you were fumbling with your phone, you already understand the problem CastLog solves. Download CastLog on the App Store — logging is free forever for the basics, and it takes under 5 seconds. Android anglers can join the Android waitlist for Q3 2026. The fish will thank you for the speed!
+If you've ever held a fish too long because you were fumbling with your phone, you already understand the problem CastLog solves. Download CastLog on the App Store — logging is free forever for the basics, and it takes under 5 seconds. Android testing is now open — drop your email for an invite. The fish will thank you for the speed!

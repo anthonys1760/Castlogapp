@@ -11,7 +11,7 @@ keywords:
   - fishing app privacy
 word_count: 1040
 hero_image: /Images/blog/private-fishing-spots-burning-1.jpg
-hero_image_alt: a person kneeling down and holding a rock in their hands
+hero_image_alt: A person kneeling at a shallow rocky stream, cupping stones in both hands.
 hero_image_credit: Photo by NEOM on Unsplash
 hero_image_credit_url: https://unsplash.com/@neom?utm_source=castlog&utm_medium=referral
 ---
@@ -33,7 +33,7 @@ Here's the problem that actually makes anglers abandon their fishing journals. Y
 So you tell yourself you'll log it later. You don't. The data disappears.
 
 This is the real reason fishing journals fail. Not privacy. Friction.
-<figure class="inline-image"><img src="/Images/blog/private-fishing-spots-burning-1.jpg" alt="a person kneeling down and holding a rock in their hands" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@neom?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">NEOM</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/private-fishing-spots-burning-1.jpg" alt="A person kneeling at a shallow rocky stream, cupping stones in both hands." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@neom?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">NEOM</a> on Unsplash</figcaption></figure>
 I built CastLog because I kept a paper log for six years and still couldn't make a digital app stick. The tap count was always the problem. CastLog logs a catch in 3 taps, under 5 seconds, including a voice input option for when you want to add detail without typing. GPS pulls automatically. Weather pulls automatically. The session is already open. You tap species, tap size range, done. Everything else fills in around that core.
 
 ## How to Actually Protect Your Spots in Any App
@@ -67,4 +67,4 @@ Privacy is a feature. Speed is a habit. Habits are what build the data that actu
 
 ---
 
-If you've felt this frustration — the six-tap log, the session you meant to record and didn't — CastLog is built for exactly that. The basics are free forever, and a catch logs in under 5 seconds. Download CastLog on the App Store now, or join the Android waitlist for Q3 2026. Your spots stay yours. Your data finally starts working for you!
+If you've felt this frustration — the six-tap log, the session you meant to record and didn't — CastLog is built for exactly that. The basics are free forever, and a catch logs in under 5 seconds. Download CastLog for iOS on the App Store now. Android testing is now open — drop your email for an invite. Your spots stay yours. Your data finally starts working for you!

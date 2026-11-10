@@ -6,7 +6,8 @@
 <title>Bite Score Explained: How to Read a Lake · CastLog</title>
 <meta name="description" content="Learn what goes into CastLog&#39;s Bite Score—barometric trend, water temp, wind, moon, and local catches—so you know when to go fishing.">
 <link rel="canonical" href="https://castlogapp.com/blog/lake-intelligence-bite-score/">
-<link rel="icon" type="image/png" href="/Images/logo.png">
+<link rel="icon" type="image/png" href="/Images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/Images/favicon-64.png" sizes="64x64">
 <link rel="alternate" type="application/rss+xml" title="CastLog Field Notes" href="/feed.xml">
 
 <meta property="og:type" content="article">
@@ -133,7 +134,7 @@ footer div{margin-bottom:8px}
 <body>
 
 <nav>
-  <a href="/" class="logo"><img src="/Images/logo.png" alt="CastLog" style="height:48px;width:48px;object-fit:contain;vertical-align:middle;margin-right:8px;">Cast<span style="color:#fff">Log</span></a>
+  <a href="/" class="logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:48px;width:48px;object-fit:contain;vertical-align:middle;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></a>
   <div class="nav-right">
     <a href="/blog/" class="nav-link">Blog</a>
     <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=blog_nav&utm_campaign=ios_app_store" aria-label="Download on the App Store" style="display:inline-block;line-height:0"><img src="/Images/app-store-badge.svg" alt="Download on the App Store" style="display:block;height:38px;width:auto"></a>
@@ -144,7 +145,7 @@ footer div{margin-bottom:8px}
   <a href="/blog/" class="back">← Back to blog</a>
 
   <figure class="hero-figure">
-    <img src="/Images/blog/lake-intelligence-bite-score.jpg" alt="rule of thirds photography of man on boat" width="1600" height="840" loading="eager">
+    <img src="/Images/blog/lake-intelligence-bite-score.jpg" alt="An angler standing in a small boat on a foggy lake, with a duck swimming nearby." width="1600" height="840" loading="eager">
     <figcaption class="hero-credit">Photo by Johannes Plenio on Unsplash · <a href="https://unsplash.com/@jplenio?utm_source=castlog&amp;utm_medium=referral" rel="noopener nofollow">view</a></figcaption>
   </figure>
 
@@ -170,7 +171,7 @@ footer div{margin-bottom:8px}
 <li><strong>Recent local catches</strong> — logged catches from that lake in the last 72 hours, weighted by species and depth</li>
 </ul>
 <p>The last input is what separates a generic weather score from actual lake intelligence. Barometric pressure and moon phase are the same everywhere. Recent catches from your specific water are not.</p>
-<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-1.jpg" alt="a couple of men standing on top of a pier next to a body of water" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@lkaikessler?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Laura Kessler</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-1.jpg" alt="Two people on a dock at sunset, one holding a fishing rod over the lake." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@lkaikessler?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Laura Kessler</a> on Unsplash</figcaption></figure>
 ## Why Barometric Trend Beats the Raw Number
 
 <p>Most anglers know that fish feed well when pressure is rising. What gets missed is that the <em>rate</em> of change matters more than the absolute reading. A slow, steady rise from 29.80 to 29.95 inHg over 18 hours is a very different event than a sharp spike from 29.60 to 30.10 in four hours after a front blows through.</p>
@@ -181,7 +182,7 @@ footer div{margin-bottom:8px}
 <p>A largemouth bass in 58°F water is not the same fish as a largemouth in 74°F water. At 58°F, metabolism is slow, the strike window is narrow, and a drop-shot or shaky head fished painfully slow will outperform a buzzbait by a wide margin. At 74°F, that same fish is aggressive, shallow, and willing to chase.</p>
 <p>The Bite Score factors surface temperature against species-specific thresholds. If you&#39;ve told CastLog you&#39;re targeting smallmouth, the score interprets 62°F very differently than if you&#39;re targeting crappie. The same lake, the same morning, two different scores for two different targets—because the fish don&#39;t read the same calendar.</p>
 <p>This is also where offline-first architecture earns its keep. The lakes worth fishing are often the ones with no cell signal. CastLog caches the temperature and solunar data for your saved lakes before you leave the driveway, so the Bite Score is available when you&#39;re standing at the water, not just when you have bars.</p>
-<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-2.jpg" alt="a close up of a thermometer on a red object" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@paoalchapar?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Daniela Paola Alchapar</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/lake-intelligence-bite-score-2.jpg" alt="Close-up of a round Celsius thermometer on a red surface, reading near 75 degrees." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@paoalchapar?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Daniela Paola Alchapar</a> on Unsplash</figcaption></figure>
 ## How Recent Catches Feed the Model
 
 <p>Solunar tables and weather data are public. Any app can surface them. What CastLog builds on top of that is a layer of real catch data logged by anglers on that specific water.</p>
@@ -193,7 +194,7 @@ footer div{margin-bottom:8px}
 <p>More useful than the number itself is the breakdown beneath it. If the score is a 6 because the moon window is weak but pressure and temperature are ideal, you might still go—just expect the bite to be concentrated in a shorter window. If the score is a 4 because a front passed 18 hours ago and pressure is still falling, that&#39;s a different conversation about whether the drive is worth it.</p>
 <p>The Bite Score is not a guarantee. Fish don&#39;t read algorithms. But it&#39;s a structured way to ask the right questions before you leave the house, built from the same variables experienced guides check every morning before they book a trip.</p>
 <hr>
-<p>If you&#39;ve ever driven home from a blank day wondering what you missed, CastLog&#39;s Bite Score is built for that frustration. Download CastLog for iOS from the App Store and log your first catch in under 5 seconds—the basics are free forever. Android anglers, join the Android waitlist for Q3 2026.</p>
+<p>If you&#39;ve ever driven home from a blank day wondering what you missed, CastLog&#39;s Bite Score is built for that frustration. Download CastLog for iOS on the App Store and log your first catch in under 5 seconds—the basics are free forever. Android testing is now open — drop your email for an invite.</p>
 
   </div>
 
@@ -208,18 +209,18 @@ footer div{margin-bottom:8px}
     <p>Log a catch in under 5 seconds. Free forever for the basics. Built by an angler who got fed up.</p>
     <div class="cta-row">
       <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=blog_post&utm_campaign=ios_app_store" id="post-cta-ios" aria-label="Download on the App Store" style="align-self:center;line-height:0"><img src="/Images/app-store-badge.svg" alt="Download on the App Store" style="display:block;height:52px;width:auto"></a>
-      <div class="cta-android-label">On Android? Join the waitlist for Q3 2026</div>
+      <div class="cta-android-label">On Android? Testing is now open</div>
       <form class="cta-form" id="post-cta-form" onsubmit="return submitCta(event)">
         <input type="email" id="post-cta-email" name="email" placeholder="your@email.com" required>
-        <button type="submit" id="post-cta-btn">Android Waitlist →</button>
+        <button type="submit" id="post-cta-btn">Android: Request Access →</button>
       </form>
     </div>
-    <div class="cta-perks">iOS available now · Android coming Q3 2026 · No paywall on core features</div>
+    <div class="cta-perks">iOS live on the App Store · Android testing now open · No paywall on core features</div>
   </section>
 </article>
 
 <footer>
-  <div class="footer-logo"><img src="/Images/logo.png" alt="CastLog" style="height:32px;width:32px;object-fit:contain;margin-right:8px;">Cast<span style="color:#fff">Log</span></div>
+  <div class="footer-logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:32px;width:32px;object-fit:contain;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></div>
   <div style="font-style:italic">Built by an angler, for anglers — not investors.</div>
   <div>© 2026 CastLog · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/feed.xml">RSS</a></div>
 </footer>

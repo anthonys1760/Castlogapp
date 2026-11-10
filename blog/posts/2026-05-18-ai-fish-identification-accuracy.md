@@ -24,7 +24,7 @@ For common species in good light, the models are genuinely impressive. A largemo
 The edge cases are where things get honest. A juvenile smallmouth versus a spotted bass in muddy water. A sheepshead versus a black drum at a weird angle. A Pacific halibut versus a California halibut from above. These are the identifications that still trip up every app on the market, including CastLog. Anyone telling you their AI nails every species in every condition is selling you something.
 
 The practical ceiling right now: common species, decent light, clear lateral view — expect accuracy in the high 80s to low 90s percentage-wise. Unusual species, low light, partial views — treat the suggestion as a starting point, not a verdict.
-<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-1.jpg" alt="a man holding a brown fish in a net" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@matthewwmcb?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Matthew McBrayer</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-1.jpg" alt="An angler in a fishing vest holds a spotted trout above a landing net." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@matthewwmcb?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Matthew McBrayer</a> on Unsplash</figcaption></figure>
 ## What the Other Apps Get Right (and Where They Stop)
 
 Fishbrain has had photo-based fish identification for a while. iNaturalist, which isn't a fishing app but uses the same underlying computer vision approach, is arguably the most accurate general species identifier available. Several standalone identify-fish-from-photo apps have appeared in the last two years, some of them genuinely good at the ID step.
@@ -42,7 +42,7 @@ In CastLog, the photo ID feeds directly into the log entry. The species field pr
 That speed isn't a convenience feature. It's the mechanism that makes everything else work. More complete logs mean more data points. More data points mean the pattern intelligence layer has something real to work with — which lures produced at 47°F versus 58°F, which tide stage correlated with your redfish catches on a specific flat, which retrieve speed your smallmouth responded to in late May versus early June.
 
 The AI identification is the front door. The log is the house.
-<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-2.jpg" alt="a suitcase filled with lots of different types of items" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Kelly Sikkema</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/ai-fish-identification-accuracy-2.jpg" alt="An open tackle bag with fishing lures sorted into a compartment tray." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Kelly Sikkema</a> on Unsplash</figcaption></figure>
 ## Offline Matters More Than People Admit
 
 Most AI photo identification requires a server call. You take the photo, it uploads, the model runs in the cloud, the result comes back. That pipeline breaks the moment you lose signal — which is exactly when you're somewhere worth fishing.
@@ -65,4 +65,4 @@ AI fish identification in 2026 is good enough to be genuinely useful on the spec
 
 ---
 
-If you've ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. The basics are free forever, and logging a catch takes under 5 seconds. Download CastLog on the App Store, or join the Android waitlist for Q3 2026 — the link is below!
+If you've ever identified a fish and then watched the logging process eat 45 seconds while the fish waited in the net, CastLog was built for that exact frustration. The basics are free forever, and logging a catch takes under 5 seconds. Download CastLog for iOS on the App Store, or request Android testing access — the link is below!

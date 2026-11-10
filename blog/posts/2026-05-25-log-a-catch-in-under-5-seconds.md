@@ -10,7 +10,7 @@ keywords:
   - quick fishing journal
 word_count: 999
 hero_image: /Images/blog/log-a-catch-in-under-5-seconds.jpg
-hero_image_alt: a man holding a brown fish in a net
+hero_image_alt: An angler in a fishing vest holds a spotted trout above a landing net.
 hero_image_credit: Photo by Matthew McBrayer on Unsplash
 hero_image_credit_url: https://unsplash.com/@matthewwmcb?utm_source=castlog&utm_medium=referral
 ---
@@ -38,7 +38,7 @@ Tap 2: Hit the log button. Your GPS coordinates are captured automatically. The 
 Tap 3: Confirm. You're done.
 
 Everything else — species, size, lure, notes — can be added in the next 30 seconds while the fish is recovering in the shallows, or filled in later from the session screen. The core log is already saved, offline, the moment you hit confirm.
-<figure class="inline-image"><img src="/Images/blog/log-a-catch-in-under-5-seconds-1.jpg" alt="fish on body of water" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@riddhiman?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Riddhiman Bhowmik</a> on Unsplash</figcaption></figure>
+<figure class="inline-image"><img src="/Images/blog/log-a-catch-in-under-5-seconds-1.jpg" alt="Several fish held in a green net at the surface of the water." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@riddhiman?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Riddhiman Bhowmik</a> on Unsplash</figcaption></figure>
 The voice input layer is where it gets genuinely fast. Instead of tapping into a weight field with wet fingers, you hold the mic icon and say "largemouth, four pounds, chartreuse spinnerbait, shallow flat, about three feet of water." CastLog parses that into structured fields. Species: largemouth bass. Weight: 4 lb. Lure: spinnerbait, chartreuse. Structure: flat. Depth: 3 ft. The whole thing takes about four seconds of talking and one tap to confirm.
 
 I'm not describing a prototype. This is shipped and running on iOS right now.
@@ -65,4 +65,4 @@ That's the actual payoff of fast catch logging. Not that the moment feels smooth
 
 Before your next session, set up one saved session template: your home water, your usual target species, the structure types you fish most. Takes three minutes once. After that, every log starts with context already loaded. You show up, tap open, tap log, confirm. The fish goes back healthy and you have a record.
 
-If you've felt the phone tantrum — the wet-thumb fumble, the spinner freeze, the six-tap ask at the worst possible moment — CastLog was built for exactly that frustration. The basics are free forever, and the first log takes under 5 seconds. Download CastLog on the App Store today, or join the Android waitlist for Q3 2026!
+If you've felt the phone tantrum — the wet-thumb fumble, the spinner freeze, the six-tap ask at the worst possible moment — CastLog was built for exactly that frustration. The basics are free forever, and the first log takes under 5 seconds. Download CastLog for iOS on the App Store today. Android testing is now open — drop your email for an invite!

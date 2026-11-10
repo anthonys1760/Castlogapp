@@ -11,7 +11,7 @@ keywords:
   - fishbrain vs
 word_count: 1018
 hero_image: /Images/blog/fishbrain-alternative-2026-1.jpg
-hero_image_alt: brown and white mountains under blue sky during daytime
+hero_image_alt: A river winding through a rocky, partly snow-covered mountain valley.
 hero_image_credit: Photo by Joshua Gresham on Unsplash
 hero_image_credit_url: https://unsplash.com/@hammy?utm_source=castlog&utm_medium=referral
 ---
@@ -66,4 +66,4 @@ This isn't a temporary offer to grab market share. It's the model. Anglers who l
 
 ---
 
-If you've stood in a river with a fish on the bank and watched a logging screen spin with no signal, you already know the problem CastLog is solving. CastLog is live on the App Store right now — free forever for the basics, under 5 seconds to log a catch. If you're on Android, join the Android waitlist for Q3 2026. Come fish smarter!
+If you've stood in a river with a fish on the bank and watched a logging screen spin with no signal, you already know the problem CastLog is solving. CastLog is live on the App Store right now — free forever for the basics, under 5 seconds to log a catch. Android testing is now open — drop your email for an invite. Come fish smarter!
