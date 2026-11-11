@@ -730,7 +730,7 @@ footer a:focus-visible{
       <span>Anglers in 32 states and 17 countries</span>
     </div>
     <div class="hero-ctas" id="hero-ctas">
-      <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=hero_cta&utm_campaign=ios_app_store" class="store-badge hero-store" id="hero-store" aria-label="Download on the App Store"><img src="Images/app-store-badge.svg" alt="Download on the App Store"></a>
+      <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=hero_cta&utm_campaign=ios_app_store" class="store-badge hero-store" id="hero-store" data-placement="hero" aria-label="Download on the App Store"><img src="Images/app-store-badge.svg" alt="Download on the App Store"></a>
       <a class="android-link" id="android-link" href="#android-invite">On Android? Join the open test →</a>
       <div class="hero-form" id="android-invite" hidden>
         <label class="visually-hidden" for="hero-email">Email for Android invite</label>
@@ -1026,7 +1026,7 @@ footer a:focus-visible{
   <h2 class="fade d1">Stop leaving data<br><span class="amber">on the water.</span></h2>
   <p class="fade d2">CastLog for iOS is live on the App Store. Join the open Android test and we'll send an invite.</p>
   <div class="fade d3" style="display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto">
-    <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=final_cta&utm_campaign=ios_app_store" class="store-badge" aria-label="Download on the App Store" style="margin:0 auto"><img src="Images/app-store-badge.svg" alt="Download on the App Store" style="height:60px"></a>
+    <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=final_cta&utm_campaign=ios_app_store" class="store-badge" data-placement="final_cta" aria-label="Download on the App Store" style="margin:0 auto"><img src="Images/app-store-badge.svg" alt="Download on the App Store" style="height:60px"></a>
     <a class="android-link" id="cta-android-link" href="#cta-android" style="align-self:center">On Android? Join the open test →</a>
     <div class="cta-form" id="cta-android" hidden>
       <label class="visually-hidden" for="cta-email">Email for Android invite</label>
@@ -1162,5 +1162,6 @@ document.querySelectorAll('.iphone-screen, .android-screen').forEach(screen => {
   screen.appendChild(glare);
 });
 </script>
+<script src="/js/app-store-tracking.js"></script>
 </body>
 </html>
