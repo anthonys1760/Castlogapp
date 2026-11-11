@@ -152,6 +152,19 @@ This framing outperforms "privacy-first fishing app" by a wide margin on fishing
 
 ---
 
+## Weekly blog
+
+`.github/workflows/weekly-blog.yml` publishes one post every Monday at 14:00 UTC (about 9:00 AM EST / 10:00 AM EDT). It can also be started with **workflow_dispatch**, and an optional `topic_slug` forces a queue entry. The job opens a pull request as `castlog-blog-bot` and leaves `main` for a person to merge.
+
+`scripts/generate-post.mjs` calls the xAI API at `https://api.x.ai/v1` through the OpenAI SDK. The default model is `grok-4.7`. Set `BLOG_MODEL` to override it. Hero and inline photos still come from Unsplash.
+
+Repository Action secrets:
+
+- `XAI_API_KEY` — required. The generate step fails if this secret is missing. Add it under Settings → Secrets and variables → Actions.
+- `UNSPLASH_ACCESS_KEY` — optional. Without it, posts use the default header image and inline photo placeholders are removed.
+
+The topic queue is `blog/topics.yml`. The job takes the first `used: false` topic whose slug is not already a post on `main` and not already in an open blog pull request. An empty queue fails the job. `node generate-post.mjs --dry-run` prints the chosen topic and the request it would send, and does not need `XAI_API_KEY`.
+
 ## Tech
 
 Single `index.html` — no build step, no dependencies, no framework.

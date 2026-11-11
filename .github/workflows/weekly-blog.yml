@@ -1,6 +1,9 @@
 name: Weekly Blog Post
 
 on:
+  schedule:
+    # Mondays 14:00 UTC — about 9:00 AM EST / 10:00 AM EDT.
+    - cron: "0 14 * * 1"
   workflow_dispatch:
     inputs:
       topic_slug:
@@ -10,6 +13,12 @@ on:
 permissions:
   contents: write
   pull-requests: write
+
+# One weekly run at a time. A queued dispatch waits; it does not cancel
+# a run that is already opening a pull request.
+concurrency:
+  group: weekly-blog
+  cancel-in-progress: false
 
 jobs:
   generate:
@@ -50,11 +59,13 @@ jobs:
         id: gen
         working-directory: scripts
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           FORCE_TOPIC_SLUG: ${{ inputs.topic_slug }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -n "$FORCE_TOPIC_SLUG" ]; then
+          set -euo pipefail
+          if [ -n "${FORCE_TOPIC_SLUG}" ]; then
             node generate-post.mjs --topic-slug="$FORCE_TOPIC_SLUG" | tee gen.out
           else
             node generate-post.mjs | tee gen.out

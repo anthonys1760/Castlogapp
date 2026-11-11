@@ -1,5 +1,6 @@
 # CastLog blog topic queue.
-# Workflow picks the first entry with used:false each Monday.
+# The Monday workflow picks the first used:false topic whose slug is not
+# already a post on main and not already covered by an open blog PR.
 # Edit freely — add new topics at the bottom, reorder by priority.
 
 topics:
@@ -135,3 +136,151 @@ topics:
       water temp, time, and structure. Screenshot: lake conditions/Bite Score UI,
       with an honest warmer-season caveat."
     used: true
+
+  # Queue for mid-November 2026 through early February 2027.
+  # Ordered for Monday publication after the 2026-11-16 walleye post.
+  - slug: late-fall-bass-steep-breaks
+    title: "Late Fall Bass on Steep Breaks"
+    keywords:
+      - late fall bass fishing
+      - steep breaks bass
+      - cold water bass
+    angle: "Mid-to-late November, after the open-water walleye post. Bass slide
+      onto steeper breaks as the water cools. Practical: smaller baits, slower
+      retrieves, low-light windows. Log water temp and the structure that
+      produced. Do not invent depth charts or studies."
+    used: false
+
+  - slug: cold-weather-fishing-gear
+    title: "Cold-Weather Fishing Gear That Earns Its Place"
+    keywords:
+      - cold weather fishing gear
+      - winter fishing clothes
+      - fishing gloves
+    angle: "Late November, still open water. What matters when the air is below
+      freezing: layers you can cast in, gloves that still tie a knot, line
+      memory, and keeping a phone alive long enough to log the fish. Not a
+      product roundup. Mention offline logging only if the cold-phone point
+      earns it."
+    used: false
+
+  - slug: safe-ice-fishing-basics
+    title: "Safe Ice Basics Before the First Hole"
+    keywords:
+      - ice fishing safety
+      - safe ice thickness
+      - first ice fishing
+    angle: "Early December first ice. Spud bar, cleats, a partner, and how to
+      read rotten or new ice. For thickness guidelines, cite a real state DNR
+      or extension page and include the URL. Do not invent thickness numbers
+      or accident statistics."
+    used: false
+
+  - slug: tip-up-fishing-basics
+    title: "Tip-Up Fishing Without Missing the Flag"
+    keywords:
+      - tip up fishing
+      - ice fishing tip ups
+      - tip up rig
+    angle: "December. How to rig a tip-up, where to set it relative to a
+      jigging hole, how often to check a flag, and how to keep bait lively in
+      the cold. Practical setup, not a gear catalog. Leave pike-specific
+      strategy to the pike post."
+    used: false
+
+  - slug: winter-crappie-through-the-ice
+    title: "Winter Crappie Under the Ice"
+    keywords:
+      - winter crappie fishing
+      - ice fishing crappie
+      - crappie through the ice
+    angle: "Late December. Finding suspended crappie along basin edges, fishing
+      small jigs, and the low-light windows that matter. Log depth and time of
+      day. No invented studies. First-hand technique."
+    used: false
+
+  - slug: winter-yellow-perch
+    title: "Winter Perch: Stay Moving, Stay Small"
+    keywords:
+      - winter perch fishing
+      - ice fishing perch
+      - yellow perch ice fishing
+    angle: "Around New Year. Perch schools slide. Use small spoons and jigs,
+      drill a new hole when the bite dies, and keep fish in the water until
+      you decide to keep a few for the table. Practical, not a tournament
+      article. No invented catch rates."
+    used: false
+
+  - slug: ice-fishing-northern-pike
+    title: "Ice Fishing Northern Pike"
+    keywords:
+      - ice fishing pike
+      - winter northern pike
+      - pike tip up
+    angle: "Early January. Big bait on a quick-strike rig, where pike sit on
+      winter weeds and points, and how to land and release a toothy fish
+      without a long fight. Distinct from the general tip-up post. Cite a real
+      regulation page with a URL if you mention seasons or length limits;
+      otherwise skip the legal specifics."
+    used: false
+
+  - slug: a-day-on-hard-water
+    title: "A Day on Hard Water: Holes, Heat, and Moving"
+    keywords:
+      - ice fishing tips
+      - hard water fishing
+      - ice fishing for beginners
+    angle: "Mid-January. A practical ice day once the safety basics are
+      already known: how many holes to drill, when to move, a simple
+      jigging-and-deadstick setup, and staying warm enough to keep fishing.
+      Do not repeat the safe-ice post. No invented catch rates."
+    used: false
+
+  - slug: barometric-pressure-and-the-bite
+    title: "Barometric Pressure and the Bite"
+    keywords:
+      - barometric pressure fishing
+      - falling barometer fishing
+      - fishing barometer
+    angle: "Evergreen, and useful in winter. What a falling or rising glass is
+      worth on the water, and what it does not tell you. No invented studies
+      or percentages. Write from trips you can describe. Mention Bite Score
+      only if it fits a sentence, not as the subject of the post."
+    used: false
+
+  - slug: fishing-line-in-the-cold
+    title: "Fishing Line When the Air Is Cold"
+    keywords:
+      - fishing line cold weather
+      - fluorocarbon vs braid winter
+      - line memory fishing
+    angle: "Late January. Fluoro, braid, and mono when line gets stiff:
+      leaders, spool memory, and what fails on a frozen morning. Practical
+      rigging. No brand rankings and no invented lab tests."
+    used: false
+
+  - slug: plan-next-season-from-your-logs
+    title: "Plan Next Season From Your Fishing Log"
+    keywords:
+      - fishing log review
+      - plan next fishing season
+      - catch journal
+    angle: "Early February. Sit with last season's logs and decide what to
+      repeat: water temps, baits, times of day, and spots that produced more
+      than once. This is a planning session, not an AI feature tour. Mention
+      CSV/JSON export once if it helps the planning point. Do not invent the
+      reader's stats."
+    used: false
+
+  - slug: reading-a-new-lake
+    title: "How to Fish a New Lake in the First Hour"
+    keywords:
+      - fishing a new lake
+      - how to read a lake
+      - new water fishing
+    angle: "Evergreen, aimed at open water you will fish again in spring.
+      First hour: wind, the first two points, and one depth change — then
+      move. Log what you tried so the second trip starts smarter. Private
+      spots can be mentioned once, as a reason to keep the pins to yourself.
+      Do not turn this into a Bite Score article."
+    used: false

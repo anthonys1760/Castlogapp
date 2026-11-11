@@ -1,11 +1,16 @@
 #!/usr/bin/env node
+import { execFile } from "node:child_process";
+import { appendFileSync, writeSync } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
 import OpenAI from "openai";
 import YAML from "yaml";
 import { SYSTEM_PROMPT, buildUserPrompt, RETRY_REMINDER } from "./lib/prompt.mjs";
 import { countWords, countH2s } from "./lib/render.mjs";
+
+const execFileAsync = promisify(execFile);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -49,9 +54,11 @@ function recordPhotoUse(photo, slug) {
   });
 }
 
-const MODEL = process.env.BLOG_MODEL || "anthropic/claude-sonnet-4.6";
+const XAI_BASE_URL = "https://api.x.ai/v1";
+const MODEL = process.env.BLOG_MODEL || "grok-4.7";
 const DRY_RUN = process.argv.includes("--dry-run");
 const FORCE_SLUG = parseFlag("--topic-slug");
+const POST_FILENAME_RE = /^(\d{4}-\d{2}-\d{2})-(.+)\.md$/;
 
 function parseFlag(name) {
   const eq = process.argv.find(a => a.startsWith(`${name}=`));
@@ -85,18 +92,27 @@ function extractJSON(raw) {
   throw new Error("No balanced JSON object found in model output");
 }
 
-async function callModel(client, userPrompt, attempt = 1) {
-  const messages = [
-    { role: "system", content: SYSTEM_PROMPT },
-    { role: "user", content: userPrompt },
-  ];
+function buildChatRequest(topic, today) {
+  return {
+    model: MODEL,
+    temperature: 0.7,
+    max_tokens: 4500,
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      { role: "user", content: buildUserPrompt(topic, today) },
+    ],
+  };
+}
+
+async function callModel(client, request, attempt = 1) {
+  const messages = request.messages.map(message => ({ ...message }));
   if (attempt > 1) {
     messages.push({ role: "user", content: RETRY_REMINDER });
   }
   const res = await client.chat.completions.create({
-    model: MODEL,
-    temperature: 0.7,
-    max_tokens: 4500,
+    model: request.model,
+    temperature: request.temperature,
+    max_tokens: request.max_tokens,
     messages,
   });
   const raw = res.choices?.[0]?.message?.content || "";
@@ -106,7 +122,7 @@ async function callModel(client, userPrompt, attempt = 1) {
   } catch (err) {
     if (attempt < 2) {
       console.warn(`Parse failed (attempt ${attempt}): ${err.message}. Retrying with stricter reminder…`);
-      return callModel(client, userPrompt, attempt + 1);
+      return callModel(client, request, attempt + 1);
     }
     console.error("Raw model output:");
     console.error(raw);
@@ -277,13 +293,168 @@ async function injectInlineImages(markdown, slug) {
   return { markdown: out, inline };
 }
 
+export function slugFromPostPath(filePath) {
+  if (!filePath || !String(filePath).includes("blog/posts/")) return null;
+  const base = String(filePath).split("/").pop();
+  const match = base.match(POST_FILENAME_RE);
+  return match ? match[2] : null;
+}
+
+export function isBlogPr(pr) {
+  const head = pr?.headRefName || "";
+  const title = pr?.title || "";
+  return head.startsWith("blog/") || title.toLowerCase().startsWith("weekly-blog");
+}
+
+function slugFromBlogBranch(head) {
+  if (!head) return null;
+  const manual = head.match(/^blog\/manual-\d{4}-\d{2}-\d{2}-(.+)$/);
+  if (manual) return manual[1];
+  const dated = head.match(/^blog\/\d{4}-\d{2}-\d{2}-(.+)$/);
+  if (dated) return dated[1];
+  return null;
+}
+
+export function slugsFromOpenBlogPrs(prs) {
+  const slugs = new Map();
+  for (const pr of prs || []) {
+    if (!isBlogPr(pr)) continue;
+    const reason = `open blog PR #${pr.number ?? "?"} (${pr.headRefName || pr.title || "blog"})`;
+    const found = new Set();
+    for (const file of pr.files || []) {
+      const filePath = typeof file === "string" ? file : file?.path;
+      const fromPost = slugFromPostPath(filePath);
+      if (fromPost) found.add(fromPost);
+      const indexMatch = String(filePath || "").match(/^blog\/([^/]+)\/index\.html$/);
+      const change = typeof file === "string" ? "ADDED" : file?.changeType;
+      if (indexMatch && indexMatch[1] !== "template" && (!change || change === "ADDED")) {
+        found.add(indexMatch[1]);
+      }
+    }
+    const bodyMatch = (pr.body || "").match(/\*\*Slug:\*\*\s*([A-Za-z0-9-]+)/);
+    if (bodyMatch) found.add(bodyMatch[1]);
+    const fromBranch = slugFromBlogBranch(pr.headRefName || "");
+    if (fromBranch) found.add(fromBranch);
+    for (const slug of found) {
+      if (!slugs.has(slug)) slugs.set(slug, reason);
+    }
+  }
+  return slugs;
+}
+
+export function selectTopic(topics, taken, forceSlug) {
+  const skipped = [];
+  if (forceSlug) {
+    const topicIndex = topics.findIndex(topic => topic.slug === forceSlug);
+    if (topicIndex === -1) {
+      return { error: `Topic slug not found: ${forceSlug}`, skipped };
+    }
+    return { topic: topics[topicIndex], topicIndex, skipped };
+  }
+  let sawUnused = false;
+  for (let i = 0; i < topics.length; i++) {
+    const topic = topics[i];
+    if (topic.used) continue;
+    sawUnused = true;
+    const reason = taken.get(topic.slug);
+    if (reason) {
+      skipped.push({ slug: topic.slug, reason });
+      continue;
+    }
+    return { topic, topicIndex: i, skipped };
+  }
+  return { error: "empty", sawUnused, skipped };
+}
+
+export function emptyQueueMessage(topics, skipped) {
+  const unused = (topics || []).filter(topic => !topic.used);
+  if (unused.length === 0) {
+    return "The topic queue is empty. Every topic in blog/topics.yml is marked used. Add new topics with used: false before the next Monday run.";
+  }
+  const lines = (skipped || []).map(skip => `- ${skip.slug}: ${skip.reason}`).join("\n");
+  return `The topic queue has no eligible topic. ${unused.length} unused topic(s) were skipped because a post already exists on main or an open blog PR covers that slug:\n${lines}\nAdd new topics, or merge or close the blocking pull request.`;
+}
+
+function writeJobSummary(message) {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath) return;
+  appendFileSync(summaryPath, `## Weekly blog generator failed\n\n${message}\n`);
+}
+
+function fail(message) {
+  const annotation = process.env.GITHUB_ACTIONS ? `::error::${message.split("\n")[0]}\n` : "";
+  writeSync(2, `${annotation}${message}\n`);
+  writeJobSummary(message);
+  process.exit(1);
+}
+
+async function slugsFromMainPosts() {
+  const reasons = new Map();
+  const onDisk = await fs.readdir(POSTS_DIR).catch(() => []);
+  for (const file of onDisk) {
+    const slug = slugFromPostPath(`blog/posts/${file}`);
+    if (slug) reasons.set(slug, "post file already in blog/posts");
+  }
+  for (const ref of ["origin/main", "main"]) {
+    try {
+      const { stdout } = await execFileAsync(
+        "git",
+        ["ls-tree", "-r", "--name-only", ref, "blog/posts"],
+        { cwd: ROOT, encoding: "utf8" },
+      );
+      for (const line of stdout.split("\n")) {
+        const slug = slugFromPostPath(line.trim());
+        if (slug) reasons.set(slug, "post file already on main");
+      }
+      break;
+    } catch {
+      // Try the next ref. The working tree still covers a main checkout.
+    }
+  }
+  return reasons;
+}
+
+async function slugsFromGh() {
+  try {
+    const { stdout } = await execFileAsync(
+      "gh",
+      ["pr", "list", "--state", "open", "--limit", "100", "--json", "number,title,headRefName,body,files"],
+      { cwd: ROOT, encoding: "utf8", maxBuffer: 20 * 1024 * 1024 },
+    );
+    const prs = JSON.parse(stdout || "[]");
+    return slugsFromOpenBlogPrs(prs);
+  } catch (err) {
+    const detail = (err.stderr || err.message || String(err)).toString().trim().split("\n")[0];
+    if (process.env.GITHUB_ACTIONS) {
+      fail(`Could not list open blog PRs with \`gh pr list\` (${detail}). Refusing to pick a topic without the duplicate check.`);
+    }
+    console.warn(`Could not list open blog PRs with gh pr list (${detail}). Continuing with post files on main only.`);
+    return new Map();
+  }
+}
+
+async function collectTakenSlugs() {
+  const onMain = await slugsFromMainPosts();
+  const onPrs = await slugsFromGh();
+  const mainCount = [...onMain.values()].filter(reason => reason === "post file already on main").length;
+  console.log(`Post slugs on main: ${mainCount}`);
+  if (onMain.size > mainCount) {
+    console.log(`Other post files in blog/posts: ${onMain.size - mainCount}`);
+  }
+  console.log(`Open blog PR slugs: ${onPrs.size}`);
+  const taken = new Map(onPrs);
+  for (const [slug, reason] of onMain) taken.set(slug, reason);
+  return taken;
+}
+
 async function main() {
   await fs.mkdir(POSTS_DIR, { recursive: true });
   await loadUsedPhotos();
 
   const today = todayUTC();
   const existing = await fs.readdir(POSTS_DIR).catch(() => []);
-  if (existing.some(f => f.startsWith(`${today}-`) && !FORCE_SLUG)) {
+  const todayExists = existing.some(file => file.startsWith(`${today}-`));
+  if (todayExists && !FORCE_SLUG && !DRY_RUN) {
     console.log(`Post for ${today} already exists — skipping.`);
     return;
   }
@@ -291,59 +462,44 @@ async function main() {
   const topicsRaw = await fs.readFile(TOPICS_PATH, "utf8");
   const doc = YAML.parseDocument(topicsRaw);
   const topics = doc.toJS().topics || [];
-
-  let topic;
-  let topicIndex = -1;
-  if (FORCE_SLUG) {
-    topicIndex = topics.findIndex(t => t.slug === FORCE_SLUG);
-    if (topicIndex === -1) {
-      console.error(`Topic slug not found: ${FORCE_SLUG}`);
-      process.exit(1);
-    }
-    topic = topics[topicIndex];
-  } else {
-    topicIndex = topics.findIndex(t => !t.used);
-    if (topicIndex === -1) {
-      console.log("All topics are used. Add more to blog/topics.yml.");
-      return;
-    }
-    topic = topics[topicIndex];
+  const taken = await collectTakenSlugs();
+  const selection = selectTopic(topics, taken, FORCE_SLUG);
+  if (selection.error) {
+    fail(selection.error === "empty" ? emptyQueueMessage(topics, selection.skipped) : selection.error);
+  }
+  const { topic, topicIndex, skipped } = selection;
+  for (const skip of skipped) {
+    console.log(`Skipping ${skip.slug} — ${skip.reason}`);
+  }
+  if (todayExists && DRY_RUN) {
+    console.log(`Note: a post file for ${today} already exists. A real run without --topic-slug would skip.`);
   }
 
   console.log(`Generating post for topic: ${topic.slug} — "${topic.title}"`);
   console.log(`Model: ${MODEL}`);
+  console.log(`Base URL: ${XAI_BASE_URL}`);
 
-  const apiKey = process.env.OPENROUTER_API_KEY;
+  const request = buildChatRequest(topic, today);
+  if (DRY_RUN) {
+    console.log("DRY_RUN=1");
+    console.log(`TOPIC_SLUG=${topic.slug}`);
+    console.log(`TOPIC_TITLE=${topic.title}`);
+    console.log("=== request ===");
+    console.log(JSON.stringify({ baseURL: XAI_BASE_URL, ...request }, null, 2));
+    return;
+  }
+
+  const apiKey = (process.env.XAI_API_KEY || "").trim();
   if (!apiKey) {
-    console.error("OPENROUTER_API_KEY is not set");
-    process.exit(1);
+    fail("XAI_API_KEY is not set. Add it as a repository secret under Settings → Secrets and variables → Actions before this job can generate a post.");
   }
 
   const client = new OpenAI({
     apiKey,
-    baseURL: "https://openrouter.ai/api/v1",
-    defaultHeaders: {
-      "HTTP-Referer": "https://castlogapp.com",
-      "X-Title": "CastLog Blog Generator",
-    },
+    baseURL: XAI_BASE_URL,
   });
 
-  const userPrompt = buildUserPrompt(topic, today);
-  const { parsed, raw } = await callModel(client, userPrompt);
-
-  if (DRY_RUN) {
-    console.log("=== DRY RUN ===");
-    console.log(`Title: ${parsed.title}`);
-    console.log(`Description: ${parsed.description}`);
-    console.log(`Word count (model reported): ${parsed.word_count}`);
-    const { words, h2s } = validatePost(parsed);
-    console.log(`Word count (computed): ${words}`);
-    console.log(`H2 sections: ${h2s}`);
-    console.log("--- markdown preview (first 500 chars) ---");
-    console.log(parsed.markdown.slice(0, 500));
-    return;
-  }
-
+  const { parsed } = await callModel(client, request);
   const { words } = validatePost(parsed);
 
   let hero = await fetchHeroImage(parsed.image_query, topic.slug);
@@ -381,7 +537,14 @@ async function main() {
   console.log(`POST_TITLE=${parsed.title}`);
 }
 
-main().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+const invokedDirectly = process.argv[1]
+  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (invokedDirectly) {
+  main().catch(err => {
+    const message = err?.message || String(err);
+    console.error(err);
+    writeJobSummary(`The weekly blog generator crashed.\n\n${message}`);
+    process.exit(1);
+  });
+}
