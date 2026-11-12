@@ -39,7 +39,15 @@
       "email": "anthony.smith1760@gmail.com",
       "founder": {
         "@type": "Person",
-        "name": "Anthony Smith"
+        "@id": "https://anthonysdigital.net/#person",
+        "name": "Anthony Smith",
+        "url": "https://anthonysdigital.net/"
+      },
+      "creator": {
+        "@type": "Person",
+        "@id": "https://anthonysdigital.net/#person",
+        "name": "Anthony Smith",
+        "url": "https://anthonysdigital.net/"
       }
     },
     {
@@ -51,7 +59,21 @@
       "url": "https://castlogapp.com/",
       "image": "https://castlogapp.com/Images/og-share.jpg",
       "downloadUrl": "https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949",
-      "author": { "@id": "https://castlogapp.com/#organization" },
+      "author": [
+        { "@id": "https://castlogapp.com/#organization" },
+        {
+          "@type": "Person",
+          "@id": "https://anthonysdigital.net/#person",
+          "name": "Anthony Smith",
+          "url": "https://anthonysdigital.net/"
+        }
+      ],
+      "creator": {
+        "@type": "Person",
+        "@id": "https://anthonysdigital.net/#person",
+        "name": "Anthony Smith",
+        "url": "https://anthonysdigital.net/"
+      },
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -1070,7 +1092,10 @@ footer a:focus-visible{
 <footer>
   <div class="footer-logo"><picture><source srcset="Images/logo-256.webp" type="image/webp"><img src="Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:52px;width:52px;object-fit:contain;margin-right:10px;"></picture>Cast<span style="color:#fff">Log</span></div>
   <div style="font-style:italic;color:var(--text-muted)">Built by an angler, for anglers — not investors.</div>
-  <div>© 2026 CastLog · <a href="/blog/">Blog</a> · <a href="/support/">Support</a> · <a href="/feed.xml">RSS</a> · <a href="/privacy/">Privacy</a></div>
+  <div>
+    <div>© 2026 CastLog · <a href="/blog/">Blog</a> · <a href="/support/">Support</a> · <a href="/feed.xml">RSS</a> · <a href="/privacy/">Privacy</a></div>
+    <div><a href="https://anthonysdigital.net/" rel="author">Built by Anthony Smith</a></div>
+  </div>
 </footer>
 
 <script>

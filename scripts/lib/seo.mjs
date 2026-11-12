@@ -59,6 +59,13 @@ ${items}
 `;
 }
 
+const AUTHOR = {
+  "@type": "Person",
+  "@id": "https://anthonysdigital.net/#person",
+  name: "Anthony Smith",
+  url: "https://anthonysdigital.net/",
+};
+
 export function buildJsonLd(post) {
   const canonical = `${SITE}/blog/${post.slug}/`;
   const payload = {
@@ -68,7 +75,8 @@ export function buildJsonLd(post) {
     description: post.description,
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Person", name: "Anthony Smith" },
+    author: AUTHOR,
+    creator: AUTHOR,
     publisher: {
       "@type": "Organization",
       name: "CastLog",
