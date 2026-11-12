@@ -534,7 +534,7 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .prob-card{background:var(--card);padding:36px 34px;transition:background .2s}
 .prob-card:hover{background:var(--card2)}
 .prob-icon{color:var(--amber);margin-bottom:14px;line-height:0}
-.prob-icon svg,.bicon svg,.perk-check svg,.vp-label svg{display:block}
+.prob-icon svg,.bicon svg,.perk-check svg{display:block}
 .prob-card h3{font-size:17px;font-weight:600;margin-bottom:10px}
 .prob-card p{font-size:14px;color:var(--text-dim);line-height:1.65;margin-bottom:16px}
 .prob-quote{font-size:12.5px;color:var(--text-muted);font-style:italic;border-left:2px solid var(--border2);padding-left:13px;line-height:1.55}
@@ -558,24 +558,48 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .btext{font-size:14px;color:var(--text-dim);line-height:1.6}
 .btext strong{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:15px}
 
-/* VOICE PARSE — static breakdown of voice → structured data */
-.voice-parse{background:#1E232C;border:1px solid var(--border2);border-radius:14px;display:flex;flex-direction:column;border-left:3px solid var(--amber);max-width:420px;width:100%;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.35)}
-.vp-section{padding:18px 22px}
-.vp-section + .vp-section{border-top:1px solid var(--border)}
-.vp-label{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.vp-label.amber{color:var(--amber)}
-.vp-label.green{color:var(--green-bright)}
-.vp-transcript{font-family:"DM Sans",sans-serif;font-size:17px;color:var(--amber);font-style:italic;line-height:1.45;letter-spacing:-.005em}
-.vp-fields{display:flex;flex-direction:column;gap:11px}
-.vp-field{display:flex;justify-content:space-between;align-items:center;gap:14px}
-.vp-key{font-family:"DM Mono",monospace;font-size:12px;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;flex-shrink:0}
-.vp-val{font-family:"DM Mono",monospace;font-size:13px;color:var(--text);font-weight:500;text-align:right}
-.vp-val.amber{color:var(--amber)}
-.vp-live{display:inline-flex;align-items:center;gap:6px;color:var(--green-bright);font-family:"DM Mono",monospace;font-size:12px;font-weight:500}
-.vp-dot{width:6px;height:6px;border-radius:50%;background:var(--green-bright);flex-shrink:0;box-shadow:0 0 6px rgba(106,171,86,.55);animation:vp-pulse 2s ease-in-out infinite}
-@keyframes vp-pulse{0%,100%{opacity:.85}50%{opacity:.4}}
-.vp-saved{display:flex;align-items:center;gap:10px;font-family:"DM Mono",monospace;font-size:12px;color:var(--green-bright);background:rgba(106,171,86,.06);padding:14px 22px;border-top:1px solid var(--border)}
-.vp-check{width:18px;height:18px;border-radius:50%;background:var(--green-bright);color:#0c0d0a;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+/* VOICE DEMO — real screens crossfade Idle → Listening → Confirm */
+#features .voice-demo{display:flex;flex-direction:column;align-items:center;flex-shrink:0;max-width:100%}
+#features .voice-demo .iphone{width:360px}
+#features .voice-demo .iphone-screen{height:730px}
+/* Screenshots already include the status bar and Dynamic Island. Keep the home indicator. */
+#features .iphone-screen.real::before{content:none;display:none}
+#features .bullet-list{margin-bottom:0}
+.voice-demo-caption{
+  margin-top:16px;
+  font-family:"DM Mono",monospace;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  min-height:1.2em;
+  text-align:center;
+}
+.voice-demo-caption span{display:none}
+.voice-demo[data-stage="idle"] .c-idle,
+.voice-demo[data-stage="listening"] .c-listening,
+.voice-demo[data-stage="confirm"] .c-confirm{display:inline}
+#features .shot{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:top center;
+  opacity:0;
+  transition:opacity 1.8s ease;
+  pointer-events:none;
+}
+#voice-demo[data-stage="idle"] .shot.idle,
+#voice-demo[data-stage="listening"] .shot.listening,
+#voice-demo[data-stage="confirm"] .shot.confirm{opacity:1}
+html[data-state] #features .shot{transition:none}
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-state]) #features .shot{opacity:0!important;transition:none!important}
+  html:not([data-state]) #features .shot.confirm{opacity:1!important}
+  html:not([data-state]) #features .c-idle,
+  html:not([data-state]) #features .c-listening{display:none!important}
+  html:not([data-state]) #features .c-confirm{display:inline!important}
+}
 
 /* SPOTS TRIO */
 .spots-trio{position:relative;height:520px;width:100%}
@@ -665,6 +689,9 @@ footer a{color:var(--text-muted);text-decoration:none;display:inline-flex;align-
   .iphone-screen{height:600px}
   .feat-phone-wrap .iphone{width:300px}
   .feat-phone-wrap .iphone-screen{height:600px}
+  #features .feat-text{order:-1}
+  #features .voice-demo .iphone{width:290px}
+  #features .voice-demo .iphone-screen{height:586px}
   .status-bar{height:46px;padding-top:20px}
 
   /* ── Spots trio overrides: smaller frames + scaled hardware ── */
@@ -724,7 +751,7 @@ footer a:focus-visible{
     <p class="hero-sub hero-sub-long">
       Built for wet hands and flopping fish. <strong>Just say what you caught.</strong> CastLog logs the rest in seconds. No taps, no typing, no dry hands required.
     </p>
-    <p class="hero-sub hero-sub-short">Say <strong>“3-pound largemouth on a spinnerbait.”</strong> CastLog logs species, weight, bait, GPS and conditions in seconds, even with no signal.</p>
+    <p class="hero-sub hero-sub-short">Say <strong>“Largemouth bass.”</strong> CastLog attaches the lake, weather and moon phase in seconds, even with no signal.</p>
     <div class="hero-proof">
       <div class="live-dot"></div>
       <span>Anglers in 32 states and 17 countries</span>
@@ -838,48 +865,38 @@ footer a:focus-visible{
 <hr class="div">
 
 <!-- FEATURE 1: VOICE LOGGING -->
-<div class="feat-row" id="features">
+<section class="feat-row" id="features" aria-labelledby="voice-heading">
   <div class="feat-phone-wrap fade">
-    <div class="voice-parse">
-      <div class="vp-section">
-        <div class="vp-label amber"><svg class="icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>You said</div>
-        <div class="vp-transcript">"Three pound largemouth on a spinnerbait"</div>
-      </div>
-      <div class="vp-section">
-        <div class="vp-label">↓ Parsed from voice</div>
-        <div class="vp-fields">
-          <div class="vp-field"><span class="vp-key">Species</span><span class="vp-val amber">Largemouth Bass</span></div>
-          <div class="vp-field"><span class="vp-key">Weight</span><span class="vp-val amber">3 lb 0 oz</span></div>
-          <div class="vp-field"><span class="vp-key">Rig</span><span class="vp-val amber">Spinnerbait</span></div>
+    <div class="voice-demo" id="voice-demo" data-stage="idle">
+      <div class="iphone" role="img" aria-labelledby="voice-demo-label">
+        <div class="iphone-btn-silent"></div>
+        <div class="iphone-btn-vol-up"></div>
+        <div class="iphone-btn-vol-down"></div>
+        <div class="iphone-screen real">
+          <img class="shot idle" src="Images/voice/idle.webp" srcset="Images/voice/idle.webp 1x, Images/voice/idle@2x.webp 2x" alt="" width="676" height="1460" loading="lazy" decoding="async">
+          <img class="shot listening" src="Images/voice/listening.webp" srcset="Images/voice/listening.webp 1x, Images/voice/listening@2x.webp 2x" alt="" width="676" height="1460" loading="lazy" decoding="async">
+          <img class="shot confirm" src="Images/voice/confirm.webp" srcset="Images/voice/confirm.webp 1x, Images/voice/confirm@2x.webp 2x" alt="" width="676" height="1460" loading="lazy" decoding="async">
         </div>
       </div>
-      <div class="vp-section">
-        <div class="vp-label green">↓ Auto-captured in background</div>
-        <div class="vp-fields">
-          <div class="vp-field"><span class="vp-key">GPS</span><span class="vp-live"><span class="vp-dot"></span>44.8°N · 92.6°W</span></div>
-          <div class="vp-field"><span class="vp-key">Weather</span><span class="vp-live"><span class="vp-dot"></span>62°F · Cloudy</span></div>
-          <div class="vp-field"><span class="vp-key">Pressure</span><span class="vp-live"><span class="vp-dot"></span>30.12 ↘ Falling</span></div>
-          <div class="vp-field"><span class="vp-key">Water Temp</span><span class="vp-live"><span class="vp-dot"></span>58°F</span></div>
-          <div class="vp-field"><span class="vp-key">Moon Phase</span><span class="vp-live"><span class="vp-dot"></span>Waxing · 78%</span></div>
-          <div class="vp-field"><span class="vp-key">Time</span><span class="vp-live"><span class="vp-dot"></span>6:42 AM</span></div>
-        </div>
-      </div>
-      <div class="vp-saved">
-        <span class="vp-check">✓</span>Saved to journal
+      <div class="voice-demo-caption" aria-hidden="true">
+        <span class="c-idle">Say it</span>
+        <span class="c-listening">We fill the rest</span>
+        <span class="c-confirm">Tap Log Catch</span>
       </div>
     </div>
   </div>
   <div class="feat-text">
     <div class="sec-label amber fade d1">THE FASTEST LOG IN FISHING</div>
-    <h2 class="sec-title fade d2">Say the fish.<br><em style="color:var(--amber);font-style:italic">Done.</em></h2>
-    <p class="feat-desc fade d2">No taps. No typing. No dry hands required. Hold the fish, say what you caught, and CastLog fills in the rest — species, weight, bait, GPS, conditions. The full log, zero friction. <strong>No other fishing app does this.</strong></p>
+    <h2 class="sec-title fade d2" id="voice-heading">Say the fish.<br><em style="color:var(--amber);font-style:italic">Done.</em></h2>
+    <p class="feat-desc fade d2">No taps. No typing. No dry hands required. Hold the fish, say the species — CastLog attaches the lake, weather and moon phase. You confirm and log.</p>
     <ul class="bullet-list fade d3">
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>One sentence. Full log.</strong>Say "3-pound largemouth on a spinnerbait" and species, weight, and rig fill in. Conditions log themselves.</div></li>
+      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>One sentence. Full log.</strong>Say “Largemouth bass.” CastLog attaches the lake, weather and moon phase.</div></li>
       <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div><div class="btext"><strong>Built for the moment after the hookset.</strong>Wet hands, gloves, eyes on the fish — none of it stops the log. You don't touch the phone until you're ready to confirm.</div></li>
       <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><line x1="2" x2="22" y1="2" y2="22"/></svg></div><div class="btext"><strong>Logs offline too.</strong>Voice captures save locally and sync when you're back in range.</div></li>
     </ul>
+    <p class="visually-hidden" id="voice-demo-label">Demonstration of CastLog voice logging, using real app screens. On the Voice Log screen, a prompt says: tap the mic and describe your catch. A card labeled Tell us about your catch lists chips for Species, Size, Lure or Bait, and Notes, with the example phrase Largemouth bass. CastLog will attach Scott Lake, 44 degrees and clouds, and a waxing crescent moon. After you tap the mic, a timer, rings, and a waveform appear, and the same conditions stay on screen under the line We’ll attach. The confirm screen then shows a largemouth bass photo, the species name Largemouth Bass, the phrase heard as Large Mouth Bass, empty weight and length fields, a tackle picker, and a Log Catch button.</p>
   </div>
-</div>
+</section>
 
 <!-- FEATURE 2: JOURNAL -->
 <div class="feat-row-rev">
@@ -1156,11 +1173,59 @@ document.querySelectorAll('.status-batt').forEach(el => {
 });
 
 // ── Inject screen glare overlay into every phone screen (iPhone + Android) ──
-document.querySelectorAll('.iphone-screen, .android-screen').forEach(screen => {
+document.querySelectorAll('.iphone-screen:not(.real), .android-screen').forEach(screen => {
   const glare = document.createElement('div');
   glare.className = 'iphone-screen-glare';
   screen.appendChild(glare);
 });
+
+(function(){
+  var demo = document.getElementById("voice-demo");
+  if (!demo) return;
+  var params = new URLSearchParams(location.search);
+  var forced = params.get("state");
+  var stages = ["idle", "listening", "confirm"];
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function setStage(name){ demo.setAttribute("data-stage", name); }
+
+  if (forced && stages.indexOf(forced) !== -1) {
+    document.documentElement.setAttribute("data-state", forced);
+    setStage(forced);
+    return;
+  }
+  if (reduced) {
+    document.documentElement.setAttribute("data-reduced", "1");
+    setStage("confirm");
+    return;
+  }
+
+  var timers = [];
+  function clearTimers(){
+    timers.forEach(function(t){ clearTimeout(t); });
+    timers = [];
+  }
+  function playOnce(){
+    clearTimers();
+    setStage("idle");
+    timers.push(setTimeout(function(){ setStage("listening"); }, 2000));
+    timers.push(setTimeout(function(){ setStage("confirm"); }, 5200));
+  }
+
+  var hasPlayed = false;
+  var voiceIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+        if (!hasPlayed) { hasPlayed = true; playOnce(); }
+      } else if (!entry.isIntersecting) {
+        hasPlayed = false;
+        clearTimers();
+        setStage("idle");
+      }
+    });
+  }, { threshold: [0, 0.45, 1] });
+  voiceIO.observe(demo);
+})();
 </script>
 <script src="/js/app-store-tracking.js"></script>
 </body>
