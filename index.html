@@ -508,8 +508,8 @@ body.has-banner nav{top:52px}
 @keyframes blink{0%,100%{box-shadow:0 0 0 0 rgba(106,171,86,.5)}50%{box-shadow:0 0 0 5px rgba(106,171,86,0)}}
 .hero-proof span{color:var(--green-bright);font-weight:600}
 
-/* PLATFORM ROW — under hero CTA, shows on every screen size */
-.platform-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:2px}
+/* PLATFORM ROW — under hero CTA. Flush with the badge; the Android link's 8px side padding is not copied, so the chips don't sit indented. */
+.platform-row{display:flex;align-items:center;justify-content:flex-start;gap:14px;margin-top:12px}
 .platform-chip{display:inline-flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--text-muted)}
 .platform-chip svg{width:15px;height:15px;display:block;fill:currentColor;opacity:.8}
 .platform-divider{width:1px;height:13px;background:rgba(255,255,255,0.15)}
@@ -637,6 +637,7 @@ footer a{color:var(--text-muted);text-decoration:none;display:inline-flex;align-
   .hero{padding-left:16px;padding-right:16px}
   .hero h1{order:2;font-size:36px;text-wrap:balance;line-height:1.04;letter-spacing:-.5px;margin:14px 0 0}
   .hero-kicker,.hero-sub-long,.platform-row,.hero-phones{display:none}
+  .platform-row{justify-content:center}
   .hero-sub-short{display:block;order:3;font-size:17px;line-height:1.45;color:#b9b5a6;margin:12px 0 0;max-width:36ch}
   .hero-sub-short strong{color:#ede9dc;font-weight:600}
   .hero-ctas{order:4;align-items:center;width:100%;margin-top:18px}
