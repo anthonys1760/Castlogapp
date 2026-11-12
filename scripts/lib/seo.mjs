@@ -81,6 +81,10 @@ export function buildJsonLd(post) {
       "@type": "Organization",
       name: "CastLog",
       logo: { "@type": "ImageObject", url: `${SITE}/Images/logo.png` },
+      sameAs: [
+        "https://x.com/CastLogapp",
+        "https://www.instagram.com/castlogapp/",
+      ],
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     keywords: (post.keywords || []).join(", "),
