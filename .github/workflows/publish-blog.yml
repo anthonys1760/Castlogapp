@@ -1,0 +1,81 @@
+name: Publish scheduled blog posts
+
+on:
+  schedule:
+    # 05:15 UTC — about 12:15 AM Eastern (EST/EDT).
+    - cron: "15 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One publish run at a time so two rebuilds do not race a push to main.
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: scripts/package-lock.json
+
+      - name: Install deps
+        working-directory: scripts
+        run: npm ci
+
+      - name: Build blog
+        working-directory: scripts
+        run: node build-blog.mjs
+
+      - name: Commit published output if it changed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name "castlog-blog-bot"
+          git config user.email "blog-bot@castlogapp.com"
+
+          git add -- sitemap.xml feed.xml blog/index.html
+
+          shopt -s nullglob
+          for page in blog/*/index.html; do
+            slug="$(basename "$(dirname "$page")")"
+            if [[ "$slug" == "posts" || "$slug" == "template" ]]; then
+              continue
+            fi
+            git add -- "$page"
+          done
+
+          while IFS= read -r file; do
+            [[ -z "$file" ]] && continue
+            case "$file" in
+              blog/posts/*|blog/template/*) continue ;;
+              blog/index.html|blog/*/index.html)
+                git add -u -- "$file"
+                ;;
+            esac
+          done < <(git diff --name-only --diff-filter=D -- blog)
+
+          if git diff --cached --quiet; then
+            echo "No generated blog output changes."
+            exit 0
+          fi
+
+          MEANINGFUL="$(git diff --cached --name-only | grep -E '^(blog/index\.html|blog/[^/]+/index\.html)$' || true)"
+          if [[ -z "$MEANINGFUL" ]]; then
+            echo "Only sitemap/feed timestamps changed; skipping commit."
+            git reset
+            exit 0
+          fi
+
+          git commit -m "blog: publish posts that have reached their date"
+          git push origin HEAD:main

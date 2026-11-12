@@ -20,11 +20,39 @@ const ROOT = path.resolve(__dirname, "..");
 const POSTS_DIR = path.join(ROOT, "blog", "posts");
 const BLOG_DIR = path.join(ROOT, "blog");
 const TEMPLATE_DIR = path.join(BLOG_DIR, "template");
+const RESERVED_BLOG_DIRS = new Set(["posts", "template"]);
+const PUBLISH_TZ = "America/Detroit";
+
+function todayInDetroit() {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: PUBLISH_TZ,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
+function toDateStamp(value) {
+  if (typeof value === "string") {
+    const match = value.match(/^(\d{4}-\d{2}-\d{2})/);
+    if (match) return match[1];
+  }
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString().slice(0, 10);
+  }
+  return "";
+}
+
+function isLiveOn(dateStamp, todayStamp) {
+  return Boolean(dateStamp) && dateStamp <= todayStamp;
+}
 
 async function loadPosts() {
   await fs.mkdir(POSTS_DIR, { recursive: true });
   const files = (await fs.readdir(POSTS_DIR)).filter(f => f.endsWith(".md"));
+  const today = todayInDetroit();
   const posts = [];
+  const unpublished = [];
   for (const file of files) {
     const raw = await fs.readFile(path.join(POSTS_DIR, file), "utf8");
     const parsed = matter(raw);
@@ -33,12 +61,13 @@ async function loadPosts() {
       console.warn(`Skipping ${file}: missing required frontmatter`);
       continue;
     }
+    const date = toDateStamp(data.date);
     const words = data.word_count || countWords(parsed.content);
-    posts.push({
+    const post = {
       slug: data.slug,
       title: data.title,
       description: data.description || "",
-      date: typeof data.date === "string" ? data.date : new Date(data.date).toISOString().slice(0, 10),
+      date,
       keywords: data.keywords || [],
       word_count: words,
       reading_time: readingTime(words),
@@ -48,10 +77,25 @@ async function loadPosts() {
       hero_image_alt: data.hero_image_alt || "Angler casting on a lake at sunset",
       hero_image_credit: data.hero_image_credit || "",
       hero_image_credit_url: data.hero_image_credit_url || "",
-    });
+    };
+    if (!isLiveOn(date, today)) {
+      console.log(`Skipping ${file}: date ${date || "(invalid)"} is after ${today} (${PUBLISH_TZ})`);
+      unpublished.push(post);
+      continue;
+    }
+    posts.push(post);
   }
   posts.sort((a, b) => (b.date > a.date ? 1 : b.date < a.date ? -1 : 0));
-  return posts;
+  return { posts, unpublished, today };
+}
+
+async function pruneUnpublishedOutput(unpublished) {
+  for (const post of unpublished) {
+    if (!post.slug || RESERVED_BLOG_DIRS.has(post.slug)) continue;
+    const outDir = path.join(BLOG_DIR, post.slug);
+    await fs.rm(outDir, { recursive: true, force: true });
+    console.log(`  ✕ removed unpublished blog/${post.slug}/`);
+  }
 }
 
 async function renderPost(post, allPosts, postTemplate) {
@@ -107,8 +151,13 @@ async function renderIndex(posts, indexTemplate) {
 }
 
 async function main() {
-  const posts = await loadPosts();
-  console.log(`Loaded ${posts.length} post(s)`);
+  const { posts, unpublished, today } = await loadPosts();
+  console.log(`Loaded ${posts.length} live post(s) for ${today} (${PUBLISH_TZ})`);
+  if (unpublished.length) {
+    console.log(`Held ${unpublished.length} future-dated post(s)`);
+  }
+
+  await pruneUnpublishedOutput(unpublished);
 
   const postTemplate = await fs.readFile(path.join(TEMPLATE_DIR, "post.html"), "utf8");
   const indexTemplate = await fs.readFile(path.join(TEMPLATE_DIR, "index.html"), "utf8");
