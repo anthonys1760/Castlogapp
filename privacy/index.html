@@ -75,7 +75,10 @@ footer{padding:36px 24px;border-top:1px solid var(--border);text-align:center;fo
 footer a{color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;padding:12px 8px}
 footer a:hover{color:var(--amber)}
 .footer-logo{font-family:"DM Mono",monospace;font-size:15px;color:var(--amber);letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
-.footer-social{display:inline-flex;align-items:center;justify-content:center;gap:2px;margin-bottom:8px}
+.footer-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0 10px}
+.footer-links a{padding-left:0;padding-right:0}
+.footer-sep{line-height:1}
+.footer-social{display:flex;align-items:center;justify-content:center;gap:2px;margin-bottom:8px;width:100%}
 .footer-social a{padding:10px;min-width:44px;justify-content:center}
 .footer-social svg{display:block}
 
@@ -182,7 +185,7 @@ footer a:hover{color:var(--amber)}
     <a href="https://www.instagram.com/castlogapp/" target="_blank" rel="noopener" aria-label="CastLog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
   </div>
   <div><a href="https://anthonysdigital.net/" rel="author">Built by Anthony Smith</a></div>
-  <div>© 2026 CastLog · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/support/">Support</a></div>
+  <div class="footer-links"><span>© 2026 CastLog</span><span class="footer-sep" aria-hidden="true">·</span><a href="/">Home</a><span class="footer-sep" aria-hidden="true">·</span><a href="/blog/">Blog</a><span class="footer-sep" aria-hidden="true">·</span><a href="/support/">Support</a></div>
 </footer>
 <script src="/js/app-store-tracking.js"></script>
 
