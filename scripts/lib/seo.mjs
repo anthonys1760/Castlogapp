@@ -84,6 +84,7 @@ export function buildJsonLd(post) {
       sameAs: [
         "https://x.com/CastLogapp",
         "https://www.instagram.com/castlogapp/",
+        "https://www.facebook.com/profile.php?id=61596275682296",
       ],
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
