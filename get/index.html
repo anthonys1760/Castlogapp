@@ -28,8 +28,9 @@
 <style>
   :root {
     --bg:#0c0d0a;--bg2:#111310;
-    --card:#1b1d17;--border:#282b22;
+    --card:#1b1d17;--border:#282b22;--border2:#323528;
     --amber:#F4B000;--text:#ede9dc;--muted:#8c8878;
+    --green-bright:#6aab56;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { overflow-x: clip; }
@@ -40,9 +41,12 @@
     line-height: 1.5;
     min-height: 100vh;
     overflow-x: clip;
+    display: flex;
+    flex-direction: column;
   }
   img { max-width: 100%; height: auto; }
-  :focus-visible, a:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  :focus-visible, a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -55,62 +59,117 @@
   .nav-link{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;padding:12px 8px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
   .nav-link:hover,.nav-link.active{color:var(--amber)}
   .nav-cta{background:#ede9dc;color:#0c0d0a;padding:0 14px;min-height:44px;border-radius:22px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap;margin-left:4px}
-  .nav-cta[aria-current="page"]{outline:2px solid var(--amber);outline-offset:2px}
   @media(min-width:900px){nav{padding:0 32px;height:64px}.logo{font-size:17px;letter-spacing:.12em}.logo img{height:36px;width:36px}.nav-right{gap:6px}}
-  @media(max-width:720px){.logo-word{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}nav{padding:0 10px}.nav-link{padding:12px 6px;font-size:13px}.nav-cta{padding:0 12px;font-size:13px}}
-  main{max-width:440px;margin:0 auto;padding:112px 24px 48px;text-align:center}
-  .brand{display:flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:36px}
-  .brand img{width:96px;height:96px;border-radius:22px;display:block}
+  @media(max-width:720px){nav{padding:0 10px}.nav-cta{padding:0 12px;font-size:13px}}
+  main{width:100%;max-width:440px;margin:0 auto;padding:112px 24px 48px;text-align:center;flex:1}
   h1{font-family:"Playfair Display",serif;font-size:36px;line-height:1.12;font-weight:900;letter-spacing:-.02em;margin-bottom:16px}
-  .sub{font-size:17px;color:var(--muted);margin-bottom:32px;line-height:1.45}
+  .sub{font-size:17px;color:var(--muted);margin-bottom:28px;line-height:1.45}
+  .get-phone{width:220px;margin:0 auto 28px;background:#1e1e1e;border-radius:32px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+  .get-phone-screen{border-radius:24px;overflow:hidden;height:280px;background:#0C1014}
+  .get-phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
   .cta-badge{display:flex;justify-content:center;margin-bottom:8px;line-height:0;min-height:64px;align-items:center}
   .cta-badge img{height:64px;width:auto;display:block}
   .android-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 8px;color:var(--amber);font-weight:600;font-size:15px;text-decoration:none}
-  .perks{margin-top:28px;font-size:13px;color:var(--muted);line-height:1.5}
-  footer{padding:28px 16px 40px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:13px}
+  .hero-form{display:flex;flex-direction:column;gap:10px;width:100%;margin:8px 0 0}
+  .hero-form input{width:100%;height:50px;background:var(--card);border:1px solid var(--border2);color:var(--text);padding:14px 18px;border-radius:8px;font-family:"DM Sans",sans-serif;font-size:15px;outline:none}
+  .btn-main{background:var(--amber);color:#0c0d0a;border:none;padding:14px 24px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;min-height:48px}
+  .hero-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:13px;color:#a8a492;margin-top:22px}
+  .hero-trust span{display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .hero-trust i{width:6px;height:6px;border-radius:3px;background:var(--green-bright);display:block;flex-shrink:0}
+  footer{padding:28px 16px 40px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:13px;margin-top:auto;width:100%}
   footer a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;padding:12px 8px}
   footer a:hover{color:var(--amber)}
   .footer-logo{font-family:"DM Mono",monospace;font-size:15px;color:var(--amber);letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px}
+  .footer-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 4px}
 </style>
+<link rel="stylesheet" href="/css/site-nav.css">
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 <nav>
   <a href="/" class="logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="" width="256" height="256"></picture><span class="logo-word">Cast<span class="logo-log">Log</span></span></a>
   <div class="nav-right">
-    <a href="/#features" class="nav-link">Features</a>
-    <a href="/blog/" class="nav-link">Blog</a>
-    <a href="/support/" class="nav-link">Support</a>
-    <a href="/get/" class="nav-cta" aria-current="page">Get the app</a>
+    <div class="nav-links" id="nav-links">
+      <a href="/#features" class="nav-link">Features</a>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/support/" class="nav-link">Support</a>
+    </div>
+    <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=nav_cta&utm_campaign=ios_app_store" class="nav-cta" data-placement="nav">Get the app</a>
+    <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="5" y1="7" x2="19" y2="7"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <line x1="5" y1="17" x2="19" y2="17"></line>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+      </svg>
+    </button>
   </div>
 </nav>
-<main>
-  <div class="brand">
-    <picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog logo" width="256" height="256"></picture>
-  </div>
+<div class="nav-backdrop" id="nav-backdrop" hidden></div>
+<main id="main">
   <h1>The fishing journal you&rsquo;ll actually keep.</h1>
   <p class="sub">Free core journal, voice logging and export. Angler Pro is optional.</p>
-  <a class="cta-badge" id="cta-ios" data-placement="download_page" href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949" aria-label="Download on the App Store"><img src="/Images/app-store-badge.svg" alt="Download on the App Store"></a>
-  <a class="android-link" id="cta-android" href="/?utm_source=tiktok&amp;utm_medium=bio&amp;utm_campaign=get&amp;utm_content=android#android-invite">On Android? Join the open test →</a>
-  <p class="perks">Private by default. Works offline. Export your data any time.</p>
+  <div class="get-phone">
+    <div class="get-phone-screen">
+      <img src="/Videos/voice_logging_v2_poster.jpg" alt="CastLog voice log screen listening for a catch" width="720" height="1564">
+    </div>
+  </div>
+  <a class="cta-badge" id="cta-ios" data-placement="download_page" href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=download_page&utm_campaign=ios_app_store" aria-label="Download on the App Store"><img src="/Images/app-store-badge.svg" alt="Download on the App Store"></a>
+  <a class="android-link" id="cta-android" href="#android-invite">On Android? Join the open test →</a>
+  <div class="hero-form" id="android-invite">
+    <label class="visually-hidden" for="get-email">Email for Android invite</label>
+    <input type="email" placeholder="your@email.com" id="get-email" name="email" autocomplete="email" inputmode="email">
+    <button class="btn-main" id="get-btn" type="button">Join the open Android test</button>
+  </div>
+  <div class="hero-trust" aria-label="CastLog basics">
+    <span><i></i>Private by default</span>
+    <span><i></i>Works offline</span>
+    <span><i></i>Free export</span>
+  </div>
 </main>
 <footer>
   <div class="footer-logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="" width="256" height="256" style="height:32px;width:32px;object-fit:contain;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></div>
   <div><a href="https://anthonysdigital.net/" rel="author">Built by Anthony Smith</a></div>
-  <div>© 2026 CastLog · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/support/">Support</a> · <a href="/privacy/">Privacy</a></div>
+  <div class="footer-links"><span>© 2026 CastLog</span><span aria-hidden="true">·</span><a href="/">Home</a><span aria-hidden="true">·</span><a href="/blog/">Blog</a><span aria-hidden="true">·</span><a href="/support/">Support</a><span aria-hidden="true">·</span><a href="/privacy/">Privacy</a></div>
 </footer>
 <script>
-  function trackCta(platform){
-    if (typeof gtag === 'function') {
-      gtag('event', 'cta_click', {
-        platform: platform,
-        page: '/get',
-        source: 'tiktok_bio'
-      });
+  document.getElementById("get-btn").addEventListener("click", async function(){
+    var input = document.getElementById("get-email");
+    var btn = document.getElementById("get-btn");
+    var email = input.value.trim();
+    if (!email.includes("@") || !email.includes(".")) {
+      input.style.borderColor = "#E0695A";
+      setTimeout(function(){ input.style.borderColor = ""; }, 1800);
+      return;
     }
-  }
-  document.getElementById('cta-ios').addEventListener('click', function(){ trackCta('ios'); });
-  document.getElementById('cta-android').addEventListener('click', function(){ trackCta('android'); });
+    btn.textContent = "Submitting…";
+    btn.disabled = input.disabled = true;
+    try {
+      var res = await fetch("https://formspree.io/f/mjgjbdke", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+      if (res.ok) {
+        btn.textContent = "Invite on the way!";
+        btn.style.background = "#6aab56";
+        if (typeof gtag !== "undefined") gtag("event", "waitlist_signup", { form_location: "get" });
+      } else {
+        btn.textContent = "Try again";
+        btn.style.background = "#E0695A";
+        btn.disabled = input.disabled = false;
+      }
+    } catch (e) {
+      btn.textContent = "Try again";
+      btn.style.background = "#E0695A";
+      btn.disabled = input.disabled = false;
+    }
+  });
 </script>
 <script src="/js/app-store-tracking.js"></script>
+<script src="/js/nav-menu.js"></script>
 </body>
 </html>

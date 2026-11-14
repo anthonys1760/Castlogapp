@@ -88,8 +88,8 @@ footer .footer-logo{font-family:"DM Mono",monospace;font-size:15px;color:var(--a
 footer a{color:var(--text-muted);text-decoration:none;border-bottom:1px solid transparent;display:inline-flex;align-items:center;min-height:44px;padding:12px 8px}
 footer a:hover{color:var(--amber)}
 footer div{margin-bottom:8px}
-.footer-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0 10px}
-.footer-links a{padding-left:0;padding-right:0;border-bottom:none}
+.footer-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 4px}
+.footer-links a{padding:12px 8px;min-width:44px;min-height:44px;border-bottom:none}
 .footer-sep{line-height:1}
 .footer-social{display:flex;align-items:center;justify-content:center;gap:2px;width:100%}
 .footer-social a{padding:10px;min-width:44px;justify-content:center;border-bottom:none}
@@ -100,19 +100,36 @@ footer div{margin-bottom:8px}
   .post-list{padding:20px 20px 60px}
 }
 </style>
+<link rel="stylesheet" href="/css/site-nav.css">
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
+
 
 <nav>
   <a href="/" class="logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="" width="256" height="256"></picture><span class="logo-word">Cast<span class="logo-log">Log</span></span></a>
   <div class="nav-right">
-    <a href="/#features" class="nav-link">Features</a>
-    <a href="/blog/" class="nav-link active" aria-current="page">Blog</a>
-    <a href="/support/" class="nav-link">Support</a>
-    <a href="/get/" class="nav-cta">Get the app</a>
+    <div class="nav-links" id="nav-links">
+      <a href="/#features" class="nav-link">Features</a>
+      <a href="/blog/" class="nav-link active" aria-current="page">Blog</a>
+      <a href="/support/" class="nav-link">Support</a>
+    </div>
+    <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=nav_cta&utm_campaign=ios_app_store" class="nav-cta" data-placement="nav">Get the app</a>
+      <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="5" y1="7" x2="19" y2="7"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <line x1="5" y1="17" x2="19" y2="17"></line>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
   </div>
 </nav>
-
+<div class="nav-backdrop" id="nav-backdrop" hidden></div>
+<main id="main">
 <section class="blog-hero">
   <div class="blog-hero-label">CastLog Field Notes</div>
   <h1>Writing on fast logging, AI patterns, and the apps that get in your way.</h1>
@@ -121,7 +138,7 @@ footer div{margin-bottom:8px}
 
 <section class="post-list">
   <a href="/blog/late-fall-walleye-after-turnover/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/late-fall-walleye-after-turnover.jpg" alt="A canoe tied to a wooden dock scattered with yellow autumn leaves on a calm lake." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/late-fall-walleye-after-turnover-800.webp 800w, /Images/blog/late-fall-walleye-after-turnover-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/late-fall-walleye-after-turnover.jpg" alt="A canoe tied to a wooden dock scattered with yellow autumn leaves on a calm lake." width="1600" height="840" loading="eager" fetchpriority="high" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">November 10, 2026 · 7 min</div>
       <h2>Late Fall Walleye Fishing After Lake Turnover</h2>
@@ -130,7 +147,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/catch-and-release-best-practices/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/catch-and-release-best-practices.jpg" alt="A fish on a hook jumps from splashing water." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/catch-and-release-best-practices-800.webp 800w, /Images/blog/catch-and-release-best-practices-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/catch-and-release-best-practices.jpg" alt="A fish on a hook jumps from splashing water." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">August 3, 2026 · 5 min</div>
       <h2>Catch and Release Best Practices That Save Fish</h2>
@@ -139,7 +156,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/lake-intelligence-bite-score/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/lake-intelligence-bite-score.jpg" alt="An angler standing in a small boat on a foggy lake, with a duck swimming nearby." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/lake-intelligence-bite-score-800.webp 800w, /Images/blog/lake-intelligence-bite-score-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/lake-intelligence-bite-score.jpg" alt="An angler standing in a small boat on a foggy lake, with a duck swimming nearby." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">July 20, 2026 · 5 min</div>
       <h2>Bite Score Explained: How to Read a Lake</h2>
@@ -148,7 +165,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/private-fishing-spots-burning/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/private-fishing-spots-burning-1.jpg" alt="A person kneeling at a shallow rocky stream, cupping stones in both hands." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/private-fishing-spots-burning-1-800.webp 800w, /Images/blog/private-fishing-spots-burning-1-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/private-fishing-spots-burning-1.jpg" alt="A person kneeling at a shallow rocky stream, cupping stones in both hands." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">July 6, 2026 · 5 min</div>
       <h2>Private Fishing Spots: Stop Burning Them in Apps</h2>
@@ -157,7 +174,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/spring-bass-prespawn-patterns/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/spring-bass-prespawn-patterns.jpg" alt="A man standing on a wooden dock beside a lake, with bare trees along the shore." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/spring-bass-prespawn-patterns-800.webp 800w, /Images/blog/spring-bass-prespawn-patterns-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/spring-bass-prespawn-patterns.jpg" alt="A man standing on a wooden dock beside a lake, with bare trees along the shore." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">June 29, 2026 · 5 min</div>
       <h2>Pre-Spawn Bass: How to Read the Window</h2>
@@ -166,7 +183,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/fishing-journal-vs-paper/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/fishing-journal-vs-paper.jpg" alt="A worn Field Notes memo book on a wooden table." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/fishing-journal-vs-paper-800.webp 800w, /Images/blog/fishing-journal-vs-paper-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/fishing-journal-vs-paper.jpg" alt="A worn Field Notes memo book on a wooden table." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">June 15, 2026 · 5 min</div>
       <h2>Paper Fishing Log vs. App: Which Is Better?</h2>
@@ -175,7 +192,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/fishing-pattern-recognition-ai/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/fishing-pattern-recognition-ai.jpg" alt="Sunset over a calm lake, with reeds in the foreground and a bird flying above the tree line." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/fishing-pattern-recognition-ai-800.webp 800w, /Images/blog/fishing-pattern-recognition-ai-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/fishing-pattern-recognition-ai.jpg" alt="Sunset over a calm lake, with reeds in the foreground and a bird flying above the tree line." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">June 9, 2026 · 5 min</div>
       <h2>What a Year of Logged Catches Teaches You</h2>
@@ -184,7 +201,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/voice-logging-fishing-catches/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="An angler standing waist-deep in a calm lake, fishing toward snow-capped mountains." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/voice-logging-fishing-catches-2-800.webp 800w, /Images/blog/voice-logging-fishing-catches-2-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/voice-logging-fishing-catches-2.jpg" alt="An angler standing waist-deep in a calm lake, fishing toward snow-capped mountains." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">June 1, 2026 · 5 min</div>
       <h2>Voice Fishing Log: Log Catches With Wet Hands</h2>
@@ -193,7 +210,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/log-a-catch-in-under-5-seconds/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/log-a-catch-in-under-5-seconds.jpg" alt="An angler in a fishing vest holds a spotted trout above a landing net." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/log-a-catch-in-under-5-seconds-800.webp 800w, /Images/blog/log-a-catch-in-under-5-seconds-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/log-a-catch-in-under-5-seconds.jpg" alt="An angler in a fishing vest holds a spotted trout above a landing net." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">May 25, 2026 · 5 min</div>
       <h2>Log a Catch in Seconds (No Phone Tantrum)</h2>
@@ -202,7 +219,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/fishbrain-alternative-2026/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/fishbrain-alternative-2026-1.jpg" alt="A river winding through a rocky, partly snow-covered mountain valley." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/fishbrain-alternative-2026-1-800.webp 800w, /Images/blog/fishbrain-alternative-2026-1-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/fishbrain-alternative-2026-1.jpg" alt="A river winding through a rocky, partly snow-covered mountain valley." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">May 20, 2026 · 5 min</div>
       <h2>The Fishbrain Alternative Anglers Want in 2026</h2>
@@ -211,7 +228,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/ai-fish-identification-accuracy/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/ai-fish-identification-accuracy.jpg" alt="A largemouth bass swims in murky water" loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/ai-fish-identification-accuracy-800.webp 800w, /Images/blog/ai-fish-identification-accuracy-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/ai-fish-identification-accuracy.jpg" alt="A largemouth bass swims in murky water" width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">May 18, 2026 · 5 min</div>
       <h2>AI Fish Identification: What Actually Works in 2026</h2>
@@ -220,7 +237,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/best-offline-fishing-app/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog-header.jpg" alt="Angler casting on a lake at sunset" loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/blog-header-800.webp 800w, /Images/blog/blog-header-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog-header.jpg" alt="Angler casting on a lake at sunset" width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">May 18, 2026 · 5 min</div>
       <h2>Best Offline Fishing App When You Have Zero Signal</h2>
@@ -229,7 +246,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
   <a href="/blog/water-temp-bass-fishing-guide/" class="post-card">
-    <div class="post-card-image"><img src="/Images/blog/water-temp-bass-fishing-guide.jpg" alt="Sunset over a calm lake, with reeds in the foreground and a bird flying above the tree line." loading="lazy"></div>
+    <div class="post-card-image"><picture><source type="image/webp" srcset="/Images/blog/water-temp-bass-fishing-guide-800.webp 800w, /Images/blog/water-temp-bass-fishing-guide-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 620px"><img src="/Images/blog/fishing-pattern-recognition-ai-1.jpg" alt="A wooden dock on a calm lake with a line of orange buoys and a pine shoreline." width="1600" height="840" loading="lazy" decoding="async"></picture></div>
     <div class="post-card-body">
       <div class="post-card-meta">May 18, 2026 · 6 min</div>
       <h2>Water Temperature Bass Fishing: The 5-Degree Rule</h2>
@@ -238,6 +255,7 @@ footer div{margin-bottom:8px}
     </div>
   </a>
 </section>
+</main>
 
 <footer>
   <div class="footer-logo"><picture><source srcset="/Images/logo-256.webp" type="image/webp"><img src="/Images/logo-256.png" alt="CastLog" width="256" height="256" style="height:32px;width:32px;object-fit:contain;margin-right:8px;"></picture>Cast<span style="color:#fff">Log</span></div>
@@ -252,5 +270,6 @@ footer div{margin-bottom:8px}
 </footer>
 <script src="/js/app-store-tracking.js"></script>
 
+<script src="/js/nav-menu.js"></script>
 </body>
 </html>
