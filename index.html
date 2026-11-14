@@ -569,6 +569,12 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .prob-card p{font-size:14px;color:var(--text-dim);line-height:1.65;margin-bottom:16px}
 .prob-quote{font-size:12.5px;color:var(--text-muted);font-style:italic;border-left:2px solid var(--border2);padding-left:13px;line-height:1.55}
 
+/* FOUNDER VOICE */
+.founder-attr{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:18px}
+.founder-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid rgba(244,176,0,.35);display:block}
+.founder-byline{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--text-muted);text-transform:uppercase}
+@media(min-width:900px){.founder-avatar{width:80px;height:80px}}
+
 /* FEATURE ROWS */
 .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;padding:110px 48px}
 .feat-row-rev{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1160px;margin:0 auto;padding:110px 48px;direction:rtl}.feat-row-rev>*{direction:ltr}
@@ -1027,7 +1033,13 @@ footer a:focus-visible{
   <p class="fade" style="font-family:'DM Sans',sans-serif;font-size:18px;color:var(--text-dim);line-height:1.7;font-style:italic;margin:0">
     "I'm Anthony, the angler building CastLog. Every fishing app I've tried got in the way of actually fishing. If you've quit one of them mid-season, you're who I'm building this for."
   </p>
-  <div class="fade d1" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--text-muted);text-transform:uppercase;margin-top:18px">— Anthony, founder</div>
+  <div class="founder-attr fade d1">
+    <picture>
+      <source srcset="Images/founder-anthony.webp" type="image/webp">
+      <img class="founder-avatar" src="Images/founder-anthony.jpg" alt="Anthony, founder of CastLog, holding a smallmouth bass" width="80" height="80" loading="lazy" decoding="async">
+    </picture>
+    <div class="founder-byline">— Anthony, founder</div>
+  </div>
 </section>
 
 <hr class="div">
