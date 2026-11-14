@@ -514,13 +514,13 @@ body.has-banner nav{top:52px}
 .hero-glow{position:fixed;top:0;right:0;width:60vw;height:60vh;background:radial-gradient(ellipse at 70% 30%,rgba(78,124,63,.06) 0%,transparent 60%);pointer-events:none}
 .hero-label{display:inline-flex;align-items:center;gap:8px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green-bright);background:var(--green-glow);border:1px solid rgba(106,171,86,.25);padding:5px 14px;border-radius:4px;margin-bottom:28px;animation:up .6s ease both}
 .hero-label svg{width:14px;height:14px;display:block;flex-shrink:0}
-.hero-sub-short,.hero-trust,.hero-peek{display:none}
+.hero-peek{display:none}
 .hero-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:2px;max-width:480px;animation:up .6s .32s ease both}
 .android-link{display:inline-flex;align-items:center;min-height:44px;padding:12px 8px;color:var(--amber);font-weight:600;font-size:15px;text-decoration:none}
 .android-link:hover{text-decoration:underline}
 /* Left-aligned hero (above the 900px centered layout): drop the left inset so the label shares the badge edge. Right and vertical padding stay; min-height keeps a 44px tap target. */
 @media(min-width:901px){.hero-ctas .android-link{padding-left:0}}
-.hero h1{font-family:"Playfair Display",serif;font-size:clamp(34px,4.2vw,56px);font-weight:900;line-height:1.06;letter-spacing:-.025em;margin-bottom:24px;animation:up .6s .08s ease both}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(34px,4.2vw,56px);font-weight:900;line-height:1.12;letter-spacing:-.025em;margin-bottom:24px;animation:up .6s .08s ease both}
 .line-strike{position:relative;color:var(--text-dim)}
 .line-strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2.5px;background:var(--red);transform:rotate(-.8deg)}
 .line-amber{color:var(--amber);font-style:italic}
@@ -697,17 +697,11 @@ footer a{color:var(--text-muted);text-decoration:none;display:inline-flex;align-
   .hero-copy{display:flex;flex-direction:column;align-items:center;text-align:center}
   .hero-label{order:1;margin:0;height:28px;padding:0 10px;border-radius:14px;letter-spacing:0;text-transform:none;white-space:nowrap}
   .hero{padding-left:16px;padding-right:16px}
-  .hero h1{order:2;font-size:36px;text-wrap:balance;line-height:1.04;letter-spacing:-.5px;margin:14px 0 0}
-  .hero-kicker,.hero-sub-long,.platform-row,.hero-phones{display:none}
+  .hero h1{order:2;font-size:36px;text-wrap:balance;line-height:1.12;letter-spacing:-.5px;margin:14px 0 0}
+  .hero-sub-long,.platform-row,.hero-phones{display:none}
   .platform-row{justify-content:center}
-  .hero-sub-short{display:block;order:3;font-size:17px;line-height:1.45;color:#b9b5a6;margin:12px 0 0;max-width:36ch}
-  .hero-sub-short strong{color:#ede9dc;font-weight:600}
-  .hero-ctas{order:4;align-items:center;width:100%;margin-top:18px}
   .hero-store img{height:64px}
   .android-link{justify-content:center}
-  .hero-trust{display:flex;order:5}
-  .hero-peek{display:block;order:6}
-  .hero-proof{order:7;justify-content:center;flex-wrap:wrap;margin-top:18px}
   .feat-row,.feat-row-rev{grid-template-columns:1fr;padding:70px 20px;gap:48px;direction:ltr}
   .section,.cta-wrap{padding-left:20px;padding-right:20px}
   .problem-grid{grid-template-columns:1fr}
@@ -753,9 +747,111 @@ footer a:focus-visible{
   outline-offset:3px;
 }
 .mail-btn:focus-visible,.btn-main:focus-visible{outline:2px solid #ede9dc;outline-offset:3px}
+
+/* ═══ UI pass: unified hero, watch button, feature rhythm ═══ */
+.hero h1{line-height:1.12}
+.hero-sub-short{
+  display:block;
+  font-size:17px;
+  line-height:1.45;
+  color:#b9b5a6;
+  max-width:42ch;
+  margin:16px 0 0;
+}
+.hero-sub-short strong{color:#ede9dc;font-weight:600}
+.hero-kicker{
+  display:block;
+  font-family:"DM Sans",sans-serif;
+  font-size:15px;
+  color:var(--text-muted);
+  line-height:1.5;
+  margin:12px 0 0;
+  max-width:42ch;
+}
+.hero-trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  font-size:13px;
+  color:#a8a492;
+  margin-top:14px;
+  justify-content:flex-start;
+}
+.hero-ctas{margin-top:20px}
+.hero-sub-long,.platform-row{display:none !important}
+.hero-visual{display:flex;flex-direction:column;align-items:center;min-width:0}
+.hero-peek{order:1}
+.hero-phones{order:2}
+.watch-btn{order:3}
+.watch-btn{
+  margin-top:16px;
+  background:#1b1d17;
+  border:1px solid #323528;
+  border-radius:24px;
+  min-height:48px;
+  padding:0 18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-family:"DM Sans",sans-serif;
+  font-size:15px;
+  font-weight:600;
+  color:#ede9dc;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.watch-btn svg{display:block;flex-shrink:0}
+.hero-peek .peek-cap{display:none !important}
+.hero-form input{min-height:50px;height:50px}
+.feat-row,.feat-row-rev,.feat-row-alt .feat-inner{padding-top:96px;padding-bottom:96px;align-items:start}
+.feat-combo{max-width:1160px;margin:0 auto;padding:96px 48px}
+.feat-combo-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px 64px;align-items:start}
+.feat-combo .feat-phone-wrap{margin-top:40px;justify-content:center}
+.feat-combo .iphone{width:288px}
+.feat-combo .iphone-screen{height:630px}
+@media(min-width:901px){
+  .hero-peek{display:none !important}
+  .hero{
+    padding:128px 48px 28px;
+    align-items:center;
+    grid-template-columns:1fr 1.05fr;
+    gap:36px;
+    min-height:100vh;
+  }
+  .hero h1{line-height:1.12;margin:0}
+  .hero-phones{height:620px;width:100%;max-width:620px}
+  .hero-visual .iphone,.hero-visual .android{width:268px}
+  .hero-visual .iphone-screen,.hero-visual .android-screen{height:545px}
+  .hero-visual .iphone-screen::before{width:100px;height:20px;top:9px}
+  .ph1{left:-8px;top:48px}
+  .ph2{left:50%;transform:translateX(-42%) translateY(24px)}
+  .ph3{right:-8px;top:16px;transform:rotate(2deg)}
+  .hero-proof{margin-top:16px;margin-bottom:0}
+}
+@media(max-width:900px){
+  .hero-kicker,.hero-sub-short{display:block}
+  .hero-trust{display:flex;justify-content:center;order:6}
+  .hero-kicker{order:4;margin:12px auto 0;text-align:center;max-width:36ch}
+  .hero-sub-short{order:3;margin:14px auto 0;max-width:36ch}
+  .hero h1{order:2;line-height:1.12;margin:14px 0 0}
+  .hero-label{order:1}
+  .hero-ctas{order:5;margin-top:16px}
+  .hero-proof{order:7;justify-content:center;margin:14px 0 0}
+  .hero{grid-template-columns:1fr;padding:72px 16px 20px;gap:0;min-height:0}
+  .hero-copy{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .hero-visual{order:8;width:100%;margin-top:8px}
+  .hero-phones{display:none !important}
+  .hero-peek{display:block;margin:10px auto 0;width:270px;height:210px}
+  .watch-btn{margin-top:12px}
+  .feat-combo{padding:70px 20px}
+  .feat-combo-grid{grid-template-columns:1fr;gap:48px}
+}
 </style>
+<link rel="stylesheet" href="css/site-nav.css">
 </head>
 <body class="has-banner">
+<a href="#main" class="skip-link">Skip to content</a>
 <div class="hero-glow"></div>
 
 <!-- TOP BANNER -->
@@ -770,13 +866,28 @@ footer a:focus-visible{
 <nav>
   <a href="/" class="logo"><picture><source srcset="Images/logo-256.webp" type="image/webp"><img src="Images/logo-256.png" alt="" width="256" height="256"></picture><span class="logo-word">Cast<span class="logo-log">Log</span></span></a>
   <div class="nav-right">
-    <a href="/#features" class="nav-link">Features</a>
-    <a href="/blog/" class="nav-link">Blog</a>
-    <a href="/support/" class="nav-link">Support</a>
-    <a href="/get/" class="nav-cta">Get the app</a>
+    <div class="nav-links" id="nav-links">
+      <a href="/#features" class="nav-link">Features</a>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/support/" class="nav-link">Support</a>
+    </div>
+    <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=nav_cta&utm_campaign=ios_app_store" class="nav-cta" data-placement="nav">Get the app</a>
+    <button type="button" class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="5" y1="7" x2="19" y2="7"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <line x1="5" y1="17" x2="19" y2="17"></line>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+      </svg>
+    </button>
   </div>
 </nav>
+<div class="nav-backdrop" id="nav-backdrop" hidden></div>
 
+<main id="main">
 <!-- ═══ HERO ═══ -->
 <div style="max-width:1200px;margin:0 auto">
 <section class="hero">
@@ -786,15 +897,11 @@ footer a:focus-visible{
       The fishing journal<br>
       <span class="line-amber">you'll actually keep.</span>
     </h1>
-    <p class="hero-kicker" style="font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text-muted);margin:0 0 18px;line-height:1.5">Not the app that charged you to read what you already logged.</p>
+    <p class="hero-sub hero-sub-short">Say <strong>“Largemouth bass.”</strong> CastLog attaches the lake, weather and moon phase in seconds, even with no signal.</p>
+    <p class="hero-kicker">Not the app that charged you to read what you already logged.</p>
     <p class="hero-sub hero-sub-long">
       Built for wet hands and flopping fish. <strong>Just say what you caught.</strong> CastLog logs the rest in seconds. No taps, no typing, no dry hands required.
     </p>
-    <p class="hero-sub hero-sub-short">Say <strong>“Largemouth bass.”</strong> CastLog attaches the lake, weather and moon phase in seconds, even with no signal.</p>
-    <div class="hero-proof">
-      <div class="live-dot"></div>
-      <span>Anglers in 32 states and 17 countries</span>
-    </div>
     <div class="hero-ctas" id="hero-ctas">
       <a href="https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949?utm_source=castlog_website&utm_medium=hero_cta&utm_campaign=ios_app_store" class="store-badge hero-store" id="hero-store" data-placement="hero" aria-label="Download on the App Store"><img src="Images/app-store-badge.svg" alt="Download on the App Store"></a>
       <a class="android-link" id="android-link" href="#android-invite">On Android? Join the open test →</a>
@@ -809,68 +916,76 @@ footer a:focus-visible{
       <span><i></i>Works offline</span>
       <span><i></i>Free export</span>
     </div>
+    <div class="hero-proof">
+      <div class="live-dot"></div>
+      <span>Anglers in 32 states and 17 countries</span>
+    </div>
     <div class="platform-row">
       <span class="platform-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.88 2.65 3.22 2.6 1.29-.05 1.78-.83 3.34-.83 1.56 0 2 .83 3.37.81 1.39-.03 2.27-1.27 3.12-2.53.98-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.6 4.59c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44z"/></svg>iOS</span>
       <span class="platform-divider"></span>
       <span class="platform-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22a11.43 11.43 0 0 0-8.84 0L4.22 5.92a.38.38 0 0 0-.66.38L5.4 9.48A10.79 10.79 0 0 0 1 18h22a10.79 10.79 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>Android</span>
     </div>
+  </div>
+
+  <div class="hero-visual">
     <div class="hero-peek">
-      <img id="peek-poster" src="Videos/voice_logging_v2_poster.jpg" alt="CastLog voice log screen listening for a catch" width="720" height="1564">
+      <img id="peek-poster" src="Videos/voice_logging_v2_poster.jpg" alt="CastLog voice log screen listening for a catch" width="720" height="1564" fetchpriority="high">
       <video id="peek-video" hidden playsinline preload="none" poster="Videos/voice_logging_v2_poster.jpg">
         <source src="Videos/voice_logging_v2.webm" type="video/webm">
         <source src="Videos/voice_logging_v2.mp4" type="video/mp4">
       </video>
       <div class="peek-fade"></div>
-      <button type="button" class="peek-cap" id="peek-play"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch a voice log</button>
     </div>
-  </div>
 
-  <!-- THREE IPHONE FRAMES STACKED -->
-  <div class="hero-phones">
-    <!-- Journal (Android / Pixel frame — signals cross-platform availability) -->
-    <div class="phone-hero-wrap ph1">
-      <div class="android">
-        <div class="android-btn-power"></div>
-        <div class="android-btn-vol"></div>
-        <div class="android-screen">
-          <div class="android-punch"></div>
-          <picture>
-            <source srcset="Images/journal_main_todays_haul_v2.webp" type="image/webp">
-            <img src="Images/journal_main_todays_haul_v2.png" alt="CastLog journal screen, Today's Haul, listing brown trout, carp, and smallmouth bass" width="720" height="1564" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
-          </picture>
+    <div class="hero-phones">
+      <div class="phone-hero-wrap ph1">
+        <div class="android">
+          <div class="android-btn-power"></div>
+          <div class="android-btn-vol"></div>
+          <div class="android-screen">
+            <div class="android-punch"></div>
+            <picture>
+              <source srcset="Images/journal_main_todays_haul_v2.webp" type="image/webp">
+              <img src="Images/journal_main_todays_haul_v2.png" alt="CastLog journal screen, Today's Haul, listing brown trout, carp, and smallmouth bass" width="720" height="1564" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+            </picture>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-hero-wrap ph2">
+        <div class="iphone">
+          <div class="iphone-btn-silent"></div>
+          <div class="iphone-btn-vol-up"></div>
+          <div class="iphone-btn-vol-down"></div>
+          <div class="iphone-screen">
+            <img id="cluster-poster" src="Videos/voice_logging_v2_poster.jpg" alt="CastLog voice log screen listening for a catch" width="720" height="1564" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+            <video id="cluster-voice" hidden playsinline preload="none" poster="Videos/voice_logging_v2_poster.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+              <source src="Videos/voice_logging_v2.webm" type="video/webm">
+              <source src="Videos/voice_logging_v2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-hero-wrap ph3">
+        <div class="iphone">
+          <div class="iphone-btn-silent"></div>
+          <div class="iphone-btn-vol-up"></div>
+          <div class="iphone-btn-vol-down"></div>
+          <div class="iphone-screen">
+            <picture>
+              <source srcset="Images/ai_fish_id_smallmouth_v6.webp" type="image/webp">
+              <img src="Images/ai_fish_id_smallmouth_v6.png" alt="CastLog fish identification result for a smallmouth bass, shown as a 95 percent match" width="720" height="1564" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+            </picture>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Voice Logging (centre/main) — only phone visible on mobile -->
-    <div class="phone-hero-wrap ph2">
-      <div class="iphone">
-        <div class="iphone-btn-silent"></div>
-        <div class="iphone-btn-vol-up"></div>
-        <div class="iphone-btn-vol-down"></div>
-        <div class="iphone-screen">
-          <video autoplay muted loop playsinline preload="metadata" poster="Videos/voice_logging_v2_poster.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
-            <source src="Videos/voice_logging_v2.webm" type="video/webm">
-            <source src="Videos/voice_logging_v2.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <!-- Fish ID (supporting, hidden on mobile) -->
-    <div class="phone-hero-wrap ph3">
-      <div class="iphone">
-        <div class="iphone-btn-silent"></div>
-        <div class="iphone-btn-vol-up"></div>
-        <div class="iphone-btn-vol-down"></div>
-        <div class="iphone-screen">
-          <picture>
-            <source srcset="Images/ai_fish_id_smallmouth_v6.webp" type="image/webp">
-            <img src="Images/ai_fish_id_smallmouth_v6.png" alt="CastLog fish identification result for a smallmouth bass, shown as a 95 percent match" width="720" height="1564" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
-          </picture>
-        </div>
-      </div>
-    </div>
+    <button type="button" class="watch-btn" id="peek-play">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+      Watch a voice log
+    </button>
   </div>
 </section>
 </div>
@@ -912,9 +1027,9 @@ footer a:focus-visible{
         <div class="iphone-btn-vol-up"></div>
         <div class="iphone-btn-vol-down"></div>
         <div class="iphone-screen real">
-          <img class="shot idle" src="Images/voice/idle.webp" srcset="Images/voice/idle.webp 1x, Images/voice/idle@2x.webp 2x" alt="" width="676" height="1460" loading="lazy" decoding="async">
-          <img class="shot listening" src="Images/voice/listening.webp" srcset="Images/voice/listening.webp 1x, Images/voice/listening@2x.webp 2x" alt="" width="676" height="1460" loading="lazy" decoding="async">
-          <img class="shot confirm" src="Images/voice/confirm.webp" srcset="Images/voice/confirm.webp 1x, Images/voice/confirm@2x.webp 2x" alt="" width="676" height="1460" loading="lazy" decoding="async">
+          <img class="shot idle" src="Images/voice/idle.webp" srcset="Images/voice/idle.webp 1x, Images/voice/idle@2x.webp 2x" alt="Voice log ready to record a catch" width="676" height="1460" loading="lazy" decoding="async">
+          <img class="shot listening" src="Images/voice/listening.webp" srcset="Images/voice/listening.webp 1x, Images/voice/listening@2x.webp 2x" alt="Voice log listening for a catch" width="676" height="1460" loading="lazy" decoding="async">
+          <img class="shot confirm" src="Images/voice/confirm.webp" srcset="Images/voice/confirm.webp 1x, Images/voice/confirm@2x.webp 2x" alt="Voice log confirmation for a catch" width="676" height="1460" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="voice-demo-caption" aria-hidden="true">
@@ -955,7 +1070,7 @@ footer a:focus-visible{
     <h2 class="sec-title fade d2">Don't want to talk to your phone?<br><em style="color:var(--amber);font-style:italic">3 taps. Done in seconds.</em></h2>
     <p class="feat-desc fade d2">Most anglers quit logging after 2 trips. Not because they stop caring — because the app gets in the way. <em>"I gave up after three trips because logging felt like homework."</em> CastLog is built for the worst possible moment to use a phone: wet hands, fish flopping, one free thumb.</p>
     <ul class="bullet-list fade d3">
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>3 taps. Done in seconds.</strong>Weather, water temp, barometric pressure — all logged automatically. You don't need a $500 Garmin to track your catches.</div></li>
+      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>Weather and water, logged for you.</strong>Weather, water temp, barometric pressure — all logged automatically. You don't need a $500 Garmin to track your catches.</div></li>
       <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/></svg></div><div class="btext"><strong>The more you log, the smarter it gets.</strong>Every catch trains a model on your water — not the lake some forum guy fishes.</div></li>
       <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><line x1="2" x2="22" y1="2" y2="22"/></svg></div><div class="btext"><strong>Works with zero signal.</strong>Cellular dead, deep canyon, offshore — doesn't matter. Catches save locally and sync when you're back.</div></li>
     </ul>
@@ -1012,8 +1127,30 @@ footer a:focus-visible{
   </div>
 </div>
 
-<!-- FEATURE 5: TACKLE BOX -->
-<div class="feat-row">
+<!-- TACKLE BOX + PATTERNS (combined) -->
+<section class="feat-combo">
+  <div class="feat-combo-grid">
+    <div class="feat-text">
+      <div class="sec-label amber fade d1">SCAN ONCE, SORTED</div>
+      <h2 class="sec-title fade d2">Scan your tackle box.<br><em style="color:var(--amber);font-style:italic">We'll sort every lure.</em></h2>
+      <p class="feat-desc fade d2">Point your camera at the tray and CastLog catalogs every lure — brand, type, color — in seconds. No typing 40 baits in by hand. Then it ties each one to the catches it's actually landed.</p>
+      <ul class="bullet-list fade d3">
+        <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div><div class="btext"><strong>Scan the tray, skip the typing.</strong>One photo and CastLog IDs every lure — brand, category, color pattern — and files it in your box. Building an inventory used to mean an evening of data entry.</div></li>
+        <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>Every lure, tied to its catches.</strong>That spinnerbait with 3 catches earns its spot in the box. The one you think is lucky but never produces? Now you can see it.</div></li>
+        <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="btext"><strong>Feeds your patterns.</strong>Bait is one of the conditions CastLog learns from. Track what you throw, and the AI tells you what to tie on next.</div></li>
+      </ul>
+    </div>
+    <div class="feat-text">
+      <div class="sec-label amber fade d1">AI PATTERN INTELLIGENCE</div>
+      <h2 class="sec-title fade d2">The more you log,<br>the more it knows <em style="color:var(--amber);font-style:italic">you.</em></h2>
+      <p class="feat-desc fade d2">Most fishing tips you've read don't apply to your lake — they're trained on someone else's water. CastLog learns yours, from the catches you actually log.</p>
+      <ul class="bullet-list fade d3">
+        <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>Six conditions logged for you. Every catch.</strong>GPS, weather, pressure, water temp, moon, time — all captured the second you tap. You never enter a condition manually.</div></li>
+        <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="btext"><strong>Real patterns. Not vibes.</strong>After ~25 catches, you'll see what actually works for you — what bait at what time, what pressure trend, what moon. Not what works for anglers in general.</div></li>
+        <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="btext"><strong>Yours. Stays yours.</strong>Pattern data lives on your device. We can't read it, sell it, or hand it to a parent company. We don't have one.</div></li>
+      </ul>
+    </div>
+  </div>
   <div class="feat-phone-wrap fade">
     <div class="iphone">
       <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
@@ -1025,42 +1162,7 @@ footer a:focus-visible{
       </div>
     </div>
   </div>
-  <div class="feat-text">
-    <div class="sec-label amber fade d1">SCAN ONCE, SORTED</div>
-    <h2 class="sec-title fade d2">Scan your tackle box.<br><em style="color:var(--amber);font-style:italic">We'll sort every lure.</em></h2>
-    <p class="feat-desc fade d2">Point your camera at the tray and CastLog catalogs every lure — brand, type, color — in seconds. No typing 40 baits in by hand. Then it ties each one to the catches it's actually landed.</p>
-    <ul class="bullet-list fade d3">
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div><div class="btext"><strong>Scan the tray, skip the typing.</strong>One photo and CastLog IDs every lure — brand, category, color pattern — and files it in your box. Building an inventory used to mean an evening of data entry.</div></li>
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>Every lure, tied to its catches.</strong>That spinnerbait with 3 catches earns its spot in the box. The one you think is lucky but never produces? Now you can see it.</div></li>
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="btext"><strong>Feeds your patterns.</strong>Bait is one of the conditions CastLog learns from. Track what you throw, and the AI tells you what to tie on next.</div></li>
-    </ul>
-  </div>
-</div>
-
-<!-- AI PATTERN INTELLIGENCE -->
-<div class="feat-row-rev">
-  <div class="feat-phone-wrap fade">
-    <div class="iphone">
-      <div class="iphone-btn-silent"></div><div class="iphone-btn-vol-up"></div><div class="iphone-btn-vol-down"></div>
-      <div class="iphone-screen">
-        <picture>
-          <source srcset="Images/ai_patterns.webp" type="image/webp">
-          <img src="Images/ai_patterns.png" alt="CastLog patterns screen with sample preview insights about bass, pressure, and time of day" width="720" height="1558" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
-        </picture>
-      </div>
-    </div>
-  </div>
-  <div class="feat-text">
-    <div class="sec-label amber fade d1">AI PATTERN INTELLIGENCE</div>
-    <h2 class="sec-title fade d2">The more you log,<br>the more it knows <em style="color:var(--amber);font-style:italic">you.</em></h2>
-    <p class="feat-desc fade d2">Most fishing tips you've read don't apply to your lake — they're trained on someone else's water. CastLog learns yours, from the catches you actually log.</p>
-    <ul class="bullet-list fade d3">
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="btext"><strong>Six conditions logged for you. Every catch.</strong>GPS, weather, pressure, water temp, moon, time — all captured the second you tap. You never enter a condition manually.</div></li>
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="btext"><strong>Real patterns. Not vibes.</strong>After ~25 catches, you'll see what actually works for you — what bait at what time, what pressure trend, what moon. Not what works for anglers in general.</div></li>
-      <li><div class="bicon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="btext"><strong>Yours. Stays yours.</strong>Pattern data lives on your device. We can't read it, sell it, or hand it to a parent company. We don't have one.</div></li>
-    </ul>
-  </div>
-</div>
+</section>
 
 <!-- USER TESTIMONIAL -->
 <section style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
@@ -1098,6 +1200,7 @@ footer a:focus-visible{
   </div>
   <div class="roadmap-teaser fade d4"><span class="roadmap-badge">On the roadmap</span> Apple Watch support</div>
 </section>
+</main>
 
 <button id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,11 9,5 15,11"/></svg>
@@ -1198,15 +1301,26 @@ handleForm("cta-email", "cta-btn");
   });
   var peekBtn = document.getElementById("peek-play");
   if (peekBtn) peekBtn.addEventListener("click", function(){
-    var poster = document.getElementById("peek-poster");
-    var video = document.getElementById("peek-video");
-    if (!video) return;
-    if (poster) poster.hidden = true;
-    video.hidden = false;
-    video.controls = true;
-    var play = video.play();
-    if (play && play.catch) play.catch(function(){});
-    peekBtn.hidden = true;
+    var mobile = window.matchMedia("(max-width: 900px)").matches;
+    if (mobile) {
+      var poster = document.getElementById("peek-poster");
+      var video = document.getElementById("peek-video");
+      if (!video) return;
+      if (poster) poster.hidden = true;
+      video.hidden = false;
+      video.controls = true;
+      var play = video.play();
+      if (play && play.catch) play.catch(function(){});
+    } else {
+      var clusterPoster = document.getElementById("cluster-poster");
+      var clusterVid = document.getElementById("cluster-voice");
+      if (!clusterVid) return;
+      if (clusterPoster) clusterPoster.hidden = true;
+      clusterVid.hidden = false;
+      clusterVid.controls = true;
+      var clusterPlay = clusterVid.play();
+      if (clusterPlay && clusterPlay.catch) clusterPlay.catch(function(){});
+    }
   });
 })();
 
@@ -1275,5 +1389,6 @@ document.querySelectorAll('.iphone-screen:not(.real), .android-screen').forEach(
 })();
 </script>
 <script src="/js/app-store-tracking.js"></script>
+<script src="js/nav-menu.js"></script>
 </body>
 </html>
