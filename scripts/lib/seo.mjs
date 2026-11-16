@@ -80,6 +80,7 @@ export function buildJsonLd(post) {
     publisher: {
       "@type": "Organization",
       name: "CastLog",
+      alternateName: ["Cast Log", "CastLog app"],
       logo: { "@type": "ImageObject", url: `${SITE}/Images/logo.png` },
       sameAs: [
         "https://x.com/CastLogapp",

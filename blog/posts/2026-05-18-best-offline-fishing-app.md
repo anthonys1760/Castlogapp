@@ -41,7 +41,7 @@ Here's what most discussions of offline fishing apps miss: the offline problem a
 
 If logging a catch already takes 6 taps under ideal conditions — species, length, weight, lure, location, notes, photo, save — then doing it with wet hands on a rocking kayak with no signal, while watching the fish recover in the net, is functionally impossible. Anglers skip the log. The data never gets captured. The pattern never emerges.
 
-CastLog logs a catch in 3 taps, done in seconds, including a voice input option for notes. Species and location are pre-populated from your last entry and GPS respectively. The entry is written locally the instant you hit save. There's no confirmation spinner waiting on a server. You're back to fishing before the fish has fully finalized its exit from the net.
+CastLog [logs a catch in 3 taps](/blog/log-a-catch-in-under-5-seconds/), done in seconds, including a [voice input](/blog/voice-logging-fishing-catches/) option for notes. Species and location are pre-populated from your last entry and GPS respectively. The entry is written locally the instant you hit save. There's no confirmation spinner waiting on a server. You're back to fishing before the fish has fully finalized its exit from the net.
 
 The speed isn't a UX nicety. It's what makes the data complete enough to be useful. Incomplete logs produce incomplete patterns. Incomplete patterns mean you're guessing.
 

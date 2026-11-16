@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Fast catch logging with 3 taps and voice input. CastLog gets out of the way so you can get back to fishing. Here&#39;s exactly how it works.">
 <meta name="twitter:image" content="https://castlogapp.com/Images/blog/log-a-catch-in-under-5-seconds.jpg">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Log a Catch in Seconds (No Phone Tantrum)","description":"Fast catch logging with 3 taps and voice input. CastLog gets out of the way so you can get back to fishing. Here's exactly how it works.","datePublished":"2026-05-25","dateModified":"2026-05-25","author":{"@type":"Person","@id":"https://anthonysdigital.net/#person","name":"Anthony Smith","url":"https://anthonysdigital.net/"},"creator":{"@type":"Person","@id":"https://anthonysdigital.net/#person","name":"Anthony Smith","url":"https://anthonysdigital.net/"},"publisher":{"@type":"Organization","name":"CastLog","logo":{"@type":"ImageObject","url":"https://castlogapp.com/Images/logo.png"},"sameAs":["https://x.com/CastLogapp","https://www.instagram.com/castlogapp/","https://www.facebook.com/profile.php?id=61596275682296"]},"mainEntityOfPage":{"@type":"WebPage","@id":"https://castlogapp.com/blog/log-a-catch-in-under-5-seconds/"},"keywords":"fast catch logging, fishing log app, quick fishing journal"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Log a Catch in Seconds (No Phone Tantrum)","description":"Fast catch logging with 3 taps and voice input. CastLog gets out of the way so you can get back to fishing. Here's exactly how it works.","datePublished":"2026-05-25","dateModified":"2026-05-25","author":{"@type":"Person","@id":"https://anthonysdigital.net/#person","name":"Anthony Smith","url":"https://anthonysdigital.net/"},"creator":{"@type":"Person","@id":"https://anthonysdigital.net/#person","name":"Anthony Smith","url":"https://anthonysdigital.net/"},"publisher":{"@type":"Organization","name":"CastLog","alternateName":["Cast Log","CastLog app"],"logo":{"@type":"ImageObject","url":"https://castlogapp.com/Images/logo.png"},"sameAs":["https://x.com/CastLogapp","https://www.instagram.com/castlogapp/","https://www.facebook.com/profile.php?id=61596275682296"]},"mainEntityOfPage":{"@type":"WebPage","@id":"https://castlogapp.com/blog/log-a-catch-in-under-5-seconds/"},"keywords":"fast catch logging, fishing log app, quick fishing journal"}</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNBKN0WNR9"></script>
 <script>
@@ -119,6 +119,7 @@ h1.post-title{font-family:"Playfair Display",serif;font-size:clamp(32px,4.2vw,52
 .related a{display:block;padding:10px 0;border:none;color:var(--text);font-weight:500;font-size:16px}
 .related a + a{border-top:1px solid var(--border)}
 .related a:hover{color:var(--amber)}
+.related a.related-index{color:var(--amber);font-size:14px;font-weight:600}
 
 .cta{margin-top:56px;padding:36px 28px;background:var(--card);border:1px solid var(--border);border-radius:12px;text-align:center}
 .cta h3{font-family:"Playfair Display",serif;font-size:28px;font-weight:900;margin-bottom:10px;color:var(--text);letter-spacing:-.015em}
@@ -212,13 +213,13 @@ footer div{margin-bottom:8px}
 <p>Tap 3: Confirm. You&#39;re done.</p>
 <p>Everything else — species, size, lure, notes — can be added in the next 30 seconds while the fish is recovering in the shallows, or filled in later from the session screen. The core log is already saved, offline, the moment you hit confirm.</p>
 <figure class="inline-image"><img src="/Images/blog/log-a-catch-in-under-5-seconds-1.jpg" alt="Several fish held in a green net at the surface of the water." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@riddhiman?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Riddhiman Bhowmik</a> on Unsplash</figcaption></figure>
-The voice input layer is where it gets genuinely fast. Instead of tapping into a weight field with wet fingers, you hold the mic icon and say "largemouth, four pounds, chartreuse spinnerbait, shallow flat, about three feet of water." CastLog parses that into structured fields. Species: largemouth bass. Weight: 4 lb. Lure: spinnerbait, chartreuse. Structure: flat. Depth: 3 ft. The whole thing takes about four seconds of talking and one tap to confirm.
+The [voice input](/blog/voice-logging-fishing-catches/) layer is where it gets genuinely fast. Instead of tapping into a weight field with wet fingers, you hold the mic icon and say "largemouth, four pounds, chartreuse spinnerbait, shallow flat, about three feet of water." CastLog parses that into structured fields. Species: largemouth bass. Weight: 4 lb. Lure: spinnerbait, chartreuse. Structure: flat. Depth: 3 ft. The whole thing takes about four seconds of talking and one tap to confirm.
 
 <p>I&#39;m not describing a prototype. This is shipped and running on iOS right now.</p>
 <h2>Why Offline-First Isn&#39;t Optional</h2>
 <p>Fishbrain has a real user base and a real feature set. I&#39;ll give it that. But it&#39;s also $80 a year, it&#39;s been sold to Aspira, and its offline behavior — particularly for logging and map access — has been a consistent complaint from anglers who fish anywhere worth fishing.</p>
 <p>The places worth fishing rarely have cell signal. A creek drainage in the Ozarks. A reservoir cove an hour from the nearest town. A tidal flat where you killed it two years ago and want to cross-reference conditions. If your logging app requires a data connection to save a catch, it&#39;s going to fail you in exactly the places where the data matters most.</p>
-<p>CastLog is offline-first by architecture, not by feature flag. Every catch logs locally the moment you confirm. Session data, GPS coordinates, voice note transcription — all of it writes to your device first. When you&#39;re back in signal range, it syncs. You will never lose a catch because you were somewhere worth fishing.</p>
+<p>CastLog is <a href="/blog/best-offline-fishing-app/">offline-first</a> by architecture, not by feature flag. Every catch logs locally the moment you confirm. Session data, GPS coordinates, voice note transcription — all of it writes to your device first. When you&#39;re back in signal range, it syncs. You will never lose a catch because you were somewhere worth fishing.</p>
 <h2>Pattern Intelligence: Why the Speed Matters Long-Term</h2>
 <p>Logging fast isn&#39;t just about convenience in the moment. It&#39;s about the quality of your data over a season.</p>
 <p>If logging friction causes you to skip half your catches — the ones that felt too small to bother, the ones where the fish was already back in the water, the ones where the app froze — you end up with a biased dataset. You have records of your memorable fish, not your actual fishing. That&#39;s not a fishing journal. That&#39;s a highlight reel.</p>
@@ -231,9 +232,11 @@ The voice input layer is where it gets genuinely fast. Instead of tapping into a
   </div>
 
   <aside class="related">
-  <div class="related-label">Keep reading</div>
-  <a href="/blog/november-steelhead-fishing-michigan/">November Steelhead Fishing Michigan: Keep Your Gloves On</a>
-  <a href="/blog/late-fall-walleye-after-turnover/">Late Fall Walleye Fishing After Lake Turnover</a>
+  <div class="related-label">Related posts</div>
+  <a href="/blog/voice-logging-fishing-catches/">Voice Fishing Log: Log Catches With Wet Hands</a>
+  <a href="/blog/fishbrain-alternative-2026/">The Fishbrain Alternative Anglers Want in 2026</a>
+  <a href="/blog/best-offline-fishing-app/">Best Offline Fishing App When You Have Zero Signal</a>
+  <a href="/blog/" class="related-index">All field notes →</a>
 </aside>
 
   <section class="cta">
