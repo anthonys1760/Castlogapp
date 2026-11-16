@@ -175,17 +175,28 @@ topics:
       earns it."
     used: false
 
+  - slug: first-ice-michigan-ice-thickness
+    title: "First Ice in Michigan: There Is No Magic Thickness (Here's How to Decide)"
+    keywords:
+      - how thick should ice be for fishing
+      - Michigan first ice
+      - ice safety
+    angle: "Monday 2026-11-23. Michigan first ice: DNR says no ice is guaranteed
+      safe and there is no reliable inch-thickness. How anglers decide — spud,
+      clear vs white ice, current, buddy, picks — citing MI DNR, MN DNR charts
+      as general guidance, USCG, NOAA GLERL. CastLog logs checks, not safety.
+      Covers the former safe-ice-fishing-basics queue item."
+    used: true
+
   - slug: safe-ice-fishing-basics
     title: "Safe Ice Basics Before the First Hole"
     keywords:
       - ice fishing safety
       - safe ice thickness
       - first ice fishing
-    angle: "Early December first ice. Spud bar, cleats, a partner, and how to
-      read rotten or new ice. For thickness guidelines, cite a real state DNR
-      or extension page and include the URL. Do not invent thickness numbers
-      or accident statistics."
-    used: false
+    angle: "Covered by first-ice-michigan-ice-thickness (2026-11-23). Keep marked
+      used so weekly-blog does not generate a duplicate ice-safety post."
+    used: true
 
   - slug: tip-up-fishing-basics
     title: "Tip-Up Fishing Without Missing the Flag"
