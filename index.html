@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CastLog — Your Fishing Journal, Finally Working For You</title>
-<meta name="description" content="The fishing journal that learns your patterns, keeps your spots private by default, and tells you exactly why you caught what you caught. Free core journal, voice logging and export. Angler Pro is optional.">
+<title>CastLog — Cast Log, the Voice-First Offline Fishing Journal</title>
+<meta name="description" content="CastLog — also written Cast Log — is a voice-first, offline, private-first fishing journal app. Log a catch in 3 taps or by voice, even with no signal. Free core journal.">
 <meta name="apple-itunes-app" content="app-id=6766137949">
 <link rel="canonical" href="https://castlogapp.com/">
 <link rel="icon" type="image/png" href="Images/favicon-32.png" sizes="32x32">
@@ -12,18 +12,18 @@
 <link rel="alternate" type="application/rss+xml" title="CastLog Field Notes" href="/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://castlogapp.com/">
-<meta property="og:title" content="CastLog — Your Fishing Journal, Finally Working For You">
-<meta property="og:description" content="The fishing journal that learns your patterns, keeps your spots private by default, and tells you exactly why you caught what you caught. Free core journal, voice logging and export. Angler Pro is optional.">
+<meta property="og:title" content="CastLog — Cast Log, the Voice-First Offline Fishing Journal">
+<meta property="og:description" content="CastLog — also written Cast Log — is a voice-first, offline, private-first fishing journal app. Log a catch in 3 taps or by voice, even with no signal. Free core journal.">
 <meta property="og:image" content="https://castlogapp.com/Images/og-share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="CastLog, the fishing journal that learns your patterns and keeps your spots private.">
+<meta property="og:image:alt" content="CastLog (Cast Log), the voice-first, offline, private-first fishing journal app.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@CastLogapp">
-<meta name="twitter:title" content="CastLog — Your Fishing Journal, Finally Working For You">
-<meta name="twitter:description" content="The fishing journal that learns your patterns, keeps your spots private by default, and tells you exactly why you caught what you caught. Free core journal, voice logging and export. Angler Pro is optional.">
+<meta name="twitter:title" content="CastLog — Cast Log, the Voice-First Offline Fishing Journal">
+<meta name="twitter:description" content="CastLog — also written Cast Log — is a voice-first, offline, private-first fishing journal app. Log a catch in 3 taps or by voice, even with no signal. Free core journal.">
 <meta name="twitter:image" content="https://castlogapp.com/Images/og-share.jpg">
-<meta name="twitter:image:alt" content="CastLog, the fishing journal that learns your patterns and keeps your spots private.">
+<meta name="twitter:image:alt" content="CastLog (Cast Log), the voice-first, offline, private-first fishing journal app.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,6 +32,7 @@
       "@type": "Organization",
       "@id": "https://castlogapp.com/#organization",
       "name": "CastLog",
+      "alternateName": ["Cast Log", "CastLog app"],
       "url": "https://castlogapp.com/",
       "logo": {
         "@type": "ImageObject",
@@ -57,11 +58,20 @@
       }
     },
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebSite",
+      "@id": "https://castlogapp.com/#website",
       "name": "CastLog",
+      "alternateName": ["Cast Log", "CastLog app"],
+      "url": "https://castlogapp.com/",
+      "publisher": { "@id": "https://castlogapp.com/#organization" }
+    },
+    {
+      "@type": ["SoftwareApplication", "MobileApplication"],
+      "name": "CastLog",
+      "alternateName": ["Cast Log", "CastLog app"],
       "applicationCategory": "SportsApplication",
       "operatingSystem": "iOS, Android",
-      "description": "The fishing journal that learns your patterns, keeps your spots private by default, and tells you exactly why you caught what you caught. Free core journal, voice logging and export. Angler Pro is optional.",
+      "description": "CastLog — also written Cast Log — is a voice-first, offline, private-first fishing journal app. Log a catch in 3 taps or by voice, even with no signal. Free core journal, voice logging and export. Angler Pro is optional.",
       "url": "https://castlogapp.com/",
       "image": "https://castlogapp.com/Images/og-share.jpg",
       "downloadUrl": "https://apps.apple.com/us/app/castlog-private-fishing-log/id6766137949",
@@ -647,6 +657,17 @@ html[data-state] #features .shot{transition:none}
 
 
 /* FINAL CTA */
+.field-notes{padding:90px 48px;background:var(--bg);border-top:1px solid var(--border)}
+.field-notes-head{max-width:920px;margin:0 auto 28px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.field-notes-head h2{font-family:"Playfair Display",serif;font-size:clamp(28px,3.6vw,42px);font-weight:900;letter-spacing:-.02em;line-height:1.15}
+.field-notes-head a{color:var(--amber);text-decoration:none;font-weight:600;font-size:15px;min-height:44px;display:inline-flex;align-items:center}
+.field-notes-grid{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.field-notes-grid{grid-template-columns:1fr 1fr}}
+.field-note{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 24px 24px;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s}
+.field-note:hover{border-color:var(--border2);transform:translateY(-2px)}
+.field-note-meta{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.field-note h3{font-family:"Playfair Display",serif;font-size:22px;font-weight:900;line-height:1.2;margin-bottom:8px}
+.field-note p{font-size:15px;color:var(--text-dim);line-height:1.55}
 .cta-wrap{padding:130px 48px;background:var(--bg2);border-top:1px solid var(--border);text-align:center}
 .cta-wrap h2{font-family:"Playfair Display",serif;font-size:clamp(30px,4.5vw,58px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px}
 .cta-wrap h2 .amber{color:var(--amber)}
@@ -709,7 +730,7 @@ footer a{color:var(--text-muted);text-decoration:none;display:inline-flex;align-
   .hero-store img{height:64px}
   .android-link{justify-content:center}
   .feat-row,.feat-row-rev{grid-template-columns:1fr;padding:70px 20px;gap:48px;direction:ltr}
-  .section,.cta-wrap{padding-left:20px;padding-right:20px}
+  .section,.cta-wrap,.field-notes{padding-left:20px;padding-right:20px}
   .problem-grid{grid-template-columns:1fr}
   .feat-row-alt .feat-inner{grid-template-columns:1fr;padding:70px 20px;gap:48px}
   .hero-form,.cta-form{flex-direction:column}
@@ -912,12 +933,12 @@ footer a:focus-visible{
 <div style="max-width:1200px;margin:0 auto">
 <section class="hero">
   <div class="hero-copy">
-    <div class="hero-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>Voice logging · Logs a catch in seconds</div>
+    <div class="hero-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>CastLog · Cast Log · Voice-first journal</div>
     <h1>
       The fishing journal<br>
       <span class="line-amber">you'll actually keep.</span>
     </h1>
-    <p class="hero-sub hero-sub-short">Say <strong>“Largemouth bass.”</strong> CastLog attaches the lake, weather and moon phase in seconds, even with no signal.</p>
+    <p class="hero-sub hero-sub-short">CastLog — the Cast Log app — is voice-first, offline, and private by default. Say <strong>“Largemouth bass.”</strong> It attaches the lake, weather and moon phase in seconds, even with no signal.</p>
     <p class="hero-kicker">Not the app that charged you to read what you already logged.</p>
     <p class="hero-sub hero-sub-long">
       Built for wet hands and flopping fish. <strong>Just say what you caught.</strong> CastLog logs the rest in seconds. No taps, no typing, no dry hands required.
@@ -1201,6 +1222,46 @@ footer a:focus-visible{
       He fishes the same private pond every spring. Same spots, same season, same question every year: why was it better last May? He didn't want another log. He wanted a record of <em>what the water was doing</em> when the fish were biting, so the next time the bite goes quiet, he actually knows where to start.
     </p>
     <div class="fade d3" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--text-muted);text-transform:uppercase">— Private pond angler, eight seasons on the same water</div>
+  </div>
+</section>
+
+<!-- FIELD NOTES -->
+<section class="field-notes" id="field-notes" aria-labelledby="field-notes-heading">
+  <div class="field-notes-head">
+    <div>
+      <div class="sec-label amber fade" style="margin-bottom:10px">FIELD NOTES</div>
+      <h2 class="fade d1" id="field-notes-heading">From the CastLog blog</h2>
+    </div>
+    <a class="fade d1" href="/blog/">All field notes →</a>
+  </div>
+  <div class="field-notes-grid fade d2">
+  <!-- FEATURED_POSTS:start -->
+    <a href="/blog/log-a-catch-in-under-5-seconds/" class="field-note">
+      <div class="field-note-meta">May 25, 2026 · 5 min</div>
+      <h3>Log a Catch in Seconds (No Phone Tantrum)</h3>
+      <p>Fast catch logging with 3 taps and voice input. CastLog gets out of the way so you can get back to fishing. Here&#39;s exactly how it works.</p>
+    </a>
+    <a href="/blog/voice-logging-fishing-catches/" class="field-note">
+      <div class="field-note-meta">June 1, 2026 · 5 min</div>
+      <h3>Voice Fishing Log: Log Catches With Wet Hands</h3>
+      <p>Wet hands kill your logging streak. CastLog&#39;s voice fishing log parses a full catch in seconds, 3 taps. No more lost data.</p>
+    </a>
+    <a href="/blog/best-offline-fishing-app/" class="field-note">
+      <div class="field-note-meta">May 18, 2026 · 5 min</div>
+      <h3>Best Offline Fishing App When You Have Zero Signal</h3>
+      <p>Most fishing apps silently fail without cell service. Here&#39;s why offline-first design matters and how CastLog logs catches in seconds, no signal needed.</p>
+    </a>
+    <a href="/blog/private-fishing-spots-burning/" class="field-note">
+      <div class="field-note-meta">July 6, 2026 · 5 min</div>
+      <h3>Private Fishing Spots: Stop Burning Them in Apps</h3>
+      <p>Most fishing apps now protect your private spots. What they didn&#39;t fix is logging friction. Here&#39;s how to keep your spots safe and actually log more catches.</p>
+    </a>
+    <a href="/blog/fishbrain-alternative-2026/" class="field-note">
+      <div class="field-note-meta">May 20, 2026 · 5 min</div>
+      <h3>The Fishbrain Alternative Anglers Want in 2026</h3>
+      <p>Tired of Fishbrain&#39;s $80/yr paywall and broken offline mode? CastLog logs a catch in 3 taps, done in seconds. Here&#39;s why anglers are switching.</p>
+    </a>
+  <!-- FEATURED_POSTS:end -->
   </div>
 </section>
 

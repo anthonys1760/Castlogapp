@@ -100,7 +100,7 @@ async function pruneUnpublishedOutput(unpublished) {
 
 async function renderPost(post, allPosts, postTemplate) {
   const html = renderMarkdown(post.content_md);
-  const related = pickRelated(allPosts, post.slug, 2);
+  const related = pickRelated(allPosts, post.slug, 3);
   const relatedBlock = buildRelatedBlock(related);
   const canonical = `${SITE}/blog/${post.slug}/`;
   const jsonld = buildJsonLd(post);
@@ -150,6 +150,58 @@ async function renderIndex(posts, indexTemplate) {
   return renderTemplate(indexTemplate, { post_cards: cards });
 }
 
+const FEATURED_SLUGS = [
+  "log-a-catch-in-under-5-seconds",
+  "voice-logging-fishing-catches",
+  "best-offline-fishing-app",
+  "private-fishing-spots-burning",
+  "fishbrain-alternative-2026",
+];
+
+function pickFeatured(posts, count = 5) {
+  const bySlug = new Map(posts.map(p => [p.slug, p]));
+  const picked = [];
+  const seen = new Set();
+  for (const slug of FEATURED_SLUGS) {
+    const post = bySlug.get(slug);
+    if (!post) continue;
+    picked.push(post);
+    seen.add(slug);
+    if (picked.length >= count) return picked;
+  }
+  for (const post of posts) {
+    if (seen.has(post.slug)) continue;
+    picked.push(post);
+    if (picked.length >= count) break;
+  }
+  return picked;
+}
+
+function renderFeaturedCard(post) {
+  return `    <a href="/blog/${post.slug}/" class="field-note">
+      <div class="field-note-meta">${formatDateHuman(post.date)} · ${post.reading_time} min</div>
+      <h3>${escapeHtml(post.title)}</h3>
+      <p>${escapeHtml(post.description)}</p>
+    </a>`;
+}
+
+async function injectHomepageFeatured(posts) {
+  const homePath = path.join(ROOT, "index.html");
+  const html = await fs.readFile(homePath, "utf8");
+  const start = "<!-- FEATURED_POSTS:start -->";
+  const end = "<!-- FEATURED_POSTS:end -->";
+  const startAt = html.indexOf(start);
+  const endAt = html.indexOf(end);
+  if (startAt === -1 || endAt === -1 || endAt < startAt) {
+    throw new Error("index.html is missing FEATURED_POSTS markers");
+  }
+  const featured = pickFeatured(posts, 5);
+  const cards = featured.map(renderFeaturedCard).join("\n");
+  const next = `${html.slice(0, startAt + start.length)}\n${cards}\n  ${html.slice(endAt)}`;
+  await fs.writeFile(homePath, next, "utf8");
+  console.log(`  ✓ index.html featured posts (${featured.length})`);
+}
+
 async function main() {
   const { posts, unpublished, today } = await loadPosts();
   console.log(`Loaded ${posts.length} live post(s) for ${today} (${PUBLISH_TZ})`);
@@ -173,6 +225,8 @@ async function main() {
   const indexHtml = await renderIndex(posts, indexTemplate);
   await fs.writeFile(path.join(BLOG_DIR, "index.html"), indexHtml, "utf8");
   console.log("  ✓ blog/index.html");
+
+  await injectHomepageFeatured(posts);
 
   const sitemap = buildSitemap(posts);
   await fs.writeFile(path.join(ROOT, "sitemap.xml"), sitemap, "utf8");

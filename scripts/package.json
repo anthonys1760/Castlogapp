@@ -7,6 +7,7 @@
     "generate": "node generate-post.mjs",
     "generate:dry": "node generate-post.mjs --dry-run",
     "build": "node build-blog.mjs",
+    "check-links": "node check-internal-links.mjs",
     "all": "npm run generate && npm run build"
   },
   "dependencies": {

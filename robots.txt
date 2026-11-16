@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /blog/template/
+Disallow: /blog/posts/
 
 Sitemap: https://castlogapp.com/sitemap.xml

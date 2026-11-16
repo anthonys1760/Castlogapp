@@ -39,7 +39,7 @@ Tap 3: Confirm. You're done.
 
 Everything else — species, size, lure, notes — can be added in the next 30 seconds while the fish is recovering in the shallows, or filled in later from the session screen. The core log is already saved, offline, the moment you hit confirm.
 <figure class="inline-image"><img src="/Images/blog/log-a-catch-in-under-5-seconds-1.jpg" alt="Several fish held in a green net at the surface of the water." loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@riddhiman?utm_source=castlog&utm_medium=referral" rel="noopener nofollow">Riddhiman Bhowmik</a> on Unsplash</figcaption></figure>
-The voice input layer is where it gets genuinely fast. Instead of tapping into a weight field with wet fingers, you hold the mic icon and say "largemouth, four pounds, chartreuse spinnerbait, shallow flat, about three feet of water." CastLog parses that into structured fields. Species: largemouth bass. Weight: 4 lb. Lure: spinnerbait, chartreuse. Structure: flat. Depth: 3 ft. The whole thing takes about four seconds of talking and one tap to confirm.
+The [voice input](/blog/voice-logging-fishing-catches/) layer is where it gets genuinely fast. Instead of tapping into a weight field with wet fingers, you hold the mic icon and say "largemouth, four pounds, chartreuse spinnerbait, shallow flat, about three feet of water." CastLog parses that into structured fields. Species: largemouth bass. Weight: 4 lb. Lure: spinnerbait, chartreuse. Structure: flat. Depth: 3 ft. The whole thing takes about four seconds of talking and one tap to confirm.
 
 I'm not describing a prototype. This is shipped and running on iOS right now.
 
@@ -49,7 +49,7 @@ Fishbrain has a real user base and a real feature set. I'll give it that. But it
 
 The places worth fishing rarely have cell signal. A creek drainage in the Ozarks. A reservoir cove an hour from the nearest town. A tidal flat where you killed it two years ago and want to cross-reference conditions. If your logging app requires a data connection to save a catch, it's going to fail you in exactly the places where the data matters most.
 
-CastLog is offline-first by architecture, not by feature flag. Every catch logs locally the moment you confirm. Session data, GPS coordinates, voice note transcription — all of it writes to your device first. When you're back in signal range, it syncs. You will never lose a catch because you were somewhere worth fishing.
+CastLog is [offline-first](/blog/best-offline-fishing-app/) by architecture, not by feature flag. Every catch logs locally the moment you confirm. Session data, GPS coordinates, voice note transcription — all of it writes to your device first. When you're back in signal range, it syncs. You will never lose a catch because you were somewhere worth fishing.
 
 ## Pattern Intelligence: Why the Speed Matters Long-Term
 
