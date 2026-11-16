@@ -39,9 +39,20 @@ async function exists(rel) {
   }
 }
 
+function pagePathStyleIssue(href) {
+  const clean = href.split("#")[0].split("?")[0];
+  if (clean.includes("index.html")) return `${href} points at index.html`;
+  if (!clean || clean === "/") return null;
+  const hasExt = /\.[a-z0-9]+$/i.test(clean);
+  if (hasExt) return null;
+  if (!clean.endsWith("/")) return `${href} is missing a trailing slash`;
+  return null;
+}
+
 async function main() {
   const files = await walk(ROOT);
   const broken = [];
+  const slashIssues = [];
   const hrefRe = /(?:href|src)=["'](\/[^"']+)["']/g;
   for (const file of files) {
     const html = await fs.readFile(file, "utf8");
@@ -49,6 +60,8 @@ async function main() {
     for (const match of html.matchAll(hrefRe)) {
       const href = match[1];
       if (href.startsWith("//")) continue;
+      const styleIssue = pagePathStyleIssue(href);
+      if (styleIssue) slashIssues.push({ file: relFile, href: styleIssue });
       const mapped = toFile(href);
       if (!mapped) continue;
       const ok = (await exists(mapped.asIndex)) || (await exists(mapped.asFile));
@@ -81,12 +94,16 @@ async function main() {
     console.error("Broken internal links:");
     for (const row of broken) console.error(`  ${row.file} → ${row.href}`);
   }
+  if (slashIssues.length) {
+    console.error("Internal link style issues:");
+    for (const row of slashIssues) console.error(`  ${row.file} → ${row.href}`);
+  }
   if (canonicalIssues.length) {
     console.error("Canonical issues:");
     for (const row of canonicalIssues) console.error(`  ${row}`);
   }
-  if (broken.length || canonicalIssues.length) process.exit(1);
-  console.log(`Checked ${files.length} files. No broken internal links. Canonicals use https://castlogapp.com with trailing slashes.`);
+  if (broken.length || slashIssues.length || canonicalIssues.length) process.exit(1);
+  console.log(`Checked ${files.length} files. No broken internal links. Page URLs and canonicals use trailing slashes, never /index.html.`);
 }
 
 main().catch(err => {
