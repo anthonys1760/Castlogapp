@@ -117,5 +117,26 @@
     "photographer": "Adam Chang",
     "url": "https://unsplash.com/photos/kVKz9qnJC-k",
     "used_at": "2026-11-30"
+  },
+  {
+    "id": "DUZ9XT10Y_A",
+    "slug": "late-fall-bass-steep-breaks",
+    "photographer": "Léonard Cotte",
+    "url": "https://unsplash.com/photos/green-trees-beside-lake-during-daytime-DUZ9XT10Y_A",
+    "used_at": "2026-11-24"
+  },
+  {
+    "id": "XJfHMPJ0e-g",
+    "slug": "late-fall-bass-steep-breaks",
+    "photographer": "Ian Schneider",
+    "url": "https://unsplash.com/photos/rocky-coastline-with-blue-ocean-XJfHMPJ0e-g",
+    "used_at": "2026-11-24"
+  },
+  {
+    "id": "8X3cj-Nsqs8",
+    "slug": "late-fall-bass-steep-breaks",
+    "photographer": "Nathan Cima",
+    "url": "https://unsplash.com/photos/a-bunch-of-bugs-that-are-all-over-the-place-8X3cj-Nsqs8",
+    "used_at": "2026-11-24"
   }
 ]
